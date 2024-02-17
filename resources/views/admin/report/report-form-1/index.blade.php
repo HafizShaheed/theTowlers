@@ -14,58 +14,36 @@
             <div class="card-body justify-content-start">
                 <form id="" action="{{route('admin.report_List')}}" class="row d-flex justify-content-between align-items-end">
                     <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
-                        <label for="thirdPartyName">Third Party:</label>
+                        <label for="thirdPartyName">Team Member:</label>
                         <div class="d-flex justify-content-start align-items-start">
-                            @php
-                            $thirdparties = \App\Models\ThirdParty::get();
-                            @endphp
+
                             <select class="multi-select" name="PartyName" id="PartyName"
                                 placeholder="Select Third Party">
-                                <option disabled selected>Select Party</option>
-                                @forelse ($thirdparties as $thirdparty )
-                                <option data-display="Select" value="{{ $thirdparty->id }}">
-                                    {{ $thirdparty->third_party_name  }}
+                                <option disabled selected>Select Team</option>
+
+                                <option data-display="Select" value="">
+                                ABC
                                 </option>
-                                @empty
-                                <p>No records found!</p>
-                                @endforelse
+
                             </select>
                         </div>
                     </div>
+
                     <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
-                        <label for="thirdPartyName">Client Name:</label>
-                        <div class="d-flex justify-content-start align-items-start">
-                            @php
-                            $user = \App\Models\User::get();
-                            @endphp
-                            <select class="multi-select" name="clientName" id="clientNameID"
-                                placeholder="Select Third Party">
-                                <option disabled selected>Select Client</option>
-                                @forelse ($user as $client )
-                                <option data-display="Select" value="{{ $client->id }}">
-                                    {{ $client->first_name  }}
-                                </option>
-                                @empty
-                                <p>No records found!</p>
-                                @endforelse
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
-                            @php
+                            <!-- @php
                             $pendingCount = \App\Models\ThirdParty::where('status',0)->count();
                             $activeCount = \App\Models\ThirdParty::where('status',1)->count();
                             $reSubmitCount = \App\Models\ThirdParty::where('status',2)->count();
                             $completedCount = \App\Models\ThirdParty::where('status',3)->count();
-                            @endphp
+                            @endphp -->
                         <label for="thirdPartyName">Status:</label>
                         <div class="d-flex justify-content-start align-items-start">
                             <select class="multi-select" name="status" placeholder="Select status Party">
                                 <option disabled selected>Report Status</option>
-                                <option value="Pending">Pending ({{$pendingCount}})</option>
-                                <option class="badge badge-success border-0" value="Active">Active ({{$activeCount}}) </option>
-                                <option value="Resubmit">Resubmit ({{$reSubmitCount}}) </option>
-                                <option value="Completed">Completed ({{$completedCount}}) </option>
+                                <option value="Pending">Pending (0)</option>
+                                <option class="badge badge-success border-0" value="Active">Active (1) </option>
+                                <option value="Resubmit">Resubmit (2)</option>
+                                <option value="Completed">Completed (3) </option>
                             </select>
                         </div>
                     </div>
@@ -82,7 +60,12 @@
                         </div>
                     </div>
                 </form>
-
+                <div class="col-xl-2 col-sm-6 col-6 mt-6 pt-2 ">
+                        <div class="d-flex justify-content-start align-items-start">
+                            <button type="submit" class="btn btn report-tab-active"
+                                id="filter-reprot-btn">Add Report</button>
+                        </div>
+                    </div>
 
                 <!-- <form id="" action="{{route('admin.report_List')}}" class="row d-flex justify-content-between align-items-end">
 
@@ -126,30 +109,27 @@
                             <tr>
                                 <th> ID</th>
 
-                                <th> Client Name</th>
-                                <th> Third Party</th>
+                                <th> Invoice No</th>
+                                <th> Team Member</th>
                                 <th>Created At</th>
                                 <th>Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if (count($getallThirdParty) > 0)
-                            @foreach ($getallThirdParty as $value)
+
                             <tr>
-                                <td><span>{{$value->id}}</span></td>
-                                @php
-                                $user = \App\Models\User::where('id', $value->user_id)->first();
-                                @endphp
+                                <td><span>1</span></td>
+
 
                                 <td>
-                                    <span>{{ $user ? $user->first_name.'/'.$user->user_name : '' }}</span>
+                                    <span>ABC-12334</span>
                                 </td>
 
-                                <td><span>{{$value->third_party_name}}</span></td>
-                                <td><span>{{$value->created_at->format('d/m/Y')}}</span></td>
+                                <td><span>ABC</span></td>
+                                <td><span>01/02/2024</span></td>
                                 <td>
-                                    @switch($value->status)
+                                    @switch(1)
                                     @case('1')
                                     <span class="badge badge-success border-0" title="Report Active">Active </span>
 
@@ -177,12 +157,12 @@
 
                                 <td class="text-center space-between ">
 
-                                    <a href="javascript:void(0)" class="thirdpartyIdForFormResubmit" data-thirdparty="{{ $value->id }}">
+                                    <a href="javascript:void(0)" class="thirdpartyIdForFormResubmit" data-thirdparty="">
                                         <i class="fa fa-refresh fa-2x" style="cursor:pointer;" title="Re-submit Report" aria-hidden="true"></i>
                                     </a>
 
 
-                                    <a href="{{ URL::to('/panel/report/view'.'/'.$value->id) }}" title="View Reports">
+                                    <a href="" title="View Reports">
 
                                         <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5096 2.53165H7.41104C5.50437 2.52432 3.94146 4.04415 3.89654 5.9499V15.7701C3.85437 17.7071 5.38979 19.3121 7.32671 19.3552C7.35512 19.3552 7.38262 19.3561 7.41104 19.3552H14.7343C16.6538 19.2773 18.1663 17.6915 18.1525 15.7701V7.36798L13.5096 2.53165Z" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -191,7 +171,7 @@
                                             <path d="M11.2229 10.6388H8.14655" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </a>
-                                    <a href="{{ URL::to('/panel/report/edit'.'/'.$value->id) }}" title="Edit Reports">
+                                    <a href="" title="Edit Reports">
 
                                         <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
                                             <path d="M11.4925 2.789H7.75349C4.67849 2.789 2.75049 4.966 2.75049 8.048V16.362C2.75049 19.444 4.66949 21.621 7.75349 21.621H16.5775C19.6625 21.621 21.5815 19.444 21.5815 16.362V12.334" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -199,18 +179,27 @@
                                             <path d="M15.1655 4.60254L19.7315 9.16854" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </a>
-                                    <a href="javascript:void(0)" class="thirdpartyIdForForComplete" data-thirdparty="{{$value->id}}">
+                                    <a href="javascript:void(0)" class="thirdpartyIdForForComplete" data-thirdparty="">
                                         <i class="fa fa-check-square fa-2x" title="Click to complete Report" aria-hidden="true"></i>
                                     </a>
+                                    <span></span>
+                                    <a href="{{ URL::to('/panel/report/generate-pdf/1') }}" class="" target="_blank" title="View Pdf">
+
+                                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
+                                <path d="M12.1221 15.4361L12.1221 3.39508" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15.0381 12.5084L12.1221 15.4364L9.20609 12.5084" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16.7551 8.12799H17.6881C19.7231 8.12799 21.3721 9.77699 21.3721 11.813V16.697C21.3721 18.727 19.7271 20.372 17.6971 20.372L6.55707 20.372C4.52207 20.372 2.87207 18.722 2.87207 16.687V11.802C2.87207 9.77299 4.51807 8.12799 6.54707 8.12799L7.48907 8.12799" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                </a>
+
+
 
 
                                 </td>
                             </tr>
-                            @endforeach
-                            @else
-                            <tr>
-                                <td colspan="3"><span>No records found!</span></td>
-                            @endif
+
+
+
 
 
 
