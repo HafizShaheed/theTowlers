@@ -150,7 +150,11 @@ Route::get('/clear-cache', function() {
             Route::prefix('report')->group(function(){
                 Route::get('/', 'adminController@report_List')->name('admin.report_List');
                 Route::get('/generate-pdf/{count}', 'adminController@generatePDF');
-
+                Route::get('/add_report_form_1', 'adminController@add_report_form_1')->name('admin.add_report_form_1');
+                Route::get('/edit_report_form_1', 'adminController@edit_report_form_1')->name('admin.edit_report_form_1');
+                Route::get('/view_report_form_1', 'adminController@view_report_form_1')->name('admin.view_report_form_1');
+                Route::get('/activity_report_form_1', 'adminController@activity_report_form_1')->name('admin.activity_report_form_1');
+// =========================================
                 Route::get('/view/{id}', 'adminController@report_View')->name('admin.report_View');
                 Route::get('/edit/{id}', 'adminController@Edit_report')->name('admin.Edit_report');
                 Route::post('/update_firm_background', 'adminController@update_firm_background')->name('admin.update_firm_background');

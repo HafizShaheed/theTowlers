@@ -12,28 +12,7 @@
 @endsection @section('content')
 
 <div class="row">
-    <div class="col-4">
-        <div class="">
-            <div class="card-header d-flex justify-content-start">
-                <div>
-                    <a class="btn btn-lg report-tab-active" href="#" role="button" data-bs-toggle="modal"
-                        data-bs-target="#Add-Client-Modal">
-                        Add a Client +</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-4">
-        <div class="">
-            <div class="card-header d-flex justify-content-start">
-                <div>
-                    <a class="btn btn-lg report-tab-active" href="#" role="button" data-bs-toggle="modal"
-                        data-bs-target="#Add-Third-party-Modal">
-                        Add a Thirdparty +</a>
-                </div>
-            </div>
-        </div>
-    </div>
+   
     <div class="col-4">
         <div class="">
             <div class="card-header d-flex justify-content-start">
