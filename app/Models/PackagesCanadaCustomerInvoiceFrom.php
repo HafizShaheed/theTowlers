@@ -5,10 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ThirdDirectorsFirm extends Model
+class PackagesCanadaCustomerInvoiceFrom extends Model
 {
     use HasFactory;
-    protected $table = 'third_directors_firm';
     protected $guarded =[];
-
 }

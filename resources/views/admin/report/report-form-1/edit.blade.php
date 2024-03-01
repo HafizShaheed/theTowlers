@@ -1,3 +1,4 @@
+<div class="col-sm-3 mb-3">
 @extends('admin.includes.master')
 
 
@@ -35,6 +36,20 @@
     .file-input:active+.file-label {
         background-color: #f5f5f5;
     }
+
+    .custom-input {
+        font-size: 12px;
+        /* Set font size */
+        height: 30px;
+        /* Set input height */
+    }
+
+    .form-label {
+        font-size: 12px;
+        font-weight: 700;
+        color: black;
+    }
+
 </style>
 
 @endsection
@@ -45,7 +60,7 @@
 
 <!-- Firm Background form start -->
 
-<div class="row" id="Firm-Background"  class="Firm-Background-class-form-submit"  >
+<div class="row" id="Firm-Background" class="Firm-Background-class-form-submit">
     <div class="card">
         <div class="card-body justify-content-start">
             <form id="firm-step-form" enctype="multipart/form-data">
@@ -53,68 +68,160 @@
 
 
 
-                    <h4 class="card-title">EDIT FORM <br>
-                        <span style="color:darkgray; font-size:12px;">Report Name</span>
-                    </h4>
-                    <div class="row">
-                        <!-- =========== Director1 ============ -->
-                        @for ($i=1; $i <= 8; $i++)
-                        <div class="col-sm-3 mb-3">
-                            <label for="" class="form-label">Field 1</label>
-                            <input type="text" class="form-control" id="" name="" value="">
-                        </div>
-                        <div class="col-sm-3 mb-3">
-                            <label for="" class="form-label"> Name</label>
-                            <input type="text" class="form-control" id="" name="" value="">
-                        </div>
-                        <div class="col-sm-3 mb-3">
-                            <label for="" class="form-label">date</label>
-                            <input type="text" class="form-control" id="" name="" value="">
-                        </div>
-                        <div class="col-sm-3 mb-3">
-                            <label for="" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="" name="" value="">
-                        </div>
-                        <div class="col-sm-3 mb-3">
-                            <label for="" class="form-label">
-                            Adderss</label>
-                            <input type="date" class="form-control" id="" name="" value="">
-                        </div>
-                        <div class="col-sm-3 mb-3">
-                            <label for="" class="form-label">REFERNCE</label>
-                            <input type="text" class="form-control" id="" name="" value="">
-                        </div>
-                        <div class="col-xl-12 mb-3">
-                            <label for="" class="form-label">Particular of transport 
-                            </label>
-                            <input type="text" class="form-control" id="" name="" value="">
-                        </div>
-
-                        @endfor
-
-
-                        <!-- =========== Director1 ============ -->
-
-                        <!-- =========== Director2 ============ -->
-
-
-
-
-
-
-
-                        <!-- =========== Director3 ============ -->
-                        <div class="row">
-                            <div class="col-xl-6 d-flex justify-content-start">
-
-                                <button type="button" class="btn btn report-tab-unactive" id="firm-prev-4">Cancel</button>
-                            </div>
-                            <div class="col-xl-6 d-flex justify-content-end">
-
-                                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Submit</button>
-                            </div>
-                        </div>
+                <h4 class="card-title">Edit FORM <br>
+                    <span style="color:darkgray; font-size:12px;">Report Name</span>
+                </h4>
+                <div class="row">
+                    <div class="col-sm-3 mb-3">
+                        <label for="vender_name" class="form-label">Vender Name</label>
+                        <input type="text" class="form-control custom-input" id="vender_name" name="vender_name" value="">
                     </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="vender_address" class="form-label">Vender Address</label>
+                        <input type="text" class="form-control custom-input" id="vender_address" name="vender_address" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="vender_nom_et_adresse" class="form-label">Vender Nom et Adresse</label>
+                        <input type="text" class="form-control custom-input" id="vender_nom_et_adresse" name="vender_nom_et_adresse"
+                            value="">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="date_of_direct_shipment_to_canada_1" class="form-label">Date of Direct Shipment to
+                            Canada 1</label>
+                        <input type="text" class="form-control custom-input" id="date_of_direct_shipment_to_canada_1"
+                            name="date_of_direct_shipment_to_canada_1" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="date_of_direct_shipment_to_canada_2" class="form-label">Date of Direct Shipment to
+                            Canada 2</label>
+                        <input type="text" class="form-control custom-input" id="date_of_direct_shipment_to_canada_2"
+                            name="date_of_direct_shipment_to_canada_2" value="">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="consignee_name" class="form-label">Consignee Name</label>
+                        <input type="text" class="form-control custom-input" id="consignee_name" name="consignee_name" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="consignee_address" class="form-label">Consignee Address</label>
+                        <input type="text" class="form-control custom-input" id="consignee_address" name="consignee_address"
+                            value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="consignee_nom_et_adresse" class="form-label">Consignee Nom et Adresse</label>
+                        <input type="text" class="form-control custom-input" id="consignee_nom_et_adresse"
+                            name="consignee_nom_et_adresse" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="purchaser_name" class="form-label">Purchaser Name</label>
+                        <input type="text" class="form-control custom-input" id="purchaser_name" name="purchaser_name" value="">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="purchaser_address" class="form-label">Purchaser Address</label>
+                        <input type="text" class="form-control custom-input" id="purchaser_address" name="purchaser_address"
+                            value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="purchaser_nom_et_adresse" class="form-label">Purchaser Nom et Adresse</label>
+                        <input type="text" class="form-control custom-input" id="purchaser_nom_et_adresse"
+                            name="purchaser_nom_et_adresse" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="originator_name" class="form-label">Originator Name</label>
+                        <input type="text" class="form-control custom-input" id="originator_name" name="originator_name" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="originator_address" class="form-label">Originator Address</label>
+                        <input type="text" class="form-control custom-input" id="originator_address" name="originator_address"
+                            value="">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="originator_nom_et_adresse" class="form-label">Originator Nom et Adresse</label>
+                        <input type="text" class="form-control custom-input" id="originator_nom_et_adresse"
+                            name="originator_nom_et_adresse" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="exporter_name" class="form-label">Exporter Name</label>
+                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="exporter_address" class="form-label">Exporter Address</label>
+                        <input type="text" class="form-control custom-input" id="exporter_address" name="exporter_address" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="exporter_nom_et_adresse" class="form-label">Exporter Nom et Adresse</label>
+                        <input type="text" class="form-control custom-input" id="exporter_nom_et_adresse"
+                            name="exporter_nom_et_adresse" value="">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="transportation_place_of_direct_shipment_to_canada" class="form-label">Transportation
+                            Place of Direct </label>
+                        <input type="text" class="form-control custom-input" id="transportation_place_of_direct_shipment_to_canada"
+                            name="transportation_place_of_direct_shipment_to_canada" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="country_of_origin_pays" class="form-label">Country of Origin (Pays)</label>
+                        <input type="text" class="form-control custom-input" id="country_of_origin_pays"
+                            name="country_of_origin_pays" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="conditions_of_sale_and_terms_of_payment" class="form-label">Conditions of Sale and
+                            Terms of Payment</label>
+                        <input type="text" class="form-control custom-input" id="conditions_of_sale_and_terms_of_payment"
+                            name="conditions_of_sale_and_terms_of_payment" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="agency_ruling" class="form-label">Agency Ruling</label>
+                        <input type="text" class="form-control custom-input" id="agency_ruling" name="agency_ruling" value="">
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <!-- =========== Director1 ============ -->
+                    @for($i=1; $i <= 60; $i++)
+
+                        <div class="col-sm-3 mb-3">
+                            <label for="" class="form-label">Number of Packages </label>
+                            <input type="text" class="form-control custom-input"
+                                id="number_of_packages_nombre_de_coils_{{ $i }}"
+                                name="number_of_packages_nombre_de_coils[]" value="">
+                        </div>
+                        <div class="col-sm-3 mb-3">
+                            <label for="" class="form-label">Description of Commodity </label>
+                            <input type="text" class="form-control custom-input"
+                                id="description_pecification_of_commodities_{{ $i }}"
+                                name="description_pecification_of_commodities[]" value="">
+                        </div>
+                        <div class="col-sm-3 mb-3">
+                            <label for="" class="form-label">Quantity </label>
+                            <input type="text" class="form-control custom-input" id="quantity_{{ $i }}"
+                                name="quantity[]" value="">
+                        </div>
+                        <div class="col-sm-3 mb-3">
+                            <label for="" class="form-label">Unit Price </label>
+                            <input type="text" class="form-control custom-input" id="unit_price_{{ $i }}"
+                                name="unit_price[]" value="">
+                        </div>
+
+                    @endfor
+                    <!-- =========== Director1 ============ -->
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-6 d-flex justify-content-start">
+                        <button type="button" class="btn btn report-tab-unactive" id="firm-prev-4">Cancel</button>
+                    </div>
+                    <div class="col-xl-6 d-flex justify-content-end">
+                        <button type="submit" class="btn btn report-tab-active" id="firm-submit">Submit</button>
+                    </div>
+                </div>
+
 
                 <!-- firm background 4 step end ========================-->
 
@@ -142,7 +249,7 @@
 @section('addScript')
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         // firm background
         $('#firm-step-form').on('submit', function (e) {
             e.preventDefault();
@@ -179,8 +286,11 @@
 
                             $("#Tab-Documents").show();
 
-                            $('#click-Documents').addClass('report-tab-active').removeClass('report-tab-unactive');
-                            $('#click-Firm-Background').addClass('report-tab-unactive').removeClass('report-tab-active');
+                            $('#click-Documents').addClass('report-tab-active')
+                                .removeClass('report-tab-unactive');
+                            $('#click-Firm-Background').addClass(
+                                'report-tab-unactive').removeClass(
+                                'report-tab-active');
 
                         },
                     });
@@ -196,6 +306,7 @@
 
 
     });
+
 </script>
 
 

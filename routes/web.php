@@ -85,6 +85,12 @@ Route::get('/clear-cache', function() {
             Route::get('/dashboard', 'teamController@index')->name('team.index');
             Route::prefix('report')->group(function(){
                 Route::get('/', 'teamController@report_List')->name('team.report_List');
+                Route::get('/generate-pdf/{count}', 'teamController@generatePDF');
+                Route::get('/add_report_form_1', 'teamController@add_report_form_1')->name('team.add_report_form_1');
+                Route::get('/edit_report_form_1', 'teamController@edit_report_form_1')->name('team.edit_report_form_1');
+                Route::get('/view_report_form_1', 'teamController@view_report_form_1')->name('team.view_report_form_1');
+                Route::get('/activity_report_form_1', 'teamController@activity_report_form_1')->name('team.activity_report_form_1');
+// =========================================
                 Route::get('/view', 'teamController@report_View')->name('team.report_View');
                 Route::get('/edit/{id}', 'teamController@add_report')->name('team.add_report');
 
@@ -151,6 +157,7 @@ Route::get('/clear-cache', function() {
                 Route::get('/', 'adminController@report_List')->name('admin.report_List');
                 Route::get('/generate-pdf/{count}', 'adminController@generatePDF');
                 Route::get('/add_report_form_1', 'adminController@add_report_form_1')->name('admin.add_report_form_1');
+                Route::post('/submit_add_report_form_1', 'adminController@submit_add_report_form_1')->name('admin.submit_add_report_form_1');
                 Route::get('/edit_report_form_1', 'adminController@edit_report_form_1')->name('admin.edit_report_form_1');
                 Route::get('/view_report_form_1', 'adminController@view_report_form_1')->name('admin.view_report_form_1');
                 Route::get('/activity_report_form_1', 'adminController@activity_report_form_1')->name('admin.activity_report_form_1');

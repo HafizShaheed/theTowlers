@@ -16,14 +16,12 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(TblAdminUsersInfoTableSeeder::class);
         $this->call(TeamMemberTableSeeder::class);
-        $this->call(ClientUserTableSeeder::class);
         $this->call(DepartmentSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(ZoneSeeder::class);
         $this->call(StatesTableSeeder::class);
-        $this->call(YearRecordForFy1ToFy5Seeder::class);
 
-        
+
 
     }
 }

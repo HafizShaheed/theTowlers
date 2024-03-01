@@ -5,40 +5,21 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\ThirdParty;
 use App\Models\team\TeamUser;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 use DB;
 use Mail;
 use Carbon\Carbon;
+use App\Models\CanadaCustomerInvoiceFrom;
+use App\Models\DescriptionCanadaCustomerInvoiceFrom;
+use App\Models\PackagesCanadaCustomerInvoiceFrom;
+use App\Models\QuantityCanadaCustomerInvoiceFrom;
+use App\Models\UnitPriceCanadaCustomerInvoiceFrom;
+use Illuminate\Support\Facades\Log;
 
-use App\Models\BusinessIntelligence;
-use App\Models\CourtCheck;
-use App\Models\Document;
-use App\Models\Financial;
-use App\Models\FinancialsFindingsFyFive;
-use App\Models\FinancialsFindingsFyFour;
-use App\Models\FinancialsFindingsFyThree;
-use App\Models\FinancialsFindingsFyTwo;
-use App\Models\FinancialsFindingsFyOne;
 
-use App\Models\FinancialsRatioAnalysisFyFive;
-use App\Models\FinancialsRatioAnalysisFyFour;
-use App\Models\FinancialsRatioAnalysisFyThree;
-use App\Models\FinancialsRatioAnalysisFyTwo;
-use App\Models\FinancialsRatioAnalysisFyOne;
 
-use App\Models\FirmBackground;
-use App\Models\FirstDirectorsFirm;
-use App\Models\SecondDirectorsFirm;
-use App\Models\ThirdDirectorsFirm;
-use App\Models\License;
-
-use App\Models\KeyObservation;
-use App\Models\MarketReputation;
-use App\Models\OnGroundVerification;
-use App\Models\TaxReurnCredit;
 use Validator;
 use PDF;
 
@@ -52,8 +33,6 @@ class adminController extends Controller
         $data['page'] = "Dashboard";
         $data['pageIntro'] = "Introducing DD Dashboard";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-        $data['getAllUser'] = User::all();
-        //   $vendoruser=User::where('vendor_status',2)->count();
         return view('admin.index', $data);
     }
 
@@ -194,55 +173,124 @@ class adminController extends Controller
         $data['page'] = "Reports Management";
         $data['pageIntro'] = "Reports List";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-
-
-
-
-
-
-
-
-
         return view('admin.report.report-form-1.index', $data);
     }
 
-  function add_report_form_1(){
-    $data['title'] = "Reports Management";
-    $data['page'] = "Reports Management";
-    $data['pageIntro'] = "Reports Add";
-    $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    function add_report_form_1(){
+        $data['title'] = "Reports Management";
+        $data['page'] = "Reports Management";
+        $data['pageIntro'] = "Reports Add";
+        $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-    return view('admin.report.report-form-1.add', $data);
-  }
+        return view('admin.report.report-form-1.add', $data);
+    }
 
-  function edit_report_form_1(){
-    $data['title'] = "Reports Management";
-    $data['page'] = "Reports Management";
-    $data['pageIntro'] = "Reports Edit";
-    $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-    return view('admin.report.report-form-1.edit', $data);
-  }
 
-  
-  function view_report_form_1(){
-    $data['title'] = "Reports Management";
-    $data['page'] = "Reports Management";
-    $data['pageIntro'] = "Reports View";
-    $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    public function submit_add_report_form_1(Request $request)
+    {
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
 
-    return view('admin.report.report-form-1.view', $data);
-  }
+            // Create CanadaCustomerInvoiceFrom record
+            $canadaCustomerInvoiceFrom = new CanadaCustomerInvoiceFrom();
+            $canadaCustomerInvoiceFrom->fill($request->only([
+                'team_user_id',
+                'vender_name',
+                'vender_address',
+                'vender_nom_et_adresse',
+                'date_of_direct_shipment_to_canada_1',
+                'date_of_direct_shipment_to_canada_2',
+                'consignee_name',
+                'consignee_address',
+                'consignee_nom_et_adresse',
+                'purchaser_name',
+                'purchaser_address',
+                'purchaser_nom_et_adresse',
+                'originator_name',
+                'originator_address',
+                'originator_nom_et_adresse',
+                'exporter_name',
+                'exporter_address',
+                'exporter_nom_et_adresse',
+                'transportation_place_of_direct_shipment_to_canada',
+                'country_of_origin_pays',
+                'conditions_of_sale_and_terms_of_payment',
+                'agency_ruling',
+                'total_weight_poids_total',
+                'net',
+                'gross_brut',
+                'invoice_total',
+            ]));
+            $canadaCustomerInvoiceFrom->save();
 
-  function activity_report_form_1(){
-    $data['title'] = "Reports Management";
-    $data['page'] = "Reports Management";
-    $data['pageIntro'] = "Reports Activity";
-    $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+            // Create related records using loop
+            for ($i = 1; $i <= 60; $i++) {
+                // Description
+                $description = new DescriptionCanadaCustomerInvoiceFrom();
+                $description->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+                $description->description_pecification_of_commodities_ = $request->input('description_pecification_of_commodities_')[$i];
+                $description->save();
 
-    return view('admin.report.report-form-1.activity', $data);
-  }
+                // Packages
+                $packages = new PackagesCanadaCustomerInvoiceFrom();
+                $packages->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+                $packages->number_of_packages_nombre_de_coils_ = $request->input('number_of_packages_nombre_de_coils_')[$i];
+                $packages->save();
+
+                // Quantity
+                $quantity = new QuantityCanadaCustomerInvoiceFrom();
+                $quantity->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+                $quantity->quantity_ = $request->input('quantity_')[$i];
+                $quantity->save();
+
+                // Unit Price
+                $unitPrice = new UnitPriceCanadaCustomerInvoiceFrom();
+                $unitPrice->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+                $unitPrice->unit_price_ = $request->input('unit_price_')[$i];
+                $unitPrice->save();
+            }
+
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.'], 500);
+        }
+    }
+
+
+
+    function edit_report_form_1(){
+        $data['title'] = "Reports Management";
+        $data['page'] = "Reports Management";
+        $data['pageIntro'] = "Reports Edit";
+        $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+
+        return view('admin.report.report-form-1.edit', $data);
+    }
+
+
+    function view_report_form_1(){
+        $data['title'] = "Reports Management";
+        $data['page'] = "Reports Management";
+        $data['pageIntro'] = "Reports View";
+        $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+
+        return view('admin.report.report-form-1.view', $data);
+    }
+
+    function activity_report_form_1(){
+        $data['title'] = "Reports Management";
+        $data['page'] = "Reports Management";
+        $data['pageIntro'] = "Reports Activity*";
+        $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+
+        return view('admin.report.report-form-1.activity', $data);
+    }
 
 
 
