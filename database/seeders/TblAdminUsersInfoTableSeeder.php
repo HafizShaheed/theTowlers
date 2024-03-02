@@ -32,7 +32,7 @@ class TblAdminUsersInfoTableSeeder extends Seeder
                 'first_name' => 'info',
                 'last_name' => 'info',
                 'user_name' => 'erv',
-                'email' => 'admincrm@erp.com',
+                'email' => 'admintowlers@erp.com',
                 'password' => Hash::make('secret123'), // Hash the secret
                 'status' => 1,
                 'created_at' => '2023-08-28 18:01:09',

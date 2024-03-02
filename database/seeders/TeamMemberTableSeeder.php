@@ -21,7 +21,7 @@ class TeamMemberTableSeeder extends Seeder
                 'first_name' => 'info',
                 'last_name' => 'info',
                 'user_name' => 'teaminfo',
-                'team_email' => 'teamcrm@erp.com',
+                'team_email' => 'teamtowlers@erp.com',
                 'password' => Hash::make('secret123'), // Hash the secret
                 'status' => 1,
                 'created_at' => '2023-08-28 18:01:09',
