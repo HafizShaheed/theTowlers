@@ -54,13 +54,17 @@
     </header>
     <table border="1" style="border: 1px solid #000; border-collapse: collapse; width: 100%;">
         <tr>
-            <td style="width: 50%; font-size: 6px;">
+            <td style="width: 50%; font-size: 10px;">
                 <div style="height: 80px;">
 
-                    <span>1. Vender(name and address) - (nom et adresse)</span>
+                    <span>1. Vender(name and address) - (nom et adresse)</span><br>
+                    <span>{{ $CanadaCustomerInvoiceFrom->vender_name }}</span><br>
+                    <span>{{ $CanadaCustomerInvoiceFrom->vender_address }}</span><br>
+                    <span>{{ $CanadaCustomerInvoiceFrom->vender_nom_et_adresse }}</span><br>
+
                 </div>
             </td>
-            <td style="width: 50%; font-size: 6px;">
+            <td style="width: 50%; font-size: 10px;">
                 <table border="0" style="width: 100%; border-collapse: collapse; ">
                     <tr style="border-bottom: 0.5px solid #000;">
                         <td>
@@ -83,16 +87,20 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 50%; font-size: 6px;">
+            <td style="width: 50%; font-size: 10px;">
                 <div style="height: 120px;">
 
-                    <span>4. Consignee (name and address) - (nom et adresse)</span>
+                    <span>4. Consignee (name and address) - (nom et adresse)</span> <br>
+
+                    <span>{{ $CanadaCustomerInvoiceFrom->consignee_name }}</span><br>
+                    <span>{{ $CanadaCustomerInvoiceFrom->consignee_address }}</span><br>
+                    <span>{{ $CanadaCustomerInvoiceFrom->consignee_nom_et_adresse }}</span><br>
                 </div>
             </td>
             <td>
                 <table border="0" style="width: 100%; border-collapse: collapse; ">
                     <tr style="border-bottom: 0.5px solid #000;">
-                        <td style=" width: 50%; font-size: 6px;">
+                        <td style=" width: 50%; font-size: 10px;">
                             <div style="height: 70px;">
 
                                 <span>5. Purchaser's name and address (if other than consignee) <br> Nam sit paresse de
@@ -102,7 +110,7 @@
                         </td>
                     </tr>
                     <tr style="border-bottom: 0.5px solid #000;">
-                        <td style="width: 50%; font-size: 6px;">
+                        <td style="width: 50%; font-size: 10px;">
                             <div style="height: 25px;">
 
                                 <span>6. Country of transhipment- Pays de transbordement</span>
@@ -112,11 +120,11 @@
                     <tr>
                         <table border="0" style="width: 100%; border-collapse: collapse; ">
                             <tr>
-                                <td style="width: 50%; font-size: 6px; border-right: 0.5px solid #000;">7. Country of
+                                <td style="width: 50%; font-size: 10px; border-right: 0.5px solid #000;">7. Country of
                                     origin of goods<br>Pays dongine
                                     des marchandises
                                 </td>
-                                <td style="width: 50%; font-size: 6px; font-weight: 500;"> IF SHIPLENT INCLUDES GOCIOS
+                                <td style="width: 50%; font-size: 10px; font-weight: 500;"> IF SHIPLENT INCLUDES GOCIOS
                                     OF OFFERENT CROS
                                     ENTER ORIGINS AGAINST TEMEIND L'EXPEDITION COMPREND DES MACHANCHIES D'ORIGINES
                                     DIFFERENTER, PRECIE LEUR PROVENANCE EN 12
@@ -129,7 +137,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 50%; font-size: 6px;">
+            <td style="width: 50%; font-size: 10px;">
                 <div style="height: 100px;">
 
                     <span>4. Transportation: Give mode and place of direct shipment to Canada Transport Précisez mode et
@@ -139,7 +147,7 @@
             <td>
                 <table border="0" style="width: 100%; border-collapse: collapse; ">
                     <tr style="border-bottom: 0.5px solid #000;">
-                        <td style="width: 50%; font-size: 6px;">
+                        <td style="width: 50%; font-size: 10px;">
                             <div style="height: 65px;">
 
                                 <span>Conditions of sale and terms of payment <br>
@@ -153,7 +161,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="width: 50%; font-size: 6px;">
+                        <td style="width: 50%; font-size: 10px;">
                             <div style="height: 35px;">
 
                                 <span>6. Country of transhipment- Pays de transbordement</span>
@@ -193,6 +201,7 @@
                                     <br> et
                                     caractéristiques, p. ex. classe, qualité)
                                 </div>
+
                             </td>
                         </tr>
                     </table>

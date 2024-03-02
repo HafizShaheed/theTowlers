@@ -189,23 +189,23 @@
                             <label for="" class="form-label">Number of Packages </label>
                             <input type="text" class="form-control custom-input"
                                 id="number_of_packages_nombre_de_coils_{{ $i }}"
-                                name="number_of_packages_nombre_de_coils_[]" value="">
+                                name="number_of_packages_nombre_de_coils_{{ $i }}" value="">
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="" class="form-label">Description of Commodity </label>
                             <input type="text" class="form-control custom-input"
                                 id="description_pecification_of_commodities_{{ $i }}"
-                                name="description_pecification_of_commodities[]" value="">
+                                name="description_pecification_of_commodities_{{ $i }}" value="">
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="" class="form-label">Quantity </label>
                             <input type="text" class="form-control custom-input" id="quantity_{{ $i }}"
-                                name="quantity[]" value="">
+                                name="quantity_{{ $i }}" value="">
                         </div>
                         <div class="col-sm-3 mb-3">
                             <label for="" class="form-label">Unit Price </label>
                             <input type="text" class="form-control custom-input" id="unit_price_{{ $i }}"
-                                name="unit_price[]" value="">
+                                name="unit_price_{{ $i }}" value="">
                         </div>
 
                     @endfor

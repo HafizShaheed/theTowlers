@@ -39,7 +39,13 @@ class adminController extends Controller
 
     public function generatePDF($count)
     {
-        $data = ['title' => 'Hello, this is your PDF title'];
+        $data = ['title' => 'Canada Customer Invoice Pdf'];
+        $data['CanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::where('id',1)->first();
+        $data['DescriptionCanadaCustomerInvoiceFrom'] = DescriptionCanadaCustomerInvoiceFrom::where('canada_customer_invoice_from_id',1)->first();
+        $data['PackagesCanadaCustomerInvoiceFrom'] = PackagesCanadaCustomerInvoiceFrom::where('canada_customer_invoice_from_id',1)->first();
+        $data['QuantityCanadaCustomerInvoiceFrom'] = QuantityCanadaCustomerInvoiceFrom::where('canada_customer_invoice_from_id',1)->first();
+        $data['UnitPriceCanadaCustomerInvoiceFrom'] = UnitPriceCanadaCustomerInvoiceFrom::where('canada_customer_invoice_from_id',1)->first();
+
 
         $pdf = PDF::loadView('admin.report.report-form-1.pdf.'.$count.'my_pdf', $data);
 
@@ -168,11 +174,12 @@ class adminController extends Controller
     // vender means Reports list start
     function report_List(Request $request)
     {
-        // dd($request->all());
         $data['title'] = "Reports Management";
         $data['page'] = "Reports Management";
         $data['pageIntro'] = "Reports List";
+        $data['CanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+        // dd($data);
         return view('admin.report.report-form-1.index', $data);
     }
 
@@ -186,71 +193,83 @@ class adminController extends Controller
     }
 
 
+    public function create(Request $request)
+    {
+        // Validate the incoming request if necessary
+        // $request->validate([...]);
+
+        // Create CanadaCustomerInvoiceFrom record
+
+
+        // Redirect or return a response as needed
+    }
 
     public function submit_add_report_form_1(Request $request)
     {
+        // dd($request->all());
+
         try {
             // Validate the incoming request if necessary
             // $request->validate([...]);
 
             // Create CanadaCustomerInvoiceFrom record
             $canadaCustomerInvoiceFrom = new CanadaCustomerInvoiceFrom();
-            $canadaCustomerInvoiceFrom->fill($request->only([
-                'team_user_id',
-                'vender_name',
-                'vender_address',
-                'vender_nom_et_adresse',
-                'date_of_direct_shipment_to_canada_1',
-                'date_of_direct_shipment_to_canada_2',
-                'consignee_name',
-                'consignee_address',
-                'consignee_nom_et_adresse',
-                'purchaser_name',
-                'purchaser_address',
-                'purchaser_nom_et_adresse',
-                'originator_name',
-                'originator_address',
-                'originator_nom_et_adresse',
-                'exporter_name',
-                'exporter_address',
-                'exporter_nom_et_adresse',
-                'transportation_place_of_direct_shipment_to_canada',
-                'country_of_origin_pays',
-                'conditions_of_sale_and_terms_of_payment',
-                'agency_ruling',
-                'total_weight_poids_total',
-                'net',
-                'gross_brut',
-                'invoice_total',
-            ]));
-            $canadaCustomerInvoiceFrom->save();
+            $canadaCustomerInvoiceFrom->invioce_generator = rand(0000, 9999).now();
+        $canadaCustomerInvoiceFrom->team_user_id = $request->input('team_user_id');
+        $canadaCustomerInvoiceFrom->vender_name = $request->input('vender_name');
+        $canadaCustomerInvoiceFrom->vender_address = $request->input('vender_address');
+        $canadaCustomerInvoiceFrom->vender_nom_et_adresse = $request->input('vender_nom_et_adresse');
+        $canadaCustomerInvoiceFrom->date_of_direct_shipment_to_canada_1 = $request->input('date_of_direct_shipment_to_canada_1');
+        $canadaCustomerInvoiceFrom->date_of_direct_shipment_to_canada_2 = $request->input('date_of_direct_shipment_to_canada_2');
+        $canadaCustomerInvoiceFrom->consignee_name = $request->input('consignee_name');
+        $canadaCustomerInvoiceFrom->consignee_address = $request->input('consignee_address');
+        $canadaCustomerInvoiceFrom->consignee_nom_et_adresse = $request->input('consignee_nom_et_adresse');
+        $canadaCustomerInvoiceFrom->purchaser_name = $request->input('purchaser_name');
+        $canadaCustomerInvoiceFrom->purchaser_address = $request->input('purchaser_address');
+        $canadaCustomerInvoiceFrom->purchaser_nom_et_adresse = $request->input('purchaser_nom_et_adresse');
+        $canadaCustomerInvoiceFrom->originator_name = $request->input('originator_name');
+        $canadaCustomerInvoiceFrom->originator_address = $request->input('originator_address');
+        $canadaCustomerInvoiceFrom->originator_nom_et_adresse = $request->input('originator_nom_et_adresse');
+        $canadaCustomerInvoiceFrom->exporter_name = $request->input('exporter_name');
+        $canadaCustomerInvoiceFrom->exporter_address = $request->input('exporter_address');
+        $canadaCustomerInvoiceFrom->exporter_nom_et_adresse = $request->input('exporter_nom_et_adresse');
+        $canadaCustomerInvoiceFrom->transportation_place_of_direct_shipment_to_canada = $request->input('transportation_place_of_direct_shipment_to_canada');
+        $canadaCustomerInvoiceFrom->country_of_origin_pays = $request->input('country_of_origin_pays');
+        $canadaCustomerInvoiceFrom->conditions_of_sale_and_terms_of_payment = $request->input('conditions_of_sale_and_terms_of_payment');
+        $canadaCustomerInvoiceFrom->agency_ruling = $request->input('agency_ruling');
+        $canadaCustomerInvoiceFrom->total_weight_poids_total = $request->input('total_weight_poids_total');
+        $canadaCustomerInvoiceFrom->net = $request->input('net');
+        $canadaCustomerInvoiceFrom->gross_brut = $request->input('gross_brut');
+        $canadaCustomerInvoiceFrom->invoice_total = $request->input('invoice_total');
+        $canadaCustomerInvoiceFrom->save();
 
-            // Create related records using loop
-            for ($i = 1; $i <= 60; $i++) {
-                // Description
-                $description = new DescriptionCanadaCustomerInvoiceFrom();
-                $description->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-                $description->description_pecification_of_commodities_ = $request->input('description_pecification_of_commodities_')[$i];
-                $description->save();
+        // Create related records using loop
+        for ($i = 1; $i <= 60; $i++) {
+            // Description
+            $description = new DescriptionCanadaCustomerInvoiceFrom();
+            $description->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+            $description->{"description_pecification_of_commodities_$i"} = $request->input("description_pecification_of_commodities_$i");
 
-                // Packages
-                $packages = new PackagesCanadaCustomerInvoiceFrom();
-                $packages->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-                $packages->number_of_packages_nombre_de_coils_ = $request->input('number_of_packages_nombre_de_coils_')[$i];
-                $packages->save();
+            // Packages
+            $packages = new PackagesCanadaCustomerInvoiceFrom();
+            $packages->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+            $packages->{"number_of_packages_nombre_de_coils_$i"} = $request->input("number_of_packages_nombre_de_coils_$i");
 
-                // Quantity
-                $quantity = new QuantityCanadaCustomerInvoiceFrom();
-                $quantity->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-                $quantity->quantity_ = $request->input('quantity_')[$i];
-                $quantity->save();
 
-                // Unit Price
-                $unitPrice = new UnitPriceCanadaCustomerInvoiceFrom();
-                $unitPrice->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-                $unitPrice->unit_price_ = $request->input('unit_price_')[$i];
-                $unitPrice->save();
-            }
+            // Quantity
+            $quantity = new QuantityCanadaCustomerInvoiceFrom();
+            $quantity->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+            $quantity->{"quantity_$i"} = $request->input("quantity_$i");
+            // Unit Price
+            $unitPrice = new UnitPriceCanadaCustomerInvoiceFrom();
+            $unitPrice->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+            $unitPrice->{"unit_price_$i"} = $request->input("unit_price_$i");
+         }
+         $description->save();
+         $packages->save();
+        //  $quantity->save();
+        //  $unitPrice->save();
+
 
             return response()->json(['message' => 'All records submitted successfully!']);
         } catch (\Exception $e) {
@@ -258,7 +277,7 @@ class adminController extends Controller
             Log::error($e);
 
             // Return an error response
-            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.'], 500);
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.'.$e], 500);
         }
     }
 

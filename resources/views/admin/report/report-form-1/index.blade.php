@@ -181,7 +181,7 @@
                                         <i class="fa fa-check-square fa-2x" title="Click to complete Report" aria-hidden="true"></i>
                                     </a>
                                     <span></span>
-                                    <a href="{{ URL::to('/panel/report/generate-pdf/1') }}" class="" target="_blank" title="View Pdf">
+                                    <a href="{{ URL::to('/panel/report/generate-pdf/7') }}" class="" target="_blank" title="View Pdf">
 
                                     <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
                                 <path d="M12.1221 15.4361L12.1221 3.39508" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

@@ -15,6 +15,7 @@ class CreateCanadaCustomerInvoiceFromsTable extends Migration
     {
         Schema::create('canada_customer_invoice_froms', function (Blueprint $table) {
             $table->id();
+            $table->string('invioce_generator')->nullable();
             $table->integer('team_user_id')->nullable();
             $table->string('vender_name')->nullable();
             $table->string('vender_address')->nullable();
@@ -54,7 +55,7 @@ class CreateCanadaCustomerInvoiceFromsTable extends Migration
             }
             $table->timestamps();
         });
-        Schema::create('packages_canada_customer_invoice_from', function (Blueprint $table) {
+        Schema::create('packages_canada_customer_invoice_froms', function (Blueprint $table) {
             $table->id();
             $table->integer('canada_customer_invoice_from_id')->nullable();
             for ($i = 1; $i <= 60; $i++) {
@@ -62,7 +63,7 @@ class CreateCanadaCustomerInvoiceFromsTable extends Migration
             }
             $table->timestamps();
         });
-        Schema::create('quantity_canada_customer_invoice_from', function (Blueprint $table) {
+        Schema::create('quantity_canada_customer_invoice_froms', function (Blueprint $table) {
             $table->id();
             $table->integer('canada_customer_invoice_from_id')->nullable();
             for ($i = 1; $i <= 60; $i++) {
@@ -70,7 +71,7 @@ class CreateCanadaCustomerInvoiceFromsTable extends Migration
             }
             $table->timestamps();
         });
-        Schema::create('unit_price_canada_customer_invoice_from', function (Blueprint $table) {
+        Schema::create('unit_price_canada_customer_invoice_froms', function (Blueprint $table) {
             $table->id();
             $table->integer('canada_customer_invoice_from_id')->nullable();
             for ($i = 1; $i <= 60; $i++) {
@@ -78,7 +79,7 @@ class CreateCanadaCustomerInvoiceFromsTable extends Migration
             }
             $table->timestamps();
         });
-        Schema::create('total_canada_customer_invoice_from', function (Blueprint $table) {
+        Schema::create('total_canada_customer_invoice_froms', function (Blueprint $table) {
             $table->id();
             $table->integer('canada_customer_invoice_from_id')->nullable();
             for ($i = 1; $i <= 60; $i++) {
