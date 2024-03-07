@@ -58,9 +58,9 @@
                 <div style="height: 80px;">
 
                     <span>1. Vender(name and address) - (nom et adresse)</span><br>
-                    <span>{{ $CanadaCustomerInvoiceFrom->vender_name }}</span><br>
-                    <span>{{ $CanadaCustomerInvoiceFrom->vender_address }}</span><br>
-                    <span>{{ $CanadaCustomerInvoiceFrom->vender_nom_et_adresse }}</span><br>
+                    <span>{{ $CanadaCustomerInvoiceFrom->vender_name ?? ""}}</span><br>
+                    <span>{{ optional($CanadaCustomerInvoiceFrom)->vender_address }}</span><br>
+                    <span>{{ $CanadaCustomerInvoiceFrom->vender_nom_et_adresse ?? "" }}</span><br>
 
                 </div>
             </td>
@@ -92,9 +92,9 @@
 
                     <span>4. Consignee (name and address) - (nom et adresse)</span> <br>
 
-                    <span>{{ $CanadaCustomerInvoiceFrom->consignee_name }}</span><br>
-                    <span>{{ $CanadaCustomerInvoiceFrom->consignee_address }}</span><br>
-                    <span>{{ $CanadaCustomerInvoiceFrom->consignee_nom_et_adresse }}</span><br>
+                    <span>{{ $CanadaCustomerInvoiceFrom->consignee_name ?? "" }}</span><br>
+                    <span>{{ $CanadaCustomerInvoiceFrom->consignee_address ?? "" }}</span><br>
+                    <span>{{ $CanadaCustomerInvoiceFrom->consignee_nom_et_adresse ?? "" }}</span><br>
                 </div>
             </td>
             <td>

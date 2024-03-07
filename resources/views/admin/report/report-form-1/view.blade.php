@@ -8,103 +8,88 @@
     .ct-chart .ct-series.ct-series-a .ct-slice-donut {
         stroke: #9da09e;
     }
+
 </style>
 @endsection
 @section('content')
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Form</title>
+<style>
+    /* Your CSS styles here */
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body style="font-family: sans-serif;">
 
-<div class="row mb-4">
- 
-    <div class="col-xl-2 col-sm-6 col-6 ">
-                        <div class="d-flex justify-content-start align-items-start">
-                            <a >
-                            <button type="submit" class="btn btn report-tab-active"
-                                id="filter-reprot-btn">Download Pdf</button>
-                            </a>
-                         
-                        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="card">
-    <div class="pt-4">
-        <div class="table-responsive">
-            <table class="table primary-table-bordered">
-                <thead class="thead-primary">
-                    <tr>
+    <table border="1" style="border: 1px solid #000; border-collapse: collapse; width: 100%;">
+        <!-- Your existing HTML content here -->
+    </table>
 
+    <table border="0" style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0; ">
+        <!-- Your existing HTML content here -->
+    </table>
 
-
-                    </tr>
-
-
-
-                </thead>
-                <tbody>
-
-
-
-
-
-                    <!-----------------===========================================    second director      ============================================================  -->
-                    @for($i = 1; $i <= 8; $i++) 
-                        <tr>
-                            <th style="background-color: #5a595a; color: white;" scope="col" colspan="2" class="col-md-4">Field {{$i}}</th>
-                            <th style="background-color: #5a595a; color: white;" scope="col" colspan="4" class="col-md-8">
-                                abc
-                            </th>
+    <table>
+        <tr style="font-size: 12px;">
+            <td style=" width: 55%;">
+                Other Information <br>
+                <div style="margin: 20px 0;">
+                    It is hereby declared that the above mentioned goods originate in Pakistan<br>
+                </div>
+                <div>
+                    <table>
+                        <!-- Modify your input fields to be hidden initially -->
+                        <tr style="padding: 4px 0;">
+                            <td>Exporter's Signature: </td>
+                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;" class="hidden"> </td>
                         </tr>
+                        <!-- Repeat this pattern for other input fields -->
+                    </table>
 
-                        <tr>
-                            <th style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" colspan="1" class="col-md-2"> Field B {{$i}}</th>
-                            <th style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2">Field C {{$i}}</th>
+                </div>
 
-                            <th style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2">Field F {{$i}}</th>
-                            <th style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2">Field H {{$i}}</th>
+            </td>
+            <td style="width: 45%;">
+                <div style="height: 200px;">
 
-                            <th style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2">Field {{$i}}</th>
-                            <th style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2">Field {{$i}}</th>
-                        </tr>
-                        <tr>
-                            <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-1">
-                            Field {{$i}}
-                            </td>
-                            <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-1">
-                            Field {{$i}}
-                            </td>
-                            <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2">
-                            Field {{$i}}
-                            </td>
+                    It is hereby certified that to the best of my knowledge and according to the
+                    documents produced before me this declaration appears to be correct
 
-                            <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2">
-                            Field {{$i}}
-                            </td>
-                            <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2">
-                            Field {{$i}}
-                            </td>
+                    <div style="padding-top: 60px;">
+                        Authorized Signatory &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stamp
+                    </div>
+                    <br><br>
+                    Place and date of issue &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <br><br>
+                    <b style="margin-top: 20px; padding-top: 20px; text-decoration: underline; font-size: 14px;">
+                        Towel Manufacturers' Association of Pakistan
+                    </b>
+                </div>
+            </td>
+        </tr>
+    </table>
 
-                            <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2">
-                            Field {{$i}}
-                            </td>
-                        </tr>
-                        @endfor
+    <script>
+        // JavaScript to toggle visibility of input fields on click
+        const inputFields = document.querySelectorAll('input');
+        inputFields.forEach(input => {
+            input.addEventListener('click', () => {
+                input.classList.toggle('hidden');
+            });
+        });
+    </script>
 
-
-
-
-                        <!-----------------===========================================    third director      ============================================================  -->
-
+</body>
+</html>
 
 
-
-
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-    </div>
-</div>
 
 <!-- firm background tab start -->
 

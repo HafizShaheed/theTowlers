@@ -61,13 +61,19 @@
                             </svg>
                         </div>
 
-                        <span class="nav-text">Forms</span>
+                        <span class="nav-text">FORMS</span>
                     </a>
                     <ul aria-expanded="true">
                         <li> <a class="nav-text" href="{{ URL::to('/panel/report') }}"
-                                class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">Form
-                                1</a></li>
-                        <li><a class="nav-text" href="#">Wizard</a></li>
+                                class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">
+                                CANADA INVOICE</a></li>
+                                <li><a class="nav-text" href="#">Form 59 A INVOICE</a></li>
+                        <li><a class="nav-text" href="#">EXPORTER'S TEXTILE DECLARATION</a></li>
+                        <li><a class="nav-text" href="#">CERTIFICATE ORIGIN</a></li>
+                        <li><a class="nav-text" href="#">CERTIFICATE ORIGIN 627120</a></li>
+                        <li><a class="nav-text" href="#">CERTIFICATE ORIGIN <sub>(Combined Declaration)</sub></a></li>
+                        <li><a class="nav-text" href="#">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form IP</sub></a></li>
+                        <li><a class="nav-text" href="#">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form A</sub></a></li>
 
                     </ul>
                 </li>

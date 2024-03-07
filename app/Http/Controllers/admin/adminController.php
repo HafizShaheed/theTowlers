@@ -39,18 +39,23 @@ class adminController extends Controller
 
     public function generatePDF($count)
     {
-        $data = ['title' => 'Canada Customer Invoice Pdf'];
-        $data['CanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::where('id',1)->first();
-        $data['DescriptionCanadaCustomerInvoiceFrom'] = DescriptionCanadaCustomerInvoiceFrom::where('canada_customer_invoice_from_id',1)->first();
-        $data['PackagesCanadaCustomerInvoiceFrom'] = PackagesCanadaCustomerInvoiceFrom::where('canada_customer_invoice_from_id',1)->first();
-        $data['QuantityCanadaCustomerInvoiceFrom'] = QuantityCanadaCustomerInvoiceFrom::where('canada_customer_invoice_from_id',1)->first();
-        $data['UnitPriceCanadaCustomerInvoiceFrom'] = UnitPriceCanadaCustomerInvoiceFrom::where('canada_customer_invoice_from_id',1)->first();
+        $viewName = 'admin.report.report-form-1.pdf.'.$count.'my_pdf';
 
+        // Check if the view exists
+        if (!view()->exists($viewName)) {
+            abort(404); // Redirect to 404 page if the view does not exist
+        }
 
-        $pdf = PDF::loadView('admin.report.report-form-1.pdf.'.$count.'my_pdf', $data);
+        $data = [
+            'title' => 'Canada Customer Invoice Pdf',
+            'CanadaCustomerInvoiceFrom' => CanadaCustomerInvoiceFrom::where('id', 1)->first(),
+        ];
+
+        $pdf = PDF::loadView($viewName, $data);
 
         return $pdf->stream('document.pdf');
     }
+
 
 
     function reportPage()
@@ -244,29 +249,29 @@ class adminController extends Controller
         $canadaCustomerInvoiceFrom->save();
 
         // Create related records using loop
-        for ($i = 1; $i <= 60; $i++) {
-            // Description
-            $description = new DescriptionCanadaCustomerInvoiceFrom();
-            $description->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-            $description->{"description_pecification_of_commodities_$i"} = $request->input("description_pecification_of_commodities_$i");
+        // for ($i = 1; $i <= 60; $i++) {
+        //     // Description
+        //     $description = new DescriptionCanadaCustomerInvoiceFrom();
+        //     $description->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+        //     $description->{"description_pecification_of_commodities_$i"} = $request->input("description_pecification_of_commodities_$i");
 
-            // Packages
-            $packages = new PackagesCanadaCustomerInvoiceFrom();
-            $packages->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-            $packages->{"number_of_packages_nombre_de_coils_$i"} = $request->input("number_of_packages_nombre_de_coils_$i");
+        //     // Packages
+        //     $packages = new PackagesCanadaCustomerInvoiceFrom();
+        //     $packages->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+        //     $packages->{"number_of_packages_nombre_de_coils_$i"} = $request->input("number_of_packages_nombre_de_coils_$i");
 
 
-            // Quantity
-            $quantity = new QuantityCanadaCustomerInvoiceFrom();
-            $quantity->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-            $quantity->{"quantity_$i"} = $request->input("quantity_$i");
-            // Unit Price
-            $unitPrice = new UnitPriceCanadaCustomerInvoiceFrom();
-            $unitPrice->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-            $unitPrice->{"unit_price_$i"} = $request->input("unit_price_$i");
-         }
-         $description->save();
-         $packages->save();
+        //     // Quantity
+        //     $quantity = new QuantityCanadaCustomerInvoiceFrom();
+        //     $quantity->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+        //     $quantity->{"quantity_$i"} = $request->input("quantity_$i");
+        //     // Unit Price
+        //     $unitPrice = new UnitPriceCanadaCustomerInvoiceFrom();
+        //     $unitPrice->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+        //     $unitPrice->{"unit_price_$i"} = $request->input("unit_price_$i");
+        //  }
+        //  $description->save();
+        //  $packages->save();
         //  $quantity->save();
         //  $unitPrice->save();
 
