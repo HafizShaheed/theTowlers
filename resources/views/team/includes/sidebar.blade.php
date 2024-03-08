@@ -46,7 +46,7 @@
                         <span class="nav-text">Forms</span>
                     </a>
                     <ul aria-expanded="true">
-                        <li> <a class="nav-text" href="{{ URL::to('/panel-team/report') }}"
+                        <li> <a class="nav-text" href="#"
                                 class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">Form
                                 1</a></li>
                         <li><a class="nav-text" href="#">Wizard</a></li>
