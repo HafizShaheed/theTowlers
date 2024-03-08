@@ -86,7 +86,7 @@ Route::get('/clear-cache', function() {
             Route::prefix('report')->group(function(){
                 Route::get('/', 'teamController@report_List')->name('team.report_List');
                 Route::get('/generate-pdf/{count}', 'teamController@generatePDF');
-                Route::get('/add_report_form_1', 'teamController@add_report_form_1')->name('team.add_report_form_1');
+                Route::get('/custom_canda_invoice', 'teamController@custom_canda_invoice')->name('team.custom_canda_invoice');
                 Route::get('/edit_report_form_1', 'teamController@edit_report_form_1')->name('team.edit_report_form_1');
                 Route::get('/view_report_form_1', 'teamController@view_report_form_1')->name('team.view_report_form_1');
                 Route::get('/activity_report_form_1', 'teamController@activity_report_form_1')->name('team.activity_report_form_1');
@@ -154,46 +154,22 @@ Route::get('/clear-cache', function() {
             });
 
             Route::prefix('report')->group(function(){
-                Route::get('/', 'adminController@report_List')->name('admin.report_List');
+
                 Route::get('/generate-pdf/{count}', 'adminController@generatePDF');
-                Route::get('/add_report_form_1', 'adminController@add_report_form_1')->name('admin.add_report_form_1');
-                Route::post('/submit_add_report_form_1', 'adminController@submit_add_report_form_1')->name('admin.submit_add_report_form_1');
-                Route::get('/edit_report_form_1', 'adminController@edit_report_form_1')->name('admin.edit_report_form_1');
-                Route::get('/view_report_form_1', 'adminController@view_report_form_1')->name('admin.view_report_form_1');
-                Route::get('/activity_report_form_1', 'adminController@activity_report_form_1')->name('admin.activity_report_form_1');
-                    // =========================================
-                Route::get('/view/{id}', 'adminController@report_View')->name('admin.report_View');
-                Route::get('/edit/{id}', 'adminController@Edit_report')->name('admin.Edit_report');
-                Route::post('/update_firm_background', 'adminController@update_firm_background')->name('admin.update_firm_background');
-                Route::post('/update_documents', 'adminController@update_documents')->name('admin.update_documents');
-                Route::post('/update_on_ground_verification', 'adminController@update_on_ground_verification')->name('admin.update_on_ground_verification');
-                Route::post('/update_court_check', 'adminController@update_court_check')->name('admin.update_court_check');
-                Route::post('/update_financial', 'adminController@update_financial')->name('admin.update_financial');
-                Route::post('/update_Business_Intelligence', 'adminController@update_Business_Intelligence')->name('admin.update_Business_Intelligence');
-                Route::post('/update_Tax_Return_and_Credit', 'adminController@update_Tax_Return_and_Credit')->name('admin.update_Tax_Return_and_Credit');
-                Route::post('/update_Market_Reputation', 'adminController@update_Market_Reputation')->name('admin.update_Market_Reputation');
-                Route::post('/update_Key_Observation', 'adminController@update_Key_Observation')->name('admin.update_Key_Observation');
-                Route::post('/update_resubmited_allreports', 'adminController@update_resubmited_allreports')->name('admin.update_resubmited_allreports');
-                Route::post('/update_completed_allreports', 'adminController@update_completed_allreports')->name('admin.update_completed_allreports');
-                Route::get('/firm_file_download/{id}/{index}', 'adminController@firm_file_download')->name('admin.firm_file_download');
-                Route::get('/firm_file_view/{id}/{index}', 'adminController@firm_file_view')->name('admin.firm_file_view');
-                Route::get('/document_file_download/{id}/{index}', 'adminController@document_file_download')->name('admin.document_file_download');
-                Route::get('/document_file_view/{id}/{index}', 'adminController@document_file_view')->name('admin.document_file_view');
-                Route::get('/onGround_file_download/{id}', 'adminController@onGround_file_download')->name('admin.onGround_file_download');
-                Route::get('/onGround_file_view/{id}', 'adminController@onGround_file_view')->name('admin.onGround_file_view');
-                Route::get('/final_Reprts_file_download/{id}', 'adminController@final_Reprts_file_download')->name('admin.final_Reprts_file_download');
-                Route::get('/generate_pdf_of_reports/{id}', 'adminController@generate_pdf_of_reports')->name('admin.generate_pdf_of_reports');
+                Route::prefix('canda-costom_invoice')->group(function(){
 
+                Route::get('/', 'adminController@report_List_custom_canda_invoice')->name('admin.report_List_custom_canda_invoice');
+                Route::get('/generate_custom_canda_invoic_PDF/{id}', 'adminController@generate_custom_canda_invoic_PDF')->name('admin.generate_custom_canda_invoic_PDF');;
 
+                Route::get('/add', 'adminController@add_custom_canda_invoice')->name('admin.add_custom_canda_invoice');
+                Route::post('/submit_custom_canda_invoice', 'adminController@submit_custom_canda_invoice')->name('admin.submit_custom_canda_invoice');
+                Route::get('/edit/{id}', 'adminController@edit_custom_canda_invoice')->name('admin.edit_custom_canda_invoice');
+                Route::post('/update_submit_custom_canda_invoice', 'adminController@update_submit_custom_canda_invoice')->name('admin.update_submit_custom_canda_invoice');
 
-
-
-
-
-
-
-
-
+                Route::get('/view', 'adminController@view_custom_canda_invoice')->name('admin.view_custom_canda_invoice');
+                Route::get('/activity/{id}', 'adminController@activity_custom_canda_invoice')->name('admin.activity_custom_canda_invoice');
+            });
+                    // =======================================
 
             });
 
@@ -202,4 +178,3 @@ Route::get('/clear-cache', function() {
         });
 
     });
-

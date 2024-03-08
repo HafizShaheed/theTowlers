@@ -64,16 +64,16 @@
                         <span class="nav-text">FORMS</span>
                     </a>
                     <ul aria-expanded="true">
-                        <li> <a class="nav-text" href="{{ URL::to('/panel/report') }}"
+                        <li> <a class="nav-text" href="{{ route('admin.report_List_custom_canda_invoice') }}"
                                 class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">
                                 CANADA INVOICE</a></li>
-                                <li><a class="nav-text" href="#">Form 59 A INVOICE</a></li>
-                        <li><a class="nav-text" href="#">EXPORTER'S TEXTILE DECLARATION</a></li>
-                        <li><a class="nav-text" href="#">CERTIFICATE ORIGIN</a></li>
-                        <li><a class="nav-text" href="#">CERTIFICATE ORIGIN 627120</a></li>
-                        <li><a class="nav-text" href="#">CERTIFICATE ORIGIN <sub>(Combined Declaration)</sub></a></li>
-                        <li><a class="nav-text" href="#">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form IP</sub></a></li>
-                        <li><a class="nav-text" href="#">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form A</sub></a></li>
+                                <li><a class="nav-text" href="{{ URL::to('/panel/report/generate-pdf/5,6') }}">Form 59 A INVOICE</a></li>
+                        <li><a class="nav-text" target="_blank" href="{{ URL::to('/panel/report/generate-pdf/8') }}">EXPORTER'S TEXTILE DECLARATION</a></li>
+                        <li><a class="nav-text" target="_blank" href="{{ URL::to('/panel/report/generate-pdf/1') }}">CERTIFICATE ORIGIN</a></li>
+                        <li><a class="nav-text" target="_blank" href="{{ URL::to('/panel/report/generate-pdf/2') }}">CERTIFICATE ORIGIN 627120</a></li>
+                        <li><a class="nav-text" target="_blank" href="{{ URL::to('/panel/report/generate-pdf/3,4') }}">CERTIFICATE ORIGIN <sub>(Combined Declaration)</sub></a></li>
+                        <li><a class="nav-text" target="_blank" href="{{ URL::to('/panel/report/generate-pdf/9') }}">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form IP</sub></a></li>
+                        <li><a class="nav-text" target="_blank" href="{{ URL::to('/panel/report/generate-pdf/10') }}">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form A</sub></a></li>
 
                     </ul>
                 </li>

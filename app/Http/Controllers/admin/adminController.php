@@ -12,10 +12,8 @@ use DB;
 use Mail;
 use Carbon\Carbon;
 use App\Models\CanadaCustomerInvoiceFrom;
-use App\Models\DescriptionCanadaCustomerInvoiceFrom;
-use App\Models\PackagesCanadaCustomerInvoiceFrom;
-use App\Models\QuantityCanadaCustomerInvoiceFrom;
-use App\Models\UnitPriceCanadaCustomerInvoiceFrom;
+use App\Models\CanadaInvoiceHistory;
+
 use Illuminate\Support\Facades\Log;
 
 
@@ -39,7 +37,7 @@ class adminController extends Controller
 
     public function generatePDF($count)
     {
-        $viewName = 'admin.report.report-form-1.pdf.'.$count.'my_pdf';
+        $viewName = 'admin.report.custom-canda-invoice.pdf.'.$count.'my_pdf';
 
         // Check if the view exists
         if (!view()->exists($viewName)) {
@@ -177,39 +175,47 @@ class adminController extends Controller
 
 
     // vender means Reports list start
-    function report_List(Request $request)
+    function report_List_custom_canda_invoice(Request $request)
     {
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
-        $data['pageIntro'] = "Reports List";
+        $data['title'] = "Canada Custom Invoice";
+        $data['page'] = "Canada Custom Invoice";
+        $data['pageIntro'] = "Canada Custom Invoice";
         $data['CanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
-        return view('admin.report.report-form-1.index', $data);
+        return view('admin.report.custom-canda-invoice.index', $data);
     }
 
-    function add_report_form_1(){
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
-        $data['pageIntro'] = "Reports Add";
+    public function generate_custom_canda_invoic_PDF($id)
+    {
+        $viewName = 'admin.report.custom-canda-invoice.pdf.custom-canda-invoice-pdf';
+
+        // Check if the view exists
+        if (!view()->exists($viewName)) {
+            abort(404); // Redirect to 404 page if the view does not exist
+        }
+
+        $data = [
+            'title' => 'Canada Customer Invoice Pdf',
+            'CanadaCustomerInvoiceFrom' => CanadaCustomerInvoiceFrom::where('id', $id)->first(),
+        ];
+
+        $pdf = PDF::loadView($viewName, $data);
+
+        return $pdf->stream('document.pdf');
+    }
+
+    function add_custom_canda_invoice(){
+
+        $data['title'] = "Canada Custom Invoicet";
+        $data['page'] = "Canada Custom Invoice";
+        $data['pageIntro'] = "Canada Custom Invoice Add";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-        return view('admin.report.report-form-1.add', $data);
+        return view('admin.report.custom-canda-invoice.add', $data);
     }
 
-
-    public function create(Request $request)
-    {
-        // Validate the incoming request if necessary
-        // $request->validate([...]);
-
-        // Create CanadaCustomerInvoiceFrom record
-
-
-        // Redirect or return a response as needed
-    }
-
-    public function submit_add_report_form_1(Request $request)
+    public function submit_custom_canda_invoice(Request $request)
     {
         // dd($request->all());
 
@@ -221,6 +227,7 @@ class adminController extends Controller
             $canadaCustomerInvoiceFrom = new CanadaCustomerInvoiceFrom();
             $canadaCustomerInvoiceFrom->invioce_generator = rand(0000, 9999).now();
         $canadaCustomerInvoiceFrom->team_user_id = $request->input('team_user_id');
+        $canadaCustomerInvoiceFrom->canada_customer_invoice = $request->input('canada_customer_invoice');
         $canadaCustomerInvoiceFrom->vender_name = $request->input('vender_name');
         $canadaCustomerInvoiceFrom->vender_address = $request->input('vender_address');
         $canadaCustomerInvoiceFrom->vender_nom_et_adresse = $request->input('vender_nom_et_adresse');
@@ -246,34 +253,30 @@ class adminController extends Controller
         $canadaCustomerInvoiceFrom->net = $request->input('net');
         $canadaCustomerInvoiceFrom->gross_brut = $request->input('gross_brut');
         $canadaCustomerInvoiceFrom->invoice_total = $request->input('invoice_total');
-        $canadaCustomerInvoiceFrom->save();
+        $canadaCustomerInvoiceFrom->description_pecification_of_commodities = $request->input('description_pecification_of_commodities');
 
         // Create related records using loop
-        // for ($i = 1; $i <= 60; $i++) {
-        //     // Description
-        //     $description = new DescriptionCanadaCustomerInvoiceFrom();
-        //     $description->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-        //     $description->{"description_pecification_of_commodities_$i"} = $request->input("description_pecification_of_commodities_$i");
+        for ($i = 1; $i <= 6; $i++) {
 
-        //     // Packages
-        //     $packages = new PackagesCanadaCustomerInvoiceFrom();
-        //     $packages->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-        //     $packages->{"number_of_packages_nombre_de_coils_$i"} = $request->input("number_of_packages_nombre_de_coils_$i");
+            // Packages
+            $canadaCustomerInvoiceFrom->{"number_of_packages_nombre_de_coils_$i"} = $request->input("number_of_packages_nombre_de_coils_$i");
+            // Quantity
+            $canadaCustomerInvoiceFrom->{"quantity_$i"} = $request->input("quantity_$i");
+            // Unit Price
+
+            $canadaCustomerInvoiceFrom->{"unit_price_$i"} = $request->input("unit_price_$i");
+         }
+
+        $canadaCustomerInvoiceFrom->save();
+
+        $CanadaInvoiceHistory = new CanadaInvoiceHistory();
+        $CanadaInvoiceHistory->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+        $CanadaInvoiceHistory->editer_name = Auth::guard('admin')->user()->user_name;
+
+        $CanadaInvoiceHistory->edited_at = now();
+        $CanadaInvoiceHistory->save();
 
 
-        //     // Quantity
-        //     $quantity = new QuantityCanadaCustomerInvoiceFrom();
-        //     $quantity->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-        //     $quantity->{"quantity_$i"} = $request->input("quantity_$i");
-        //     // Unit Price
-        //     $unitPrice = new UnitPriceCanadaCustomerInvoiceFrom();
-        //     $unitPrice->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-        //     $unitPrice->{"unit_price_$i"} = $request->input("unit_price_$i");
-        //  }
-        //  $description->save();
-        //  $packages->save();
-        //  $quantity->save();
-        //  $unitPrice->save();
 
 
             return response()->json(['message' => 'All records submitted successfully!']);
@@ -288,32 +291,95 @@ class adminController extends Controller
 
 
 
-    function edit_report_form_1(){
+    function edit_custom_canda_invoice($id){
         $data['title'] = "Reports Management";
         $data['page'] = "Reports Management";
         $data['pageIntro'] = "Reports Edit";
+        $data['editCanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::where('id',$id)->first();
+        if (!$data['editCanadaCustomerInvoiceFrom']) {
+            return back()->with('error', 'No Canada invoice history found for the provided ID.');
+        }
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-        return view('admin.report.report-form-1.edit', $data);
+        return view('admin.report.custom-canda-invoice.edit', $data);
+    }
+    public function update_submit_custom_canda_invoice(Request $request)
+    {
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('id');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $canadaCustomerInvoiceFrom = CanadaCustomerInvoiceFrom::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $canadaCustomerInvoiceFrom = new CanadaCustomerInvoiceFrom();
+                $canadaCustomerInvoiceFrom->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $canadaCustomerInvoiceFrom->fill($request->all());
+
+            // Save the CanadaCustomerInvoiceFrom model
+            $canadaCustomerInvoiceFrom->save();
+
+            // Create or update related records using a loop
+            for ($i = 1; $i <= 6; $i++) {
+                // Packages
+                $canadaCustomerInvoiceFrom->{"number_of_packages_nombre_de_coils_$i"} = $request->input("number_of_packages_nombre_de_coils_$i");
+                // Quantity
+                $canadaCustomerInvoiceFrom->{"quantity_$i"} = $request->input("quantity_$i");
+                // Unit Price
+                $canadaCustomerInvoiceFrom->{"unit_price_$i"} = $request->input("unit_price_$i");
+            }
+
+            // Save the CanadaCustomerInvoiceFrom model again after updating related records
+            $canadaCustomerInvoiceFrom->save();
+
+            // Create CanadaInvoiceHistory record
+            $CanadaInvoiceHistory = new CanadaInvoiceHistory();
+            $CanadaInvoiceHistory->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
+            $CanadaInvoiceHistory->editer_name = Auth::guard('admin')->user()->user_name;
+            $CanadaInvoiceHistory->edited_at = now();
+            $CanadaInvoiceHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
     }
 
 
-    function view_report_form_1(){
+    function view_custom_canda_invoice(){
         $data['title'] = "Reports Management";
         $data['page'] = "Reports Management";
         $data['pageIntro'] = "Reports View";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-        return view('admin.report.report-form-1.view', $data);
+        return view('admin.report.custom-canda-invoice.view', $data);
     }
 
-    function activity_report_form_1(){
+    function activity_custom_canda_invoice($id){
         $data['title'] = "Reports Management";
         $data['page'] = "Reports Management";
-        $data['pageIntro'] = "Reports Activity*";
+
+        $data['pageIntro'] = "Reports Activity";
+        $data['getAllCanadaInvoiceHistory'] = CanadaInvoiceHistory::where('canada_customer_invoice_from_id', $id)->get();
+
+        if ($data['getAllCanadaInvoiceHistory']->isEmpty()) {
+            return back()->with('error', 'No Canada invoice history found for the provided ID.');
+        }
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-        return view('admin.report.report-form-1.activity', $data);
+        return view('admin.report.custom-canda-invoice.activity', $data);
     }
 
 

@@ -54,7 +54,7 @@ class teamController extends Controller
         $data['page'] = "Reports Management";
         $data['pageIntro'] = "Reports List";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-        return view('team.report.report-form-1.index', $data);
+        return view('team.report.custom-canda-invoice.index', $data);
     }
 
     function add_report_form_1(){
@@ -63,7 +63,7 @@ class teamController extends Controller
         $data['pageIntro'] = "Reports Add";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-        return view('team.report.report-form-1.add', $data);
+        return view('team.report.custom-canda-invoice.add', $data);
     }
 
     function edit_report_form_1(){
@@ -72,7 +72,7 @@ class teamController extends Controller
         $data['pageIntro'] = "Reports Edit";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-        return view('team.report.report-form-1.edit', $data);
+        return view('team.report.custom-canda-invoice.edit', $data);
     }
 
 
@@ -82,7 +82,7 @@ class teamController extends Controller
         $data['pageIntro'] = "Reports View";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-        return view('team.report.report-form-1.view', $data);
+        return view('team.report.custom-canda-invoice.view', $data);
     }
 
     function activity_report_form_1(){
@@ -91,7 +91,7 @@ class teamController extends Controller
         $data['pageIntro'] = "Reports Activity*";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-        return view('team.report.report-form-1.activity', $data);
+        return view('team.report.custom-canda-invoice.activity', $data);
     }
     // report ended =============================
 

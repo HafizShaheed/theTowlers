@@ -8,7 +8,7 @@
 
 
 <div class="row">
-  
+
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body p-0">
@@ -23,48 +23,29 @@
                     <table id="empoloyees-tblwrapper" class="table ">
                         <thead>
                             <tr>
-                                <th> ID</th>
+                                <th>Sr.No</th>
 
                                 <th> Team Member Last Edited by</th>
                                 <th>Last Edited Date</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
 
-                            <tr>
-                                <td><span>1</span></td>
-                                <td><span>Member Abc</span></td>
+                        @foreach ($getAllCanadaInvoiceHistory as $key => $value )
+                        <tr>
+                                <td><span>{{++$key}}</span></td>
+                                <td><span>{{$value->editer_name}}</span></td>
 
                                 <td>
-                                    @switch(1)
-                                    @case('1')
-                                    <span class="badge badge-success border-0" title="Report Active">01/02/2024 </span>
 
-                                    @break
-
-                                    @case('0')
-                                    <span class="badge badge-danger border-0" title="Report Pending">Pending </span>
-
-
-
-
-                                    @break
-                                    @case('2')
-                                    <span class="badge badge-info border-0" title="Report Resubmit">Resubmit</span>
-
-                                    @break
-                                    @case('3')
-                                    <span class="badge badge-primary border-0" title="Report Completed">Completed</span>
-
-
-                                    @break
-
-                                    @endswitch
+                                    <span class="badge badge-danger border-0" title="Report Pending">{{ isset($value->created_at) ? $value->created_at->diffForHumans() : '' }} </span>
                                 </td>
 
-                                
+
                             </tr>
+                        @endforeach
+
 
 
 

@@ -43,9 +43,9 @@ class CreateCanadaCustomerInvoiceFromsTable extends Migration
             $table->string('net')->nullable();
             $table->string('gross_brut')->nullable();
             $table->string('invoice_total')->nullable();
-            $table->string('description_pecification_of_commodities')->nullable();
-            $table->string('number_of_packages_nombre_de_coils')->nullable();
+            $table->text('description_pecification_of_commodities')->nullable();
             for ($i = 1; $i <= 7; $i++) {
+                $table->string('number_of_packages_nombre_de_coils_' . $i)->nullable();
                 $table->string('quantity_' . $i)->nullable();
                 $table->string('unit_price_' . $i)->nullable();
                 $table->string('total_' . $i)->nullable();
