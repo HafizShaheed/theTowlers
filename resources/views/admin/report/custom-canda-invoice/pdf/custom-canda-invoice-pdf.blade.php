@@ -58,9 +58,9 @@
                 <div style="height: 80px;">
 
                     <span>1. Vender(name and address) - (nom et adresse)</span><br>
-                    <span>{{ $CanadaCustomerInvoiceFrom->vender_name ?? ""}}</span><br>
-                    <span>{{ optional($CanadaCustomerInvoiceFrom)->vender_address }}</span><br>
-                    <span>{{ $CanadaCustomerInvoiceFrom->vender_nom_et_adresse ?? "" }}</span><br>
+                    <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->vender_name ?? ""}}</div>
+                    <div style="font-size: 10px;">{{ optional($CanadaCustomerInvoiceFrom)->vender_address }}</div>
+                    <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->vender_nom_et_adresse ?? "" }}</div>
 
                 </div>
             </td>
@@ -71,6 +71,8 @@
                             <div style="height: 40px; width: 100%;">
                                 <span>2. Date of direct shipment to Canada - Date d'expedition directle vers le
                                     Canada</span>
+                                    <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->date_of_direct_shipment_to_canada_1 ?? "" }}</div>
+
                             </div>
                         </td>
                     </tr>
@@ -80,6 +82,8 @@
 
                                 <span>3. Date of direct shipment to Canada - Date d'expedition directle vers le
                                     Canada</span>
+                                    <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->date_of_direct_shipment_to_canada_1 ?? "" }}</div>
+
                             </div>
                         </td>
                     </tr>
@@ -92,9 +96,9 @@
 
                     <span>4. Consignee (name and address) - (nom et adresse)</span> <br>
 
-                    <span>{{ $CanadaCustomerInvoiceFrom->consignee_name ?? "" }}</span><br>
-                    <span>{{ $CanadaCustomerInvoiceFrom->consignee_address ?? "" }}</span><br>
-                    <span>{{ $CanadaCustomerInvoiceFrom->consignee_nom_et_adresse ?? "" }}</span><br>
+                    <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->consignee_name ?? "" }}</div>
+                    <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->consignee_address ?? "" }}</div>
+                    <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->consignee_nom_et_adresse ?? "" }}</div>
                 </div>
             </td>
             <td>
@@ -105,7 +109,10 @@
 
                                 <span>5. Purchaser's name and address (if other than consignee) <br> Nam sit paresse de
                                     racheteur
-                                    (s'il diffère du destinataire)</span>
+                                    (s'il diffère du destinataire)</span><br>
+                                    <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->purchaser_name ?? "" }}</div>
+                    <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->purchaser_address ?? "" }}</div>
+                    <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->purchaser_nom_et_adresse ?? "" }}</div>
                             </div>
                         </td>
                     </tr>
@@ -114,6 +121,8 @@
                             <div style="height: 25px;">
 
                                 <span>6. Country of transhipment- Pays de transbordement</span>
+                    <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->purchaser_nom_et_adresse ?? "" }}</div>
+
                             </div>
                         </td>
                     </tr>
@@ -123,12 +132,14 @@
                                 <td style="width: 50%; font-size: 10px; border-right: 0.5px solid #000;">7. Country of
                                     origin of goods<br>Pays dongine
                                     des marchandises
+                                    <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->country_of_origin_pays ?? "" }}</div>
                                 </td>
                                 <td style="width: 50%; font-size: 10px; font-weight: 500;"> IF SHIPLENT INCLUDES GOCIOS
                                     OF OFFERENT CROS
                                     ENTER ORIGINS AGAINST TEMEIND L'EXPEDITION COMPREND DES MACHANCHIES D'ORIGINES
                                     DIFFERENTER, PRECIE LEUR PROVENANCE EN 12
                                 </td>
+
                             </tr>
                         </table>
                     </tr>
@@ -142,6 +153,8 @@
 
                     <span>4. Transportation: Give mode and place of direct shipment to Canada Transport Précisez mode et
                         point d'expédition directe vers le Canada</span>
+                        <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->transportation_place_of_direct_shipment_to_canada ?? "" }}</div>
+
                 </div>
             </td>
             <td>
@@ -157,6 +170,8 @@
                                     Conditions de vente et modalités de paiement <br>
 
                                     (p ex vente, expédition en consignation, location de marchandises, etc)</span>
+                        <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->conditions_of_sale_and_terms_of_payment ?? "" }}</div>
+
                             </div>
                         </td>
                     </tr>
@@ -175,11 +190,11 @@
         </tr>
     </table>
     <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
+    @for ($i = 0; $i < 7; $i++)
         <tr>
             <td style="text-align: center; width: 10px; font-size: 8px;">
                 <div style="height: 270px; border-right: 1px solid #000;">
-                    <span>11.</span> <br> Number of packages nombre
-                    de coils
+                    <span>{{ $i + 11 }}.</span> <br> Number of packages nombre de coils
                 </div>
             </td>
             <td style=" width: 200px; font-size: 8px;">
@@ -188,7 +203,7 @@
                         <tr>
                             <td>
                                 <div style="height: 50px; ">
-                                    12.
+                                    {{ $i + 12 }}.
                                 </div>
                             </td>
                             <td>
@@ -199,9 +214,8 @@
 
                                     Désignation des articles (nature des colis, marques et numéros, description générale
                                     <br> et
-                                    caractéristiques, p. ex. classe, qualité)
+                                    caractéristiques, p. ex. classe, qualité)
                                 </div>
-
                             </td>
                         </tr>
                     </table>
@@ -213,7 +227,7 @@
                         <tr>
                             <td>
                                 <div style="height: 50px; ">
-                                    13.
+                                    {{ $i + 13 }}.
                                 </div>
                             </td>
                             <td style="text-align: center;">
@@ -231,16 +245,14 @@
                         Selling price - Prixe de vente
                     </div>
                     <table>
-
                         <tr>
                             <td style="width: 80px;">
                                 <div style="border-right: 1px solid #000; height: 255px;">
-
                                     <table>
                                         <tr>
                                             <td>
                                                 <div style=" height: 50px; ">
-                                                    14.
+                                                    {{ $i + 14 }}.
                                                 </div>
                                             </td>
                                             <td style=" text-align: center;">
@@ -254,12 +266,11 @@
                             </td>
                             <td style="width: 50%;">
                                 <div style="height: 255px; ">
-
                                     <table>
                                         <tr>
                                             <td>
                                                 <div style=" height: 50px; ">
-                                                    15.
+                                                    {{ $i + 15 }}.
                                                 </div>
                                             </td>
                                             <td style=" text-align: center;">
@@ -270,13 +281,14 @@
                                     </table>
                                 </div>
                             </td>
-
                         </tr>
                     </table>
                 </div>
             </td>
         </tr>
-    </table>
+    @endfor
+</table>
+
     <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
         <tr>
             <td style=" width: 300px; font-size: 8px;">
@@ -459,6 +471,8 @@
                                 <div style="height: 30px;">
                                     Agency ruling (if applicable) - Decision de I'Agence (s'il y a lieu)
                                 </div>
+                        <div style="font-size: 10px;">{{ $CanadaCustomerInvoiceFrom->agency_ruling ?? "" }}</div>
+
                             </td>
                         </tr>
                     </table>
