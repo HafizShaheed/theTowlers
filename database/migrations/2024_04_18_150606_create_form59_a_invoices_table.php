@@ -30,15 +30,19 @@ class CreateForm59AInvoicesTable extends Migration
 
         for ($i = 1; $i <= 10; $i++) {
             $table->string('marks_and_numbers_' . $i)->nullable();
-            $table->string('Quantity_' . $i)->nullable();
+            $table->string('quantity_' . $i)->nullable();
             $table->text('description_of_goods_' . $i)->nullable(); // Changed to TEXT
             $table->string('including_any_discounts_' . $i)->nullable();
-            $table->string('Current_domestic_value_currency_of_exporting_' . $i)->nullable();
+            $table->string('current_domestic_value_currency_of_exporting_' . $i)->nullable();
             $table->string('amount_' . $i)->nullable();
         }
 
         $table->string('if_amount_has_been_inciuded_in_the_current_domestic_value')->nullable();
         $table->string('drawback_or_remission_of_duty')->nullable();
+        $table->string('status')->default(0)->nullable();
+        $table->string('invioce_generator')->nullable();
+        $table->string('team_user_id')->nullable();
+        $table->string('form59_a_invoices')->nullable();
 
         $table->timestamps();
     });

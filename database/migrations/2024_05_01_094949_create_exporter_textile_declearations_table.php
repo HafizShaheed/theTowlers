@@ -15,6 +15,24 @@ class CreateExporterTextileDeclearationsTable extends Migration
     {
         Schema::create('exporter_textile_declearations', function (Blueprint $table) {
             $table->id();
+
+            for ($i = 1; $i <= 10; $i++) {
+                $table->string('invoice_number' . $i)->nullable();
+                $table->string('b_l_number_' . $i)->nullable();
+                $table->string('Quantity_' . $i)->nullable();
+                $table->text('description_and_procedure_' . $i)->nullable(); // Changed to TEXT
+                $table->string('marks_or_identification_number' . $i)->nullable();
+                $table->string('country_of_origin_' . $i)->nullable();
+            }
+            $table->string('date')->nullable();
+            $table->string('title')->nullable();
+
+            $table->string('status')->default(0)->nullable();
+            $table->string('invioce_generator')->nullable();
+            $table->string('team_user_id')->nullable();
+            $table->string('exporter_textile_declearation_invoices')->nullable();
+
+
             $table->timestamps();
         });
     }

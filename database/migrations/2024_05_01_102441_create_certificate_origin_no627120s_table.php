@@ -15,6 +15,29 @@ class CreateCertificateOriginNo627120sTable extends Migration
     {
         Schema::create('certificate_origin_no627120s', function (Blueprint $table) {
             $table->id();
+            $table->string('exporter_name')->nullable();
+            $table->string('exporter_address')->nullable();
+            $table->string('exporter_country')->nullable();
+            $table->string('consignee_name')->nullable();
+            $table->string('consignee_address')->nullable();
+            $table->string('consignee_country')->nullable();
+            $table->string('ref_number')->nullable();
+            $table->string('exporter_membership_number')->nullable();
+            $table->string('particular_of_transport')->nullable();
+            for ($i = 1; $i <= 10; $i++) {
+                $table->string('marks_and_numbers_' . $i)->nullable();
+                $table->string('numbers_and_kinds_of_packges' . $i)->nullable();
+                $table->text('description_of_goods_' . $i)->nullable(); // Changed to TEXT
+                $table->string('gross_weight_or_other_quantity_' . $i)->nullable();
+                $table->string('county_of_origin' . $i)->nullable();
+              
+            }
+            $table->string('status')->default(0)->nullable();
+            $table->string('invioce_generator')->nullable();
+            $table->string('team_user_id')->nullable();
+            $table->string('date')->nullable();
+            $table->string('place')->nullable();
+            $table->string('certificate_origin_no627120_invoices')->nullable();
             $table->timestamps();
         });
     }
