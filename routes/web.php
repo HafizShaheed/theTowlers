@@ -204,7 +204,7 @@ Route::prefix('panel')->namespace('admin')->group(function () {
                 Route::get('/edit/{id}', 'adminController@edit_certificate_origin_no627120_invoice')->name('admin.edit_certificate_origin_no627120_invoice');
                 Route::post('/update_submit_certificate_origin_no627120_invoice', 'adminController@update_submit_certificate_origin_no627120_invoice')->name('admin.update_submit_certificate_origin_no627120_invoice');
 
-                Route::get('/view', 'adminController@view_certificate_origin_no627120_invoice')->name('admin.view_certificate_origin_no627120_invoice');
+                Route::get('/view/{id}', 'adminController@view_certificate_origin_no627120_invoice')->name('admin.view_certificate_origin_no627120_invoice');
                 Route::get('/activity/{id}', 'adminController@activity_certificate_origin_no627120_invoice')->name('admin.activity_certificate_origin_no627120_invoice');
             });
             Route::prefix('certificate-origin-com-dec')->group(function () {

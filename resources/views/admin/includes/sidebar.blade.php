@@ -74,17 +74,19 @@
                             class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">EXPORTER'S TEXTILE DECLARATION</a></li>
                         <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origins_invoice') }}"
                             class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE ORIGIN</a></li>
-                        <li><a class="nav-text" target="_blank" href="{{ URL::to('/panel/report/generate-pdf/2') }}">CERTIFICATE ORIGIN 627120</a></li>
+                        <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_no627120_invoice') }}"
+                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE ORIGIN 627120</a></li>
                         <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_com_dec_invoice') }}"
                             class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE ORIGIN <sub>(Combined Declaration)</sub></a></li>
-                        <li><a class="nav-text" target="_blank" href="{{ URL::to('/panel/report/generate-pdf/9') }}">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form IP</sub></a></li>
+                        <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_com_dec_form_ip_invoice') }}"
+                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form IP</sub></a></li>
                         <li><a class="nav-text" target="_blank" href="{{ URL::to('/panel/report/generate-pdf/10') }}">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form A</sub></a></li>
 
                     </ul>
                 </li>
                 
                 <li class="menu-title"></li>
-
+                
                 <li>
                     <a href="{{ route('admin.logout') }}" class="" aria-expanded="false">
                         <div class="menu-icon">
