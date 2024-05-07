@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class CertificateOriginNo627120History extends Model
 {
     use HasFactory;
+    protected $guarded =[];
+
 }

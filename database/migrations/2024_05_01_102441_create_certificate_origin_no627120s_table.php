@@ -29,7 +29,7 @@ class CreateCertificateOriginNo627120sTable extends Migration
                 $table->string('numbers_and_kinds_of_packges' . $i)->nullable();
                 $table->text('description_of_goods_' . $i)->nullable(); // Changed to TEXT
                 $table->string('gross_weight_or_other_quantity_' . $i)->nullable();
-                $table->string('county_of_origin' . $i)->nullable();
+                $table->string('county_of_origin_' . $i)->nullable();
               
             }
             $table->string('status')->default(0)->nullable();

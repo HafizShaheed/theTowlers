@@ -66,44 +66,32 @@
 
 
 
-                <h4 class="card-title"> {{strtoupper("Canada Custom Invoice Add")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Canada Custom Invoice</span>
+                <h4 class="card-title"> {{strtoupper("Certificate origins Add")}} <br>
+                    <span style="color:darkgray; font-size:12px;">Certificate origins</span>
                 </h4>
                 <div class="row">
                     <div class="col-sm-3 mb-3">
-                        <label for="canada_customer_invoice" class="form-label">Invoice</label>
-                        <input type="text" class="form-control custom-input" id="canada_customer_invoice" name="canada_customer_invoice"
+                        <label for="certificate_origin_invoices" class="form-label">Invoice</label>
+                        <input type="text" class="form-control custom-input" id="certificate_origin_invoices" name="certificate_origin_invoices"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="vender_name" class="form-label">Vender Name</label>
-                        <input type="text" class="form-control custom-input" id="vender_name" name="vender_name"
+                        <label for="exporter_name" class="form-label">Exporter Name</label>
+                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="vender_address" class="form-label">Vender Address</label>
-                        <input type="text" class="form-control custom-input" id="vender_address" name="vender_address"
+                        <label for="exporter_address" class="form-label">Exporter Address</label>
+                        <input type="text" class="form-control custom-input" id="exporter_address" name="exporter_address"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="vender_nom_et_adresse" class="form-label">Vender Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="vender_nom_et_adresse"
-                            name="vender_nom_et_adresse" value="">
+                        <label for="exporter_country" class="form-label">Exporter country</label>
+                        <input type="text" class="form-control custom-input" id="exporter_country"
+                            name="exporter_country" value="">
                     </div>
 
-                    <div class="col-sm-3 mb-3">
-                        <label for="date_of_direct_shipment_to_canada_1" class="form-label">Date of Direct Shipment to
-                            Canada 1</label>
-                        <input type="text" class="form-control custom-input" id="date_of_direct_shipment_to_canada_1"
-                            name="date_of_direct_shipment_to_canada_1" value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="date_of_direct_shipment_to_canada_2" class="form-label">Date of Direct Shipment to
-                            Canada 2</label>
-                        <input type="text" class="form-control custom-input" id="date_of_direct_shipment_to_canada_2"
-                            name="date_of_direct_shipment_to_canada_2" value="">
-                    </div>
-
+                    
                     <div class="col-sm-3 mb-3">
                         <label for="consignee_name" class="form-label">Consignee Name</label>
                         <input type="text" class="form-control custom-input" id="consignee_name" name="consignee_name"
@@ -115,116 +103,80 @@
                             name="consignee_address" value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="consignee_nom_et_adresse" class="form-label">Consignee Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="consignee_nom_et_adresse"
-                            name="consignee_nom_et_adresse" value="">
+                        <label for="consignee_country" class="form-label">Consignee country</label>
+                        <input type="text" class="form-control custom-input" id="consignee_country"
+                            name="consignee_country" value="">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="ref_number" class="form-label">Ref number </label>
+                        <input type="text" class="form-control custom-input" id="ref_number"
+                            name="ref_number" value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="purchaser_name" class="form-label">Purchaser Name</label>
-                        <input type="text" class="form-control custom-input" id="purchaser_name" name="purchaser_name"
+                        <label for="exporter_membership_number" class="form-label">Exporter membership number</label>
+                        <input type="text" class="form-control custom-input" id="exporter_membership_number"
+                            name="exporter_membership_number" value="">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="particular_of_transport" class="form-label">Particular of transport</label>
+                        <input type="text" class="form-control custom-input" id="particular_of_transport" name="particular_of_transport"
                             value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="purchaser_address" class="form-label">Purchaser Address</label>
-                        <input type="text" class="form-control custom-input" id="purchaser_address"
-                            name="purchaser_address" value="">
+                        <label for="date" class="form-label">Date</label>
+                        <input type="date" class="form-control custom-input" id="date"
+                            name="date" value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="purchaser_nom_et_adresse" class="form-label">Purchaser Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="purchaser_nom_et_adresse"
-                            name="purchaser_nom_et_adresse" value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="originator_name" class="form-label">Originator Name</label>
-                        <input type="text" class="form-control custom-input" id="originator_name" name="originator_name"
-                            value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="originator_address" class="form-label">Originator Address</label>
-                        <input type="text" class="form-control custom-input" id="originator_address"
-                            name="originator_address" value="">
+                        <label for="place" class="form-label">Place</label>
+                        <input type="text" class="form-control custom-input" id="place"
+                            name="place" value="">
                     </div>
 
-                    <div class="col-sm-3 mb-3">
-                        <label for="originator_nom_et_adresse" class="form-label">Originator Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="originator_nom_et_adresse"
-                            name="originator_nom_et_adresse" value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Exporter Name</label>
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_address" class="form-label">Exporter Address</label>
-                        <input type="text" class="form-control custom-input" id="exporter_address"
-                            name="exporter_address" value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_nom_et_adresse" class="form-label">Exporter Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="exporter_nom_et_adresse"
-                            name="exporter_nom_et_adresse" value="">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="transportation_place_of_direct_shipment_to_canada" class="form-label">Transportation
-                            Place of Direct </label>
-                        <input type="text" class="form-control custom-input"
-                            id="transportation_place_of_direct_shipment_to_canada"
-                            name="transportation_place_of_direct_shipment_to_canada" value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="country_of_origin_pays" class="form-label">Country of Origin (Pays)</label>
-                        <input type="text" class="form-control custom-input" id="country_of_origin_pays"
-                            name="country_of_origin_pays" value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="conditions_of_sale_and_terms_of_payment" class="form-label">Conditions of Sale and
-                            Terms of Payment</label>
-                        <input type="text" class="form-control custom-input"
-                            id="conditions_of_sale_and_terms_of_payment" name="conditions_of_sale_and_terms_of_payment"
-                            value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="agency_ruling" class="form-label">Agency Ruling</label>
-                        <input type="text" class="form-control custom-input" id="agency_ruling" name="agency_ruling"
-                            value="">
-                    </div>
+                    
 
 
 
                 </div>
-                <div class="row">
-                    <div class="col-sm-12 mb-3">
-                        <label for="description_pecification_of_commodities" class="form-label">Description of
-                            Commodity</label>
-                        <textarea class="form-control custom-input" id="description_pecification_of_commodities"
-                            name="description_pecification_of_commodities" rows="4"></textarea>
-                    </div>
-
-                </div>
+            
+                <hr>
+            
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
                     @for($i=1; $i <= 6; $i++) <div class="col-sm-4 mb-4">
-                        <label for="" class="form-label">Number of Packages </label>
+                        <label for="marks_and_numbers_" class="form-label">Mark & Number </label>
                         <input type="text" class="form-control custom-input"
-                            id="number_of_packages_nombre_de_coils_{{ $i }}"
-                            name="number_of_packages_nombre_de_coils_{{ $i }}" value="">
+                            id="marks_and_numbers_{{ $i }}"
+                            name="marks_and_numbers_{{ $i }}" value="">
                 </div>
 
                 <div class="col-sm-4 mb-4">
-                    <label for="quantity_{{ $i }}" class="form-label">Quantity</label>
-                    <input type="number" step="any" class="form-control custom-input" id="quantity_{{ $i }}"
-                        name="quantity_{{ $i }}" value="">
+                    <label for="numbers_and_kinds_of_packges_{{ $i }}" class="form-label">Numbers and kinds of packges</label>
+                    <input type="text" step="any" class="form-control custom-input" id="numbers_and_kinds_of_packges_{{ $i }}"
+                        name="numbers_and_kinds_of_packges_{{ $i }}" value="">
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <label for="description_of_goods_{{ $i }}" class="form-label">Description of goods</label>
+                    <input type="text" step="any" class="form-control custom-input" id="description_of_goods_{{ $i }}"
+                        name="description_of_goods_{{ $i }}" value="">
                 </div>
 
                 <div class="col-sm-4 mb-4">
-                    <label for="" class="form-label">Unit Price </label>
-                    <input type="number" step="any" class="form-control custom-input" id="unit_price_{{ $i }}"
-                        name="unit_price_{{ $i }}" value="">
+                    <label for="gross_weight_or_other_quantity_" class="form-label">Gross weight or other quantity</label>
+                    <input type="number" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
+                        name="gross_weight_or_other_quantity_{{ $i }}" value="">
                 </div>
+                
+                <div class="col-sm-4 mb-4">
+                    <label for="county_of_origin_{{ $i }}" class="form-label">County of origin </label>
+                    <input type="text" step="any" class="form-control custom-input" id="county_of_origin_{{ $i }}"
+                        name="county_of_origin_{{ $i }}" value="">
+                </div>
+                <hr>
 
                 @endfor
                 <!-- =========== Director1 ============ -->
@@ -283,7 +235,7 @@ $(document).ready(function() {
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            url: "{{ route('admin.submit_custom_canda_invoice') }}",
+            url: "{{ route('admin.submit_certificate_origins_invoice') }}",
             data: formData,
             dataType: "json",
             processData: false, // important for FormData
@@ -300,7 +252,7 @@ $(document).ready(function() {
                     timerProgressBar: true,
                     willClose: () => {
                         window.location.href =
-                            "{{ route('admin.report_List_custom_canda_invoice') }}"
+                            "{{ route('admin.report_List_certificate_origins_invoice') }}"
 
                     },
                 });

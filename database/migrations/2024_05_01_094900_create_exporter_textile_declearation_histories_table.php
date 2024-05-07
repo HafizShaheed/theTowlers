@@ -15,6 +15,7 @@ class CreateExporterTextileDeclearationHistoriesTable extends Migration
     {
         Schema::create('exporter_textile_declearation_histories', function (Blueprint $table) {
             $table->id();
+            
             $table->string('exporter_textile_declearation_id')->nullable();
             $table->string('editer_id')->nullable();
             $table->string('editer_name')->nullable();

@@ -17,14 +17,15 @@ class CreateExporterTextileDeclearationsTable extends Migration
             $table->id();
 
             for ($i = 1; $i <= 10; $i++) {
-                $table->string('invoice_number' . $i)->nullable();
+                $table->string('invoice_number_' . $i)->nullable();
                 $table->string('b_l_number_' . $i)->nullable();
-                $table->string('Quantity_' . $i)->nullable();
+                $table->string('quantity_' . $i)->nullable();
                 $table->text('description_and_procedure_' . $i)->nullable(); // Changed to TEXT
                 $table->string('marks_or_identification_number' . $i)->nullable();
                 $table->string('country_of_origin_' . $i)->nullable();
             }
             $table->string('date')->nullable();
+            $table->string('declared')->nullable();
             $table->string('title')->nullable();
 
             $table->string('status')->default(0)->nullable();

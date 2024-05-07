@@ -12,7 +12,7 @@
         <h2>Filter:</h2>
         <div class="card">
             <div class="card-body justify-content-start">
-                <form id="" action="{{route('admin.report_List_custom_canda_invoice')}}" class="row d-flex justify-content-between align-items-end">
+                <form id="" action="{{route('admin.report_List_exporter_textile_declearation_invoice')}}" class="row d-flex justify-content-between align-items-end">
                     <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
                         <label for="thirdPartyName">Team Member:</label>
                         <div class="d-flex justify-content-start align-items-start">
@@ -50,14 +50,14 @@
                     </div>
                     <div class="col-xl-1 col-sm-6 col-6 mt-4 mt-md-0">
                         <div class="d-flex justify-content-start align-items-start">
-                            <a href="{{route('admin.report_List_custom_canda_invoice')}}" class="btn btn report-tab-unactive"
+                            <a href="{{route('admin.report_List_exporter_textile_declearation_invoice')}}" class="btn btn report-tab-unactive"
                                 id="filter-reprot-btn">Reset</a>
                         </div>
                     </div>
                 </form>
                 <div class="col-xl-2 col-sm-6 col-6 mt-6 pt-2 ">
                         <div class="d-flex justify-content-start align-items-start">
-                            <a href="{{ URL::to('/panel/report/canda-costom_invoice/add') }}" class="" target="_blank">
+                            <a href="{{ URL::to('/panel/report/exporter-textile-declearation/add') }}" class="" target="_blank">
                             <button type="submit" class="btn btn report-tab-active"
                                 id="filter-reprot-btn">Add Report</button>
                             </a>
@@ -65,7 +65,7 @@
                         </div>
                     </div>
 
-                <!-- <form id="" action="{{route('admin.report_List_custom_canda_invoice')}}" class="row d-flex justify-content-between align-items-end">
+                <!-- <form id="" action="{{route('admin.report_List_exporter_textile_declearation_invoice')}}" class="row d-flex justify-content-between align-items-end">
 
                     <div class="col-xl-6 col-sm-3 col-3 ml-3 " >
                         <div class="c-list ">
@@ -115,19 +115,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($CanadaCustomerInvoiceFrom as $key => $value )
+                            @foreach ($ExporterTextileDeclearation as $key => $value )
                             <tr>
                                 <td><span>{{$value->id ?? ""}}</span></td>
 
 
                                 <td>
-                                    <span>{{$value->canada_customer_invoice ?? ""}}</span>
+                                    <span>{{$value->exporter_textile_declearation_invoices ?? ""}}</span>
                                 </td>
 
                                 <td><span>N/A</span></td>
                                 <td><span>{{ isset($value->created_at) ? $value->created_at->diffForHumans() : '' }}</span></td>
                                 <td>
-                                    @switch(1)
+                                    @switch(isset($value->status) ? $value->status : 0 )
                                     @case('1')
                                     <span class="badge badge-success border-0" title="Report Active">Active </span>
 
@@ -161,23 +161,23 @@
 
 
 
-                                    <button  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/canda-costom_invoice/view') }}" class="" target="_blank" title="View Reports">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/exporter-textile-declearation/view/'.$value->id) }}" class="" target="_blank" title="View Reports">
                                         View
-                                    </button>
-                                    <button  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel/report/canda-costom_invoice/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">
+                                    </a>
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel/report/exporter-textile-declearation/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">
                                         Edit
-                                    </button>
+                                    </a>
                                     <button  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="javascript:void(0)" class="thirdpartyIdForForComplete" data-thirdparty="">
                                         Done
                                     </button>
                                     <span></span>
-                                    <button  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/canda-costom_invoice/generate_custom_canda_invoic_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/exporter-textile-declearation/generate_exporter_textile_declearation_invoic_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
                                     PDF
-                                </button>
+                                </a>
 
-                                <button  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/canda-costom_invoice/activity/'.$value->id) }}" class="" target="_blank"  title="View Activity">
+                                <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/exporter-textile-declearation/activity/'.$value->id) }}" class="" target="_blank"  title="View Activity">
                                Activity
-                                </button>
+                                </a>
 
 
                                 </td>
@@ -255,7 +255,7 @@
                                 timer: 3000, // 3 seconds
                                 timerProgressBar: true,
                                 willClose: () => {
-                                    window.location.href = '{{ route("admin.report_List_custom_canda_invoice") }}';
+                                    window.location.href = '{{ route("admin.report_List_exporter_textile_declearation_invoice") }}';
                                 },
                             });
                         },
@@ -303,7 +303,7 @@
                                 timer: 3000, // 3 seconds
                                 timerProgressBar: true,
                                 willClose: () => {
-                                    window.location.href = '{{ route("admin.report_List_custom_canda_invoice") }}';
+                                    window.location.href = '{{ route("admin.report_List_exporter_textile_declearation_invoice") }}';
                                 },
                             });
                         },

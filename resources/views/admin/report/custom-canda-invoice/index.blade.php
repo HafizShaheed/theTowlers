@@ -161,23 +161,23 @@
 
 
 
-                                    <button  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/canda-costom_invoice/view') }}" class="" target="_blank" title="View Reports">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/canda-costom_invoice/view') }}" class="" target="_blank" title="View Reports">
                                         View
-                                    </button>
-                                    <button  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel/report/canda-costom_invoice/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">
+                                    </a>
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel/report/canda-costom_invoice/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">
                                         Edit
-                                    </button>
+                                    </a>
                                     <button  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="javascript:void(0)" class="thirdpartyIdForForComplete" data-thirdparty="">
                                         Done
                                     </button>
                                     <span></span>
-                                    <button  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/canda-costom_invoice/generate_custom_canda_invoic_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/canda-costom_invoice/generate_custom_canda_invoic_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
                                     PDF
-                                </button>
+                                </a>
 
-                                <button  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/canda-costom_invoice/activity/'.$value->id) }}" class="" target="_blank"  title="View Activity">
+                                <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/canda-costom_invoice/activity/'.$value->id) }}" class="" target="_blank"  title="View Activity">
                                Activity
-                                </button>
+                                </a>
 
 
                                 </td>

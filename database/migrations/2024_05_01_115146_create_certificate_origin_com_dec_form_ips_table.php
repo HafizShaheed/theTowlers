@@ -15,36 +15,39 @@ class CreateCertificateOriginComDecFormIpsTable extends Migration
     {
         Schema::create('certificate_origin_com_dec_form_ips', function (Blueprint $table) {
             $table->id();
-            $table->string('exporter_name')->nullable();
-            $table->string('exporter_address')->nullable();
-            $table->string('Producer_name')->nullable();
-            $table->string('Producer_address')->nullable();
-            $table->string('consignee_name')->nullable();
-            $table->string('consignee_address')->nullable();
-            $table->string('ref_number')->nullable();
-            $table->string('issue_country')->nullable();
-            $table->string('transport_and_route')->nullable();
+            $table->string('exporter_name', 100)->nullable();
+            $table->string('exporter_address', 255)->nullable();
+            $table->string('Producer_name', 100)->nullable();
+            $table->string('Producer_address', 255)->nullable();
+            $table->string('consignee_name', 100)->nullable();
+            $table->string('consignee_address', 255)->nullable();
+            $table->string('ref_number', 100)->nullable();
+            $table->string('issue_country', 100)->nullable();
+            $table->string('transport_and_route', 255)->nullable();
             $table->text('remarks')->nullable();
-            $table->string('produce_in_country')->nullable();
-            $table->string('importing_in_country')->nullable();
-            $table->string('yes_or_no_preferential_treatment')->nullable()->default(0);
+            $table->string('produce_in_country', 100)->nullable();
+            $table->string('importing_in_country', 100)->nullable();
+            $table->boolean('yes_or_no_preferential_treatment')->default(0)->nullable();
+        
             for ($i = 1; $i <= 10; $i++) {
-                $table->string('item_number_' . $i)->nullable();
-                $table->string('marks_and_numbers_' . $i)->nullable();
-                $table->string('numbers_and_kinds_of_packges_description_' . $i)->nullable();
-                $table->string('origin_criterion_' . $i)->nullable(); // Changed to TEXT
-                $table->string('gross_weight_or_other_quantity_' . $i)->nullable();
-                $table->string('number_and_dates_of_inovoices_' . $i)->nullable();
-              
+                $table->string('item_number_' . $i, 100)->nullable();
+                $table->string('marks_and_numbers_' . $i, 255)->nullable();
+                $table->string('numbers_and_kinds_of_packges_description_' . $i, 255)->nullable();
+                $table->text('origin_criterion_' . $i)->nullable(); // Changed to TEXT
+                $table->string('gross_weight_or_other_quantity_' . $i, 100)->nullable();
+                $table->string('number_and_dates_of_inovoices_' . $i, 255)->nullable();
             }
-            $table->string('status')->default(0)->nullable();
-            $table->string('invioce_generator')->nullable();
-            $table->string('team_user_id')->nullable();
-            $table->string('date')->nullable();
-            $table->string('place')->nullable();
-            $table->string('certificate_origin_com_decs_from_ip_invoices')->nullable();
+        
+            $table->string('status', 10)->default(0)->nullable();
+            $table->string('invioce_generator', 100)->nullable();
+            $table->string('team_user_id', 100)->nullable();
+            $table->string('date', 100)->nullable();
+            $table->string('place', 100)->nullable();
+            $table->string('certificate_origin_com_decs_from_ip_invoices', 100)->nullable();
+        
             $table->timestamps();
         });
+        
     }
 
     /**

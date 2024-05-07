@@ -66,167 +66,80 @@
 
 
 
-                <h4 class="card-title"> {{strtoupper("Canada Custom Invoice Edit")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Canada Custom Invoice</span>
+                <h4 class="card-title"> {{strtoupper("Exporter textile declearation Invoice Edit")}} <br>
+                    <span style="color:darkgray; font-size:12px;">Exporter textile declearation Invoice</span>
                 </h4>
                 <div class="row">
-                <input type="hidden" class="form-control custom-input" id="id" name="id" value="{{$editCanadaCustomerInvoiceFrom->id}}">
-
                     <div class="col-sm-3 mb-3">
-                        <label for="canada_customer_invoice" class="form-label">Invoice</label>
-                        <input type="text" class="form-control custom-input" id="canada_customer_invoice" name="canada_customer_invoice"
-                            value="{{$editCanadaCustomerInvoiceFrom->canada_customer_invoice}}">
+                        <label for="exporter_textile_declearation_invoices" class="form-label">Invoice</label>
+                        <input type="text" class="form-control custom-input" id="exporter_textile_declearation_invoices" name="exporter_textile_declearation_invoices"
+                            value="{{ $ExporterTextileDeclearation->exporter_textile_declearation_invoices }}" >
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="vender_name" class="form-label">Vender Name</label>
-                        <input type="text" class="form-control custom-input" id="vender_name" name="vender_name"
-                            value="{{$editCanadaCustomerInvoiceFrom->vender_name}}">
+                        <label for="date" class="form-label">Date</label>
+                        <input type="hidden" class="form-control custom-input" id="id" name="id"
+                        value="{{ $ExporterTextileDeclearation->id }}" >
+                        <input type="date" class="form-control custom-input" id="date" name="date"
+                            value="{{ $ExporterTextileDeclearation->date }}" >
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="vender_address" class="form-label">Vender Address</label>
-                        <input type="text" class="form-control custom-input" id="vender_address" name="vender_address"
-                            value="{{$editCanadaCustomerInvoiceFrom->vender_address}}">
+                        <label for="title" class="form-label">title</label>
+                        <input type="text" class="form-control custom-input" id="title" name="title"
+                            value="{{ $ExporterTextileDeclearation->title }}" >
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="vender_nom_et_adresse" class="form-label">Vender Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="vender_nom_et_adresse"
-                            name="vender_nom_et_adresse" value="{{$editCanadaCustomerInvoiceFrom->vender_nom_et_adresse}}">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="date_of_direct_shipment_to_canada_1" class="form-label">Date of Direct Shipment to
-                            Canada 1</label>
-                        <input type="text" class="form-control custom-input" id="date_of_direct_shipment_to_canada_1"
-                            name="date_of_direct_shipment_to_canada_1" value="{{$editCanadaCustomerInvoiceFrom->date_of_direct_shipment_to_canada_1}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="date_of_direct_shipment_to_canada_2" class="form-label">Date of Direct Shipment to
-                            Canada 2</label>
-                        <input type="text" class="form-control custom-input" id="date_of_direct_shipment_to_canada_2"
-                            name="date_of_direct_shipment_to_canada_2" value="{{$editCanadaCustomerInvoiceFrom->date_of_direct_shipment_to_canada_2}}">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="consignee_name" class="form-label">Consignee Name</label>
-                        <input type="text" class="form-control custom-input" id="consignee_name" name="consignee_name"
-                            value="{{$editCanadaCustomerInvoiceFrom->consignee_name}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="consignee_address" class="form-label">Consignee Address</label>
-                        <input type="text" class="form-control custom-input" id="consignee_address"
-                            name="consignee_address" value="{{$editCanadaCustomerInvoiceFrom->consignee_address}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="consignee_nom_et_adresse" class="form-label">Consignee Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="consignee_nom_et_adresse"
-                            name="consignee_nom_et_adresse" value="{{$editCanadaCustomerInvoiceFrom->consignee_nom_et_adresse}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="purchaser_name" class="form-label">Purchaser Name</label>
-                        <input type="text" class="form-control custom-input" id="purchaser_name" name="purchaser_name"
-                            value="{{$editCanadaCustomerInvoiceFrom->purchaser_name}}">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="purchaser_address" class="form-label">Purchaser Address</label>
-                        <input type="text" class="form-control custom-input" id="purchaser_address"
-                            name="purchaser_address" value="{{$editCanadaCustomerInvoiceFrom->purchaser_address}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="purchaser_nom_et_adresse" class="form-label">Purchaser Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="purchaser_nom_et_adresse"
-                            name="purchaser_nom_et_adresse" value="{{$editCanadaCustomerInvoiceFrom->purchaser_nom_et_adresse}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="originator_name" class="form-label">Originator Name</label>
-                        <input type="text" class="form-control custom-input" id="originator_name" name="originator_name"
-                            value="{{$editCanadaCustomerInvoiceFrom->originator_name}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="originator_address" class="form-label">Originator Address</label>
-                        <input type="text" class="form-control custom-input" id="originator_address"
-                            name="originator_address" value="{{$editCanadaCustomerInvoiceFrom->originator_address}}">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="originator_nom_et_adresse" class="form-label">Originator Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="originator_nom_et_adresse"
-                            name="originator_nom_et_adresse" value="{{$editCanadaCustomerInvoiceFrom->originator_nom_et_adresse}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Exporter Name</label>
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="{{$editCanadaCustomerInvoiceFrom->exporter_name}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_address" class="form-label">Exporter Address</label>
-                        <input type="text" class="form-control custom-input" id="exporter_address"
-                            name="exporter_address" value="{{$editCanadaCustomerInvoiceFrom->exporter_address}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_nom_et_adresse" class="form-label">Exporter Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="exporter_nom_et_adresse"
-                            name="exporter_nom_et_adresse" value="{{$editCanadaCustomerInvoiceFrom->exporter_nom_et_adresse}}">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="transportation_place_of_direct_shipment_to_canada" class="form-label">Transportation
-                            Place of Direct </label>
-                        <input type="text" class="form-control custom-input"
-                            id="transportation_place_of_direct_shipment_to_canada"
-                            name="transportation_place_of_direct_shipment_to_canada" value="{{$editCanadaCustomerInvoiceFrom->transportation_place_of_direct_shipment_to_canada}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="country_of_origin_pays" class="form-label">Country of Origin (Pays)</label>
-                        <input type="text" class="form-control custom-input" id="country_of_origin_pays"
-                            name="country_of_origin_pays" value="{{$editCanadaCustomerInvoiceFrom->country_of_origin_pays}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="conditions_of_sale_and_terms_of_payment" class="form-label">Conditions of Sale and
-                            Terms of Payment</label>
-                        <input type="text" class="form-control custom-input"
-                            id="conditions_of_sale_and_terms_of_payment" name="conditions_of_sale_and_terms_of_payment"
-                            value="{{$editCanadaCustomerInvoiceFrom->conditions_of_sale_and_terms_of_payment}}">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="agency_ruling" class="form-label">Agency Ruling</label>
-                        <input type="text" class="form-control custom-input" id="agency_ruling" name="agency_ruling"
-                            value="{{$editCanadaCustomerInvoiceFrom->agency_ruling}}">
+                        <label for="declared" class="form-label">Declared</label>
+                        <input type="text" class="form-control custom-input" id="declared"
+                            name="declared" value="{{ $ExporterTextileDeclearation->declared }}" >
                     </div>
 
 
 
                 </div>
-                <div class="row">
-                    <div class="col-sm-12 mb-3">
-                        <label for="description_pecification_of_commodities" class="form-label">Description of
-                            Commodity</label>
-                        <textarea class="form-control custom-input" id="description_pecification_of_commodities"
-                            name="description_pecification_of_commodities" rows="4">{{$editCanadaCustomerInvoiceFrom->description_pecification_of_commodities}}</textarea>
-                    </div>
+              
 
-                </div>
+                <hr>
+            
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) <div class="col-sm-4 mb-4">
-                        <label for="" class="form-label">Number of Packages </label>
+                    @for($i=1; $i <= 6; $i++) 
+                    <div class="col-sm-4 mb-4">
+                        <label for="invoice_number_" class="form-label">Invoice number </label>
                         <input type="text" class="form-control custom-input"
-                            id="number_of_packages_nombre_de_coils_{{ $i }}"
-                            name="number_of_packages_nombre_de_coils_{{ $i }}" value="{{ $editCanadaCustomerInvoiceFrom->{'number_of_packages_nombre_de_coils_' . $i} }}">
+                            id="invoice_number_{{ $i }}"
+                            name="invoice_number_{{ $i }}" value="{{ $ExporterTextileDeclearation->{'invoice_number_' . $i} }}"  >
                 </div>
+                <div class="col-sm-4 mb-4">
+                    <label for="b_l_number_" class="form-label">B/L
+                        NUMBER </label>
+                    <input type="text" class="form-control custom-input"
+                        id="b_l_number_{{ $i }}"
+                        name="b_l_number_{{ $i }}" value="{{ $ExporterTextileDeclearation->{'b_l_number_' . $i} }}" >
+            </div>
+
+               
+                <div class="col-sm-4 mb-4">
+                    <label for="marks_or_identification_number{{ $i }}" class="form-label"> MARKS OR
+                        IDENTIFICATION NUMBER</label>
+                    <input type="text" step="any" class="form-control custom-input" id="marks_or_identification_number{{ $i }}"
+                        name="marks_or_identification_number{{ $i }}" value="{{ $ExporterTextileDeclearation->{'marks_or_identification_number' . $i} }}" >
+                </div>
+             
 
                 <div class="col-sm-4 mb-4">
-                    <label for="quantity_{{ $i }}" class="form-label">Quantity</label>
-                    <input type="number" step="any" class="form-control custom-input" id="quantity_{{ $i }}"
-                        name="quantity_{{ $i }}" value="{{ $editCanadaCustomerInvoiceFrom->{'quantity_' . $i} }}">
+                    <label for="description_and_procedure_" class="form-label"> DESCRIPTION OR
+                        PROCEDURE</label>
+                    <input type="number" step="any" class="form-control custom-input" id="description_and_procedure_{{ $i }}"
+                        name="description_and_procedure_{{ $i }}" value="{{ $ExporterTextileDeclearation->{'description_and_procedure_' . $i} }}">
                 </div>
-
+                
                 <div class="col-sm-4 mb-4">
-                    <label for="" class="form-label">Unit Price </label>
-                    <input type="number" step="any" class="form-control custom-input" id="unit_price_{{ $i }}"
-                        name="unit_price_{{ $i }}" value="{{ $editCanadaCustomerInvoiceFrom->{'unit_price_' . $i} }}">
+                    <label for="country_of_origin_{{ $i }}" class="form-label">Current domestic value currency of exporting</label>
+                    <input type="text" step="any" class="form-control custom-input" id="country_of_origin_{{ $i }}"
+                        name="country_of_origin_{{ $i }}" value="{{ $ExporterTextileDeclearation->{'country_of_origin_' . $i} }}" >
                 </div>
+                <hr>
 
                 @endfor
                 <!-- =========== Director1 ============ -->
@@ -285,7 +198,7 @@ $(document).ready(function() {
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            url: "{{ route('admin.update_submit_custom_canda_invoice') }}",
+            url: "{{ route('admin.update_submit_exporter_textile_declearation_invoice') }}",
             data: formData,
             dataType: "json",
             processData: false, // important for FormData
@@ -294,15 +207,15 @@ $(document).ready(function() {
                 console.log(response);
 
                 Swal.fire({
-                    title: "Updated Successfully!",
+                    title: "Success!",
                     text: response.message,
                     icon: "success",
                     confirmButtonText: "OK",
-                    timer: 3000, // 3 seconds
+                    timer: 1000, // 3 seconds
                     timerProgressBar: true,
                     willClose: () => {
                         window.location.href =
-                            "{{ route('admin.report_List_custom_canda_invoice') }}"
+                            "{{ route('admin.report_List_exporter_textile_declearation_invoice') }}"
 
                     },
                 });
