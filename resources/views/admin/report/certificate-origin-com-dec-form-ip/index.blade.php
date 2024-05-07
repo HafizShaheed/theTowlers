@@ -171,7 +171,7 @@
                                         Done
                                     </button>
                                     <span></span>
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/certificate-origin-com-dec-from-ip/generate_certificate_origin_com_dec_invoic_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/certificate-origin-com-dec-from-ip/generate_certificate_origin_com_dec_form_ip_invoic_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
                                     PDF
                                 </a>
 

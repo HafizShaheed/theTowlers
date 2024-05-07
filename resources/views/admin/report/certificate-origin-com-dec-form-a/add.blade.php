@@ -66,13 +66,13 @@
 
 
 
-                <h4 class="card-title"> {{strtoupper("Certificate origins Combined Declaration Add")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Certificate origins Combined Declaration </span>
+                <h4 class="card-title"> {{strtoupper("Certificate origins form A Add")}} <br>
+                    <span style="color:darkgray; font-size:12px;">Certificate origins form A </span>
                 </h4>
                 <div class="row">
                     <div class="col-sm-3 mb-3">
-                        <label for="certificate_origin_com_decs_invoices" class="form-label">Invoice</label>
-                        <input type="text" class="form-control custom-input" id="certificate_origin_com_decs_invoices" name="certificate_origin_com_decs_invoices"
+                        <label for="certificate_origin_com_decs_from_a_invoices" class="form-label">Invoice</label>
+                        <input type="text" class="form-control custom-input" id="certificate_origin_com_decs_from_a_invoices" name="certificate_origin_com_decs_from_a_invoices"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
@@ -90,7 +90,7 @@
                         <input type="text" class="form-control custom-input" id="exporter_country"
                             name="exporter_country" value="">
                     </div>
-
+                   
                     
                     <div class="col-sm-3 mb-3">
                         <label for="consignee_name" class="form-label">Consignee Name</label>
@@ -114,9 +114,9 @@
                             name="ref_number" value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_membership_number" class="form-label">Exporter membership number</label>
-                        <input type="text" class="form-control custom-input" id="exporter_membership_number"
-                            name="exporter_membership_number" value="">
+                        <label for="issue_country" class="form-label">Issue country</label>
+                        <input type="text" class="form-control custom-input" id="issue_country"
+                            name="issue_country" value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
@@ -124,6 +124,22 @@
                         <input type="text" class="form-control custom-input" id="transport_and_route" name="transport_and_route"
                             value="">
                     </div>
+                 
+                    <div class="col-sm-3 mb-3">
+                        <label for="produce_in_country" class="form-label">Produce in country </label>
+                        <input type="text" class="form-control custom-input" id="produce_in_country" name="produce_in_country"
+                            value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="importing_in_country" class="form-label">Importing in country </label>
+                        <input type="text" class="form-control custom-input" id="importing_in_country" name="importing_in_country"
+                            value="">
+                    </div>
+
+                  
+                    
+                    
+
 
                     <div class="col-sm-3 mb-3">
                         <label for="date" class="form-label">Date</label>
@@ -242,7 +258,7 @@ $(document).ready(function() {
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            url: "{{ route('admin.submit_certificate_origin_com_dec_invoice') }}",
+            url: "{{ route('admin.submit_certificate_origin_com_dec_form_a_invoice') }}",
             data: formData,
             dataType: "json",
             processData: false, // important for FormData
@@ -259,7 +275,7 @@ $(document).ready(function() {
                     timerProgressBar: true,
                     willClose: () => {
                         window.location.href =
-                            "{{ route('admin.report_List_certificate_origin_com_dec_invoice') }}"
+                            "{{ route('admin.report_List_certificate_origin_com_dec_form_a_invoice') }}"
 
                     },
                 });

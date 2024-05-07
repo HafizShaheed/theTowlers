@@ -592,6 +592,96 @@ class adminController extends Controller
         return view('admin.report.form-59-A-invoice.activity', $data);
     }
 
+    function form_59_invoice_resubmit(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('formId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = Form59AInvoice::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new Form59AInvoice();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 2;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new Form59AHistory();
+            $Form59AHistory->form59_a_invoice_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    function form_59_invoice_completed(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('forCompetingFormId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = Form59AInvoice::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new Form59AInvoice();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 3;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new Form59AHistory();
+            $Form59AHistory->form59_a_invoice_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
     //==================== form 59 A invioce end ======================//
 
 
@@ -1280,9 +1370,9 @@ class adminController extends Controller
      //==================== certificate_origin_com_dec_form_ip_invioce start ======================//
      function report_List_certificate_origin_com_dec_form_ip_invoice(Request $request)
      {
-         $data['title'] = "Canada Custom Invoice";
-         $data['page'] = "Canada Custom Invoice";
-         $data['pageIntro'] = "Canada Custom Invoice";
+         $data['title'] = "Certificate origin  IP";
+         $data['page'] = "Certificate origin  IP";
+         $data['pageIntro'] = "Certificate origin  IP";
          $data['CertificateOriginComDecFormIp'] = CertificateOriginComDecFormIp::get();
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
          // dd($data);
@@ -1310,9 +1400,9 @@ class adminController extends Controller
  
      function add_certificate_origin_com_dec_form_ip_invoice(){
  
-         $data['title'] = "Canada Custom Invoicet";
-         $data['page'] = "Canada Custom Invoice";
-         $data['pageIntro'] = "Canada Custom Invoice Add";
+         $data['title'] = "Certificate origin  IP Add";
+         $data['page'] = "Certificate origin  IP Add";
+         $data['pageIntro'] = "Certificate origin  IP Add";
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
  
          return view('admin.report.certificate-origin-com-dec-form-ip.add', $data);
@@ -1357,10 +1447,11 @@ class adminController extends Controller
      }
  
      function edit_certificate_origin_com_dec_form_ip_invoice($id){
-         $data['title'] = "Reports Management";
-         $data['page'] = "Reports Management";
-         $data['pageIntro'] = "Reports Edit";
+         $data['title'] = "Certificate origin  IP";
+         $data['page'] = "Certificate origin  IP ";
+         $data['pageIntro'] = "Certificate origin  IP Edit";
          $data['CertificateOriginComDecFormIp'] = CertificateOriginComDecFormIp::where('id',$id)->first();
+        //  dd($data['CertificateOriginComDecFormIp']);
          if (!$data['CertificateOriginComDecFormIp']) {
              return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
          }
@@ -1415,20 +1506,23 @@ class adminController extends Controller
      }
  
  
-     function view_certificate_origin_com_dec_form_ip_invoice(){
-         $data['title'] = "Reports Management";
-         $data['page'] = "Reports Management";
-         $data['pageIntro'] = "Reports View";
+     function view_certificate_origin_com_dec_form_ip_invoice($id){
+         $data['title'] = "Certificate origin  IP  View";
+         $data['page'] = "Certificate origin  IP  View";
+         $data['pageIntro'] = "Certificate origin  IP  View";
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
- 
+         $data['CertificateOriginComDecFormIp'] = CertificateOriginComDecFormIp::where('id',$id)->first();
+         if (!$data['CertificateOriginComDecFormIp']) {
+             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
+         }
          return view('admin.report.certificate-origin-com-dec-form-ip.view', $data);
      }
  
      function activity_certificate_origin_com_dec_form_ip_invoice($id){
-         $data['title'] = "Reports Management";
-         $data['page'] = "Reports Management";
+         $data['title'] = "Certificate origin  IP  Activity";
+         $data['page'] = "Certificate origin  IP  Activity";
  
-         $data['pageIntro'] = "Reports Activity";
+         $data['pageIntro'] = "Certificate origin  IP  Activity";
          $data['getAllCertificateOriginComDecFormIp'] = CertificateOriginComDecFormIpHistory::where('certificate_origin_com_dec_form_ip_id', $id)->get();
  
          if ($data['getAllCertificateOriginComDecFormIp']->isEmpty()) {
@@ -1446,9 +1540,9 @@ class adminController extends Controller
      //==================== certificate_origin_com_dec_form_a_invioce start ======================//
      function report_List_certificate_origin_com_dec_form_a_invoice(Request $request)
      {
-         $data['title'] = "Canada Custom Invoice";
-         $data['page'] = "Canada Custom Invoice";
-         $data['pageIntro'] = "Canada Custom Invoice";
+         $data['title'] = "Certificate origin  A";
+         $data['page'] = "Certificate origin  A";
+         $data['pageIntro'] = "Certificate origin  A";
          $data['CertificateOriginComDecFormA'] = CertificateOriginComDecFormA::get();
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
          // dd($data);
@@ -1476,9 +1570,9 @@ class adminController extends Controller
  
      function add_certificate_origin_com_dec_form_a_invoice(){
  
-         $data['title'] = "Canada Custom Invoicet";
-         $data['page'] = "Canada Custom Invoice";
-         $data['pageIntro'] = "Canada Custom Invoice Add";
+         $data['title'] = "Certificate origin  A";
+         $data['page'] = "Certificate origin  A";
+         $data['pageIntro'] = "Certificate origin  A Add";
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
  
          return view('admin.report.certificate-origin-com-dec-form-a.add', $data);
@@ -1496,20 +1590,10 @@ class adminController extends Controller
              $CertificateOriginComDecFormA = new CertificateOriginComDecFormA();
              $CertificateOriginComDecFormA->invioce_generator = rand(0000, 9999).now();
          $CertificateOriginComDecFormA->team_user_id = $request->input('team_user_id');
-         $CertificateOriginComDecFormA->canada_customer_invoice = $request->input('canada_customer_invoice');
-        
-         // Create related records using loop
-         for ($i = 1; $i <= 6; $i++) {
+
+         $CertificateOriginComDecFormA->fill($request->all());
  
-             // Packages
-             $CertificateOriginComDecFormA->{"number_of_packages_nombre_de_coils_$i"} = $request->input("number_of_packages_nombre_de_coils_$i");
-             // Quantity
-             $CertificateOriginComDecFormA->{"quantity_$i"} = $request->input("quantity_$i");
-             // Unit Price
- 
-             $CertificateOriginComDecFormA->{"unit_price_$i"} = $request->input("unit_price_$i");
-          }
- 
+         // Save the CertificateOriginComDecFormA model
          $CertificateOriginComDecFormA->save();
  
          $CertificateOriginComDecFormAHistory = new CertificateOriginComDecFormAHistory();
@@ -1533,9 +1617,9 @@ class adminController extends Controller
      }
  
      function edit_certificate_origin_com_dec_form_a_invoice($id){
-         $data['title'] = "Reports Management";
-         $data['page'] = "Reports Management";
-         $data['pageIntro'] = "Reports Edit";
+         $data['title'] = "Certificate origin  A";
+         $data['page'] = "Certificate origin  A";
+         $data['pageIntro'] = "Certificate origin  A Edit";
          $data['CertificateOriginComDecFormA'] = CertificateOriginComDecFormA::where('id',$id)->first();
          if (!$data['CertificateOriginComDecFormA']) {
              return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
@@ -1567,15 +1651,7 @@ class adminController extends Controller
              // Save the CertificateOriginComDecFormA model
              $CertificateOriginComDecFormA->save();
  
-             // Create or update related records using a loop
-             for ($i = 1; $i <= 6; $i++) {
-                 // Packages
-                 $CertificateOriginComDecFormA->{"number_of_packages_nombre_de_coils_$i"} = $request->input("number_of_packages_nombre_de_coils_$i");
-                 // Quantity
-                 $CertificateOriginComDecFormA->{"quantity_$i"} = $request->input("quantity_$i");
-                 // Unit Price
-                 $CertificateOriginComDecFormA->{"unit_price_$i"} = $request->input("unit_price_$i");
-             }
+         
  
              // Save the CanadaCustomerInvoiceFrom model again after updating related records
              $CertificateOriginComDecFormA->save();
@@ -1600,21 +1676,24 @@ class adminController extends Controller
      }
  
  
-     function view_certificate_origin_com_dec_form_a_invoice(){
-         $data['title'] = "Reports Management";
-         $data['page'] = "Reports Management";
-         $data['pageIntro'] = "Reports View";
+     function view_certificate_origin_com_dec_form_a_invoice($id){
+         $data['title'] = "Certificate origin  A View";
+         $data['page'] = "Certificate origin  A View";
+         $data['pageIntro'] = "Certificate origin  A View";
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
- 
+         $data['CertificateOriginComDecFormA'] = CertificateOriginComDecFormA::where('id',$id)->first();
+         if (!$data['CertificateOriginComDecFormA']) {
+             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
+         }
          return view('admin.report.certificate-origin-com-dec-form-a.view', $data);
      }
  
      function activity_certificate_origin_com_dec_form_a_invoice($id){
-         $data['title'] = "Reports Management";
-         $data['page'] = "Reports Management";
+         $data['title'] = "Certificate origin  A Activity";
+         $data['page'] = "Certificate origin  A Activity";
  
-         $data['pageIntro'] = "Reports Activity";
-         $data['getAllCertificateOriginComDecFormA'] = CertificateOriginComDecFormA::where('canada_customer_invoice_from_id', $id)->get();
+         $data['pageIntro'] = "Certificate origin  A Activity";
+         $data['getAllCertificateOriginComDecFormA'] = CertificateOriginComDecFormAHistory::where('certificate_origin_com_dec_form_a_id', $id)->get();
  
          if ($data['getAllCertificateOriginComDecFormA']->isEmpty()) {
              return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');

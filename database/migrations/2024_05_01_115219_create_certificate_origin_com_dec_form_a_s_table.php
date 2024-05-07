@@ -42,7 +42,7 @@ class CreateCertificateOriginComDecFormASTable extends Migration
             $table->string('team_user_id', 100)->nullable();
             $table->string('date', 100)->nullable();
             $table->string('place', 100)->nullable();
-            $table->string('certificate_origin_com_decs_from_ip_invoices', 100)->nullable();
+            $table->string('certificate_origin_com_decs_from_a_invoices', 100)->nullable();
         
             $table->timestamps();
         });

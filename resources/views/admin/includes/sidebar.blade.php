@@ -80,7 +80,8 @@
                             class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE ORIGIN <sub>(Combined Declaration)</sub></a></li>
                         <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_com_dec_form_ip_invoice') }}"
                             class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form IP</sub></a></li>
-                        <li><a class="nav-text" target="_blank" href="{{ URL::to('/panel/report/generate-pdf/10') }}">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form A</sub></a></li>
+                        <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_com_dec_form_a_invoice') }}"
+                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form A</sub></a></li>
 
                     </ul>
                 </li>

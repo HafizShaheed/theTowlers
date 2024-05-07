@@ -158,6 +158,8 @@ Route::prefix('panel')->namespace('admin')->group(function () {
 
                 Route::get('/', 'adminController@report_List_form_59_a_invoice')->name('admin.report_List_form_59_a_invoice');
                 Route::get('/generate_form_59_a_invoic_PDF/{id}', 'adminController@generate_form_59_a_invoic_PDF')->name('admin.generate_form_59_a_invoic_PDF');;
+                Route::post('/form_59_invoice_resubmit', 'adminController@form_59_invoice_resubmit')->name('admin.form_59_invoice_resubmit');;
+                Route::post('/form_59_invoice_completed', 'adminController@form_59_invoice_completed')->name('admin.form_59_invoice_completed');;
 
                 Route::get('/add', 'adminController@add_form_59_a_invoice')->name('admin.add_form_59_a_invoice');
                 Route::post('/submit_form_59_a_invoice', 'adminController@submit_form_59_a_invoice')->name('admin.submit_form_59_a_invoice');
@@ -230,7 +232,7 @@ Route::prefix('panel')->namespace('admin')->group(function () {
                 Route::get('/edit/{id}', 'adminController@edit_certificate_origin_com_dec_form_ip_invoice')->name('admin.edit_certificate_origin_com_dec_form_ip_invoice');
                 Route::post('/update_submit_certificate_origin_com_dec_form_ip_invoice', 'adminController@update_submit_certificate_origin_com_dec_form_ip_invoice')->name('admin.update_submit_certificate_origin_com_dec_form_ip_invoice');
 
-                Route::get('/view', 'adminController@view_certificate_origin_com_dec_form_ip_invoice')->name('admin.view_certificate_origin_com_dec_form_ip_invoice');
+                Route::get('/view/{id}', 'adminController@view_certificate_origin_com_dec_form_ip_invoice')->name('admin.view_certificate_origin_com_dec_form_ip_invoice');
                 Route::get('/activity/{id}', 'adminController@activity_certificate_origin_com_dec_form_ip_invoice')->name('admin.activity_certificate_origin_com_dec_form_ip_invoice');
             });
 
@@ -244,7 +246,7 @@ Route::prefix('panel')->namespace('admin')->group(function () {
                 Route::get('/edit/{id}', 'adminController@edit_certificate_origin_com_dec_form_a_invoice')->name('admin.edit_certificate_origin_com_dec_form_a_invoice');
                 Route::post('/update_submit_certificate_origin_com_dec_form_a_invoice', 'adminController@update_submit_certificate_origin_com_dec_form_a_invoice')->name('admin.update_submit_certificate_origin_com_dec_form_a_invoice');
 
-                Route::get('/view', 'adminController@view_certificate_origin_com_dec_form_a_invoice')->name('admin.view_certificate_origin_com_dec_form_a_invoice');
+                Route::get('/view/{id}', 'adminController@view_certificate_origin_com_dec_form_a_invoice')->name('admin.view_certificate_origin_com_dec_form_a_invoice');
                 Route::get('/activity/{id}', 'adminController@activity_certificate_origin_com_dec_form_a_invoice')->name('admin.activity_certificate_origin_com_dec_form_a_invoice');
             });
             // =======================================

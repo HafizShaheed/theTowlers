@@ -66,76 +66,92 @@
 
 
 
-                <h4 class="card-title"> {{strtoupper("Certificate origins Combined Declaration Edit")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Certificate origins Combined Declaration </span>
+                <h4 class="card-title"> {{strtoupper("Certificate origins form A Edit")}} <br>
+                    <span style="color:darkgray; font-size:12px;">Certificate origins form A </span>
                 </h4>
                 <div class="row">
                     <div class="col-sm-3 mb-3">
-                        <label for="certificate_origin_com_decs_invoices" class="form-label">Invoice</label>
-                        <input type="text" class="form-control custom-input" id="certificate_origin_com_decs_invoices" name="certificate_origin_com_decs_invoices"
-                             value="{{ $CertificateOriginComDec->certificate_origin_com_decs_invoices }}">
+                        <label for="certificate_origin_com_decs_from_a_invoices" class="form-label">Invoice</label>
+                        <input type="text" class="form-control custom-input" id="certificate_origin_com_decs_from_a_invoices" name="certificate_origin_com_decs_from_a_invoices"
+                           value="{{ $CertificateOriginComDecFormA->{'certificate_origin_com_decs_from_a_invoices'} }}">
+                           <input type="hidden" class="form-control custom-input" id="id" name="id"
+                           value="{{ $CertificateOriginComDecFormA->{'id'} }}">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_name" class="form-label">Exporter Name</label>
                         <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                             value="{{ $CertificateOriginComDec->exporter_name }}">
-                             <input type="hidden" class="form-control custom-input" id="id" name="id"
-                             value="{{ $CertificateOriginComDec->id }}">
+                           value="{{ $CertificateOriginComDecFormA->{'exporter_name'} }}">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_address" class="form-label">Exporter Address</label>
                         <input type="text" class="form-control custom-input" id="exporter_address" name="exporter_address"
-                             value="{{ $CertificateOriginComDec->exporter_address }}">
+                           value="{{ $CertificateOriginComDecFormA->{'exporter_address'} }}">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_country" class="form-label">Exporter country</label>
                         <input type="text" class="form-control custom-input" id="exporter_country"
-                            name="exporter_country"  value="{{ $CertificateOriginComDec->exporter_country }}">
+                            name="exporter_country"value="{{ $CertificateOriginComDecFormA->{'exporter_country'} }}">
                     </div>
-
+                   
                     
                     <div class="col-sm-3 mb-3">
                         <label for="consignee_name" class="form-label">Consignee Name</label>
                         <input type="text" class="form-control custom-input" id="consignee_name" name="consignee_name"
-                             value="{{ $CertificateOriginComDec->consignee_name }}">
+                           value="{{ $CertificateOriginComDecFormA->{'consignee_name'} }}">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="consignee_address" class="form-label">Consignee Address</label>
                         <input type="text" class="form-control custom-input" id="consignee_address"
-                            name="consignee_address"  value="{{ $CertificateOriginComDec->consignee_address }}">
+                            name="consignee_address"value="{{ $CertificateOriginComDecFormA->{'consignee_address'} }}">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="consignee_country" class="form-label">Consignee country</label>
                         <input type="text" class="form-control custom-input" id="consignee_country"
-                            name="consignee_country"  value="{{ $CertificateOriginComDec->consignee_country }}">
+                            name="consignee_country"value="{{ $CertificateOriginComDecFormA->{'consignee_country'} }}">
                     </div>
 
                     <div class="col-sm-3 mb-3">
                         <label for="ref_number" class="form-label">Ref number </label>
                         <input type="text" class="form-control custom-input" id="ref_number"
-                            name="ref_number"  value="{{ $CertificateOriginComDec->ref_number }}">
+                            name="ref_number"value="{{ $CertificateOriginComDecFormA->{'ref_number'} }}">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_membership_number" class="form-label">Exporter membership number</label>
-                        <input type="text" class="form-control custom-input" id="exporter_membership_number"
-                            name="exporter_membership_number"  value="{{ $CertificateOriginComDec->exporter_membership_number }}">
+                        <label for="issue_country" class="form-label">Issue country</label>
+                        <input type="text" class="form-control custom-input" id="issue_country"
+                            name="issue_country"value="{{ $CertificateOriginComDecFormA->{'issue_country'} }}">
                     </div>
 
                     <div class="col-sm-3 mb-3">
                         <label for="transport_and_route" class="form-label">Transport and route</label>
                         <input type="text" class="form-control custom-input" id="transport_and_route" name="transport_and_route"
-                             value="{{ $CertificateOriginComDec->transport_and_route }}">
+                           value="{{ $CertificateOriginComDecFormA->{'transport_and_route'} }}">
                     </div>
+                 
+                    <div class="col-sm-3 mb-3">
+                        <label for="produce_in_country" class="form-label">Produce in country </label>
+                        <input type="text" class="form-control custom-input" id="produce_in_country" name="produce_in_country"
+                           value="{{ $CertificateOriginComDecFormA->{'produce_in_country'} }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="importing_in_country" class="form-label">Importing in country </label>
+                        <input type="text" class="form-control custom-input" id="importing_in_country" name="importing_in_country"
+                           value="{{ $CertificateOriginComDecFormA->{'importing_in_country'} }}">
+                    </div>
+
+                  
+                    
+                    
+
 
                     <div class="col-sm-3 mb-3">
                         <label for="date" class="form-label">Date</label>
                         <input type="date" class="form-control custom-input" id="date"
-                            name="date"  value="{{ $CertificateOriginComDec->date }}">
+                            name="date"value="{{ $CertificateOriginComDecFormA->{'date'} }}">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="place" class="form-label">Place</label>
                         <input type="text" class="form-control custom-input" id="place"
-                            name="place"  value="{{ $CertificateOriginComDec->place }}">
+                            name="place" value="{{ $CertificateOriginComDecFormA->{'place'} }}">
                     </div>
 
                     
@@ -154,36 +170,36 @@
                         <label for="item_number_" class="form-label">Item Number </label>
                         <input type="text" class="form-control custom-input"
                             id="item_number_{{ $i }}"
-                            name="item_number_{{ $i }}" value="{{ $CertificateOriginComDec->{'item_number_' . $i} }}">
+                            name="item_number_{{ $i }}" value="{{ $CertificateOriginComDecFormA->{'item_number_' . $i} }}">
                 </div>
                     <div class="col-sm-4 mb-4">
                         <label for="marks_and_numbers_" class="form-label">Mark & Number </label>
                         <input type="text" class="form-control custom-input"
                             id="marks_and_numbers_{{ $i }}"
-                            name="marks_and_numbers_{{ $i }}" value="{{ $CertificateOriginComDec->{'marks_and_numbers_' . $i} }}">
+                            name="marks_and_numbers_{{ $i }}" value="{{ $CertificateOriginComDecFormA->{'marks_and_numbers_' . $i} }}">
                 </div>
 
                 <div class="col-sm-4 mb-4">
                     <label for="numbers_and_kinds_of_packges_description_{{ $i }}" class="form-label">Numbers and kinds of packges description</label>
                     <input type="text" step="any" class="form-control custom-input" id="numbers_and_kinds_of_packges_description_{{ $i }}"
-                        name="numbers_and_kinds_of_packges_description_{{ $i }}" value="{{ $CertificateOriginComDec->{'numbers_and_kinds_of_packges_description_' . $i} }}">
+                        name="numbers_and_kinds_of_packges_description_{{ $i }}" value="{{ $CertificateOriginComDecFormA->{'numbers_and_kinds_of_packges_description_' . $i} }}">
                 </div>
                 <div class="col-sm-4 mb-4">
                     <label for="origin_criterion_{{ $i }}" class="form-label">Origin criterion_</label>
                     <input type="text" step="any" class="form-control custom-input" id="origin_criterion_{{ $i }}"
-                        name="origin_criterion_{{ $i }}" value="{{ $CertificateOriginComDec->{'origin_criterion_' . $i} }}">
+                        name="origin_criterion_{{ $i }}" value="{{ $CertificateOriginComDecFormA->{'origin_criterion_' . $i} }}">
                 </div>
 
                 <div class="col-sm-4 mb-4">
                     <label for="gross_weight_or_other_quantity_" class="form-label">Gross weight or other quantity</label>
                     <input type="number" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
-                        name="gross_weight_or_other_quantity_{{ $i }}" value="{{ $CertificateOriginComDec->{'gross_weight_or_other_quantity_' . $i} }}">
+                        name="gross_weight_or_other_quantity_{{ $i }}" value="{{ $CertificateOriginComDecFormA->{'gross_weight_or_other_quantity_' . $i} }}">
                 </div>
                 
                 <div class="col-sm-4 mb-4">
                     <label for="number_and_dates_of_inovoices_{{ $i }}" class="form-label">Number and dates of inovoices </label>
                     <input type="text" step="any" class="form-control custom-input" id="number_and_dates_of_inovoices_{{ $i }}"
-                        name="number_and_dates_of_inovoices_{{ $i }}" value="{{ $CertificateOriginComDec->{'number_and_dates_of_inovoices_' . $i} }}">
+                        name="number_and_dates_of_inovoices_{{ $i }}" value="{{ $CertificateOriginComDecFormA->{'number_and_dates_of_inovoices_' . $i} }}">
                 </div>
                 <hr>
 
@@ -244,7 +260,7 @@ $(document).ready(function() {
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            url: "{{ route('admin.update_submit_certificate_origin_com_dec_invoice') }}",
+            url: "{{ route('admin.update_submit_certificate_origin_com_dec_form_a_invoice') }}",
             data: formData,
             dataType: "json",
             processData: false, // important for FormData
@@ -261,7 +277,7 @@ $(document).ready(function() {
                     timerProgressBar: true,
                     willClose: () => {
                         window.location.href =
-                            "{{ route('admin.report_List_certificate_origin_com_dec_invoice') }}"
+                            "{{ route('admin.report_List_certificate_origin_com_dec_form_a_invoice') }}"
 
                     },
                 });
