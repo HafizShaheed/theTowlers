@@ -143,7 +143,7 @@ Route::prefix('panel')->namespace('admin')->group(function () {
             Route::prefix('canda-costom_invoice')->group(function () {
 
                 Route::get('/', 'adminController@report_List_custom_canda_invoice')->name('admin.report_List_custom_canda_invoice');
-                Route::get('/generate_custom_canda_invoic_PDF/{id}', 'adminController@generate_custom_canda_invoic_PDF')->name('admin.generate_custom_canda_invoic_PDF');;
+                Route::get('/generate_custom_canda_invoic_PDF/{id}', 'adminController@generate_custom_canda_invoic_PDF')->name('admin.generate_custom_canda_invoic_PDF');
 
                 Route::get('/add', 'adminController@add_custom_canda_invoice')->name('admin.add_custom_canda_invoice');
                 Route::post('/submit_custom_canda_invoice', 'adminController@submit_custom_canda_invoice')->name('admin.submit_custom_canda_invoice');
@@ -152,14 +152,16 @@ Route::prefix('panel')->namespace('admin')->group(function () {
 
                 Route::get('/view', 'adminController@view_custom_canda_invoice')->name('admin.view_custom_canda_invoice');
                 Route::get('/activity/{id}', 'adminController@activity_custom_canda_invoice')->name('admin.activity_custom_canda_invoice');
+                Route::post('/form_canada_invoice_resubmit', 'adminController@form_canada_invoice_resubmit')->name('admin.form_canada_invoice_resubmit');
+                Route::post('/form_canada_invoice_completed', 'adminController@form_canada_invoice_completed')->name('admin.form_canada_invoice_completed');
             });
 
             Route::prefix('form-59-a-invoice')->group(function () {
 
                 Route::get('/', 'adminController@report_List_form_59_a_invoice')->name('admin.report_List_form_59_a_invoice');
-                Route::get('/generate_form_59_a_invoic_PDF/{id}', 'adminController@generate_form_59_a_invoic_PDF')->name('admin.generate_form_59_a_invoic_PDF');;
-                Route::post('/form_59_invoice_resubmit', 'adminController@form_59_invoice_resubmit')->name('admin.form_59_invoice_resubmit');;
-                Route::post('/form_59_invoice_completed', 'adminController@form_59_invoice_completed')->name('admin.form_59_invoice_completed');;
+                Route::get('/generate_form_59_a_invoic_PDF/{id}', 'adminController@generate_form_59_a_invoic_PDF')->name('admin.generate_form_59_a_invoic_PDF');
+                Route::post('/form_59_invoice_resubmit', 'adminController@form_59_invoice_resubmit')->name('admin.form_59_invoice_resubmit');
+                Route::post('/form_59_invoice_completed', 'adminController@form_59_invoice_completed')->name('admin.form_59_invoice_completed');
 
                 Route::get('/add', 'adminController@add_form_59_a_invoice')->name('admin.add_form_59_a_invoice');
                 Route::post('/submit_form_59_a_invoice', 'adminController@submit_form_59_a_invoice')->name('admin.submit_form_59_a_invoice');
@@ -173,7 +175,10 @@ Route::prefix('panel')->namespace('admin')->group(function () {
             Route::prefix('exporter-textile-declearation')->group(function () {
 
                 Route::get('/', 'adminController@report_List_exporter_textile_declearation_invoice')->name('admin.report_List_exporter_textile_declearation_invoice');
-                Route::get('/generate_exporter_textile_declearation_invoic_PDF/{id}', 'adminController@generate_exporter_textile_declearation_invoic_PDF')->name('admin.generate_exporter_textile_declearation_invoic_PDF');;
+                Route::get('/generate_exporter_textile_declearation_invoic_PDF/{id}', 'adminController@generate_exporter_textile_declearation_invoic_PDF')->name('admin.generate_exporter_textile_declearation_invoic_PDF');
+
+                Route::post('/form_exporter_textile_invoice_resubmit', 'adminController@form_exporter_textile_invoice_resubmit')->name('admin.form_exporter_textile_invoice_resubmit');
+                Route::post('/form_exporter_textile_invoice_completed', 'adminController@form_exporter_textile_invoice_completed')->name('admin.form_exporter_textile_invoice_completed');
 
                 Route::get('/add', 'adminController@add_exporter_textile_declearation_invoice')->name('admin.add_exporter_textile_declearation_invoice');
                 Route::post('/submit_exporter_textile_declearation_invoice', 'adminController@submit_exporter_textile_declearation_invoice')->name('admin.submit_exporter_textile_declearation_invoice');
@@ -186,7 +191,10 @@ Route::prefix('panel')->namespace('admin')->group(function () {
             Route::prefix('certificate-origins')->group(function () {
 
                 Route::get('/', 'adminController@report_List_certificate_origins_invoice')->name('admin.report_List_certificate_origins_invoice');
-                Route::get('/generate_certificate_origins_invoic_PDF/{id}', 'adminController@generate_certificate_origins_invoic_PDF')->name('admin.generate_certificate_origins_invoic_PDF');;
+                Route::get('/generate_certificate_origins_invoic_PDF/{id}', 'adminController@generate_certificate_origins_invoic_PDF')->name('admin.generate_certificate_origins_invoic_PDF');
+
+                Route::post('/form_certificate_origin_invoice_resubmit', 'adminController@form_certificate_origin_invoice_resubmit')->name('admin.form_certificate_origin_invoice_resubmit');
+                Route::post('/form_certificate_origin_invoice_completed', 'adminController@form_certificate_origin_invoice_completed')->name('admin.form_certificate_origin_invoice_completed');
 
                 Route::get('/add', 'adminController@add_certificate_origins_invoice')->name('admin.add_certificate_origins_invoice');
                 Route::post('/submit_certificate_origins_invoice', 'adminController@submit_certificate_origins_invoice')->name('admin.submit_certificate_origins_invoice');
@@ -199,7 +207,11 @@ Route::prefix('panel')->namespace('admin')->group(function () {
             Route::prefix('certificate-origin-no627120')->group(function () {
 
                 Route::get('/', 'adminController@report_List_certificate_origin_no627120_invoice')->name('admin.report_List_certificate_origin_no627120_invoice');
-                Route::get('/generate_certificate_origin_no627120_invoic_PDF/{id}', 'adminController@generate_certificate_origin_no627120_invoic_PDF')->name('admin.generate_certificate_origin_no627120_invoic_PDF');;
+                Route::get('/generate_certificate_origin_no627120_invoic_PDF/{id}', 'adminController@generate_certificate_origin_no627120_invoic_PDF')->name('admin.generate_certificate_origin_no627120_invoic_PDF');
+
+                Route::post('/form_certificate_origin_no627120_invoice_resubmit', 'adminController@form_certificate_origin_no627120_invoice_resubmit')->name('admin.form_certificate_origin_no627120_invoice_resubmit');
+                Route::post('/form_certificate_origin_no627120_invoice_completed', 'adminController@form_certificate_origin_no627120_invoice_completed')->name('admin.form_certificate_origin_no627120_invoice_completed');
+
 
                 Route::get('/add', 'adminController@add_certificate_origin_no627120_invoice')->name('admin.add_certificate_origin_no627120_invoice');
                 Route::post('/submit_certificate_origin_no627120_invoice', 'adminController@submit_certificate_origin_no627120_invoice')->name('admin.submit_certificate_origin_no627120_invoice');
@@ -212,7 +224,9 @@ Route::prefix('panel')->namespace('admin')->group(function () {
             Route::prefix('certificate-origin-com-dec')->group(function () {
 
                 Route::get('/', 'adminController@report_List_certificate_origin_com_dec_invoice')->name('admin.report_List_certificate_origin_com_dec_invoice');
-                Route::get('/generate_certificate_origin_com_dec_invoic_PDF/{id}', 'adminController@generate_certificate_origin_com_dec_invoic_PDF')->name('admin.generate_certificate_origin_com_dec_invoic_PDF');;
+                Route::get('/generate_certificate_origin_com_dec_invoic_PDF/{id}', 'adminController@generate_certificate_origin_com_dec_invoic_PDF')->name('admin.generate_certificate_origin_com_dec_invoic_PDF');
+                Route::post('/form_certificate_origin_com_dec_invoice_resubmit', 'adminController@form_certificate_origin_com_dec_invoice_resubmit')->name('admin.form_certificate_origin_com_dec_invoice_resubmit');
+                Route::post('/form_certificate_origin_com_dec_invoice_completed', 'adminController@form_certificate_origin_com_dec_invoice_completed')->name('admin.form_certificate_origin_com_dec_invoice_completed');
 
                 Route::get('/add', 'adminController@add_certificate_origin_com_dec_invoice')->name('admin.add_certificate_origin_com_dec_invoice');
                 Route::post('/submit_certificate_origin_com_dec_invoice', 'adminController@submit_certificate_origin_com_dec_invoice')->name('admin.submit_certificate_origin_com_dec_invoice');
@@ -225,7 +239,10 @@ Route::prefix('panel')->namespace('admin')->group(function () {
             Route::prefix('certificate-origin-com-dec-from-ip')->group(function () {
 
                 Route::get('/', 'adminController@report_List_certificate_origin_com_dec_form_ip_invoice')->name('admin.report_List_certificate_origin_com_dec_form_ip_invoice');
-                Route::get('/generate_certificate_origin_com_dec_form_ip_invoic_PDF/{id}', 'adminController@generate_certificate_origin_com_dec_form_ip_invoic_PDF')->name('admin.generate_certificate_origin_com_dec_form_ip_invoic_PDF');;
+                Route::get('/generate_certificate_origin_com_dec_form_ip_invoic_PDF/{id}', 'adminController@generate_certificate_origin_com_dec_form_ip_invoic_PDF')->name('admin.generate_certificate_origin_com_dec_form_ip_invoic_PDF');
+                Route::post('/form_certificate_origin_com_dec_form_ip_invoice_resubmit', 'adminController@form_certificate_origin_com_dec_form_ip_invoice_resubmit')->name('admin.form_certificate_origin_com_dec_form_ip_invoice_resubmit');
+                Route::post('/form_certificate_origin_com_dec_form_ip_invoice_completed', 'adminController@form_certificate_origin_com_dec_form_ip_invoice_completed')->name('admin.form_certificate_origin_com_dec_form_ip_invoice_completed');
+
 
                 Route::get('/add', 'adminController@add_certificate_origin_com_dec_form_ip_invoice')->name('admin.add_certificate_origin_com_dec_form_ip_invoice');
                 Route::post('/submit_certificate_origin_com_dec_form_ip_invoice', 'adminController@submit_certificate_origin_com_dec_form_ip_invoice')->name('admin.submit_certificate_origin_com_dec_form_ip_invoice');
@@ -239,7 +256,9 @@ Route::prefix('panel')->namespace('admin')->group(function () {
             Route::prefix('certificate-origin-com-dec-from-a')->group(function () {
 
                 Route::get('/', 'adminController@report_List_certificate_origin_com_dec_form_a_invoice')->name('admin.report_List_certificate_origin_com_dec_form_a_invoice');
-                Route::get('/generate_certificate_origin_com_dec_form_a_invoic_PDF/{id}', 'adminController@generate_certificate_origin_com_dec_form_a_invoic_PDF')->name('admin.generate_certificate_origin_com_dec_form_a_invoic_PDF');;
+                Route::get('/generate_certificate_origin_com_dec_form_a_invoic_PDF/{id}', 'adminController@generate_certificate_origin_com_dec_form_a_invoic_PDF')->name('admin.generate_certificate_origin_com_dec_form_a_invoic_PDF');
+                Route::post('/form_certificate_origin_com_dec_form_a_invoice_resubmit', 'adminController@form_certificate_origin_com_dec_form_a_invoice_resubmit')->name('admin.form_certificate_origin_com_dec_form_a_invoice_resubmit');
+                Route::post('/form_certificate_origin_com_dec_form_a_invoice_completed', 'adminController@form_certificate_origin_com_dec_form_a_invoice_completed')->name('admin.form_certificate_origin_com_dec_form_a_invoice_completed');
 
                 Route::get('/add', 'adminController@add_certificate_origin_com_dec_form_a_invoice')->name('admin.add_certificate_origin_com_dec_form_a_invoice');
                 Route::post('/submit_certificate_origin_com_dec_form_a_invoice', 'adminController@submit_certificate_origin_com_dec_form_a_invoice')->name('admin.submit_certificate_origin_com_dec_form_a_invoice');

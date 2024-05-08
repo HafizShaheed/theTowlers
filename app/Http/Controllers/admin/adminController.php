@@ -592,96 +592,7 @@ class adminController extends Controller
         return view('admin.report.form-59-A-invoice.activity', $data);
     }
 
-    function form_59_invoice_resubmit(Request $request) {
-       
-
-        try {
-            // Validate the incoming request if necessary
-            // $request->validate([...]);
-
-            // Check if an ID is provided in the request
-            $id = $request->input('formId');
-            if ($id) {
-                // If an ID is provided, update the existing record
-                $Form59AInvoice = Form59AInvoice::findOrFail($id);
-            } else {
-                // If no ID is provided, create a new record
-                $Form59AInvoice = new Form59AInvoice();
-                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
-            }
-
-            // Assign values from the request to the CanadaCustomerInvoiceFrom model
-            $Form59AInvoice->status = 2;
-
-            // Save the Form59AInvoice model
-            $Form59AInvoice->save();
-
-      
-
-            // Create CanadaInvoiceHistory record
-            $Form59AHistory = new Form59AHistory();
-            $Form59AHistory->form59_a_invoice_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
-    
-            $Form59AHistory->edited_at = now();
-            $Form59AHistory->save();
-
-            // Return a success response
-            return response()->json(['message' => 'All records submitted successfully!']);
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error($e);
-
-            // Return an error response
-            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
-        }
-        
-    }
-    function form_59_invoice_completed(Request $request) {
-       
-
-        try {
-            // Validate the incoming request if necessary
-            // $request->validate([...]);
-
-            // Check if an ID is provided in the request
-            $id = $request->input('forCompetingFormId');
-            if ($id) {
-                // If an ID is provided, update the existing record
-                $Form59AInvoice = Form59AInvoice::findOrFail($id);
-            } else {
-                // If no ID is provided, create a new record
-                $Form59AInvoice = new Form59AInvoice();
-                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
-            }
-
-            // Assign values from the request to the CanadaCustomerInvoiceFrom model
-            $Form59AInvoice->status = 3;
-
-            // Save the Form59AInvoice model
-            $Form59AInvoice->save();
-
-      
-
-            // Create CanadaInvoiceHistory record
-            $Form59AHistory = new Form59AHistory();
-            $Form59AHistory->form59_a_invoice_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
-    
-            $Form59AHistory->edited_at = now();
-            $Form59AHistory->save();
-
-            // Return a success response
-            return response()->json(['message' => 'All records submitted successfully!']);
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error($e);
-
-            // Return an error response
-            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
-        }
-        
-    }
+   
     //==================== form 59 A invioce end ======================//
 
 
@@ -1704,6 +1615,738 @@ class adminController extends Controller
      }
  
      //==================== certificate_origin_com_dec_form_a_invioce end ======================//
+
+    //  =========================== competed and resubmited ================================//
+
+   
+
+    function form_canada_invoice_resubmit(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('formId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CanadaCustomerInvoiceFrom::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CanadaCustomerInvoiceFrom();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 2;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CanadaInvoiceHistory();
+            $Form59AHistory->canada_customer_invoice_from_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    function form_canada_invoice_completed(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('forCompetingFormId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CanadaCustomerInvoiceFrom::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CanadaCustomerInvoiceFrom();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 3;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CanadaInvoiceHistory();
+            $Form59AHistory->canada_customer_invoice_from_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    function form_59_invoice_resubmit(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('formId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = Form59AInvoice::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new Form59AInvoice();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 2;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new Form59AHistory();
+            $Form59AHistory->form59_a_invoice_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    function form_59_invoice_completed(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('forCompetingFormId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = Form59AInvoice::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new Form59AInvoice();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 3;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new Form59AHistory();
+            $Form59AHistory->form59_a_invoice_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+
+    function form_exporter_textile_invoice_resubmit(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('formId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = ExporterTextileDeclearation::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new ExporterTextileDeclearation();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 2;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new ExporterTextileDeclearationHistory();
+            $Form59AHistory->exporter_textile_declearation_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    function form_exporter_textile_invoice_completed(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('forCompetingFormId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = ExporterTextileDeclearation::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new ExporterTextileDeclearation();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 3;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new ExporterTextileDeclearationHistory();
+            $Form59AHistory->exporter_textile_declearation_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+
+    function form_certificate_origin_invoice_resubmit(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('formId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CertificateOrigin::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CertificateOrigin();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 2;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CertificateOriginHistory();
+            $Form59AHistory->certificate_origin_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    function form_certificate_origin_invoice_completed(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('forCompetingFormId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CertificateOrigin::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CertificateOrigin();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 3;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CertificateOriginHistory();
+            $Form59AHistory->certificate_origin_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+
+    function form_certificate_origin_no627120_invoice_resubmit(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('formId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CertificateOriginNo627120::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CertificateOriginNo627120();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 2;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CertificateOriginNo627120History();
+            $Form59AHistory->certificate_origin_no627120_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    function form_certificate_origin_no627120_invoice_completed(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('forCompetingFormId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CertificateOriginNo627120::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CertificateOriginNo627120();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 3;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CertificateOriginNo627120History();
+            $Form59AHistory->certificate_origin_no627120_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+
+    function form_certificate_origin_com_dec_invoice_resubmit(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('formId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CertificateOriginComDec::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CertificateOriginComDec();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 2;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CertificateOriginComDecHistory();
+            $Form59AHistory->certificate_origin_com_dec_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    function form_certificate_origin_com_dec_invoice_completed(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('forCompetingFormId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CertificateOriginComDec::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CertificateOriginComDec();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 3;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CertificateOriginComDecHistory();
+            $Form59AHistory->certificate_origin_com_dec_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    function form_certificate_origin_com_dec_form_ip_invoice_resubmit(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('formId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CertificateOriginComDecFormIp::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CertificateOriginComDecFormIp();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 2;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CertificateOriginComDecFormIpHistory();
+            $Form59AHistory->certificate_origin_com_dec_form_ip_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    function form_certificate_origin_com_dec_form_ip_invoice_completed(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('forCompetingFormId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CertificateOriginComDecFormIp::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CertificateOriginComDecFormIp();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 3;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CertificateOriginComDecFormIpHistory();
+            $Form59AHistory->certificate_origin_com_dec_form_ip_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+
+    function form_certificate_origin_com_dec_form_a_invoice_resubmit(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('formId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CertificateOriginComDecFormA::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CertificateOriginComDecFormA();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 2;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CertificateOriginComDecFormAHistory();
+            $Form59AHistory->certificate_origin_com_dec_form_a_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    function form_certificate_origin_com_dec_form_a_invoice_completed(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('forCompetingFormId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CertificateOriginComDecFormA::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CertificateOriginComDecFormA();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 3;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CertificateOriginComDecFormAHistory();
+            $Form59AHistory->certificate_origin_com_dec_form_a_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    //  =========================== competed and resubmited ================================//
+
 
 
     // function update_resubmited_allreports(Request $request)

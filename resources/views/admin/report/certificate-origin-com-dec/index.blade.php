@@ -65,7 +65,7 @@
                         </div>
                     </div>
 
-                <!-- <form id="" action="{{route('admin.report_List_form_59_a_invoice')}}" class="row d-flex justify-content-between align-items-end">
+                <!-- <form id="" action="{{route('admin.report_List_certificate_origin_com_dec_invoice')}}" class="row d-flex justify-content-between align-items-end">
 
                     <div class="col-xl-6 col-sm-3 col-3 ml-3 " >
                         <div class="c-list ">
@@ -155,7 +155,7 @@
 
                                 <td class="text-center space-between ">
 
-                                <button class="btn btn-sm report-tab-active" style="font-size: 10px;" href="javascript:void(0)" class="thirdpartyIdForFormResubmit" data-thirdparty="">
+                                <button class="btn btn-sm report-tab-active thirdpartyIdForFormResubmit" style="font-size: 10px;" href="javascript:void(0)"  data-thirdparty="{{ $value->id }}">
                                     Re-Submit
                                 </button>
 
@@ -167,7 +167,7 @@
                                     <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel/report/certificate-origin-com-dec/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">
                                         Edit
                                     </a>
-                                    <button  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="javascript:void(0)" class="thirdpartyIdForForComplete" data-thirdparty="">
+                                    <button  class="btn btn-sm report-tab-active thirdpartyIdForForComplete" style="font-size: 10px;" href="javascript:void(0)"  data-thirdparty="{{ $value->id }}">
                                         Done
                                     </button>
                                     <span></span>
@@ -219,104 +219,104 @@
 @section('addScript')
 <script>
 
-     $(document).ready(function () {
-        $('.thirdpartyIdForFormResubmit').on('click', function() {
+    $(document).ready(function () {
+       $('.thirdpartyIdForFormResubmit').on('click', function() {
 
-              var thirdpartyId = $(this).data("thirdparty");
+             var formId = $(this).data("thirdparty");
 
+          
+          Swal.fire({
+           title: 'Are you sure?',
+           text: 'This action cannot be undone.',
+           icon: 'warning',
+           showCancelButton: true,
+           confirmButtonColor: '#3085d6',
+           cancelButtonColor: '#d33',
+           confirmButtonText: 'Yes, re-submit!'
+           }).then((result) => {
+               if (result.isConfirmed) {
+                   // User clicked "Yes", proceed with the AJAX request
+                   $.ajax({
+                       type: "POST",
+                       headers: {
+                           "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                       },
+                       url: "{{ route('admin.form_certificate_origin_com_dec_invoice_resubmit') }}",
+                       data: { formId: formId }, // Send data as an object
+                       dataType: "json",
+                       success: function(response) {
+                           console.log(response);
 
-           Swal.fire({
-            title: 'Are you sure?',
-            text: 'This action cannot be undone.',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, re-submit!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // User clicked "Yes", proceed with the AJAX request
-                    $.ajax({
-                        type: "POST",
-
-                        headers: {
-                            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                        },
-                        data: { thirdpartyId: thirdpartyId }, // Send data as an object
-                        dataType: "json",
-                        success: function(response) {
-                            console.log(response);
-
-                            Swal.fire({
-                                title: "Success!",
-                                text: response.message,
-                                icon: "success",
-                                confirmButtonText: "OK",
-                                timer: 3000, // 3 seconds
-                                timerProgressBar: true,
-                                willClose: () => {
-                                    window.location.href = '{{ route("admin.report_List_form_59_a_invoice") }}';
-                                },
-                            });
-                        },
-                        error: function(error) {
-                            console.log(error);
-                        }
-                    });
-                }
-            });
-         });
-
-
-         $('.thirdpartyIdForForComplete').on('click', function() {
-
-                var thirdpartyId = $(this).data("thirdparty");
+                           Swal.fire({
+                               title: "Success!",
+                               text: response.message,
+                               icon: "success",
+                               confirmButtonText: "OK",
+                               timer: 500, // 3 seconds
+                               timerProgressBar: true,
+                               willClose: () => {
+                                   window.location.href = '{{ route("admin.report_List_certificate_origin_com_dec_invoice") }}';
+                               },
+                           });
+                       },
+                       error: function(error) {
+                           console.log(error);
+                       }
+                   });
+               }
+           });
+       });
 
 
-                Swal.fire({
-                title: 'Are you sure?',
-                text: 'All reports status change to complted.',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, Completed!'
-                }).then((result) => {
-                if (result.isConfirmed) {
-                    // User clicked "Yes", proceed with the AJAX request
-                    $.ajax({
-                        type: "POST",
+        $('.thirdpartyIdForForComplete').on('click', function() {
 
-                        headers: {
-                            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                        },
-                        data: { thirdpartyId: thirdpartyId }, // Send data as an object
-                        dataType: "json",
-                        success: function(response) {
-                            console.log(response);
-
-                            Swal.fire({
-                                title: "Success!",
-                                text: response.message,
-                                icon: "success",
-                                confirmButtonText: "OK",
-                                timer: 3000, // 3 seconds
-                                timerProgressBar: true,
-                                willClose: () => {
-                                    window.location.href = '{{ route("admin.report_List_certificate_origin_com_dec_invoice") }}';
-                                },
-                            });
-                        },
-                        error: function(error) {
-                            console.log(error);
-                        }
-                    });
-                }
-                });
-         });
+               var forCompetingFormId = $(this).data("thirdparty");
 
 
-   });
+               Swal.fire({
+               title: 'Are you sure?',
+               text: 'All reports status change to complted.',
+               icon: 'warning',
+               showCancelButton: true,
+               confirmButtonColor: '#3085d6',
+               cancelButtonColor: '#d33',
+               confirmButtonText: 'Yes, Completed!'
+               }).then((result) => {
+               if (result.isConfirmed) {
+                   // User clicked "Yes", proceed with the AJAX request
+                   $.ajax({
+                       type: "POST",
+                       headers: {
+                           "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                       },
+                       url: "{{ route('admin.form_certificate_origin_com_dec_invoice_completed') }}",
+                       data: { forCompetingFormId: forCompetingFormId }, // Send data as an object
+                       dataType: "json",
+                       success: function(response) {
+                           console.log(response);
+
+                           Swal.fire({
+                               title: "Success!",
+                               text: response.message,
+                               icon: "success",
+                               confirmButtonText: "OK",
+                               timer: 500, // 3 seconds
+                               timerProgressBar: true,
+                               willClose: () => {
+                                   window.location.href = '{{ route("admin.report_List_certificate_origin_com_dec_invoice") }}';
+                               },
+                           });
+                       },
+                       error: function(error) {
+                           console.log(error);
+                       }
+                   });
+               }
+               });
+        });
+
+
+  });
 
 
 

@@ -174,9 +174,9 @@
                 </div>
                 
                 <div class="col-sm-4 mb-4">
-                    <label for="county_of_origin{{ $i }}" class="form-label">County of origin </label>
-                    <input type="text" step="any" class="form-control custom-input" id="county_of_origin{{ $i }}"
-                        name="county_of_origin{{ $i }}" value="">
+                    <label for="county_of_origin_{{ $i }}" class="form-label">County of origin </label>
+                    <input type="text" step="any" class="form-control custom-input" id="county_of_origin_{{ $i }}"
+                        name="county_of_origin_{{ $i }}" value="">
                 </div>
                 <hr>
 
