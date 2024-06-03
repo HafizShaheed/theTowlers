@@ -64,7 +64,10 @@ class CreateCommercialInvoicesTable extends Migration
             $table->text("heading_bank_addrss", 50)->default('BANK ADDRESS:')->nullable();
             $table->text("heading_statement_origin", 50)->default('STATEMENT ON ORIGIN')->nullable();
          
+            
             // input values below
+            $table->text('value_f_i_no', 50)->nullable();
+
             $table->text('name_shipper', 50)->default('TOWELLERS LIMITED')->nullable();
             $table->text('address_shipper', 50)->default('WSA 30-31 BLOCK 1, FEDERAL B AREA')->nullable();
             $table->text('city_shipper', 50)->default('KARACHI')->nullable();
@@ -82,7 +85,7 @@ class CreateCommercialInvoicesTable extends Migration
             $table->text('city_ship_to',50)->nullable();
             $table->text('country_ship_to',50)->nullable();
             $table->text('phone_ship_to',50)->nullable();
-            $table->text('invioce_no',50)->nullable();
+            $table->text('performa_invioce_no_value',50)->nullable();
             $table->text('invioce_generator',50)->nullable();
             $table->text('vessel_value',50)->nullable();
             $table->text('dated',50)->nullable();
@@ -91,6 +94,7 @@ class CreateCommercialInvoicesTable extends Migration
             $table->text('contract_date_value',50)->nullable();
             $table->text('lc_value',50)->nullable();
             $table->text('lc_issue_date_value',50)->nullable();
+            $table->text('pyment_terms_value',50)->nullable();
             $table->text('drawn_at_value',50)->nullable();
             $table->text('drawn_under_value',50)->nullable();
             $table->text('port_of_loading_value',50)->nullable();
@@ -117,7 +121,6 @@ class CreateCommercialInvoicesTable extends Migration
             $table->text("value_total_less_commission",50)->nullable();
             $table->text("value_total_add_fright",50)->nullable();
             $table->text("value_total_net_amount_payable",50)->nullable();
-            $table->text("value_currency_symbol",50)->nullable();
             $table->text("value_currency_name",50)->nullable();
             $table->text("status",50)->default(0)->nullable();
          

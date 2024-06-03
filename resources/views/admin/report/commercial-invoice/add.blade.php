@@ -72,323 +72,315 @@
                 </h4>
                 <div class="row">
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="INVOICE. NO">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_invioce" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_invioce" name="heading_invioce" value="INVOICE. NO">
+                        <input type="text" class="form-control custom-input" id="commercial_invoice" name="commercial_invoice"
+                            value="">
+                    </div>
+                    
+                 
+                    <div class="col-sm-3 mb-3">
+                        <label for="heading_shipper" class="form-label">Heading SHIPPER / MANUFACTURER</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_shipper" name="heading_shipper" value="SHIPPER / MANUFACTURER">
+                        <input type="text" class="form-control custom-input" id="name_shipper" name="name_shipper" value="TOWELLERS LIMITED">
+                        <input type="text" class="form-control custom-input" id="address_shipper" name="address_shipper" value="WSA 30-31 BLOCK 1, FEDERAL B AREA">
+                        <input type="text" class="form-control custom-input" id="city_shipper" name="city_shipper" value="KARACHI">
+                        <input type="text" class="form-control custom-input" id="country_shipper" name="country_shipper" value="PAKISTAN">
+                        <input type="text" class="form-control custom-input" id="phone_shipper" name="phone_shipper" value="PHONE # +92-21-36314884">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="heading_buyer" class="form-label">Heading </label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_buyer" name="heading_buyer" value="BUYER:">
+                        <input type="text" class="form-control custom-input" id="name_buyer" name="name_buyer" value="">
+                        <input type="text" class="form-control custom-input" id="address_buyer" name="address_buyer" value="">
+                        <input type="text" class="form-control custom-input" id="city_buyer" name="city_buyer" value="">
+                        <input type="text" class="form-control custom-input" id="country_buyer" name="country_buyer" value="">
+                        <input type="text" class="form-control custom-input" id="phone_buyer" name="phone_buyer" value="">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="heading_ship_to" class="form-label">Heading </label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_ship_to" name="heading_ship_to" value="SHIP TO:">
+                        <input type="text" class="form-control custom-input" id="name_ship_to" name="name_ship_to" value="">
+                        <input type="text" class="form-control custom-input" id="address_ship_to" name="address_ship_to" value="">
+                        <input type="text" class="form-control custom-input" id="city_ship_to" name="city_ship_to" value="">
+                        <input type="text" class="form-control custom-input" id="country_ship_to" name="country_ship_to" value="">
+                        <input type="text" class="form-control custom-input" id="phone_ship_to" name="phone_ship_to" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="heading_f_i_no" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_f_i_no" name="heading_f_i_no" value="F.I NO / GD #">
+                        <input type="text" class="form-control custom-input" id="value_f_i_no" name="value_f_i_no"
                             value="">
                     </div>
                     
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="F.I NO / GD #">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_vessel" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_vessel" name="heading_vessel" value="VESSEL /FLIGHT">
+                        <input type="text" class="form-control custom-input" id="vessel_value" name="vessel_value"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="SHIPPER / MANUFACTURER">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-                    
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="VESSEL /FLIGHT">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="DATED">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_dated" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_dated" name="heading_dated" value="DATED">
+                        <input type="text" class="form-control custom-input" id="dated" name="dated"
                             value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="TOTAL PKGS">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_total_pkg" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_total_pkg" name="heading_total_pkg" value="TOTAL PKGS">
+                        <input type="text" class="form-control custom-input" id="total_pkg_value" name="total_pkg_value"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="CONTRACT NO">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_contract_no" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_contract_no" name="heading_contract_no" value="CONTRACT NO">
+                        <input type="text" class="form-control custom-input" id="contract_no_value" name="contract_no_value"
                             value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="CONTRACT DATE">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_contract_date" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_contract_date" name="heading_contract_date" value="CONTRACT DATE">
+                        <input type="text" class="form-control custom-input" id="contract_date_value" name="contract_date_value"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="LC #">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_lc" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_lc" name="heading_lc" value="LC #">
+                        <input type="text" class="form-control custom-input" id="lc_value" name="lc_value"
                             value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="ISSUE DATE (LC)">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_issue_date_lc" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_issue_date_lc" name="heading_issue_date_lc" value="ISSUE DATE (LC)">
+                        <input type="text" class="form-control custom-input" id="lc_issue_date_value" name="lc_issue_date_value"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="PAYMENT TERMS">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_pyment_terms" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_pyment_terms" name="heading_pyment_terms" value="PAYMENT TERMS">
+                        <input type="text" class="form-control custom-input" id="pyment_terms_value" name="pyment_terms_value"
                             value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="DRAWN AT:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_drawn_at" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_drawn_at" name="heading_drawn_at" value="DRAWN AT:">
+                        <input type="text" class="form-control custom-input" id="drawn_at_value" name="drawn_at_value"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="DRAWN UNDER:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_drawn_under" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_drawn_under" name="heading_drawn_under" value="DRAWN UNDER:">
+                        <input type="text" class="form-control custom-input" id="drawn_under_value" name="drawn_under_value"
                             value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="PORT OF LOADING">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_part_of_loading" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_part_of_loading" name="heading_part_of_loading" value="PORT OF LOADING">
+                        <input type="text" class="form-control custom-input" id="port_of_loading_value" name="port_of_loading_value"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="PORT OF DISCHARGE">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_part_of_discharge" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_part_of_discharge" name="heading_part_of_discharge" value="PORT OF DISCHARGE">
+                        <input type="text" class="form-control custom-input" id="port_of_discharge_value" name="port_of_discharge_value"
                             value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="CONTAINER NO">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_container_no" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_container_no" name="heading_container_no" value="CONTAINER NO">
+                        <input type="text" class="form-control custom-input" id="container_no_value" name="container_no_value"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="CURRENCY">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_currency" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_currency" name="heading_currency" value="CURRENCY">
+                        <input type="text" class="form-control custom-input"  placeholder="Enter currency name e.g Doller" id="currency_value" name="currency_value"
+                            value="">
+                            <input type="text" class="form-control custom-input" placeholder="Enter currency symbol e.g $" id="currency_symbol" name="currency_symbol"
                             value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="TERM OF DELIVERY">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_term_of_delivery" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_term_of_delivery" name="heading_term_of_delivery" value="TERM OF DELIVERY">
+                        <input type="text" class="form-control custom-input" id="term_of_delivery_value" name="term_of_delivery_value"
+                            value="">
+                    </div>
+
+                    <hr>
+                    <b> TABLE CONTENT HERE : </b>
+                    <br>
+                    <div class="col-sm-3 mb-3">
+                        <label for="heading_marks_no" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_marks_no" name="heading_marks_no" value="MARKS & NOS">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="heading_discription_of_goods" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_discription_of_goods" name="heading_discription_of_goods" value="DESCRIPTION OF GOODS">
+                            <textarea name="discription_of_goods_value" id="" class="form-control"  rows="3"></textarea>
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="heading_quantity" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_quantity" name="heading_quantity" value="QTY">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="heading_prices" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_prices" name="heading_prices" value="PRICE US$">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="heading_total_amount" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_total_amount" name="heading_total_amount" value="TOTAL AMOUNT">
+                    </div>
+
+                  
+                    <div class="col-sm-3 mb-3">
+                        <label for="heading_performa_invioce_no" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_performa_invioce_no" name="heading_performa_invioce_no" value="PROFORMA INVOICE NO">
+                        <input type="text" class="form-control custom-input" id="performa_invioce_no_value" name="performa_invioce_no_value"
+                            value="">
+                    </div>
+                    <br>
+                    @for ($i = 1; $i <= 10; $i++)
+                    <div class="col-sm-3 mb-3">
+                        <label for="heading_long_side_{{ $i }}" class="form-label">Heading {{ $i }}</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_long_side_{{ $i }}" name="heading_long_side_{{ $i }}" value="LEFT & RIGHT SIDES OF BOX ( LONG SIDES )">
+                    </div>
+                    @for ($j = 1; $j <= 10; $j++)
+                        <div class="col-sm-3 mb-3">
+                            <label for="long_side_value_{{ $i }}_{{ $j }}" class="form-label">Heading  second value{{ $j }}</label>
+                            <input type="text" class="form-control custom-input mb-1" id="long_side_value_{{ $i }}_{{ $j }}" name="long_side_value_{{ $i }}_{{ $j }}" value="LEFT & RIGHT SIDES OF BOX ( LONG SIDES )">
+                        </div>
+                    @endfor
+                @endfor
+                
+                
+
+
+                    <hr>
+                    <div class="col-sm-3 mb-3">
+                        <label for="heading_total_net_weight" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_total_net_weight" name="heading_total_net_weight" value="TOTAL NET. WEIGHT:">
+                        <input type="text" class="form-control custom-input" id="total_net_weight_value" name="total_net_weight_value"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="BUYER">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_total_gr_weight" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_total_gr_weight" name="heading_total_gr_weight" value="TOTAL GR. WEIGHT:">
+                        <input type="text" class="form-control custom-input" id="total_gr_weight_value" name="total_gr_weight_value"
                             value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="SHIP TO">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_total_buyer_discount" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_total_buyer_discount" name="heading_total_buyer_discount" value="LESS 2% BUYER DISCOUNT">
+                        <input type="text" class="form-control custom-input" id="value_total_buyer_discount" name="value_total_buyer_discount"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="MARKS & NOS">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_total_less_commission" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_total_less_commission" name="heading_total_less_commission" value="LESS COMMISSION">
+                        <input type="text" class="form-control custom-input" id="value_total_less_commission" name="value_total_less_commission"
                             value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="DESCRIPTION OF GOODS">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_total_add_fright" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_total_add_fright" name="heading_total_add_fright" value="ADD FREIGHT">
+                        <input type="text" class="form-control custom-input" id="value_total_add_fright" name="value_total_add_fright"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="QTY">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_total_net_amount_payable" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_total_net_amount_payable" name="heading_total_net_amount_payable" value="NET AMOUNT PAYABLE">
+                        <input type="text" class="form-control custom-input" id="value_total_net_amount_payable" name="value_total_net_amount_payable"
                             value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="PRICE US$">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_note" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_note" name="heading_note" value="Note:">
+                        <input type="text" class="form-control custom-input" id="note_value" name="note_value"
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="TOTAL AMOUNT">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
+                        <label for="heading_remarks" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_remarks" name="heading_remarks" value="Remarks:">
+                        <input type="text" class="form-control custom-input" id="value_remarks" name="value_remarks"
                             value="">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="LEFT & RIGHT SIDES OF BOX ( LONG SIDES )">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                        <label for="heading_intermediary_bank" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_intermediary_bank" name="heading_intermediary_bank" value="INTERMEDIARY BANK:">
+                        <input type="text" class="form-control custom-input" id="value_intermediary_bank" name="value_intermediary_bank"
+                            value="HABIB AMERICAN BANK,N /Y BRANCH // FW026007362">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="PROFORMA INVOICE NO">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                        <label for="heading_intermediary_bank_swift_no" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_intermediary_bank_swift_no" name="heading_intermediary_bank_swift_no" value="INTERMEDIARY BANK SWIFT NO:">
+                        <input type="text" class="form-control custom-input" id="value_intermediary_bank_swift_no" name="value_intermediary_bank_swift_no"
+                            value="HANYUS33XXX">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="TOTAL NET. WEIGHT:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                        <label for="heading_intermediary_bank_ac_no" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_intermediary_bank_ac_no" name="heading_intermediary_bank_ac_no" value="INTERMEDIARY BANK A/C NO:">
+                        <input type="text" class="form-control custom-input" id="value_intermediary_bank_ac_no" name="value_intermediary_bank_ac_no"
+                            value="BANK AL HABIB LIMITED & / 20729933">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="TOTAL GR. WEIGHT:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                        <label for="heading_for_onword_credit_to" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_for_onword_credit_to" name="heading_for_onword_credit_to" value="FOR ONWARD CREDIT TO:">
+                        <input type="text" class="form-control custom-input" id="value_for_onword_credit_to" name="value_for_onword_credit_to"
+                            value="TOWELLERS LIMITED, KARACHI-PAKISTAN">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="LESS 2% BUYER DISCOUNT">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                        <label for="heading_tw_ac_no" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_tw_ac_no" name="heading_tw_ac_no" value="TOWELLERS LIMITED A/C NO:">
+                        <input type="text" class="form-control custom-input" id="value_tw_ac_no" name="value_tw_ac_no"
+                            value="5001-0081-018265-01-1">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="LESS COMMISSION">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                        <label for="heading_swift_no" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_swift_no" name="heading_swift_no" value="SWIFT NO:">
+                        <input type="text" class="form-control custom-input" id="value_swift_no" name="value_swift_no"
+                            value="BAHLPKKAXXX">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="ADD FREIGHT">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                        <label for="heading_iban_no" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_iban_no" name="heading_iban_no" value="IBAN NO:">
+                        <input type="text" class="form-control custom-input" id="value_iban_no" name="value_iban_no"
+                            value="PK46BAHL5001008101826501">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="NET AMOUNT PAYABLE">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                        <label for="heading_bank_addrss" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_bank_addrss" name="heading_bank_addrss" value="BANK ADDRESS:">
+                        <input type="text" class="form-control custom-input" id="value_bank_addrss" name="value_bank_addrss"
+                            value=" BANK AL HABIB LTD ISLAMIC BANKING
+                            SHAHRA-E-FAISAL BRANCH S # 4 & 5 BUSINESS CENTER, PLOT # 19-1-A
+                            BLOCK-6 PECHS SHAHRA-E- FAISAL, KARACHI-PAKISTAN">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="Note:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                        <label for="heading_statement_origin" class="form-label">Heading</label>
+                        <input type="text" class="form-control custom-input mb-1" id="heading_statement_origin" name="heading_statement_origin" value="STATEMENT ON ORIGIN">
+                        <textarea name="value_statement_origin" id="value_statement_origin" class="form-control" rows="3">THE EXPORTER M/S. TOWELLERS LIMITED, WSA – 30 & 31, BLOCK-1, FEDERAL ‘B’ AREA, KARACHI-75950, PAKISTAN. (REX NO: PKREXPK06768890) OF THE PRODUCTS COVERED BY THIS DOCUMENT DECLARES THAT, EXCEPT WHERE OTHERWISE CLEARLY INDICATED, THESE PRODUCTS ARE OF PAKISTAN PREFERENTIAL ORIGIN ACCORDING TO RULES OF ORIGIN OF THE GENERALIZED SYSTEM OF PREFERENCES OF THE EUROPEAN UNION AND THAT THE ORIGIN CRITERION MET IS “P”.
+                            </textarea>
+                            
                     </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="Remarks:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="INTERMEDIARY BANK:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="INTERMEDIARY BANK SWIFT NO:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="INTERMEDIARY BANK A/C NO:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="FOR ONWARD CREDIT TO:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="TOWELLERS LIMITED A/C NO:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="SWIFT NO:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="IBAN NO:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="BANK ADDRESS:">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="STATEMENT ON ORIGIN">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="TOWELLERS LIMITED">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="WSA 30-31 BLOCK 1, FEDERAL B AREA">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="KARACHI">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="PAKISTAN">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_name" class="form-label">Heading</label>
-                        <input type="text" class="form-control custom-input mb-1" id="exporter_name" name="exporter_name" value="PHONE # +92-21-36314884">
-                        <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
-                    </div>
+                   
 
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_name" class="form-label">Heading</label>
