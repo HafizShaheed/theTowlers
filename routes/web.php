@@ -156,6 +156,22 @@ Route::prefix('panel')->namespace('admin')->group(function () {
                 Route::post('/form_canada_invoice_completed', 'adminController@form_canada_invoice_completed')->name('admin.form_canada_invoice_completed');
             });
 
+            Route::prefix('commercial-invoice')->group(function () {
+
+                Route::get('/', 'adminController@report_List_commercial_invoice')->name('admin.report_List_commercial_invoice');
+                Route::get('/generate_commercial_invoice_PDF/{id}', 'adminController@generate_commercial_invoice_PDF')->name('admin.generate_commercial_invoice_PDF');
+                Route::post('/commercial_invoice_resubmit', 'adminController@commercial_invoice_resubmit')->name('admin.commercial_invoice_resubmit');
+                Route::post('/commercial_invoice_completed', 'adminController@commercial_invoice_completed')->name('admin.commercial_invoice_completed');
+
+                Route::get('/add', 'adminController@add_commercial_invoice')->name('admin.add_commercial_invoice');
+                Route::post('/submit_commercial_invoice', 'adminController@submit_commercial_invoice')->name('admin.submit_commercial_invoice');
+                Route::get('/edit/{id}', 'adminController@edit_commercial_invoice')->name('admin.edit_commercial_invoice');
+                Route::post('/update_submit_commercial_invoice', 'adminController@update_submit_commercial_invoice')->name('admin.update_submit_commercial_invoice');
+
+                Route::get('/view/{id}', 'adminController@view_commercial_invoice')->name('admin.view_commercial_invoice');
+                Route::get('/activity/{id}', 'adminController@activity_commercial_invoice')->name('admin.activity_commercial_invoice');
+            });
+
             Route::prefix('form-59-a-invoice')->group(function () {
 
                 Route::get('/', 'adminController@report_List_form_59_a_invoice')->name('admin.report_List_form_59_a_invoice');
@@ -171,6 +187,7 @@ Route::prefix('panel')->namespace('admin')->group(function () {
                 Route::get('/view/{id}', 'adminController@view_form_59_a_invoice')->name('admin.view_form_59_a_invoice');
                 Route::get('/activity/{id}', 'adminController@activity_form_59_a_invoice')->name('admin.activity_form_59_a_invoice');
             });
+
 
             Route::prefix('exporter-textile-declearation')->group(function () {
 

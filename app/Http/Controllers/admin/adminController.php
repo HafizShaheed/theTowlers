@@ -23,6 +23,8 @@ use App\Models\CertificateOriginComDecHistory;
 use App\Models\CertificateOriginHistory;
 use App\Models\CertificateOriginNo627120;
 use App\Models\CertificateOriginNo627120History;
+use App\Models\CommercialInvoice;
+use App\Models\CommercialInvoiceHistory;
 use App\Models\ExporterTextileDeclearation;
 use App\Models\ExporterTextileDeclearationHistory;
 use App\Models\Form59AHistory;
@@ -1616,6 +1618,176 @@ class adminController extends Controller
  
      //==================== certificate_origin_com_dec_form_a_invioce end ======================//
 
+    //==================== commercial_invoice start ======================//
+
+        function report_List_commercial_invoice(Request $request)
+        {
+            $data['title'] = "Certificate origin  A";
+            $data['page'] = "Certificate origin  A";
+            $data['pageIntro'] = "Certificate origin  A";
+            $data['CommercialInvoice'] = CommercialInvoice::get();
+            $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+            // dd($data);
+            return view('admin.report.commercial-invoice.index', $data);
+        }
+    
+        public function generate_commercial_invoice_invoic_PDF($id)
+        {
+            $viewName = 'admin.report.commercial-invoice.pdf.commercial_invoice_pdf';
+    
+            // Check if the view exists
+            if (!view()->exists($viewName)) {
+                abort(404); // Redirect to 404 page if the view does not exist
+            }
+    
+            $data = [
+                'title' => 'Certificate Origin No627120Pdf',
+                'CommercialInvoice' => CommercialInvoice::where('id', $id)->first(),
+            ];
+    
+            $pdf = PDF::loadView($viewName, $data);
+    
+            return $pdf->stream('form9A.pdf');
+        }
+    
+        function add_commercial_invoice(){
+    
+            $data['title'] = "Certificate origin  A";
+            $data['page'] = "Certificate origin  A";
+            $data['pageIntro'] = "Certificate origin  A Add";
+            $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+            return view('admin.report.commercial-invoice.add', $data);
+        }
+    
+        public function submit_commercial_invoice(Request $request)
+        {
+            // dd($request->all());
+    
+            try {
+                // Validate the incoming request if necessary
+                // $request->validate([...]);
+    
+                // Create CanadaCustomerInvoiceFrom record
+                $CommercialInvoice = new CommercialInvoice();
+                $CommercialInvoice->invioce_generator = rand(0000, 9999).now();
+            $CommercialInvoice->team_user_id = $request->input('team_user_id');
+    
+            $CommercialInvoice->fill($request->all());
+    
+            // Save the CommercialInvoice model
+            $CommercialInvoice->save();
+    
+            $CommercialInvoiceHistory = new CommercialInvoiceHistory();
+            $CommercialInvoiceHistory->commercial_invoice_id = $CommercialInvoice->id;
+            $CommercialInvoiceHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $CommercialInvoiceHistory->edited_at = now();
+            $CommercialInvoiceHistory->save();
+    
+    
+    
+    
+                return response()->json(['message' => 'All records submitted successfully!']);
+            } catch (\Exception $e) {
+                // Log the error
+                Log::error($e);
+    
+                // Return an error response
+                return response()->json(['message' => 'An error occurred while submitting the records. Please try again.'.$e], 500);
+            }
+        }
+    
+        function edit_commercial_invoice($id){
+            $data['title'] = "Certificate origin  A";
+            $data['page'] = "Certificate origin  A";
+            $data['pageIntro'] = "Certificate origin  A Edit";
+            $data['CommercialInvoice'] = CommercialInvoice::where('id',$id)->first();
+            if (!$data['CommercialInvoice']) {
+                return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
+            }
+            $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    
+            return view('admin.report.commercial-invoice.edit', $data);
+        }
+        public function update_submit_commercial_invoice(Request $request)
+        {
+            try {
+                // Validate the incoming request if necessary
+                // $request->validate([...]);
+    
+                // Check if an ID is provided in the request
+                $id = $request->input('id');
+                if ($id) {
+                    // If an ID is provided, update the existing record
+                    $CommercialInvoice = CommercialInvoice::findOrFail($id);
+                } else {
+                    // If no ID is provided, create a new record
+                    $CommercialInvoice = new CommercialInvoice();
+                    $CommercialInvoice->invioce_generator = rand(0000, 9999) . now();
+                }
+    
+                // Assign values from the request to the CanadaCustomerInvoiceFrom model
+                $CommercialInvoice->fill($request->all());
+    
+                // Save the CommercialInvoice model
+                $CommercialInvoice->save();
+    
+            
+    
+                // Save the CanadaCustomerInvoiceFrom model again after updating related records
+                $CommercialInvoice->save();
+    
+                // Create CanadaInvoiceHistory record
+                $CommercialInvoiceHistory = new CommercialInvoiceHistory();
+                $CommercialInvoiceHistory->commercial_invoice_id = $CommercialInvoice->id;
+                $CommercialInvoiceHistory->editer_name = Auth::guard('admin')->user()->user_name;
+        
+                $CommercialInvoiceHistory->edited_at = now();
+                $CommercialInvoiceHistory->save();
+    
+                // Return a success response
+                return response()->json(['message' => 'All records submitted successfully!']);
+            } catch (\Exception $e) {
+                // Log the error
+                Log::error($e);
+    
+                // Return an error response
+                return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+            }
+        }
+    
+    
+        function view_commercial_invoice($id)
+        {
+            $data['title'] = "Certificate origin  A View";
+            $data['page'] = "Certificate origin  A View";
+            $data['pageIntro'] = "Certificate origin  A View";
+            $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+            $data['CommercialInvoice'] = CommercialInvoice::where('id',$id)->first();
+            if (!$data['CommercialInvoice']) {
+                return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
+            }
+            return view('admin.report.commercial-invoice.view', $data);
+        }
+    
+        function activity_commercial_invoice($id)
+        {
+            $data['title'] = "Certificate origin  A Activity";
+            $data['page'] = "Certificate origin  A Activity";
+    
+            $data['pageIntro'] = "Certificate origin  A Activity";
+            $data['getAllCommercialInvoice'] = CommercialInvoiceHistory::where('certificate_origin_com_dec_form_a_id', $id)->get();
+    
+            if ($data['getAllCommercialInvoice']->isEmpty()) {
+                return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
+            }
+            $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    
+            return view('admin.report.commercial-invoice.activity', $data);
+        }
+      
+    //==================== commercial_invoice end ======================//
+
     //  =========================== competed and resubmited ================================//
 
    
@@ -1710,6 +1882,98 @@ class adminController extends Controller
         }
         
     }
+
+    function commercial_invoice_resubmit(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('formId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CommercialInvoice::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CommercialInvoice();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 2;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CommercialInvoiceHistory();
+            $Form59AHistory->commercial_invoice_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+    function commercial_invoice_completed(Request $request) {
+       
+
+        try {
+            // Validate the incoming request if necessary
+            // $request->validate([...]);
+
+            // Check if an ID is provided in the request
+            $id = $request->input('forCompetingFormId');
+            if ($id) {
+                // If an ID is provided, update the existing record
+                $Form59AInvoice = CommercialInvoice::findOrFail($id);
+            } else {
+                // If no ID is provided, create a new record
+                $Form59AInvoice = new CommercialInvoice();
+                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
+            }
+
+            // Assign values from the request to the CanadaCustomerInvoiceFrom model
+            $Form59AInvoice->status = 3;
+
+            // Save the Form59AInvoice model
+            $Form59AInvoice->save();
+
+      
+
+            // Create CanadaInvoiceHistory record
+            $Form59AHistory = new CommercialInvoiceHistory();
+            $Form59AHistory->commercial_invoice_id = $Form59AInvoice->id;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+    
+            $Form59AHistory->edited_at = now();
+            $Form59AHistory->save();
+
+            // Return a success response
+            return response()->json(['message' => 'All records submitted successfully!']);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+
+            // Return an error response
+            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
+        }
+        
+    }
+
     function form_59_invoice_resubmit(Request $request) {
        
 

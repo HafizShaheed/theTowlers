@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class CommercialInvoiceRelatedValuePart1 extends Model
 {
     use HasFactory;
  protected $guarded =[];

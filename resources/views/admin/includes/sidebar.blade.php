@@ -67,7 +67,8 @@
                         <li> <a class="nav-text" href="{{ route('admin.report_List_custom_canda_invoice') }}"
                                 class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">
                                 CANADA INVOICE</a></li>
-                                <li><a class="nav-text" target="_blank" href="{{ URL::to('/panel/report/generate-pdf/7') }}">COMMERCIAL INVOICE</a></li>
+                                <li><a class="nav-text" href="{{ route('admin.report_List_commercial_invoice') }}"
+                                    class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">COMMERCIAL INVOICE</a></li>
                                 <li><a class="nav-text" href="{{ route('admin.report_List_form_59_a_invoice') }}"
                                     class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">Form 59 A INVOICE</a></li>
                         <li><a class="nav-text" href="{{ route('admin.report_List_exporter_textile_declearation_invoice') }}"
