@@ -32,7 +32,7 @@
                         </thead>
                         <tbody>
 
-                        @foreach ($getAllCertificateOrigin as $key => $value )
+                        @foreach ($getAllCommercialInvoice as $key => $value )
                         <tr>
                                 <td><span>{{++$key}}</span></td>
                                 <td><span>{{$value->editer_name}}</span></td>

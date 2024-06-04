@@ -25,6 +25,23 @@ use App\Models\CertificateOriginNo627120;
 use App\Models\CertificateOriginNo627120History;
 use App\Models\CommercialInvoice;
 use App\Models\CommercialInvoiceHistory;
+use App\Models\CommercialInvoiceRelatedFieldPart1;
+use App\Models\CommercialInvoiceRelatedFieldPart2;
+use App\Models\CommercialInvoiceRelatedFieldPart3;
+use App\Models\CommercialInvoiceRelatedFieldPart4;
+use App\Models\CommercialInvoiceRelatedFieldPart5;
+use App\Models\CommercialInvoiceRelatedFieldPart6;
+use App\Models\CommercialInvoiceRelatedFieldPart7;
+use App\Models\CommercialInvoiceRelatedFieldPart8;
+use App\Models\CommercialInvoiceRelatedValuePart1;
+use App\Models\CommercialInvoiceRelatedValuePart2;
+use App\Models\CommercialInvoiceRelatedValuePart3;
+use App\Models\CommercialInvoiceRelatedValuePart4;
+use App\Models\CommercialInvoiceRelatedValuePart5;
+use App\Models\CommercialInvoiceRelatedValuePart6;
+use App\Models\CommercialInvoiceRelatedValuePart7;
+use App\Models\CommercialInvoiceRelatedValuePart8;
+use App\Models\CommercialInvoiceRelatedValuePart9;
 use App\Models\ExporterTextileDeclearation;
 use App\Models\ExporterTextileDeclearationHistory;
 use App\Models\Form59AHistory;
@@ -1664,19 +1681,275 @@ class adminController extends Controller
             // dd($request->all());
     
             try {
-                // Validate the incoming request if necessary
-                // $request->validate([...]);
+              
     
                 // Create CanadaCustomerInvoiceFrom record
                 $CommercialInvoice = new CommercialInvoice();
                 $CommercialInvoice->invioce_generator = rand(0000, 9999).now();
             $CommercialInvoice->team_user_id = $request->input('team_user_id');
+            
+            $CommercialInvoice->heading_f_i_no = $request->input('heading_f_i_no');
+            $CommercialInvoice->heading_shipper = $request->input('heading_shipper');
+            $CommercialInvoice->heading_invioce = $request->input('heading_invioce');
+            $CommercialInvoice->heading_vessel = $request->input('heading_vessel');
+            $CommercialInvoice->heading_dated = $request->input('heading_dated');
+            $CommercialInvoice->heading_total_pkg = $request->input('heading_total_pkg'); 
+            $CommercialInvoice->heading_contract_no = $request->input('heading_contract_no'); 
+            $CommercialInvoice->heading_contract_date = $request->input('heading_contract_date'); 
+            $CommercialInvoice->heading_lc = $request->input('heading_lc'); 
+            $CommercialInvoice->heading_issue_date_lc = $request->input('heading_issue_date_lc'); 
+            $CommercialInvoice->heading_pyment_terms = $request->input('heading_pyment_terms'); 
+            $CommercialInvoice->heading_drawn_at = $request->input('heading_drawn_at'); 
+            $CommercialInvoice->heading_drawn_under = $request->input('heading_drawn_under'); 
+            $CommercialInvoice->heading_part_of_loading = $request->input('heading_part_of_loading');
+            $CommercialInvoice->heading_part_of_discharge = $request->input('heading_part_of_discharge'); 
+            $CommercialInvoice->heading_container_no = $request->input('heading_container_no'); 
+            $CommercialInvoice->heading_currency = $request->input('heading_currency'); 
+            $CommercialInvoice->heading_term_of_delivery = $request->input('heading_term_of_delivery'); 
+            $CommercialInvoice->heading_buyer = $request->input('heading_buyer');
+            $CommercialInvoice->heading_ship_to = $request->input('heading_ship_to'); 
+            $CommercialInvoice->heading_marks_no = $request->input('heading_marks_no'); 
+            $CommercialInvoice->heading_discription_of_goods = $request->input('heading_discription_of_goods'); 
+            $CommercialInvoice->heading_quantity = $request->input('heading_quantity'); 
+            $CommercialInvoice->heading_prices = $request->input('heading_prices'); 
+            $CommercialInvoice->heading_total_amount = $request->input('heading_total_amount'); 
+            $CommercialInvoice->heading_long_sides = $request->input('heading_long_sides');
+            $CommercialInvoice->heading_performa_invioce_no = $request->input('heading_performa_invioce_no');
+            $CommercialInvoice->currency_symbol = $request->input('currency_symbol');
+       
+            $CommercialInvoice->heading_total_net_weight = $request->heading_total_net_weight;
+            $CommercialInvoice->heading_total_gr_weight = $request->heading_total_gr_weight;
+            $CommercialInvoice->heading_total_buyer_discount = $request->heading_total_buyer_discount;
+            $CommercialInvoice->heading_total_less_commission = $request->heading_total_less_commission;
+            $CommercialInvoice->heading_total_add_fright = $request->heading_total_add_fright;
+            $CommercialInvoice->heading_total_net_amount_payable = $request->heading_total_net_amount_payable;
+            $CommercialInvoice->heading_note = $request->heading_note;
+            $CommercialInvoice->heading_remarks = $request->heading_remarks;
+            $CommercialInvoice->heading_intermediary_bank = $request->heading_intermediary_ba;
+            $CommercialInvoice->heading_intermediary_bank_swift_no = $request->heading_intermediary_bank_swift_no;  
+            $CommercialInvoice->heading_intermediary_bank_ac_no = $request->heading_intermediary_bank_ac_no;  
+            $CommercialInvoice->heading_for_onword_credit_to = $request->heading_for_onword_credit_to;  
+            $CommercialInvoice->heading_tw_ac_no = $request->heading_tw_ac_no;  
+            $CommercialInvoice->heading_swift_no = $request->heading_swift_no;  
+            $CommercialInvoice->heading_iban_no = $request->heading_iban_no;  
+            $CommercialInvoice->heading_bank_addrss = $request->heading_bank_addrss;  
+            $CommercialInvoice->heading_statement_origin = $request->heading_statement_origin;  
+            $CommercialInvoice->value_f_i_no = $request->value_f_i_no;  
+            $CommercialInvoice->name_shipper = $request->name_shipper;  
+            $CommercialInvoice->address_shipper = $request->address_shipper;  
+            $CommercialInvoice->city_shipper = $request->city_shipper;  
+            $CommercialInvoice->country_shipper = $request->country_shipper;  
+            $CommercialInvoice->phone_shipper = $request->phone_shipper ;   
+            $CommercialInvoice->name_buyer = $request->name_buyer;  
+            $CommercialInvoice->address_buyer = $request->address_buyer;  
+            $CommercialInvoice->city_buyer = $request->city_buyer;  
+            $CommercialInvoice->country_buyer = $request->country_buyer;  
+            $CommercialInvoice->phone_buyer = $request->phone_buyer;  
+            $CommercialInvoice->name_ship_to = $request->name_ship_to;  
+            $CommercialInvoice->address_ship_to = $request->address_ship_to;  
+            $CommercialInvoice->city_ship_to = $request->city_ship_to;  
+            $CommercialInvoice->country_ship_to = $request->country_ship_to;  
+            $CommercialInvoice->phone_ship_to = $request->phone_ship_to;  
+            $CommercialInvoice->performa_invioce_no_value = $request->performa_invioce_no_value;  
+            $CommercialInvoice->vessel_value = $request->vessel_value;  
+            $CommercialInvoice->dated = $request->dated;  
+            $CommercialInvoice->total_pkg_value = $request->total_pkg_value;  
+            $CommercialInvoice->contract_no_value  = $request->contract_no_value ;  
+            $CommercialInvoice->contract_date_value  = $request->contract_date_value ;  
+            $CommercialInvoice->lc_value  = $request->lc_value;
+            $CommercialInvoice->lc_issue_date_value  = $request->lc_issue_date_value;
+            $CommercialInvoice->pyment_terms_value  = $request->pyment_terms_value;
+            $CommercialInvoice->drawn_at_value  = $request->drawn_at_value;
+            $CommercialInvoice->drawn_under_value  = $request->drawn_under_value;
+            $CommercialInvoice->port_of_loading_value  = $request->port_of_loading_value;
+            $CommercialInvoice->port_of_discharge_value  = $request->port_of_discharge_value;
+            $CommercialInvoice->container_no_value  = $request->container_no_value;
+            $CommercialInvoice->currency_value  = $request->currency_value;
+            $CommercialInvoice->term_of_delivery_value  = $request->term_of_delivery_value;
+            $CommercialInvoice->total_net_weight_value = $request->total_net_weight_valu;
+            $CommercialInvoice->total_gr_weight_value = $request->total_gr_weight_valu;
+            $CommercialInvoice->note_value = $request->note_value; 
+            $CommercialInvoice->value_remarks = $request->value_remarks; 
+            $CommercialInvoice->value_intermediary_bank = $request->value_intermediary_bank; 
+            $CommercialInvoice->value_intermediary_bank_swift_no = $request->value_intermediary_bank_swift_no; 
+            $CommercialInvoice->value_intermediary_bank_ac_no = $request->value_intermediary_bank_ac_no; 
+            $CommercialInvoice->value_for_onword_credit_to = $request->value_for_onword_credit_to; 
+            $CommercialInvoice->value_tw_ac_no = $request->value_tw_ac_no; 
+            $CommercialInvoice->value_swift_no = $request->value_swift_no; 
+            $CommercialInvoice->value_iban_no = $request->value_iban_no;
+            $CommercialInvoice->value_bank_addrss = $request->value_bank_addrss;
+            $CommercialInvoice->value_statement_origin = $request->value_statement_origin;
+            $CommercialInvoice->value_total_buyer_discount = $request->value_total_buyer_discount;
+            $CommercialInvoice->value_total_less_commission = $request->value_total_less_commission;
+            $CommercialInvoice->value_total_add_fright = $request->value_total_add_fright;
+            $CommercialInvoice->value_total_net_amount_payable = $request->value_total_net_amount_payable;
+            $CommercialInvoice->value_currency_name = $request->value_currency_name;
+            $CommercialInvoice->status = 3;
+            $CommercialInvoice->commercial_invoice = $request->commercial_invoice;
     
-            $CommercialInvoice->fill($request->all());
+            // $CommercialInvoice->fill($request->all());
     
             // Save the CommercialInvoice model
             $CommercialInvoice->save();
-    
+
+            $CommercialInvoiceRelatedFieldPart1 = new CommercialInvoiceRelatedFieldPart1();
+            $CommercialInvoiceRelatedFieldPart1->commercial_invoice_id = $CommercialInvoice->id;
+            $CommercialInvoiceRelatedFieldPart1->heading_proforma_invioce = $request->heading_proforma_invioce;
+            $CommercialInvoiceRelatedFieldPart1->value_proforma_invioce = $request-> value_proforma_invioce;
+            for ($i = 1; $i <= 5; $i++) {
+                $CommercialInvoiceRelatedFieldPart1->{"heading_long_side_$i"} = $request->input("heading_long_side_$i");
+                $CommercialInvoiceRelatedFieldPart1->{"heading_po_$i"} = $request->input("heading_po_$i");
+                $CommercialInvoiceRelatedFieldPart1->{"value_po_$i"} = $request->input("value_po_$i");
+                $CommercialInvoiceRelatedFieldPart1->{"heading_cotton_$i"} = $request->input("heading_cotton_$i");
+                $CommercialInvoiceRelatedFieldPart1->{"heading_seahorse_$i"} = $request->input("heading_seahorse_$i");
+            }
+            $CommercialInvoiceRelatedFieldPart1->save();
+
+            $CommercialInvoiceRelatedFieldPart2 = new CommercialInvoiceRelatedFieldPart2();
+            $CommercialInvoiceRelatedFieldPart2->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 5; $i++) {
+                $CommercialInvoiceRelatedFieldPart2->{"heading_terry_$i"} = $request->input("heading_terry_$i");
+                $CommercialInvoiceRelatedFieldPart2->{"heading_carron_bales_pallets_$i"} = $request->input("heading_carron_bales_pallets_$i");
+                $CommercialInvoiceRelatedFieldPart2->{"carron_bales_pallets_value_$i"} = $request->input("carron_bales_pallets_value_$i");
+                $CommercialInvoiceRelatedFieldPart2->{"heading_pcs_pack_pallet_per_$i"} = $request->input("heading_pcs_pack_pallet_per_$i");
+                $CommercialInvoiceRelatedFieldPart2->{"pcs_pack_pallet_per_value_$i"} = $request->input("pcs_pack_pallet_per_value_$i");
+            }
+            $CommercialInvoiceRelatedFieldPart2->save();
+
+
+            $CommercialInvoiceRelatedFieldPart3 = new CommercialInvoiceRelatedFieldPart3();
+            $CommercialInvoiceRelatedFieldPart3->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 5; $i++) {
+                $CommercialInvoiceRelatedFieldPart3->{"heading_color_$i"} = $request->input("heading_color_$i");
+                $CommercialInvoiceRelatedFieldPart3->{"heading_sku_no_$i"} = $request->input("heading_sku_no_$i");
+                $CommercialInvoiceRelatedFieldPart3->{"heading_ean_no_$i"} = $request->input("heading_ean_no_$i");
+                $CommercialInvoiceRelatedFieldPart3->{"heading_sku_hash_$i"} = $request->input("heading_sku_hash_$i");
+                $CommercialInvoiceRelatedFieldPart3->{"heading_style_$i"} = $request->input("heading_style_$i");
+            }
+            $CommercialInvoiceRelatedFieldPart3->save();
+
+            $CommercialInvoiceRelatedFieldPart4 = new CommercialInvoiceRelatedFieldPart4();
+            $CommercialInvoiceRelatedFieldPart4->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 5; $i++) {
+                $CommercialInvoiceRelatedFieldPart4->{"heading_po_number_$i"} = $request->input("heading_po_number_$i");
+                $CommercialInvoiceRelatedFieldPart4->{"heading_po_number_value_$i"} = $request->input("heading_po_number_value_$i");
+                $CommercialInvoiceRelatedFieldPart4->{"heading_style_name_$i"} = $request->input("heading_style_name_$i");
+                $CommercialInvoiceRelatedFieldPart4->{"heading_style_name_value_$i"} = $request->input("heading_style_name_value_$i");
+            }
+            $CommercialInvoiceRelatedFieldPart4->save();
+
+            $CommercialInvoiceRelatedFieldPart5 = new CommercialInvoiceRelatedFieldPart5();
+            $CommercialInvoiceRelatedFieldPart5->commercial_invoice_id = $CommercialInvoice->id;
+
+            for ($i = 1; $i <= 5; $i++) {
+                $CommercialInvoiceRelatedFieldPart5->{"heading_style_number_$i"} = $request->input("heading_style_number_$i");
+                $CommercialInvoiceRelatedFieldPart5->{"heading_style_number_value_$i"} = $request->input("heading_style_number_value_$i");
+                $CommercialInvoiceRelatedFieldPart5->{"heading_color_left_column_$i"} = $request->input("heading_color_left_column_$i");
+                $CommercialInvoiceRelatedFieldPart5->{"heading_color_left_column_value_$i"} = $request->input("heading_color_left_column_value_$i");
+                $CommercialInvoiceRelatedFieldPart5->{"heading_size_break_down_$i"} = $request->input("heading_size_break_down_$i");
+            }
+
+            $CommercialInvoiceRelatedFieldPart5->save();
+
+            $CommercialInvoiceRelatedFieldPart6 = new CommercialInvoiceRelatedFieldPart6();
+            $CommercialInvoiceRelatedFieldPart6->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 5; $i++) {
+                $CommercialInvoiceRelatedFieldPart6->{"heading_size_break_down_value_$i"} = $request->input("heading_size_break_down_value_$i");
+                $CommercialInvoiceRelatedFieldPart6->{"heading_carton_count_$i"} = $request->input("heading_carton_count_$i");
+                $CommercialInvoiceRelatedFieldPart6->{"heading_carton_count_value_$i"} = $request->input("heading_carton_count_value_$i");
+                $CommercialInvoiceRelatedFieldPart6->{"heading_carton_size_$i"} = $request->input("heading_carton_size_$i");
+                $CommercialInvoiceRelatedFieldPart6->{"heading_carton_size_value_$i"} = $request->input("heading_carton_size_value_$i");
+            }
+            $CommercialInvoiceRelatedFieldPart6->save();
+
+            $CommercialInvoiceRelatedFieldPart7 = new CommercialInvoiceRelatedFieldPart7();
+            $CommercialInvoiceRelatedFieldPart7->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 5; $i++) {
+                $CommercialInvoiceRelatedFieldPart7->{"heading_bale_left_column_$i"} = $request->input("heading_bale_left_column_$i");
+                $CommercialInvoiceRelatedFieldPart7->{"heading_bale_left_column_value_$i"} = $request->input("heading_bale_left_column_value_$i");
+                $CommercialInvoiceRelatedFieldPart7->{"heading_net_weight_left_column_$i"} = $request->input("heading_net_weight_left_column_$i");
+                $CommercialInvoiceRelatedFieldPart7->{"heading_gross_weight_left_column_$i"} = $request->input("heading_gross_weight_left_column_$i");
+                $CommercialInvoiceRelatedFieldPart7->{"heading_net_weight_second_column_$i"} = $request->input("heading_net_weight_second_column_$i");
+            }
+            $CommercialInvoiceRelatedFieldPart7->save();
+
+            $CommercialInvoiceRelatedFieldPart8 = new CommercialInvoiceRelatedFieldPart8();
+            $CommercialInvoiceRelatedFieldPart8->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 5; $i++) {
+                $CommercialInvoiceRelatedFieldPart8->{"heading_gross_weight_second_column_$i"} = $request->input("heading_gross_weight_second_column_$i");
+                $CommercialInvoiceRelatedFieldPart8->{"net_weight_second_column_value_$i"} = $request->input("net_weight_second_column_value_$i");
+                $CommercialInvoiceRelatedFieldPart8->{"gross_weight_second_column_value_$i"} = $request->input("gross_weight_second_column_value_$i");
+                $CommercialInvoiceRelatedFieldPart8->{"heading_quantity_unit_$i"} = $request->input("heading_quantity_unit_$i");
+            }
+            $CommercialInvoiceRelatedFieldPart8->save();
+
+           
+
+            $CommercialInvoiceRelatedValuePart1 = new CommercialInvoiceRelatedValuePart1();
+            $CommercialInvoiceRelatedValuePart1->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 50; $i++) {
+                $CommercialInvoiceRelatedValuePart1->{"color_name_second_column_value_$i"} = $request->input("color_name_second_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart1->save();
+
+            $CommercialInvoiceRelatedValuePart2 = new CommercialInvoiceRelatedValuePart2();
+            $CommercialInvoiceRelatedValuePart2->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 50; $i++) {
+                $CommercialInvoiceRelatedValuePart2->{"sku_no_second_column_value_$i"} = $request->input("sku_no_second_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart2->save();
+
+            $CommercialInvoiceRelatedValuePart3 = new CommercialInvoiceRelatedValuePart3();
+            $CommercialInvoiceRelatedValuePart3->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 50; $i++) {
+                $CommercialInvoiceRelatedValuePart3->{"ean_no_second_column_value_$i"} = $request->input("ean_no_second_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart3->save();
+            
+            $CommercialInvoiceRelatedValuePart4 = new CommercialInvoiceRelatedValuePart4();
+            $CommercialInvoiceRelatedValuePart4->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 50; $i++) {
+                $CommercialInvoiceRelatedValuePart4->{"sku_hash_no_second_column_value_$i"} = $request->input("sku_hash_no_second_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart4->save();
+
+            $CommercialInvoiceRelatedValuePart5 = new CommercialInvoiceRelatedValuePart5();
+            $CommercialInvoiceRelatedValuePart5->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 50; $i++) {
+                $CommercialInvoiceRelatedValuePart5->{"style_no_second_column_value_$i"} = $request->input("style_no_second_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart5->save();
+
+            $CommercialInvoiceRelatedValuePart6 = new CommercialInvoiceRelatedValuePart6();
+            $CommercialInvoiceRelatedValuePart6->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 50; $i++) {
+                $CommercialInvoiceRelatedValuePart6->{"quantity_third_column_value_$i"} = $request->input("quantity_third_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart6->save();
+
+            $CommercialInvoiceRelatedValuePart7 = new CommercialInvoiceRelatedValuePart7();
+            $CommercialInvoiceRelatedValuePart7->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 50; $i++) {
+                $CommercialInvoiceRelatedValuePart7->{"price_third_column_value_$i"} = $request->input("price_third_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart7->save();
+
+            $CommercialInvoiceRelatedValuePart8 = new CommercialInvoiceRelatedValuePart8();
+            $CommercialInvoiceRelatedValuePart8->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 50; $i++) {
+                $CommercialInvoiceRelatedValuePart8->{"currency_symbol_third_column_value_$i"} = $request->input("currency_symbol_third_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart8->save();
+
+            $CommercialInvoiceRelatedValuePart9 = new CommercialInvoiceRelatedValuePart9();
+            $CommercialInvoiceRelatedValuePart9->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 50; $i++) {
+                $CommercialInvoiceRelatedValuePart9->{"total_amount_third_column_value_$i"} = $request->input("total_amount_third_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart9->save();
+
+
+
             $CommercialInvoiceHistory = new CommercialInvoiceHistory();
             $CommercialInvoiceHistory->commercial_invoice_id = $CommercialInvoice->id;
             $CommercialInvoiceHistory->editer_name = Auth::guard('admin')->user()->user_name;
@@ -1701,7 +1974,37 @@ class adminController extends Controller
             $data['title'] = "Certificate origin  A";
             $data['page'] = "Certificate origin  A";
             $data['pageIntro'] = "Certificate origin  A Edit";
-            $data['CommercialInvoice'] = CommercialInvoice::where('id',$id)->first();
+           // Fetch the main commercial invoice data
+            $data['CommercialInvoice'] = CommercialInvoice::where('id', $id)->first()->toArray();
+
+            // Fetch the related field data and merge it with the existing array under the same key
+            $data['CommercialInvoice'] = array_merge(
+                $data['CommercialInvoice'],
+                CommercialInvoiceRelatedFieldPart1::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedFieldPart2::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedFieldPart3::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedFieldPart4::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedFieldPart5::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedFieldPart6::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedFieldPart7::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedFieldPart8::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedValuePart1::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedValuePart2::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedValuePart3::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedValuePart4::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedValuePart5::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedValuePart6::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedValuePart7::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedValuePart8::where('commercial_invoice_id', $id)->first()->toArray(),
+                CommercialInvoiceRelatedValuePart9::where('commercial_invoice_id', $id)->first()->toArray(),
+            );
+
+            // Debug the fetched data
+            // dd($data['CommercialInvoice']);
+
+
+
+
             if (!$data['CommercialInvoice']) {
                 return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
             }
@@ -1776,7 +2079,7 @@ class adminController extends Controller
             $data['page'] = "Certificate origin  A Activity";
     
             $data['pageIntro'] = "Certificate origin  A Activity";
-            $data['getAllCommercialInvoice'] = CommercialInvoiceHistory::where('certificate_origin_com_dec_form_a_id', $id)->get();
+            $data['getAllCommercialInvoice'] = CommercialInvoiceHistory::where('commercial_invoice_id', $id)->get();
     
             if ($data['getAllCommercialInvoice']->isEmpty()) {
                 return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');

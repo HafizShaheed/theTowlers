@@ -241,7 +241,7 @@
                        headers: {
                            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                        },
-                       url: "{{ route('admin.form_certificate_origin_invoice_resubmit') }}",
+                       url: "{{ route('admin.commercial_invoice_resubmit') }}",
                        data: { formId: formId }, // Send data as an object
                        dataType: "json",
                        success: function(response) {
@@ -289,7 +289,7 @@
                        headers: {
                            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                        },
-                       url: "{{ route('admin.form_certificate_origin_invoice_completed') }}",
+                       url: "{{ route('admin.commercial_invoice_completed') }}",
                        data: { forCompetingFormId: forCompetingFormId }, // Send data as an object
                        dataType: "json",
                        success: function(response) {

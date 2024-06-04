@@ -226,7 +226,6 @@
                     <div class="col-sm-3 mb-3">
                         <label for="heading_discription_of_goods" class="form-label">Heading</label>
                         <input type="text" class="form-control custom-input mb-1" id="heading_discription_of_goods"  style="font-weight: bold; color: #000;"  name="heading_discription_of_goods" value="DESCRIPTION OF GOODS">
-                            <textarea name="discription_of_goods_value" id="" class="form-control"  rows="3"></textarea>
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="heading_quantity" class="form-label">Heading</label>
@@ -400,22 +399,22 @@
                             <label for="currency_symbol_third_column_value_{{ $j }}" class="form-label">Currency third column value {{ $j }}</label>
                             <input type="text" class="form-control custom-input mb-1" id="currency_symbol_third_column_value_{{ $j }}" name="currency_symbol_third_column_value_{{ $j }}" value="">
                         </div>  --}}
-                        <div class="row mb-3" data-index="{{ $i }}">
+                        <div class="row mb-3" data-index="{{ $j }}">
                             <div class="col-sm-3 mb-3">
-                                <label for="quantity_third_column_value_{{ $i }}" class="form-label">QTY third column value {{ $i }}</label>
-                                <input type="text" class="form-control custom-input mb-1 quantity" id="quantity_third_column_value_{{ $i }}" name="quantity_third_column_value_{{ $i }}" value="">
+                                <label for="quantity_third_column_value_{{ $j }}" class="form-label">QTY third column value {{ $j }}</label>
+                                <input type="text" class="form-control custom-input mb-1 quantity" id="quantity_third_column_value_{{ $j }}" name="quantity_third_column_value_{{ $j }}" value="">
                             </div>
                             <div class="col-sm-3 mb-3">
-                                <label for="price_third_column_value_{{ $i }}" class="form-label">Price third column value {{ $i }}</label>
-                                <input type="text" class="form-control custom-input mb-1 price" id="price_third_column_value_{{ $i }}" name="price_third_column_value_{{ $i }}" value="">
+                                <label for="price_third_column_value_{{ $j }}" class="form-label">Price third column value {{ $j }}</label>
+                                <input type="text" class="form-control custom-input mb-1 price" id="price_third_column_value_{{ $j }}" name="price_third_column_value_{{ $j }}" value="">
                             </div>
                             <div class="col-sm-3 mb-3">
-                                <label for="total_amount_third_column_value_{{ $i }}" class="form-label">Total amount third column value {{ $i }}</label>
-                                <input type="text" class="form-control custom-input mb-1 total" id="total_amount_third_column_value_{{ $i }}" name="total_amount_third_column_value_{{ $i }}" value="" readonly>
+                                <label for="total_amount_third_column_value_{{ $j }}" class="form-label">Total amount third column value {{ $j }}</label>
+                                <input type="text" class="form-control custom-input mb-1 total" id="total_amount_third_column_value_{{ $j }}" name="total_amount_third_column_value_{{ $j }}" value="" readonly>
                             </div>
                         </div>
                     @endfor
-                @endfor
+                  @endfor
                 
                 
 
