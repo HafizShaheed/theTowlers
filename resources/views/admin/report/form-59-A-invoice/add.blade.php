@@ -86,7 +86,7 @@
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="delete_terms_inapplicable" class="form-label">Aelete terms in Applicable</label>
+                        <label for="delete_terms_inapplicable" class="form-label">Delete terms in Applicable</label>
                         <input type="text" class="form-control custom-input" id="delete_terms_inapplicable"
                             name="delete_terms_inapplicable" value="">
                     </div>
@@ -134,6 +134,11 @@
                         <label for="sea_airport_of_loading" class="form-label">Sea airport of loading</label>
                         <input type="text" class="form-control custom-input" id="sea_airport_of_loading"
                             name="sea_airport_of_loading" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="sea_airport_of_discharge" class="form-label">Sea airport of discharge</label>
+                        <input type="text" class="form-control custom-input" id="sea_airport_of_discharge"
+                            name="sea_airport_of_discharge" value="">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="final_destination_of_goods" class="form-label">Final destination of goods</label>

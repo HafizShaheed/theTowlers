@@ -137,6 +137,11 @@
                             name="sea_airport_of_loading" value="{{ $Form59AInvoice->sea_airport_of_loading }}">
                     </div>
                     <div class="col-sm-3 mb-3">
+                        <label for="sea_airport_of_discharge" class="form-label">Sea airport of discharge</label>
+                        <input type="text" class="form-control custom-input" id="sea_airport_of_discharge"
+                            name="sea_airport_of_discharge" value="{{ $Form59AInvoice->sea_airport_of_discharge }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
                         <label for="final_destination_of_goods" class="form-label">Final destination of goods</label>
                         <input type="text" class="form-control custom-input" id="final_destination_of_goods" name="final_destination_of_goods"
                             value="{{ $Form59AInvoice->final_destination_of_goods }}">

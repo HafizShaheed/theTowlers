@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
-</head>
+</head> 
+<style>
+    .page-break {
+    page-break-before: always; /* or page-break-after: always; */
+}
+
+</style>
 
 <body style="font-family: sans-serif;">
     <header>
@@ -33,6 +39,9 @@
                 <div style="height: 100px;">
 
                     <span>Exporter</span>
+                    <ul style="list-style: none; padding: 2px; margin-top: 8px;">
+                        <li style="list-style: none; padding: 2px 0 ;"> {{ $Form59AInvoice->exporter ?? "" }}</li>
+                    </ul>
                 </div>
             </td>
             <td style="width: 50%; font-size:9px;">
@@ -42,17 +51,17 @@
                             <div style="height: 80px; width: 100%;  transform: translateY(-10px);">
                                 <h5 style="height: 10px;">Status of Seller</h5>
                                 <ul style="list-style: none; padding: 0; margin-top: -8px;">
-                                    <li style="list-style: none; padding: 2px 0 ;">(delete terms inapplicable)</li>
-                                    <li style="list-style: none; padding: 2px 0 ;">Manufacturer </li>
-                                    <li style="list-style: none; padding: 2px 0 ;">Grower</li>
-                                    <li style="list-style: none; padding: 2px 0 ;">Producer</li>
-                                    <li style="list-style: none; padding: 2px 0 ;">Supplier</li>
+                                    <li style="list-style: none; padding: 2px 0 ;">({{ $Form59AInvoice->delete_terms_inapplicable ?? "" }})</li>
+                                    <li style="list-style: none; padding: 2px 0 ;">{{ $Form59AInvoice->manufacturer ?? "" }} </li>
+                                    <li style="list-style: none; padding: 2px 0 ;">{{ $Form59AInvoice->grower ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;">{{ $Form59AInvoice->producer ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;">{{ $Form59AInvoice->supplier ?? "" }}</li>
                                 </ul>
                             </div>
                         </td>
                         <td>
                             <div style="border-bottom:1px solid; text-align: center;">
-                                Page of Page
+                                _____________________
                             </div>
                             <div style="height: 40px;">
 
@@ -76,6 +85,9 @@
                 <div style="height: 100px;">
 
                     <span>Sold to</span>
+                    <ul style="list-style: none; padding: 2px; margin-top: 8px;">
+                        <li style="list-style: none; padding: 2px 0 ;"> {{ $Form59AInvoice->sold_to ?? "" }}</li>
+                    </ul>
                 </div>
             </td>
             <td>
@@ -92,6 +104,9 @@
                             <div style="height: 20px;">
 
                                 <span>Country of Origin</span>
+                                <ul style="list-style: none; padding: 2px; margin-top: 8px;">
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $Form59AInvoice->country_of_Origin ?? "" }}</li>
+                                </ul>
                             </div>
                         </td>
                     </tr>
@@ -126,13 +141,13 @@
                         <td style="border-right: .5px solid;">
                             <div style="height: 20px;">
 
-                                Ship/Airline, etc
+                                Ship/Airline, etc : {{ ' '.$Form59AInvoice->ship_airline_etc ?? "" }}
                             </div>
                         </td>
                         <td>
                             <div style="height: 20px;">
 
-                                Sea/Airport of loading
+                                Sea/Airport of loading : {{ ' '.$Form59AInvoice->sea_airport_of_loading ?? "" }}
                             </div>
                         </td>
                     </tr>
@@ -140,13 +155,13 @@
                         <td style="border-right: .5px solid;">
                             <div style="height: 20px;">
 
-                                Sea/Airport of discharge
+                                Sea/Airport of discharge : {{ ' '.$Form59AInvoice->sea_airport_of_discharge ?? "" }}
                             </div>
                         </td>
                         <td>
                             <div style="height: 20px;">
 
-                                final destination of goods
+                                final destination of goods : {{ ' '.$Form59AInvoice->final_destination_of_goods ?? "" }}
                             </div>
                         </td>
                     </tr>
@@ -169,25 +184,49 @@
             </td>
         </tr>
     </table>
-    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
+    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%;">
+
         <tr>
             <td style="text-align: center; width: 35%; font-size: 9px;">
-                <div style="height: 270px; ">
+                <div style="height: 270px; overflow: auto;">
                     Marks And numbers
+                    @for($i = 0; $i < 5; $i++)
+                    @if(isset($Form59AInvoice["marks_and_numbers_" . $i]))
+                    <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                        <li style="list-style: none; padding: 2px 0 ;"> {{ $Form59AInvoice->{'marks_and_numbers_' . $i} }}</li>
+                    </ul>
+                    @endif
+                    @endfor
                 </div>
+    
             </td>
+    
             <td style="text-align: center; width: 35%; font-size: 9px;">
-                <div style="height: 270px; border-right: 1px solid;">
+                <div style="height: 270px; overflow: auto; border-right: 1px solid;">
                     Quantity and description of goods (including any discounts)
+                    @for($i = 0; $i < 5; $i++)
+                    @if(isset($Form59AInvoice["marks_and_numbers_" . $i]))
+                    <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                        <li style="list-style: none; padding: 2px 0 ;"> {{ $Form59AInvoice->{'quantity_' . $i} .' '. $Form59AInvoice->{'description_of_goods_' . $i} .' '. $Form59AInvoice->{'including_any_discounts_' . $i} }}</li>
+                    </ul>
+                    @endif
+                    @endfor
                 </div>
             </td>
             <td style="width: 10%; font-size: 9px;">
-                <div style="height: 270px; border-right: 1px solid;">
+                <div style="height: 270px; overflow: auto; border-right: 1px solid;">
                     Current domestic<br>value in currency<br>of exporting<br>country
+                    @for($i = 0; $i < 5; $i++)
+                    @if(isset($Form59AInvoice["marks_and_numbers_" . $i]))
+                    <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                        <li style="list-style: none; padding: 2px 0 ;"> {{ $Form59AInvoice->{'current_domestic_value_currency_of_exporting_' . $i} }}</li>
+                    </ul>
+                    @endif
+                    @endfor
                 </div>
             </td>
             <td style="text-align: center; width: 20%; font-size: 9px;">
-                <div style="height: 270px;">
+                <div style="height: 270px; overflow: auto;">
                     Selling Price to Purchaser-State <br>currency and whether <br>FOB, CIF, etc
                     <div style="border-top: 1px solid;">
                         <table>
@@ -196,43 +235,51 @@
                                 <td style="width: 45px; text-align: center;">Amount</td>
                             </tr>
                         </table>
+                        @for($i = 0; $i < 5; $i++)
+                        @if(isset($Form59AInvoice["marks_and_numbers_" . $i]))
+                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                            <li style="list-style: none; padding: 2px 0 ;"> {{ $Form59AInvoice->{'amount_' . $i} }} </li>
+                        </ul>
+                        @endif
+                        @endfor
                     </div>
                 </div>
             </td>
         </tr>
+    
     </table>
+    
     <table style="border: 0px solid #000; border-collapse: collapse; width: 100%; border-left: 1px solid">
         <tr>
             <td style="width: 50%; font-size: 10px; border-right: 1px solid;">
-                <div style="height: 243px;">
+                <div style="height: 254px;">
                     <table style="border-bottom: 1px solid;">
                         <tr>
                             <td style="width: 50%;">
-                                <div style="height: 50px; width: 180px;">
+                                <div style="height: auto; width: 180px;">
                                     Enumerate the following charges and state <br>
-                                    if amount has been inciuded in the <br>
-                                    current domestic value
-
+                                    if amount has been included in the <br>
+                                    current domestic value : {{ ' '.$Form59AInvoice->if_amount_has_been_inciuded_in_the_current_domestic_value ?? "" }}
                                 </div>
                             </td>
                             <td style="width: 35%;">
-                                <div style="height: 50px; width: 100px ;">
+                                <div style="height: auto; width: 100px;">
                                     Amount in currency of <br>
                                     exporting country
-
                                 </div>
                             </td>
                             <td style="width: 15%;">
-                                <div style="height: 50px; width: 75px;">
+                                <div style="height: auto; width: 75px;">
                                     State if <br>
-                                    inciuded
+                                    included
                                 </div>
                             </td>
                         </tr>
+                        
                         <tr>
                             <td colspan="3" style="border-top: 1px solid #000; ">
                                 <div style="height: 30px; width: 200px;">
-                                    Drawback or remission of duty
+                                    Drawback or remission of duty : {{ ' '.$Form59AInvoice->drawback_or_remission_of_duty ?? "" }}
 
                                 </div>
                             </td>
@@ -324,10 +371,13 @@
         </tr>
     </table>
 
+    <div class="page-break"></div>
+    <div style="page-break-after:auto;">
     <!-- BACK PAGE  -->
 
 
-    <table style="width: 100%; border-top: 0; margin-top: 160px;">
+    <table style="width: 100%; margin-top: 0px;">
+        <br>
         <tr>
             <th style="text-align: center; font-size: 14px;">
                 VALUE CLAUSES
@@ -495,6 +545,24 @@
             </td>
         </tr>
     </table>
+    <script type="text/php">
+        if ( isset($pdf) ) {
+            // OLD
+            // $font = Font_Metrics::get_font("helvetica", "bold");
+            // $pdf->page_text(72, 18, "{PAGE_NUM} of {PAGE_COUNT}", $font, 6, array(255,0,0));
+            // v.0.7.0 and greater
+            $x = 460;
+            $y = 70;
+            $text = "Page {PAGE_NUM} of {PAGE_COUNT} page";
+            $font = $fontMetrics->get_font("sans-serif");
+            $size = 7;
+            $color = array(0,0,0);
+            $word_space = 0.0;  //  default
+            $char_space = 0.0;  //  default
+            $angle = 0.0;   //  default
+            $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
+        }
+    </script>
 </body>
 
 </html>

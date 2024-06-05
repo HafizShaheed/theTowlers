@@ -26,6 +26,7 @@ class CreateForm59AInvoicesTable extends Migration
         $table->string('country_of_Origin',100)->nullable();
         $table->string('ship_airline_etc',100)->nullable();
         $table->string('sea_airport_of_loading',100)->nullable();
+        $table->string('sea_airport_of_discharge',100)->nullable();
         $table->string('final_destination_of_goods',255)->nullable();
     
         for ($i = 1; $i <= 10; $i++) {
