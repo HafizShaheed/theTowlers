@@ -532,7 +532,7 @@ class adminController extends Controller
     
         // Load HTML content from view
         $html = view($viewName, $data)->render();
-    // return $html;
+         // return $html;
         // Load options
         $options = new Options();
         $options->set('isPhpEnabled', true); // Enable PHP execution
@@ -607,6 +607,7 @@ class adminController extends Controller
         $Form59AInvoice->country_of_Origin = $request->input('country_of_Origin');
         $Form59AInvoice->ship_airline_etc = $request->input('ship_airline_etc');
         $Form59AInvoice->sea_airport_of_loading = $request->input('sea_airport_of_loading');
+        $Form59AInvoice->sea_airport_of_discharge = $request->input('sea_airport_of_discharge');
         $Form59AInvoice->final_destination_of_goods = $request->input('final_destination_of_goods');
         $Form59AInvoice->if_amount_has_been_inciuded_in_the_current_domestic_value = $request->input('if_amount_has_been_inciuded_in_the_current_domestic_value');
         $Form59AInvoice->drawback_or_remission_of_duty = $request->input('drawback_or_remission_of_duty');
@@ -762,13 +763,55 @@ class adminController extends Controller
         }
 
         $data = [
-            'title' => 'exporter-textile-declearationPdf',
+            'title' => 'Exporter Textile Declearation Invoice Pdf',
             'ExporterTextileDeclearation' => ExporterTextileDeclearation::where('id', $id)->first(),
         ];
 
-        $pdf = PDF::loadView($viewName, $data);
+    
+        // Create a new Dompdf instance
+        $dompdf = new Dompdf();
+    
+        // Load HTML content from view
+        $html = view($viewName, $data)->render();
+    // return $html;
+        // Load options
+        $options = new Options();
+        $options->set('isPhpEnabled', true); // Enable PHP execution
+        $dompdf->setOptions($options);
+    
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+    
+        // Set paper size and orientation (optional)
+        $dompdf->setPaper('A4', 'portrait');
+    
+        // Set page numbers
+        // $dompdf->setCallbacks([
+        //     'pageNumber' => 'Page {PAGE_NUM}',
+        // ]);
+        // Set page numbers
+        // Set page numbers
+        $dompdf->setCallbacks([
+            'pageNumber' => 'Page {PAGE_NUM}',
+            'totalPages' => ' of {PAGE_COUNT}',
+        ]);
 
-        return $pdf->stream('form9A.pdf');
+
+    
+        // Render the HTML as PDF
+        $dompdf->render();
+    
+        // Get the generated PDF output
+        $output = $dompdf->output();
+    
+        // Generate PDF file name
+        $pdfName = $id .now().'-Exporter-Textile-Declearation-invoice.pdf';
+    
+        // Output the PDF as stream
+        
+        return response()->streamDownload(function () use ($output) {
+            echo $output;
+        }, $pdfName);
     }
 
     function add_exporter_textile_declearation_invoice(){

@@ -133,7 +133,7 @@
                 </div>
                 
                 <div class="col-sm-4 mb-4">
-                    <label for="country_of_origin_{{ $i }}" class="form-label">Current domestic value currency of exporting</label>
+                    <label for="country_of_origin_{{ $i }}" class="form-label">Country of origin</label>
                     <input type="text" step="any" class="form-control custom-input" id="country_of_origin_{{ $i }}"
                         name="country_of_origin_{{ $i }}" >
                 </div>
