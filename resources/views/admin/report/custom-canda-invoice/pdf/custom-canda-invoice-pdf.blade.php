@@ -6,8 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
 </head>
+<style>
+    .page-break {
+    page-break-before: always; /* or page-break-after: always; */
+}
+
+</style>
 
 <body style="font-family: sans-serif;">
+
+    
+    
+
     <header>
         <table>
             <tr>
@@ -288,14 +298,23 @@
 
 @php
     $descriptionPrinted = false;
+    $totalQuantity = 0;
+    $totalPrice= 0;
+    $grandTotal=0;
 @endphp
 
 @for($i = 0; $i < 7; $i++)
     @if(isset($CanadaCustomerInvoiceFrom["number_of_packages_nombre_de_coils_" . $i]))
         @php
             $quantity = $CanadaCustomerInvoiceFrom["quantity_" . $i] ?? 0;
+            $totalQuantity += $quantity; // Add quantity to the total
+
             $unitPrice = $CanadaCustomerInvoiceFrom["unit_price_" . $i] ?? 0;
+            $totalPrice += $unitPrice; // Add quantity to the total
+
             $total = $quantity * $unitPrice;
+            $grandTotal += $total; // Add quantity to the total
+
         @endphp
         <tr>
             <td style="text-align: left; width: 10px; font-size: 8px; border-right: 1px solid #000;">
@@ -437,7 +456,8 @@
                                 </td>
                                 <td>
                                     <div style="height: 10px; ">
-                                        Total weight - Poids total
+                                        Total weight - Poids total: 
+                                        {{ ' '.$totalQuantity  }}
                                     </div>
                                 </td>
                             </tr>
@@ -454,7 +474,8 @@
 
                                             <td style=" text-align: center;">
                                                 <div style="height: 10px; ">
-                                                    Net
+                                                    Net:  
+                                                    {{' '. $totalPrice }}
                                                 </div>
                                             </td>
                                         </tr>
@@ -493,6 +514,9 @@
                                 <div style="height: 50px; ">
                                     Invoice Total <br>
                                     Total de la facture
+                                    <br>
+                                    {{ 
+                                        $grandTotal }}
                                 </div>
                             </td>
 
@@ -517,6 +541,14 @@
                                 <div style="height: 50px;">
                                     Exporter's name and address (if other than vendor) <br>
                                     nome et adresse de I'exportateur (s'il differe du vendeur)
+                                    <br>
+                                        {{ $CanadaCustomerInvoiceFrom->exporter_name ?? "" }}
+                                    
+                                    <br>
+                                        {{ $CanadaCustomerInvoiceFrom->exporter_address ?? "" }}
+                                    
+                                    <br>
+                                        {{ $CanadaCustomerInvoiceFrom->exporter_nom_et_adresse ?? "" }}
                                 </div>
                             </td>
                         </tr>
@@ -535,7 +567,17 @@
                             </td>
                             <td>
                                 <div style="height: 50px;">
-                                    Originator (name and address) - Expediteur d'origine (nom et adresse)
+                                    <span>Originator (name and address) - Expediteur d'origine (nom et adresse)</span><br>
+                                        {{ $CanadaCustomerInvoiceFrom->originator_name ?? "" }}
+                                    
+                                    <br>
+                                        {{ $CanadaCustomerInvoiceFrom->originator_address ?? "" }}
+                                    
+                                    <br>
+                                        {{ $CanadaCustomerInvoiceFrom->originator_nom_et_adresse ?? "" }}
+                                    
+                                    
+                                   
                                 </div>
                             </td>
                         </tr>
@@ -544,7 +586,9 @@
             </td>
         </tr>
     </table>
-    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
+    <div class="page-break"></div>
+<div style="page-break-after:auto;">
+    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; ">
         <tr>
             <td style="width: 50%; font-size: 7px; border-right: 1px solid;">
                 <div style="height: 30px;">
@@ -751,6 +795,27 @@
         </tr>
         </tr>
     </table>
+    
+    <script type="text/php">
+        if ( isset($pdf) ) {
+            // OLD
+            // $font = Font_Metrics::get_font("helvetica", "bold");
+            // $pdf->page_text(72, 18, "{PAGE_NUM} of {PAGE_COUNT}", $font, 6, array(255,0,0));
+            // v.0.7.0 and greater
+            $x = 35;
+            $y = 810;
+            $text = "Page {PAGE_NUM} of {PAGE_COUNT}";
+            $font = $fontMetrics->get_font("sans-serif");
+            $size = 7;
+            $color = array(0,0,0);
+            $word_space = 0.0;  //  default
+            $char_space = 0.0;  //  default
+            $angle = 0.0;   //  default
+            $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
+        }
+    </script>
 </body>
+
+
 
 </html>
