@@ -233,7 +233,7 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"), 
             },
             url: "{{ route('admin.submit_certificate_origins_invoice') }}",
             data: formData,

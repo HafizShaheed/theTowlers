@@ -979,13 +979,55 @@ class adminController extends Controller
         }
 
         $data = [
-            'title' => 'certificate-originsPdf',
+            'title' => 'certificate origins Pdf',
             'CertificateOrigin' => CertificateOrigin::where('id', $id)->first(),
         ];
 
-        $pdf = PDF::loadView($viewName, $data);
+      
+        // Create a new Dompdf instance
+        $dompdf = new Dompdf();
+    
+        // Load HTML content from view
+        $html = view($viewName, $data)->render();
+    // return $html;
+        // Load options
+        $options = new Options();
+        $options->set('isPhpEnabled', true); // Enable PHP execution
+        $dompdf->setOptions($options);
+    
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+    
+        // Set paper size and orientation (optional)
+        $dompdf->setPaper('A4', 'portrait');
+    
+        // Set page numbers
+        // $dompdf->setCallbacks([
+        //     'pageNumber' => 'Page {PAGE_NUM}',
+        // ]);
+        // Set page numbers
+        // Set page numbers
+        $dompdf->setCallbacks([
+            'pageNumber' => 'Page {PAGE_NUM}',
+            'totalPages' => ' of {PAGE_COUNT}',
+        ]);
 
-        return $pdf->stream('form9A.pdf');
+
+    
+        // Render the HTML as PDF
+        $dompdf->render();
+    
+        // Get the generated PDF output
+        $output = $dompdf->output();
+    
+        // Generate PDF file name
+        $pdfName = $id .now().'-Certificate-Origin-invoice.pdf';
+    
+        // Output the PDF as stream
+        
+        return response()->streamDownload(function () use ($output) {
+            echo $output;
+        }, $pdfName);
     }
 
     function add_certificate_origins_invoice(){
