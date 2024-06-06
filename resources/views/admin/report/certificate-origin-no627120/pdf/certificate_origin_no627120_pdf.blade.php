@@ -17,6 +17,11 @@
                         <td>
                             <div style="border-bottom: 1px solid #000; height: 120px; width: 337px;">
                                 Exporter (Name , Adderss and Country)
+                                <ul style="list-style: none; padding: 2px; margin-top: 8px;">
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->exporter_name ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->exporter_address ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->exporter_country ?? "" }}</li>
+                                </ul>
                             </div>
                         </td>
                     </tr>
@@ -24,6 +29,11 @@
                         <td>
                             <div style="border-bottom: 1px solid #000; height: 100px; width: 337px;">
                                 Consigness Importer(Namme , Adderss and Country)
+                                <ul style="list-style: none; padding: 2px; margin-top: 8px;">
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->consignee_name ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->consignee_address ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->consignee_country ?? "" }}</li>
+                                </ul>
                             </div>
                         </td>
                     </tr>
@@ -31,6 +41,9 @@
                         <td>
                             <div style="border-bottom: 1px solid #000; height: 30px; width: 337px;">
                                 Exporter's Membership Number
+                                <ul style="list-style: none; padding: 2px; margin-top: 8px;">
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->exporter_membership_number ?? "" }}</li>
+                                </ul>
                             </div>
                         </td>
                     </tr>
@@ -38,6 +51,9 @@
                         <td>
                             <div style="height: 50px; width: 337px;">
                                 Particular of transport ( as far as known )
+                                <ul style="list-style: none; padding: 2px; margin-top: 8px;">
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->particular_of_transport ?? "" }}</li>
+                                </ul>
                             </div>
                         </td>
                     </tr>
@@ -48,7 +64,7 @@
                     <tr>
                         <td colspan="2" style="border-bottom: 1px solid; ">
                             <div style="height: 20px; width: 100%; font-size: 14px; font-weight: 500;">
-                                REFERNCE NUMBER
+                                REFERNCE NUMBER {{ $CertificateOriginNo627120->ref_number ?? ""  }}
                             </div>
                         </td>
                     </tr>
@@ -123,32 +139,47 @@
             </td>
         </tr>
         <tr style="font-size: 10px; text-align: center;">
-            <td style="width: 15%; border-right: 1px solid;">
-                <div style="width: 100px; height: 300px; word-wrap: break-word;">
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                </div>
+                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginNo627120["marks_and_numbers_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->{'marks_and_numbers_' . $i} }}</li>
+                    </ul>
+                @endif
+                @endfor
             </td>
-            <td style="width: 10%; border-right: 1px solid;">
-                <div style="width: 63px; height: 300px; word-wrap: break-word;">
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                </div>
+                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginNo627120["numbers_and_kinds_of_packges" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->{'numbers_and_kinds_of_packges' . $i} }}</li>
+                    </ul>
+                @endif
+                @endfor
             </td>
-            <td style="width: 45%; border-right: 1px solid;">
-                <div style="width: 300px; height: 300px; word-wrap: break-word;">
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                </div>
+                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginNo627120["description_of_goods_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->{'description_of_goods_' . $i} }}</li>
+                    </ul>
+                @endif
+                @endfor
             </td>
 
-            <td style="width: 15%; border-right: 1px solid;">
-                <div style="width: 100px; height: 300px; word-wrap: break-word;">
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                </div>
+                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginNo627120["gross_weight_or_other_quantity_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->{'gross_weight_or_other_quantity_' . $i} }}</li>
+                    </ul>
+                @endif
+                @endfor
             </td>
 
-            <td style="width: 15%;">
-                <div style="width: 100px; height: 300px; word-wrap: break-word;">
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                </div>
+                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginNo627120["county_of_origin_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginNo627120->{'county_of_origin_' . $i} }}</li>
+                    </ul>
+                @endif
+                @endfor
             </td>
         </tr>
     </table>
@@ -157,7 +188,7 @@
 
             <td style=" width: 55%; border-right: 1px solid;">
                 Other Information <br>
-                <input type="text" style="width: 90%; border: 0; border-bottom: 1px solid; margin-top: 80px;">
+                <input type="text" style="width: 90%; border: 0; border-bottom: 1px solid; margin-top: 20%;">
                 <br>
                 It is hereby declared that the above mentioned goods originate in <br>
                 <div style="text-align: center;">
@@ -185,7 +216,7 @@
                         </tr>
                         <tr style="padding: 2px 0;">
                             <td>Place: <span style="text-decoration: underline;">Karachi</span> &nbsp; &nbsp; Date:
-
+                                {{ $CertificateOriginNo627120->date ?? ""  }}
                             </td>
                             <td><input type="text" style=" border: 0; border-bottom: 1px solid;"> </td>
                         </tr>
@@ -199,7 +230,7 @@
 
                     It is hereby certified that to the best of my knowledge and according to the
                     documents produced before me this declaration appears to be <br>
-                    <input type="text" style="width: 50%; border: 0; border-bottom: 1px solid; margin-top: 40px;">
+                    <input type="text" style="width: 50%; border: 0; border-bottom: 1px solid; margin-top: 20px;">
                     <br>
                     Authorized Signatory <br>
                     <b style="padding: 10px 0; font-size: 14px;">
@@ -225,7 +256,24 @@
             </td>
         </tr>
     </table>
-
+    <script type="text/php">
+        if ( isset($pdf) ) {
+            // OLD
+            // $font = Font_Metrics::get_font("helvetica", "bold");
+            // $pdf->page_text(72, 18, "{PAGE_NUM} of {PAGE_COUNT}", $font, 6, array(255,0,0));
+            // v.0.7.0 and greater
+            $x = 35;
+            $y = 810;
+            $text = "Page {PAGE_NUM} of {PAGE_COUNT}";
+            $font = $fontMetrics->get_font("sans-serif");
+            $size = 7;
+            $color = array(0,0,0);
+            $word_space = 0.0;  //  default
+            $char_space = 0.0;  //  default
+            $angle = 0.0;   //  default
+            $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
+        }
+    </script>
 </body>
 
 </html>
