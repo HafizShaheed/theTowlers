@@ -115,11 +115,11 @@
                         <input type="text" class="form-control custom-input" id="ref_number"
                             name="ref_number"  value="{{ $CertificateOriginComDec->ref_number }}">
                     </div>
-                    <div class="col-sm-3 mb-3">
+                    {{-- <div class="col-sm-3 mb-3">
                         <label for="exporter_membership_number" class="form-label">Exporter membership number</label>
                         <input type="text" class="form-control custom-input" id="exporter_membership_number"
                             name="exporter_membership_number"  value="{{ $CertificateOriginComDec->exporter_membership_number }}">
-                    </div>
+                    </div> --}}
 
                     <div class="col-sm-3 mb-3">
                         <label for="transport_and_route" class="form-label">Transport and route</label>
@@ -151,7 +151,7 @@
                     <!-- =========== Director1 ============ -->
                     @for($i=1; $i <= 6; $i++) 
                     <div class="col-sm-4 mb-4">
-                        <label for="item_number_" class="form-label">Item Number </label>
+                        <label for="item_number_{{ $i }}" class="form-label">Item Number </label>
                         <input type="text" class="form-control custom-input"
                             id="item_number_{{ $i }}"
                             name="item_number_{{ $i }}" value="{{ $CertificateOriginComDec->{'item_number_' . $i} }}">
@@ -169,7 +169,7 @@
                         name="numbers_and_kinds_of_packges_description_{{ $i }}" value="{{ $CertificateOriginComDec->{'numbers_and_kinds_of_packges_description_' . $i} }}">
                 </div>
                 <div class="col-sm-4 mb-4">
-                    <label for="origin_criterion_{{ $i }}" class="form-label">Origin criterion_</label>
+                    <label for="origin_criterion_{{ $i }}" class="form-label">Origin criterion</label>
                     <input type="text" step="any" class="form-control custom-input" id="origin_criterion_{{ $i }}"
                         name="origin_criterion_{{ $i }}" value="{{ $CertificateOriginComDec->{'origin_criterion_' . $i} }}">
                 </div>
@@ -185,9 +185,9 @@
                     <input type="text" step="any" class="form-control custom-input" id="number_and_dates_of_inovoices_{{ $i }}"
                         name="number_and_dates_of_inovoices_{{ $i }}" value="{{ $CertificateOriginComDec->{'number_and_dates_of_inovoices_' . $i} }}">
                 </div>
-                <hr>
-
+                
                 @endfor
+                <hr>
                 <!-- =========== Director1 ============ -->
         </div>
 

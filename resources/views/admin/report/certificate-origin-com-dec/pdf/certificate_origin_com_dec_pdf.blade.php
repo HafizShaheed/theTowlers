@@ -10,6 +10,9 @@
 
 <style>
 
+.page-break {
+    page-break-before: always; /* or page-break-after: always; */
+}
 
 </style>
 
@@ -23,6 +26,11 @@
                         <td style="border-bottom: 1px solid #000; width: 100%;">
                             <div style="height: 75px; width: 342px;">
                                 1.Goods consigned from (Exporter's business name, <br> address, country)
+                                <ul style="list-style: none; padding: 2px; margin-top: 2px;">
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->exporter_name ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->exporter_address ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->exporter_country ?? "" }}</li>
+                                </ul>
                             </div>
                         </td>
                     </tr>
@@ -30,6 +38,11 @@
                         <td>
                             <div style="height: 75px;">
                                 2.Goods consigned to (consignee's name,address(country)
+                                <ul style="list-style: none; padding: 2px; margin-top: 8px;">
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->consignee_name ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->consignee_address ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->consignee_country ?? "" }}</li>
+                                </ul>
                             </div>
                         </td>
                     </tr>
@@ -39,7 +52,7 @@
             <td style="font-size: 12px; width: 50%;">
                 <div style="height: 150px; ">
                     <div style="margin-bottom: 20px;">
-                        Refernce No.
+                        Refernce No. {{ $CertificateOriginComDec->ref_number ?? ""  }}
                     </div>
 
                     <div style="text-align: center; height: 60px; font-weight: 500px;">
@@ -63,6 +76,10 @@
             <td style="width: 50%; border-right: 1px solid #000;">
                 <div style="height: 100px;">
                     3.Means of transport and route (as far as known)
+                    <ul style="list-style: none; padding: 2px; margin-top: 8px;">
+                        <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->transport_and_route ?? "" }}</li>
+                      
+                    </ul>
                 </div>
             </td>
             <td style="width: 50%; ">
@@ -121,36 +138,54 @@
             </td>
 
         </tr>
-        <tr style="border-top: 1px solid;">
-            <td style="border-right: 1px solid #000; ">
-                <div style="height: 350px; width: 60px; word-wrap: break-word;">
+        <tr style="border-top: 1px solid; font-size: 12px ">
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                </div>
+                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginComDec["item_number_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->{'item_number_' . $i} }}</li>
+                    </ul>
+                @endif
+                @endfor
             </td>
-            <td style="border-right: 1px solid #000; ">
-                <div style="height: 350px; width: 60px; word-wrap: break-word;">
+              <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                </div>
+                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginComDec["marks_and_numbers_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->{'marks_and_numbers_' . $i} }}</li>
+                    </ul>
+                @endif
+                @endfor
             </td>
-            <td style="border-right: 1px solid #000; ">
-                <div style="height: 350px; width: 200px; word-wrap: break-word;">
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                </div>
+                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginComDec["numbers_and_kinds_of_packges_description_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->{'numbers_and_kinds_of_packges_description_' . $i} }}</li>
+                    </ul>
+                @endif
+                @endfor
             </td>
-            <td style="border-right: 1px solid #000; ">
-                <div style="height: 350px; width: 60px; word-wrap: break-word;">
+              <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                </div>
+                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginComDec["origin_criterion_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->{'origin_criterion_' . $i} }}</li>
+                    </ul>
+                @endif
+                @endfor
             </td>
-            <td style="border-right: 1px solid #000; ">
-                <div style="height: 350px; width: 60px; word-wrap: break-word;">
+              <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                </div>
+                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginComDec["gross_weight_or_other_quantity_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->{'gross_weight_or_other_quantity_' . $i} }}</li>
+                    </ul>
+                @endif
+                @endfor
             </td>
-            <td style="border-right: 1px solid #000; ">
-                <div style="height: 350px; width: 60px; word-wrap: break-word;">
+              <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                </div>
+                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginComDec["number_and_dates_of_inovoices_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->{'number_and_dates_of_inovoices_' . $i} }}</li>
+                    </ul>
+                @endif
+                @endfor
             </td>
         </tr>
 
@@ -206,9 +241,10 @@
 
 
 
-
+    <div class="page-break"></div>
+    <div style="page-break-after:auto;">
     <!-- ------------- BACK PAGE ------------------ -->
-    <table style="margin-top: 150px; width: 80%; margin:150px auto 0 auto;">
+    <table style="margin-top: 150px; width: 80%; margin:0px auto 0 auto;">
         <tr style="font-size: 12px;">
             <td colspan="3">
                 List of countries signatories to Preferential Arrangements Among Developing Countries
@@ -382,7 +418,24 @@
         </tr>
 
     </table>
-
+    <script type="text/php">
+        if ( isset($pdf) ) {
+            // OLD
+            // $font = Font_Metrics::get_font("helvetica", "bold");
+            // $pdf->page_text(72, 18, "{PAGE_NUM} of {PAGE_COUNT}", $font, 6, array(255,0,0));
+            // v.0.7.0 and greater
+            $x = 35;
+            $y = 810;
+            $text = "Page {PAGE_NUM} of {PAGE_COUNT}";
+            $font = $fontMetrics->get_font("sans-serif");
+            $size = 7;
+            $color = array(0,0,0);
+            $word_space = 0.0;  //  default
+            $char_space = 0.0;  //  default
+            $angle = 0.0;   //  default
+            $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
+        }
+    </script>
 
 </body>
 

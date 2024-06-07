@@ -153,7 +153,7 @@
                     <div class="col-sm-3 mb-3">
                         <label for="date" class="form-label">Date</label>
                         <input type="date" class="form-control custom-input" id="date"
-                            name="date" value="{{ $CertificateOriginComDecFormIp->place }}">
+                            name="date" value="{{ $CertificateOriginComDecFormIp->date }}">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="place" class="form-label">Place</label>
@@ -172,7 +172,7 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) 
+                    @for($i=1; $i <= 3; $i++) 
                     <div class="col-sm-4 mb-4">
                         <label for="item_number_" class="form-label">Item Number </label>
                         <input type="text" class="form-control custom-input"
