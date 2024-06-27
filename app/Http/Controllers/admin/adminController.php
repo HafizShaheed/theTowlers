@@ -2451,7 +2451,7 @@ class adminController extends Controller
             );
 
             // Debug the fetched data
-            dd($data['CommercialInvoice']);
+            // dd($data['CommercialInvoice']);
 
 
 
