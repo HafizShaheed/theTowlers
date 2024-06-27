@@ -171,7 +171,7 @@
                                         Done
                                     </button>
                                     <span></span>
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/commercial-invoice/generate_certificate_origins_invoic_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/commercial-invoice/generate_commercial_invoice_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
                                     PDF
                                 </a>
 

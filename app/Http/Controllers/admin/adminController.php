@@ -2022,7 +2022,7 @@ class adminController extends Controller
             return view('admin.report.commercial-invoice.index', $data);
         }
     
-        public function generate_commercial_invoice_invoic_PDF($id)
+        public function generate_commercial_invoice_PDF($id)
         {
             $viewName = 'admin.report.commercial-invoice.pdf.commercial_invoice_pdf';
     
@@ -2031,14 +2031,91 @@ class adminController extends Controller
                 abort(404); // Redirect to 404 page if the view does not exist
             }
     
+            // $data = [
+            //     'title' => 'Commercial Invoice Pdf',
+            //     'CommercialInvoice' => CommercialInvoice::where('id', $id)->first(),
+
+            // ];
             $data = [
-                'title' => 'Certificate Origin No627120Pdf',
-                'CommercialInvoice' => CommercialInvoice::where('id', $id)->first(),
+                'title' => 'Commercial Invoice Pdf',
+                'CommercialInvoice' => CommercialInvoice::where('id', $id)->first()->toArray(),
             ];
-    
-            $pdf = PDF::loadView($viewName, $data);
-    
-            return $pdf->stream('form9A.pdf');
+            
+            $relatedFieldParts = [
+                CommercialInvoiceRelatedFieldPart1::class,
+                CommercialInvoiceRelatedFieldPart2::class,
+                CommercialInvoiceRelatedFieldPart3::class,
+                CommercialInvoiceRelatedFieldPart4::class,
+                CommercialInvoiceRelatedFieldPart5::class,
+                CommercialInvoiceRelatedFieldPart6::class,
+                CommercialInvoiceRelatedFieldPart7::class,
+                CommercialInvoiceRelatedFieldPart8::class,
+                CommercialInvoiceRelatedValuePart1::class,
+                CommercialInvoiceRelatedValuePart2::class,
+                CommercialInvoiceRelatedValuePart3::class,
+                CommercialInvoiceRelatedValuePart4::class,
+                CommercialInvoiceRelatedValuePart5::class,
+                CommercialInvoiceRelatedValuePart6::class,
+                CommercialInvoiceRelatedValuePart7::class,
+                CommercialInvoiceRelatedValuePart8::class,
+                CommercialInvoiceRelatedValuePart9::class,
+            ];
+            
+            foreach ($relatedFieldParts as $relatedPart) {
+                $relatedInstance = $relatedPart::where('commercial_invoice_id', $id)->first();
+                if ($relatedInstance) {
+                    $data['CommercialInvoice'] = array_merge($data['CommercialInvoice'], $relatedInstance->toArray());
+                }
+            }
+            
+       
+
+            // Debug the fetched data
+            // dd($data['CommercialInvoice']);
+       // Create a new Dompdf instance
+            $dompdf = new Dompdf();
+        
+            // Load HTML content from view
+            $html = view($viewName, $data)->render();
+        // return $html;
+            // Load options
+            $options = new Options();
+            $options->set('isPhpEnabled', true); // Enable PHP execution
+            $dompdf->setOptions($options);
+        
+            // Load HTML to Dompdf
+            $dompdf->loadHtml($html);
+        
+            // Set paper size and orientation (optional)
+            $dompdf->setPaper('A4', 'portrait');
+        
+            // Set page numbers
+            // $dompdf->setCallbacks([
+            //     'pageNumber' => 'Page {PAGE_NUM}',
+            // ]);
+            // Set page numbers
+            // Set page numbers
+            $dompdf->setCallbacks([
+                'pageNumber' => 'Page {PAGE_NUM}',
+                'totalPages' => ' of {PAGE_COUNT}',
+            ]);
+
+
+        
+            // Render the HTML as PDF
+            $dompdf->render();
+        
+            // Get the generated PDF output
+            $output = $dompdf->output();
+        
+            // Generate PDF file name
+            $pdfName = $id .now().'-Commercial-invoice.pdf';
+        
+            // Output the PDF as stream
+            
+            return response()->streamDownload(function () use ($output) {
+                echo $output;
+            }, $pdfName);
         }
     
         function add_commercial_invoice(){
@@ -2099,7 +2176,7 @@ class adminController extends Controller
             $CommercialInvoice->heading_total_net_amount_payable = $request->heading_total_net_amount_payable;
             $CommercialInvoice->heading_note = $request->heading_note;
             $CommercialInvoice->heading_remarks = $request->heading_remarks;
-            $CommercialInvoice->heading_intermediary_bank = $request->heading_intermediary_ba;
+            $CommercialInvoice->heading_intermediary_bank = $request->heading_intermediary_bank;
             $CommercialInvoice->heading_intermediary_bank_swift_no = $request->heading_intermediary_bank_swift_no;  
             $CommercialInvoice->heading_intermediary_bank_ac_no = $request->heading_intermediary_bank_ac_no;  
             $CommercialInvoice->heading_for_onword_credit_to = $request->heading_for_onword_credit_to;  
@@ -2374,7 +2451,7 @@ class adminController extends Controller
             );
 
             // Debug the fetched data
-            // dd($data['CommercialInvoice']);
+            dd($data['CommercialInvoice']);
 
 
 
@@ -2444,7 +2521,7 @@ class adminController extends Controller
                 $CommercialInvoice->heading_total_net_amount_payable = $request->heading_total_net_amount_payable;
                 $CommercialInvoice->heading_note = $request->heading_note;
                 $CommercialInvoice->heading_remarks = $request->heading_remarks;
-                $CommercialInvoice->heading_intermediary_bank = $request->heading_intermediary_ba;
+                $CommercialInvoice->heading_intermediary_bank = $request->heading_intermediary_bank;
                 $CommercialInvoice->heading_intermediary_bank_swift_no = $request->heading_intermediary_bank_swift_no;  
                 $CommercialInvoice->heading_intermediary_bank_ac_no = $request->heading_intermediary_bank_ac_no;  
                 $CommercialInvoice->heading_for_onword_credit_to = $request->heading_for_onword_credit_to;  
