@@ -2072,12 +2072,12 @@ class adminController extends Controller
 
             // Debug the fetched data
             // dd($data['CommercialInvoice']);
-       // Create a new Dompdf instance
+            // Create a new Dompdf instance
             $dompdf = new Dompdf();
         
             // Load HTML content from view
             $html = view($viewName, $data)->render();
-        // return $html;
+             // return $html;
             // Load options
             $options = new Options();
             $options->set('isPhpEnabled', true); // Enable PHP execution
@@ -2451,7 +2451,7 @@ class adminController extends Controller
             );
 
             // Debug the fetched data
-            // dd($data['CommercialInvoice']);
+            dd($data['CommercialInvoice']);
 
 
 

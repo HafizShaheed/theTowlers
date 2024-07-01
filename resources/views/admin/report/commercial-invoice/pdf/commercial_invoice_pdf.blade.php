@@ -252,8 +252,19 @@
                 </th>
             </tr>
             <!-- ---------- THIS IS HEADING  TABLE ----------- -->
-            
+            <?php 
+            $grandTotal = 0;
+            ?>
             @for ($i=1; $i<=5; $i++)
+                @php
+                $start = ($i - 1) * 10 + 1;
+                $end = $i * 10;
+                @endphp
+
+
+ 
+
+
                 
             <tr style="font-size:8px; ">
                 <td style=" border-right: 1px solid;">
@@ -296,7 +307,7 @@
 
                 <td style=" border-right: 1px solid;">
                     <div style="width: 200px ; word-wrap: break-word; text-align: left;">
-                        <b style="text-decoration: underline;">PO # 254444</b>
+                        <b style="text-decoration: underline;"> {{$CommercialInvoice["heading_po_" . $i] ?? ''}} &nbsp;&nbsp; {{$CommercialInvoice["value_po_" . $i] ?? ''}}</b>
                     </div>
                 </td>
                 <td style="border-right: 1px solid;">
@@ -320,13 +331,13 @@
             <tr style="font-size:8px; ">
                 <td style=" border-right: 1px solid;">
                     <div style="width: 150px; word-wrap: break-word;">
-                        PO NUMBER :
+                        {{$CommercialInvoice["heading_po_number_" . $i] ?? ''}} &nbsp;&nbsp; {{$CommercialInvoice["heading_po_number_value_" . $i] ?? ''}}
                     </div>
                 </td>
 
                 <td style=" border-right: 1px solid;">
                     <div style="width: 200px ; word-wrap: break-word; text-align: left;">
-                        <b style="text-decoration: underline;">100% COTTON</b>
+                        <b style="text-decoration: underline;"> {{$CommercialInvoice["heading_cotton_" . $i] ?? ''}} </b>
                     </div>
                 </td>
                 <td style="border-right: 1px solid;">
@@ -349,13 +360,13 @@
             <tr style="font-size:8px; ">
                 <td style=" border-right: 1px solid;">
                     <div style="width: 150px; word-wrap: break-word;">
-                        STYLE NAME :
+                        {{$CommercialInvoice["heading_style_name_" . $i] ?? ''}} &nbsp;&nbsp; {{$CommercialInvoice["heading_style_name_value_" . $i] ?? ''}}
                     </div>
                 </td>
 
                 <td style=" border-right: 1px solid;">
                     <div style="width: 200px ; word-wrap: break-word; text-align: left;">
-                        <b style="text-decoration: underline;"> SEAHORSE PURE TOWEL </b>
+                        <b style="text-decoration: underline;"> {{$CommercialInvoice["heading_seahorse_" . $i] ?? ''}}  </b>
 
                     </div>
                 </td>
@@ -381,13 +392,14 @@
             <tr style="font-size:8px; ">
                 <td style=" border-right: 1px solid;">
                     <div style="width: 150px; word-wrap: break-word;">
-                        STYLE NUMBER :
+                        {{$CommercialInvoice["heading_style_number_" . $i] ?? ''}} &nbsp;&nbsp; {{$CommercialInvoice["heading_style_number_value_" . $i] ?? ''}}
+
                     </div>
                 </td>
 
                 <td style=" border-right: 1px solid;">
                     <div style="width: 200px ; word-wrap: break-word; text-align: left;">
-                        TERRY TOWEL
+                        {{$CommercialInvoice["heading_terry_" . $i] ?? ''}}
 
 
                     </div>
@@ -414,13 +426,13 @@
             <tr style="font-size:8px; ">
                 <td style=" border-right: 1px solid;">
                     <div style="width: 150px; word-wrap: break-word;">
-                        COLOR :
+                        {{$CommercialInvoice["heading_color_left_column_" . $i] ?? ''}} &nbsp;&nbsp;  {{$CommercialInvoice["heading_color_left_column_value" . $i] ?? ''}} 
                     </div>
                 </td>
 
                 <td style=" border-right: 1px solid;">
                     <div style="width: 200px ; word-wrap: break-word; text-align: left;">
-                        200 CARONS = '@ 36 PCS PER CARTON
+                        {{$CommercialInvoice["carron_bales_pallets_value_" . $i] ?? ''}} &nbsp;&nbsp;  {{$CommercialInvoice["heading_carron_bales_pallets_" . $i] ?? ''}} &nbsp;&nbsp;  {{$CommercialInvoice["pcs_pack_pallet_per_value_" . $i] ?? ''}} &nbsp;&nbsp; {{$CommercialInvoice["heading_pcs_pack_pallet_per_" . $i] ?? ''}}
                     </div>
                 </td>
                 <td style="border-right: 1px solid;">
@@ -445,10 +457,10 @@
             <tr style="font-size:8px; ">
                 <td style=" border-right: 1px solid;">
                     <div style="width: 150px; word-wrap: break-word;">
-                        SIZE BREAKDOWN:
+                        {{$CommercialInvoice["heading_size_break_down_" . $i] ?? ''}} &nbsp;&nbsp;  {{$CommercialInvoice["heading_size_break_down_value_" . $i] ?? ''}} 
                     </div>
                     <div style="width: 150px; word-wrap: break-word;">
-                        CARTON COUNT : 001-0400
+                        {{$CommercialInvoice["heading_carton_count_" . $i] ?? ''}} &nbsp;&nbsp;  {{$CommercialInvoice["heading_carton_count_value_" . $i] ?? ''}} 
                     </div>
                     <div style="width: 150px; word-wrap: break-word; opacity:0;">
                         Desc:
@@ -461,125 +473,161 @@
                 <td style=" border-right: 1px solid;">
                     <div style="width: 200px ; word-wrap: break-word; text-align: left;">
                         <table>
+                               
+
                             <tr>
                                 <th style="width: 25%;">
-                                    <div style="text-decoration: underline; width: 60px; text-align: left;">COLOR</div>
+                                    <div style="text-decoration: underline; width: 60px; text-align: left;"> {{$CommercialInvoice["heading_color_" . $i] ?? ''}}</div>
                                 </th>
                                 <th style="width: 15%;">
-                                    <div style="text-decoration: underline; width: 60px; text-align: left;">SKU NO:</div>
+                                    <div style="text-decoration: underline; width: 60px; text-align: left;">{{$CommercialInvoice["heading_sku_no_" . $i] ?? ''}}</div>
                                 </th>
                                 <th style="width: 8%;">
-                                    <div style="text-decoration: underline; width: 60px; text-align: left;">EAN NO:</div>
+                                    <div style="text-decoration: underline; width: 60px; text-align: left;">{{$CommercialInvoice["heading_ean_no_" . $i] ?? ''}}</div>
                                 </th>
                                 <th style="width: 18%;">
-                                    <div style="text-decoration: underline; width: 60px; text-align: left;">SKU #</div>
+                                    <div style="text-decoration: underline; width: 60px; text-align: left;">{{$CommercialInvoice["heading_sku_hash_" . $i] ?? ''}}</div>
                                 </th>
                                 <th style="width: 15%;">
-                                    <div style="text-decoration: underline; width: 60px; text-align: left;">STYLE #</div>
+                                    <div style="text-decoration: underline; width: 60px; text-align: left;">{{$CommercialInvoice["heading_style_" . $i] ?? ''}}</div>
                                 </th>
                                 <!-- <th style="width: 25%;">
                                 <div style="text-decoration: underline; width: 60px; text-align: left;">PCS</div>
                             </th> -->
                             </tr>
+                            @for ($j = $start; $j <= $end; $j++)
                             <tr>
                                 <td>
                                     <div style=" width: 60px;">
-                                        <p style="margin: 0;"></p>BLUE
+                                        <p style="margin: 0;">{{$CommercialInvoice["color_name_second_column_value_" . $j] ?? ''}}</p>
                                     </div>
                                 </td>
                                 <td>
                                     <div style=" width: 60px;">
-                                        <p style="margin: 0;">164111566</p>
+                                        <p style="margin: 0;">{{$CommercialInvoice["sku_no_second_column_value_" . $j] ?? ''}}</p>
                                     </div>
                                 </td>
                                 <td>
                                     <div style=" width: 60px;">
-                                        <p style="margin: 0;">213113121</p>
+                                        <p style="margin: 0;">{{$CommercialInvoice["ean_no_second_column_value_" . $j] ?? ''}}</p>
                                     </div>
                                 </td>
                                 <td>
                                     <div style=" width: 60px;">
-                                        <p style="margin: 0;">544555</p>
+                                        <p style="margin: 0;">{{$CommercialInvoice["sku_hash_no_second_column_value_" . $j] ?? ''}}</p>
                                     </div>
                                 </td>
                                 <td>
                                     <div style=" width: 60px;">
-                                        <p style="margin: 0;">A45555</p>
+                                        <p style="margin: 0;">{{$CommercialInvoice["style_no_second_column_value_" . $j] ?? ''}}</p>
                                     </div>
                                 </td>
                                 <!-- <td>
                                 <div style=" width: 60px; text-align: right;">8,000</div>
                             </td> -->
                             </tr>
-                            <tr>
-                                <td>
-                                    <div style=" width: 60px;">WHITE</div>
-                                </td>
-                                <td>
-                                    <div style=" width: 60px;">155361513</div>
-                                </td>
-                                <td>
-                                    <div style=" width: 60px;">596594415</div>
-                                </td>
-                                <td>
-                                    <div style=" width: 60px;">655554</div>
-                                </td>
-                                <td>
-                                    <div style=" width: 60px;">A58877</div>
-                                </td>
-                                <!-- <td>
-                                <div style=" width: 60px; text-align: right;">500</div>
-                            </td> -->
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div style=" width: 60px;">PINK</div>
-                                </td>
-                                <td>
-                                    <div style=" width: 60px;">155131551</div>
-                                </td>
-                                <td>
-                                    <div style=" width: 60px;">874489484</div>
-                                </td>
-                                <td>
-                                    <div style=" width: 60px;">652444</div>
-                                </td>
-                                <td>
-                                    <div style=" width: 60px;">A61111</div>
-                                </td>
-                                <!-- <td>
-                                <div style=" width: 60px; text-align: right;">20</div>
-                            </td> -->
-                            </tr>
+                            @endfor
+                            
                         </table>
                     </div>
                 </td>
                 <td style="border-right: 1px solid;">
                     <div style="width: 60px; word-wrap: break-word;">
+                        @for ($j = $start; $j <= $end; $j++)
                         <p style="margin:5px 0; opacity:0;">512 PCS</p>
-                        <p style="margin:5px 0;">512 PCS</p>
-                        <p style="margin:5px 0;">512 PCS</p>
-                        <p style="margin:5px 0;">512 PCS</p>
+                        <p style="margin:5px 0;">{{$CommercialInvoice["quantity_third_column_value_" . $j] ?? ''}} PCS</p>
+                        @endfor
+
                     </div>
                 </td>
                 <td style="border-right: 1px solid;">
                     <div style="width: 60px; word-wrap: break-word;">
+                        @for ($j = $start; $j <= $end; $j++)
                         <p style="margin:5px 0; opacity:0;">512 PCS</p>
-                        <p style="margin:5px 0;">US$ 2.50</p>
-                        <p style="margin:5px 0;">US$ 2.50</p>
-                        <p style="margin:5px 0;">US$ 2.50</p>
+                        <p style="margin:5px 0;">{{$CommercialInvoice["currency_symbol"] ?? ''}} &nbsp;&nbsp; {{$CommercialInvoice["price_third_column_value_" . $j] ?? ''}} </p>
+                        @endfor
                     </div>
                 </td>
 
                 <td>
                     <div style="width: 80px; word-wrap: break-word;">
+                        @for ($j = $start; $j <= $end; $j++)
                         <p style="margin:5px 0; opacity:0;">512 PCS</p>
-                        <p style="margin:5px 0;">US$ 1,280.00</p>
-                        <p style="margin:5px 0;">US$ 1,280.00</p>
-                        <p style="margin:5px 0;">US$ 1,280.00</p>
+                        <p style="margin:5px 0;">{{$CommercialInvoice["currency_symbol"] ?? ''}} &nbsp;&nbsp; {{$CommercialInvoice["total_amount_third_column_value_" . $j] ?? ''}} </p>
+                        <?php
+                        // Add to the grand total if the value exists
+                        if (isset($CommercialInvoice["total_amount_third_column_value_" . $j])) {
+                            $grandTotal += $CommercialInvoice["total_amount_third_column_value_" . $j];
+                        }
+                        ?>
+                        @endfor
                     </div>
                 </td>
 
+
+            </tr>
+     
+
+           <tr style="font-size:8px; ">
+                <td style=" border-right: 1px solid;">
+                  
+                </td>
+
+                <td style=" border-right: 1px solid;">
+                    <div style="width: 200px ; word-wrap: break-word; text-align: left;">
+                        <div style="width: 150px; word-wrap: break-word;">
+                            GR WEIGHT: &nbsp; &nbsp; &nbsp; 155.00 KGS2
+                        </div>
+                    </div>
+                </td>
+                <td style="border-right: 1px solid;">
+                    <div style="width: 40px; word-wrap: break-word;">
+
+                    </div>
+                </td>
+                <td style="border-right: 1px solid;">
+                    <div style="width: 40px; word-wrap: break-word;">
+
+                    </div>
+                </td>
+                <td>
+                    <div style="width: 30px; word-wrap: break-word;">
+
+                    </div>
+                </td>
+
+            </tr> 
+            
+      
+           
+
+            <tr style="font-size:8px; ">
+                <td style=" border-right: 1px solid;">
+                 
+                </td>
+
+                <td style=" border-right: 1px solid;">
+                    <div style="width: 200px ; word-wrap: break-word; text-align: left;">
+                        <div style="width: 150px; word-wrap: break-word;">
+                            GROSS WEIGHT:2
+                        </div>
+                    </div>
+                </td>
+                <td style="border-right: 1px solid;">
+                    <div style="width: 40px; word-wrap: break-word;">
+
+                    </div>
+                </td>
+                <td style="border-right: 1px solid;">
+                    <div style="width: 40px; word-wrap: break-word;">
+
+                    </div>
+                </td>
+                <td>
+                    <div style="width: 30px; word-wrap: break-word;">
+
+                    </div>
+                </td>
 
             </tr>
             @endfor
@@ -635,7 +683,7 @@
                 </td>
                 <td style="border-right: 1px solid; border-top:1px solid #000;">
                     <div style="width: 60px; word-wrap: break-word; font-size:8px;">
-                        US$11,022.00
+                        {{$CommercialInvoice["currency_symbol"] ?? ''}} {{$grandTotal}}
                     </div>
                 </td>
             </tr>
