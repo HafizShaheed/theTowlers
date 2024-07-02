@@ -15,6 +15,8 @@ class CreateCertificateOriginsTable extends Migration
     {
         Schema::create('certificate_origins', function (Blueprint $table) {
             $table->id();
+            $table->string('commercial_invoice_id')->nullable();
+            $table->string("table_name",50)->default('certificate origins')->nullable();
             $table->string('exporter_name')->nullable();
             $table->string('exporter_address')->nullable();
             $table->string('exporter_country')->nullable();

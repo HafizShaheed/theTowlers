@@ -15,6 +15,8 @@ class CreateExporterTextileDeclearationsTable extends Migration
     {
         Schema::create('exporter_textile_declearations', function (Blueprint $table) {
             $table->id();
+            $table->string('commercial_invoice_id')->nullable();
+            $table->string("table_name",50)->default('Exporter Textile Declearations')->nullable();
 
             for ($i = 1; $i <= 10; $i++) {
                 $table->string('invoice_number_' . $i)->nullable();

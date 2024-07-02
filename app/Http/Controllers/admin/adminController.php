@@ -9,6 +9,7 @@ use App\Models\team\TeamUser;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 use DB;
+use Illuminate\Validation\Rule;
 use Mail;
 use Carbon\Carbon;
 use App\Models\CanadaCustomerInvoiceFrom;
@@ -2130,7 +2131,10 @@ class adminController extends Controller
         public function submit_commercial_invoice(Request $request)
         {
             // dd($request->all());
-    
+            $request->validate([
+                'commercial_invoice' => 'required|unique:commercial_invoices',
+                // add other required fields validation here if necessary
+            ]);
             try {
               
     
@@ -2375,6 +2379,8 @@ class adminController extends Controller
             $CommercialInvoiceRelatedValuePart6->commercial_invoice_id = $CommercialInvoice->id;
             for ($i = 1; $i <= 50; $i++) {
                 $CommercialInvoiceRelatedValuePart6->{"quantity_third_column_value_$i"} = $request->input("quantity_third_column_value_$i");
+                $CommercialInvoiceRelatedValuePart6->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
+
             }
             $CommercialInvoiceRelatedValuePart6->save();
 
@@ -2451,7 +2457,7 @@ class adminController extends Controller
             );
 
             // Debug the fetched data
-            dd($data['CommercialInvoice']);
+            // dd($data['CommercialInvoice']);
 
 
 
@@ -2465,13 +2471,20 @@ class adminController extends Controller
         }
         public function update_submit_commercial_invoice(Request $request)
         {
-            // dd($request->all());
+            $id = $request->input('id');
+            $request->validate([
+                'commercial_invoice' => [
+                    'required',
+                    Rule::unique('commercial_invoices')->ignore($id),
+                ],
+                // add other required fields validation here if necessary
+            ]);
             try {
                 // Validate the incoming request if necessary
                 // $request->validate([...]);
     
                 // Check if an ID is provided in the request
-                $id = $request->input('id');
+               
                 if ($id) {
                     // If an ID is provided, update the existing record
                     $CommercialInvoice = CommercialInvoice::findOrFail($id);
@@ -2720,6 +2733,7 @@ class adminController extends Controller
                 $CommercialInvoiceRelatedValuePart6->commercial_invoice_id = $CommercialInvoice->id;
                 for ($i = 1; $i <= 50; $i++) {
                     $CommercialInvoiceRelatedValuePart6->{"quantity_third_column_value_$i"} = $request->input("quantity_third_column_value_$i");
+                    $CommercialInvoiceRelatedValuePart6->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
                 }
                 $CommercialInvoiceRelatedValuePart6->save();
     

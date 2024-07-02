@@ -380,6 +380,10 @@
         <input type="text" class="form-control custom-input mb-1 quantity" id="quantity_third_column_value_{{ $j }}" name="quantity_third_column_value_{{ $j }}" value="{{ $CommercialInvoice['quantity_third_column_value_'.$j] }}">
     </div>
     <div class="col-sm-3 mb-3">
+        <label for="quantity_unit_third_column_value_{{ $j }}" class="form-label">QTY  unit {{ $j }}</label>
+        <input type="text" class="form-control custom-input mb-1 quantity" id="quantity_unit_third_column_value_{{ $j }}" name="quantity_unit_third_column_value_{{ $j }}" value="">
+    </div>
+    <div class="col-sm-3 mb-3">
         <label for="price_third_column_value_{{ $j }}" class="form-label">Price third column value {{ $j
                     }}</label>
         <input type="text" class="form-control custom-input mb-1 price" id="price_third_column_value_{{ $j }}" name="price_third_column_value_{{ $j }}" value="{{ $CommercialInvoice['price_third_column_value_'.$j] }}">
@@ -511,9 +515,10 @@
 
 
 <div class="row">
-    <!-- =========== Director1 ============ -->
-
-    <!-- =========== Director1 ============ -->
+    <div class="col-sm-3 mb-3">
+        <label for="heading_bank_addrss" class="form-label">PDF Upload</label>
+        <input type="text" class="form-control custom-input" id="pdf_upload_file_ic" name="pdf_upload_file_ic" value="{{ $CommercialInvoice['pdf_upload_file_ic']}}">
+    </div>
 </div>
 
 <div class="row">
@@ -607,7 +612,18 @@
                 },
                 error: function(error) {
                     console.log(error);
+                    Swal.fire({
+                    title: "Error!",
+                    text: error?.responseJSON?.errors?.commercial_invoice[0],
+                    icon: "error",
+                    confirmButtonText: "OK",
+                    timer: 3000, // 3 seconds
+                    timerProgressBar: true,
+                    willClose: () => {
+                        $('#firm-submit').prop('disabled', false);
 
+                    },
+                });
                     $('#firm-submit').prop('disabled', false);
                 }
             });

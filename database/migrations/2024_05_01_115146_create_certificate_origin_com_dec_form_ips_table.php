@@ -15,6 +15,9 @@ class CreateCertificateOriginComDecFormIpsTable extends Migration
     {
         Schema::create('certificate_origin_com_dec_form_ips', function (Blueprint $table) {
             $table->id();
+            $table->string('commercial_invoice_id')->nullable();
+            $table->string("table_name",50)->default('Certificate Origin Com Decs from IPs')->nullable();
+
             $table->string('exporter_name', 100)->nullable();
             $table->string('exporter_address', 255)->nullable();
             $table->string('Producer_name', 100)->nullable();

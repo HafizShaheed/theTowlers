@@ -69,6 +69,7 @@ class CreateCommercialInvoiceRelatedValuePart1sTable extends Migration
 
             for ($i = 1; $i <= 50; $i++) {
                 $table->text("quantity_third_column_value_$i")->nullable();
+                $table->text("quantity_unit_third_column_value_$i")->nullable();
               
             }
             $table->timestamps();

@@ -16,6 +16,9 @@ class CreateForm59AInvoicesTable extends Migration
     Schema::create('form59_a_invoices', function (Blueprint $table) {
         $table->id();
         $table->string('exporter',100)->nullable();
+        $table->string('commercial_invoice_id')->nullable();
+        $table->string("table_name",50)->default('Form 59 A invoice')->nullable();
+
         $table->string('status_of_seller',100)->nullable();
         $table->string('delete_terms_inapplicable',100)->nullable();
         $table->string('manufacturer',100)->nullable();

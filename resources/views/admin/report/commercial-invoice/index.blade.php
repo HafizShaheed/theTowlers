@@ -175,8 +175,15 @@
                                     PDF
                                 </a>
 
+
                                 <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/commercial-invoice/activity/'.$value->id) }}" class="" target="_blank"  title="View Activity">
                                Activity
+                                </a>
+                                <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/commercial-invoice/generate_commercial_invoice_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
+                                    Related Invoice
+                                </a>
+                                <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/commercial-invoice/generate_commercial_invoice_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
+                                    File View
                                 </a>
 
 

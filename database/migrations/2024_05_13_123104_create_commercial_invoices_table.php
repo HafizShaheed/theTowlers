@@ -123,6 +123,7 @@ class CreateCommercialInvoicesTable extends Migration
             $table->text("value_total_net_amount_payable",50)->nullable();
             $table->text("value_currency_name",50)->nullable();
             $table->text("status",50)->default(0)->nullable();
+            $table->string("pdf_upload_file_ic")->nullable();
          
             $table->text('team_user_id',50)->nullable();
           

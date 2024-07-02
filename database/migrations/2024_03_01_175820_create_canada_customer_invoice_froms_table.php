@@ -16,6 +16,9 @@ class CreateCanadaCustomerInvoiceFromsTable extends Migration
         Schema::create('canada_customer_invoice_froms', function (Blueprint $table) {
             $table->id();
             $table->string('invioce_generator')->nullable();
+            $table->string('commercial_invoice_id')->nullable();
+            $table->string("table_name",50)->default('canada customer invoice')->nullable();
+
             $table->string('canada_customer_invoice')->nullable();
             $table->integer('team_user_id')->nullable();
             $table->string('vender_name')->nullable();

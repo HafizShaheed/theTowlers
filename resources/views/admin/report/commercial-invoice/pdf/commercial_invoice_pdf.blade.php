@@ -59,7 +59,6 @@
         </table>
     </div>
     <div class="content">
-        <!-- @yield('content') -->
 
         <table border="1" style="border: 1px solid #000; border-collapse: collapse; width: 100%;">
             <tr>
@@ -533,9 +532,26 @@
                 </td>
                 <td style="border-right: 1px solid;">
                     <div style="width: 60px; word-wrap: break-word;">
+                                                @php
+                            // Initialize an array to store the sums of quantities for each unit
+                            $quantitySums = [];
+                        @endphp
                         @for ($j = $start; $j <= $end; $j++)
                         <p style="margin:5px 0; opacity:0;">512 PCS</p>
-                        <p style="margin:5px 0;">{{$CommercialInvoice["quantity_third_column_value_" . $j] ?? ''}} PCS</p>
+                        <p style="margin:5px 0;">{{$CommercialInvoice["quantity_third_column_value_" . $j] ?? ''}} &nbsp;&nbsp; {{ $CommercialInvoice["quantity_unit_third_column_value_" . $j]  }}</p>
+                        <?php 
+                          $quantity = $CommercialInvoice["quantity_third_column_value_" . $j] ?? 0;
+              $unit = $CommercialInvoice["quantity_unit_third_column_value_" . $j] ?? '';
+                        if (is_numeric($quantity)) {
+                            $quantity = (float) $quantity;
+                            // Sum the quantities based on their units
+                            if (isset($quantitySums[$unit])) {
+                                $quantitySums[$unit] += $quantity;
+                            } else {
+                                $quantitySums[$unit] = $quantity;
+                            }
+                        }
+                        ?>
                         @endfor
 
                     </div>
@@ -641,12 +657,38 @@
             <!-- ============ >>THIRD <<< =========== -->
         
             <!-- ============ >>THIRD<<< =========== -->
-
+            <div class="page-break"></div>
+            <div style="page-break-after:auto; margin-top:100px">
 
             <tr style="font-size:8px;">
                 <td style=" border-right: 1px solid; border-top:1px solid #000; ">
                     <div style="width: 150px; word-wrap: break-word;">
+                        <?php 
+                            $palltesValueSum = [];
+                             
+                             $palletValue = $CommercialInvoice["carron_bales_pallets_value_" . $j] ?? 0;
+                             $palletUnit = $CommercialInvoice["heading_carron_bales_pallets_" . $j] ?? '';
+                        if (is_numeric($palletValue)) {
+                            $palletValue = (float) $palletValue;
+                            // Sum the quantities based on their units
+                            if (isset($palltesValueSum[$palletUnit])) {
+                                $palltesValueSum[$palletUnit] += $palletValue;
+                            } else {
+                                $palltesValueSum[$palletUnit] = $palletValue;
+                            }
+                        }
 
+                        $grossWeightTotalSecondColumn = 0;
+                        // gr total and net total second column
+                        if (isset($CommercialInvoice["gross_weight_second_column_value_" . $j])) {
+                            $grossWeightTotalSecondColumn += $CommercialInvoice["gross_weight_second_column_value_" . $j];
+                        }
+                        $netWeightTotalSecondColumn = 0;
+                        // gr total and net total second column
+                        if (isset($CommercialInvoice["net_weight_second_column_value_" . $j])) {
+                            $netWeightTotalSecondColumn += $CommercialInvoice["net_weight_second_column_value_" . $j];
+                        }
+                        ?>
                     </div>
                 </td>
 
@@ -688,8 +730,7 @@
                 </td>
             </tr>
         </table>
-        <div class="page-break"></div>
-        <div style="page-break-after:auto; margin-top:100px">
+       
         <table border="0" style=" margin-top: 2px; border-collapse: collapse; width: 100%;font-size:8px;">
             <tr>
                 <td style="width: 33.33%;">
@@ -700,7 +741,7 @@
                                     : </div>
                             </td>
                             <td>
-                                <div style="text-align: center;">230.00 KGS </div>
+                                <div style="text-align: center;">{{ $netWeightTotalSecondColumn }}  </div>
                             </td>
                         </tr>
                         <tr>
@@ -708,7 +749,7 @@
                                 <div> {{ $CommercialInvoice['heading_total_gr_weight'] ?? "" }}: </div>
                             </td>
                             <td>
-                                <div style="text-align: center;">280.00 KGS </div>
+                                <div style="text-align: center;">{{ $grossWeightTotalSecondColumn }}</div>
                             </td>
                         </tr>
                         <tr>

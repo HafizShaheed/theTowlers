@@ -15,6 +15,9 @@ class CreateCertificateOriginComDecsTable extends Migration
     {
         Schema::create('certificate_origin_com_decs', function (Blueprint $table) {
             $table->id();
+            $table->string('commercial_invoice_id')->nullable();
+            $table->string("table_name",50)->default('Certificate Origin Com Decs')->nullable();
+
             $table->string('exporter_name', 100)->nullable(); // Adjusted length
             $table->string('exporter_address', 255)->nullable(); // Adjusted length
             $table->string('exporter_country', 100)->nullable(); // Adjusted length
