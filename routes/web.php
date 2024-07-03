@@ -170,6 +170,9 @@ Route::prefix('panel')->namespace('admin')->group(function () {
 
                 Route::get('/view/{id}', 'adminController@view_commercial_invoice')->name('admin.view_commercial_invoice');
                 Route::get('/activity/{id}', 'adminController@activity_commercial_invoice')->name('admin.activity_commercial_invoice');
+              Route::get('/pdf_file_view/{id}', 'adminController@firm_file_view')->name('admin.firm_file_view');
+              Route::get('/commercial_invoice_by_pdf/{id}', 'adminController@commercial_invoice_by_pdf')->name('admin.commercial_invoice_by_pdf');
+
             });
 
             Route::prefix('form-59-a-invoice')->group(function () {

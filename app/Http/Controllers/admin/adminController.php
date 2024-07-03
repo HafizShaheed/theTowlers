@@ -2137,7 +2137,7 @@ class adminController extends Controller
             ]);
             try {
               
-    
+                
                 // Create CanadaCustomerInvoiceFrom record
                 $CommercialInvoice = new CommercialInvoice();
                 $CommercialInvoice->invioce_generator = rand(0000, 9999).now();
@@ -2484,6 +2484,8 @@ class adminController extends Controller
                 // $request->validate([...]);
     
                 // Check if an ID is provided in the request
+
+               
                
                 if ($id) {
                     // If an ID is provided, update the existing record
@@ -2493,7 +2495,16 @@ class adminController extends Controller
                     $CommercialInvoice = new CommercialInvoice();
                     $CommercialInvoice->invioce_generator = rand(0000, 9999) . now();
                 }
-    
+                
+                if ($request->hasFile("pdf_upload_file_ic")) {
+                    $file = $request->file("pdf_upload_file_ic");
+                    // Generate a unique filename
+                    $filename = 'commercial-invoice-'.$id. '-' . date('dmyHis') . rand() . '.' . $file->getClientOriginalExtension();
+                    // Move the file to the destination folder
+                    // $file->move(public_path('admin/assets/imgs/Document/'), $filename);
+                    $file->move(public_path('admin/assets/imgs/comMERCIALInvoice/'), $filename);
+                    $CommercialInvoice->{"pdf_upload_file_ic"} = $filename;
+                }
                 // Assign values from the request to the CanadaCustomerInvoiceFrom model
                 $CommercialInvoice->team_user_id = $request->input('team_user_id');
             
@@ -3655,111 +3666,60 @@ class adminController extends Controller
         }
         
     }
-    //  =========================== competed and resubmited ================================//
 
+    public function firm_file_view($id, $index)
+    {
 
+        $id = base64_decode($id);
+        $License = CommercialInvoice::find($id);
 
-    // function update_resubmited_allreports(Request $request)
-    // {
+        if (!$License) {
+            abort(404);
+        }
 
-    //     $KeyObservation = KeyObservation::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $KeyObservation->status = 2;
-    //     $KeyObservation->save();
+        
+        $fileName = $License->{"pdf_upload_file_ic$"};
 
-    //     $FirmBackground = FirmBackground::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $FirmBackground->status = 2;
-    //     $FirmBackground->save();
+        if (!$fileName) {
+            abort(404);
+        }
 
-    //     $BusinessIntelligence = BusinessIntelligence::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $BusinessIntelligence->status = 2;
-    //     $BusinessIntelligence->save();
+        $filePath = public_path('admin/assets/imgs/comMERCIALInvoice/'  . $fileName);
 
-    //     $CourtCheck = CourtCheck::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $CourtCheck->status = 2;
-    //     $CourtCheck->save();
+        // Check if the file exists
+        if (!file_exists($filePath)) {
+            abort(404);
+        }
 
-    //     $Financial = Financial::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $Financial->status = 2;
-    //     $Financial->save();
+        // Get the MIME type of the file
+        $mimeType = mime_content_type($filePath);
 
-    //     $MarketReputation = MarketReputation::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $MarketReputation->status = 2;
-    //     $MarketReputation->save();
+        // Set the response headers
+        $headers = [
+            'Content-Type' => $mimeType,
+        ];
 
+        // Return the file with appropriate headers
+        return response()->file($filePath, $headers);
+    }
 
-    //     $Document = Document::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $Document->status = 2;
-    //     $Document->save();
+    function commercial_invoice_by_pdf($id) {
+        $id = base64_decode($id);
+            CanadaCustomerInvoiceFrom::where('commercial_invoice_id',$id)->first();
+            CertificateOrigin::where('commercial_invoice_id',$id)->first();
+            CertificateOriginComDec::where('commercial_invoice_id',$id)->first();
+            CertificateOriginComDecFormA::where('commercial_invoice_id',$id)->first();          
+            CertificateOriginComDecFormIp::where('commercial_invoice_id',$id)->first();
+            CertificateOriginNo627120::where('commercial_invoice_id',$id)->first();
+            ExporterTextileDeclearation::where('commercial_invoice_id',$id)->first();
+            Form59AInvoice::where('commercial_invoice_id',$id)->first();
+            if (!$License) {
+                abort(404);
+            }
 
-
-    //     $OnGroundVerification = OnGroundVerification::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $OnGroundVerification->status = 2;
-    //     $OnGroundVerification->save();
-
-    //     $TaxReurnCredit = TaxReurnCredit::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $TaxReurnCredit->status = 2;
-    //     $TaxReurnCredit->save();
-
-    //     $ThirdParty = ThirdParty::findOrFail($request->thirdpartyId);
-    //     $ThirdParty->status = 2;
-    //     $ThirdParty->save();
-
-    //     return response()->json(['message' => 'ALl Reports Re-Submited successfully!']);
-    // }
-
-    // function update_completed_allreports(Request $request)
-    // {
-
-    //     $KeyObservation = KeyObservation::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $KeyObservation->status = 3;
-    //     $KeyObservation->save();
-
-    //     $FirmBackground = FirmBackground::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $FirmBackground->status = 3;
-    //     $FirmBackground->save();
-
-    //     $BusinessIntelligence = BusinessIntelligence::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $BusinessIntelligence->status = 3;
-    //     $BusinessIntelligence->save();
-
-    //     $CourtCheck = CourtCheck::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $CourtCheck->status = 3;
-    //     $CourtCheck->save();
-
-    //     $Financial = Financial::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $Financial->status = 3;
-    //     $Financial->save();
-
-    //     $MarketReputation = MarketReputation::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $MarketReputation->status = 3;
-    //     $MarketReputation->save();
-
-    //     $OnGroundVerification = OnGroundVerification::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $OnGroundVerification->status = 3;
-    //     $OnGroundVerification->save();
-
-    //     $TaxReurnCredit = TaxReurnCredit::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $TaxReurnCredit->status = 3;
-    //     $TaxReurnCredit->save();
-
-    //     $Document = Document::where('third_party_id', $request->thirdpartyId)->firstOrFail();
-    //     $Document->status = 3;
-    //     $Document->save();
-
-    //     $ThirdParty = ThirdParty::findOrFail($request->thirdpartyId);
-    //     $ThirdParty->status = 3;
-    //     $ThirdParty->save();
-
-    //     return response()->json(['message' => 'ALl Reports Comapleted successfully!']);
-    // }
-
-
-
-
-
-
-
-
+            return view('admin.report.commercial-invoice.related-pdf', $data);
+        
+    }
 
 
 
