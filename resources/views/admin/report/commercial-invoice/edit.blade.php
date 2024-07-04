@@ -517,7 +517,7 @@
 <div class="row">
     <div class="col-sm-3 mb-3">
         <label for="heading_bank_addrss" class="form-label">PDF Upload</label>
-        <input type="text" class="form-control custom-input" id="pdf_upload_file_ic" name="pdf_upload_file_ic" value="{{ $CommercialInvoice['pdf_upload_file_ic']}}">
+        <input type="file" class="form-control custom-input" id="pdf_upload_file_ic" name="pdf_upload_file_ic" value="{{ $CommercialInvoice['pdf_upload_file_ic']}}">
     </div>
 </div>
 

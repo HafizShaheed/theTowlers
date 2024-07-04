@@ -6,35 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
 </head>
-<style>
-    @page {
-        margin: 0px;
+    <style>
+        @page {
+            margin: 0px;
+        }
+
+        body {
+            margin: 40px;
+        }
+
+        .header {
+            position: fixed;
+            top: 12px;
+            left: 0px;
+            right: 0px;
+            height: 20px;
+            /* background-color: #f2f2f2; */
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .content {
+            margin-top: 60px;
+            padding: 20px;
+            margin-bottom: 0px;
+        }
+        
+        .page-break {
+            page-break-before: always; /* or page-break-after: always; */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+            table {
+        width: 100%;
+    }
+    th, td {
+        width: 25%; /* Column ki width set karo */
     }
 
-    body {
-        margin: 40px;
-    }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
 
-    .header {
-        position: fixed;
-        top: 12px;
-        left: 0px;
-        right: 0px;
-        height: 20px;
-        /* background-color: #f2f2f2; */
-        text-align: center;
-        line-height: 20px;
-    }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 
-    .content {
-        margin-top: 60px;
-        padding: 20px;
-        margin-bottom: 0px;
-    }
-    .page-break {
-    page-break-before: always; /* or page-break-after: always; */
-}
-</style>
 
 </html>
 

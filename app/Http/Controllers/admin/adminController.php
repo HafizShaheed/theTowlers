@@ -344,6 +344,8 @@ class adminController extends Controller
             $canadaCustomerInvoiceFrom = new CanadaCustomerInvoiceFrom();
             $canadaCustomerInvoiceFrom->invioce_generator = rand(0000, 9999).now();
         $canadaCustomerInvoiceFrom->team_user_id = $request->input('team_user_id');
+        $canadaCustomerInvoiceFrom->commercial_invoice_id = $request->input('commercial_invoice_id');
+
         $canadaCustomerInvoiceFrom->canada_customer_invoice = $request->input('canada_customer_invoice');
         $canadaCustomerInvoiceFrom->vender_name = $request->input('vender_name');
         $canadaCustomerInvoiceFrom->vender_address = $request->input('vender_address');
@@ -452,6 +454,8 @@ class adminController extends Controller
                 // Unit Price
                 $canadaCustomerInvoiceFrom->{"unit_price_$i"} = $request->input("unit_price_$i");
             }
+        $canadaCustomerInvoiceFrom->commercial_invoice_id = $request->input('commercial_invoice_id');
+
 
             // Save the CanadaCustomerInvoiceFrom model again after updating related records
             $canadaCustomerInvoiceFrom->save();
@@ -460,6 +464,7 @@ class adminController extends Controller
             $CanadaInvoiceHistory = new CanadaInvoiceHistory();
             $CanadaInvoiceHistory->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
             $CanadaInvoiceHistory->editer_name = Auth::guard('admin')->user()->user_name;
+
             $CanadaInvoiceHistory->edited_at = now();
             $CanadaInvoiceHistory->save();
 
@@ -596,6 +601,8 @@ class adminController extends Controller
             $Form59AInvoice = new Form59AInvoice();
             $Form59AInvoice->invioce_generator = rand(0000, 9999).now();
         $Form59AInvoice->team_user_id = $request->input('team_user_id');
+        $Form59AInvoice->commercial_invoice_id = $request->input('commercial_invoice_id');
+
         $Form59AInvoice->form59_a_invoices = $request->input('form59_a_invoices');
         $Form59AInvoice->exporter = $request->input('exporter');
         $Form59AInvoice->status_of_seller = $request->input('status_of_seller');
@@ -685,6 +692,7 @@ class adminController extends Controller
 
             // Assign values from the request to the CanadaCustomerInvoiceFrom model
             $Form59AInvoice->fill($request->all());
+            $Form59AInvoice->commercial_invoice_id = $request->input('commercial_invoice_id');
 
             // Save the Form59AInvoice model
             $Form59AInvoice->save();
@@ -695,6 +703,7 @@ class adminController extends Controller
             $Form59AHistory = new Form59AHistory();
             $Form59AHistory->form59_a_invoice_id = $Form59AInvoice->id;
             $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
+
     
             $Form59AHistory->edited_at = now();
             $Form59AHistory->save();
@@ -774,7 +783,7 @@ class adminController extends Controller
     
         // Load HTML content from view
         $html = view($viewName, $data)->render();
-    // return $html;
+         // return $html;
         // Load options
         $options = new Options();
         $options->set('isPhpEnabled', true); // Enable PHP execution
@@ -838,6 +847,7 @@ class adminController extends Controller
             $ExporterTextileDeclearation->invioce_generator = rand(0000, 9999).now();
         $ExporterTextileDeclearation->team_user_id = $request->input('team_user_id');
      
+        $ExporterTextileDeclearation->commercial_invoice_id = $request->input('commercial_invoice_id');
        
         // Create related records using loop
     
@@ -849,6 +859,7 @@ class adminController extends Controller
         $ExporterTextileDeclearationHistory = new ExporterTextileDeclearationHistory();
         $ExporterTextileDeclearationHistory->exporter_textile_declearation_id = $ExporterTextileDeclearation->id;
         $ExporterTextileDeclearationHistory->editer_name = Auth::guard('admin')->user()->user_name;
+
 
         $ExporterTextileDeclearationHistory->edited_at = now();
         $ExporterTextileDeclearationHistory->save();
@@ -899,6 +910,7 @@ class adminController extends Controller
 
             // Assign values from the request to the CanadaCustomerInvoiceFrom model
             $ExporterTextileDeclearation->fill($request->all());
+            $ExporterTextileDeclearation->commercial_invoice_id = $request->input('commercial_invoice_id');
 
             // Save the ExporterTextileDeclearation model
             $ExporterTextileDeclearation->save();
@@ -990,7 +1002,7 @@ class adminController extends Controller
     
         // Load HTML content from view
         $html = view($viewName, $data)->render();
-    // return $html;
+         // return $html;
         // Load options
         $options = new Options();
         $options->set('isPhpEnabled', true); // Enable PHP execution
@@ -1054,6 +1066,7 @@ class adminController extends Controller
             $CertificateOrigin->invioce_generator = rand(0000, 9999).now();
         $CertificateOrigin->team_user_id = $request->input('team_user_id');
         $CertificateOrigin->certificate_origin_invoices = $request->input('certificate_origin_invoices');
+        $CertificateOrigin->commercial_invoice_id = $request->input('commercial_invoice_id');
        
         // Create related records using loop
          // Assign values from the request to the CanadaCustomerInvoiceFrom model
@@ -1113,6 +1126,7 @@ class adminController extends Controller
 
             // Assign values from the request to the CanadaCustomerInvoiceFrom model
             $CertificateOrigin->fill($request->all());
+            $CertificateOrigin->commercial_invoice_id = $request->input('commercial_invoice_id');
 
             // Save the CertificateOrigin model
             $CertificateOrigin->save();
@@ -1197,12 +1211,12 @@ class adminController extends Controller
             'CertificateOriginNo627120' => CertificateOriginNo627120::where('id', $id)->first(),
         ];
 
-    // Create a new Dompdf instance
+       // Create a new Dompdf instance
         $dompdf = new Dompdf();
     
         // Load HTML content from view
         $html = view($viewName, $data)->render();
-    // return $html;
+        // return $html;
         // Load options
         $options = new Options();
         $options->set('isPhpEnabled', true); // Enable PHP execution
@@ -1265,6 +1279,7 @@ class adminController extends Controller
             $CertificateOriginNo627120 = new CertificateOriginNo627120();
             $CertificateOriginNo627120->invioce_generator = rand(0000, 9999).now();
         $CertificateOriginNo627120->team_user_id = $request->input('team_user_id');
+        $CertificateOriginNo627120->commercial_invoice_id = $request->input('commercial_invoice_id');
        
         // Create related records using loop
         $CertificateOriginNo627120->fill($request->all());
@@ -1324,6 +1339,7 @@ class adminController extends Controller
 
             // Assign values from the request to the CanadaCustomerInvoiceFrom model
             $CertificateOriginNo627120->fill($request->all());
+            $CertificateOriginNo627120->commercial_invoice_id = $request->input('commercial_invoice_id');
 
           
 
@@ -1474,6 +1490,7 @@ class adminController extends Controller
              $CertificateOriginComDec = new CertificateOriginComDec();
              $CertificateOriginComDec->invioce_generator = rand(0000, 9999).now();
          $CertificateOriginComDec->team_user_id = $request->input('team_user_id');
+         $CertificateOriginComDec->commercial_invoice_id = $request->input('commercial_invoice_id');
          $CertificateOriginComDec->certificate_origin_com_decs_invoices = $request->input('certificate_origin_com_decs_invoices');
         
          // Create related records using loop
@@ -1531,6 +1548,7 @@ class adminController extends Controller
  
              // Assign values from the request to the CanadaCustomerInvoiceFrom model
              $CertificateOriginComDec->fill($request->all());
+             $CertificateOriginComDec->commercial_invoice_id = $request->input('commercial_invoice_id');
  
          
              // Save the CanadaCustomerInvoiceFrom model again after updating related records
@@ -1684,6 +1702,7 @@ class adminController extends Controller
              $CertificateOriginComDecFormIp->invioce_generator = rand(0000, 9999).now();
          $CertificateOriginComDecFormIp->team_user_id = $request->input('team_user_id');
          $CertificateOriginComDecFormIp->yes_or_no_preferential_treatment = $request->input('yes_or_no_preferential_treatment') == 1 ?  1 : 0;
+         $CertificateOriginComDecFormIp->commercial_invoice_id = $request->input('commercial_invoice_id');
         
          // Create related records using loop
          $CertificateOriginComDecFormIp->fill($request->all());
@@ -1742,6 +1761,7 @@ class adminController extends Controller
              // Assign values from the request to the CanadaCustomerInvoiceFrom model
              $CertificateOriginComDecFormIp->yes_or_no_preferential_treatment = $request->input('yes_or_no_preferential_treatment') == 1 ?  1 : 0;
              $CertificateOriginComDecFormIp->fill($request->all());
+             $CertificateOriginComDecFormIp->commercial_invoice_id = $request->input('commercial_invoice_id');
  
              // Save the CertificateOriginComDecFormIp model
              $CertificateOriginComDecFormIp->save();
@@ -1895,6 +1915,7 @@ class adminController extends Controller
              $CertificateOriginComDecFormA = new CertificateOriginComDecFormA();
              $CertificateOriginComDecFormA->invioce_generator = rand(0000, 9999).now();
          $CertificateOriginComDecFormA->team_user_id = $request->input('team_user_id');
+         $CertificateOriginComDecFormA->commercial_invoice_id = $request->input('commercial_invoice_id');
 
          $CertificateOriginComDecFormA->fill($request->all());
  
@@ -1952,6 +1973,7 @@ class adminController extends Controller
  
              // Assign values from the request to the CanadaCustomerInvoiceFrom model
              $CertificateOriginComDecFormA->fill($request->all());
+             $CertificateOriginComDecFormA->commercial_invoice_id = $request->input('commercial_invoice_id');
  
              // Save the CertificateOriginComDecFormA model
              $CertificateOriginComDecFormA->save();
@@ -2080,9 +2102,11 @@ class adminController extends Controller
             $html = view($viewName, $data)->render();
              // return $html;
             // Load options
-            $options = new Options();
-            $options->set('isPhpEnabled', true); // Enable PHP execution
+            $options = new \Dompdf\Options();
+            $options->set('isHtml5ParserEnabled', true);
+            $options->set('isPhpEnabled', true);
             $dompdf->setOptions($options);
+            
         
             // Load HTML to Dompdf
             $dompdf->loadHtml($html);
@@ -3667,7 +3691,7 @@ class adminController extends Controller
         
     }
 
-    public function firm_file_view($id, $index)
+    public function firm_file_view($id)
     {
 
         $id = base64_decode($id);
@@ -3678,7 +3702,7 @@ class adminController extends Controller
         }
 
         
-        $fileName = $License->{"pdf_upload_file_ic$"};
+        $fileName = $License->{"pdf_upload_file_ic"};
 
         if (!$fileName) {
             abort(404);
@@ -3703,23 +3727,65 @@ class adminController extends Controller
         return response()->file($filePath, $headers);
     }
 
-    function commercial_invoice_by_pdf($id) {
-        $id = base64_decode($id);
-            CanadaCustomerInvoiceFrom::where('commercial_invoice_id',$id)->first();
-            CertificateOrigin::where('commercial_invoice_id',$id)->first();
-            CertificateOriginComDec::where('commercial_invoice_id',$id)->first();
-            CertificateOriginComDecFormA::where('commercial_invoice_id',$id)->first();          
-            CertificateOriginComDecFormIp::where('commercial_invoice_id',$id)->first();
-            CertificateOriginNo627120::where('commercial_invoice_id',$id)->first();
-            ExporterTextileDeclearation::where('commercial_invoice_id',$id)->first();
-            Form59AInvoice::where('commercial_invoice_id',$id)->first();
-            if (!$License) {
-                abort(404);
+  
+    function commercial_invoice_by_pdf($id) 
+    {
+        $id = (int)base64_decode($id);
+     
+       
+      
+    
+        $models = [
+            'CanadaCustomerInvoiceFrom' => CanadaCustomerInvoiceFrom::class,
+            'CertificateOrigin' => CertificateOrigin::class,
+            'CertificateOriginComDec' => CertificateOriginComDec::class,
+            'CertificateOriginComDecFormA' => CertificateOriginComDecFormA::class,
+            'CertificateOriginComDecFormIp' => CertificateOriginComDecFormIp::class,
+            'CertificateOriginNo627120' => CertificateOriginNo627120::class,
+            'ExporterTextileDeclearation' => ExporterTextileDeclearation::class,
+            'Form59AInvoice' => Form59AInvoice::class
+        ];
+    
+        $results = [];
+        $notFoundTables = [];
+    
+        foreach ($models as $tableName => $modelClass) {
+            try {
+                $result = $modelClass::where('commercial_invoice_id', $id)->first(['id','table_name', 'created_at']);
+                if (!$result) {
+                    $notFoundTables[] = $tableName;
+                } else {
+                    $results[] = [
+                        'table_name' => $result->table_name,
+                        'id' => $result->id,
+                        'created_at' => $result->created_at
+                    ];
+                }
+            } catch (\Exception $e) {
+                // Log the exception if needed
+                Log::error("Error querying $modelClass: " . $e->getMessage());
+                $notFoundTables[] = $tableName;
             }
+        }
+    
+        if (empty($results)) {
+            abort(404, 'No records found for the given commercial invoice ID.');
+        }
+    
+        $data = [
+            'results' => $results,
+            'title' => "Related Invoice",
+            'page' => "Dashboard",
+            'pageIntro' => 'Related Invoice',
+       'pageDescription' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
-            return view('admin.report.commercial-invoice.related-pdf', $data);
-        
+        ];
+    
+        // dd($data);
+        return view('admin.report.commercial-invoice.related-pdf', $data);
     }
+    
+    
 
 
 

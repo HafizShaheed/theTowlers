@@ -71,6 +71,23 @@
                 </h4>
                 <div class="row">
                     <div class="col-sm-3 mb-3">
+                        <label for="certificate_origin_com_decs_invoices" class="form-label">Commercial Invioce No</label>
+                        <select class="multi-select" name="commercial_invoice_id" placeholder="Select status Party">
+
+                            <option disabled selected>Commercial Invioce No</option>
+                            <?php
+                            $getAllInvoice = App\Models\CommercialInvoice::get();
+                            ?>
+                            @forelse (  $getAllInvoice as $item )
+                            <option value= {{ $item->id }}>Invioce No:  {{  $item->commercial_invoice }}</option>
+                            @empty
+                            <option>No Records found</option>
+                            @endforelse
+                                                     
+                           
+                        </select>
+                    </div>
+                    <div class="col-sm-3 mb-3">
                         <label for="certificate_origin_com_decs_from_a_invoices" class="form-label">Invoice</label>
                         <input type="text" class="form-control custom-input" id="certificate_origin_com_decs_from_a_invoices" name="certificate_origin_com_decs_from_a_invoices"
                             value="">

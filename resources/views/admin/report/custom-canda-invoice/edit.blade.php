@@ -70,6 +70,23 @@
                     <span style="color:darkgray; font-size:12px;">Canada Custom Invoice</span>
                 </h4>
                 <div class="row">
+                    <div class="col-sm-3 mb-3">
+                        <label for="certificate_origin_com_decs_invoices" class="form-label">Commercial Invioce No</label>
+                        <select class="multi-select" name="commercial_invoice_id" placeholder="Select status Party">
+                            <option disabled selected>Commercial Invoice No</option>
+                            @php
+                                $getAllInvoice = App\Models\CommercialInvoice::all();
+                            @endphp
+                            @forelse ($getAllInvoice as $item)
+                                <option value="{{ $item->id }}" {{ isset($editCanadaCustomerInvoiceFrom) && $item->id == $editCanadaCustomerInvoiceFrom->commercial_invoice_id ? 'selected' : '' }}>
+                                    Invoice No: {{ $item->commercial_invoice }}
+                                </option>
+                            @empty
+                                <option>No Records found</option>
+                            @endforelse
+                        </select>
+                        
+                    </div>
                 <input type="hidden" class="form-control custom-input" id="id" name="id" value="{{$editCanadaCustomerInvoiceFrom->id}}">
 
                     <div class="col-sm-3 mb-3">

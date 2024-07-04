@@ -105,38 +105,65 @@
                     <table id="empoloyees-tblwrapper" class="table ">
                         <thead>
                             <tr>
-                                <th> ID</th>
+                                <th> Name</th>
 
-                                <th> Invoice No</th>
-                                <th> Team Member</th>
                                 <th>Created At</th>
-                                <th>Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($CommercialInvoice as $key => $value )
+                            @foreach($results as $result)
                             <tr>
-                                <td><span>{{$value->id ?? ""}}</span></td>
+                               
 
 
                                 <td>
-                                    <span>{{$value->commercial_invoice ?? ""}}</span>
+                                    <span>{{ ucwords($result['table_name']) }}</span>
                                 </td>
 
-                                <td><span>N/A</span></td>
-                                <td><span>{{ isset($value->created_at) ? $value->created_at->diffForHumans() : '' }}</span></td>
+                                <td><span>{{ isset( $result['created_at']) ?  $result['created_at']->diffForHumans() : '' }}</span></td>
                           
 
                                 <td class="text-center space-between ">
 
-                                
+                              
 
+                                    @php
+                                   
+                                    switch ($result['table_name']) {
+                                        case 'canada customer invoice':
+                                           $urlParams = route('admin.view_custom_canda_invoice', ['id' => $result['id']]);
+                                            break;
+                                        case 'certificate origins':
+                                          
+                                        $urlParams = route('admin.view_certificate_origins_invoice', ['id' => $result['id']]);
+                                            break;
+                                        case 'Certificate Origin Com Decs':
+                                            $urlParams = route('admin.view_certificate_origin_com_dec_invoice', ['id' => $result['id']]);
+                                            break;
+                                        case 'Certificate Origin Com Decs from A':
+                                        $urlParams = route('admin.view_certificate_origin_com_dec_form_a_invoice', ['id' => $result['id']]);
+                                            break;
+                                        case 'Certificate Origin Com Decs from IPs':
+                                            $urlParams = route('admin.view_certificate_origin_com_dec_form_ip_invoice', ['id' => $result['id']]);
+                                            break;
+                                        case 'Certificate Origin No 627120s':
+                                        $urlParams = route('admin.view_certificate_origin_no627120_invoice', ['id' => $result['id']]);
+                                            break;
+                                        case 'Exporter Textile Declearations':
+                                        $urlParams = route('admin.view_exporter_textile_declearation_invoice', ['id' => $result['id']]);
+                                            break;
+                                        case 'Form 59 A invoice':
+                                            $urlParams = route('admin.view_form_59_a_invoice', ['id' => $result['id']]);
+                                            break;
+                                       default;
+                                    }
+                                @endphp
+                            
+                                <a class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ $urlParams}}" target="_blank" title="View Reports">
+                                    View
+                                </a>
 
-
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/commercial-invoice/view/'.$value->id) }}" class="" target="_blank" title="View Reports">
-                                        View
-                                    </a>
                                  
 
                                 </td>
