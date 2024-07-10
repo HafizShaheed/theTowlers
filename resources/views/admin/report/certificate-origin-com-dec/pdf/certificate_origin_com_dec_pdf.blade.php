@@ -242,7 +242,7 @@
 
 
     <div class="page-break"></div>
-    <div style="page-break-after:auto;">
+    <div style="page-break-after:auto;"></div>
     <!-- ------------- BACK PAGE ------------------ -->
     <table style="margin-top: 150px; width: 80%; margin:0px auto 0 auto;">
         <tr style="font-size: 12px;">
