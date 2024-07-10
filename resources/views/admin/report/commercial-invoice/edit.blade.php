@@ -338,10 +338,14 @@
                 <div class="col-sm-3 mb-3">
                     <label for="heading_net_weight_second_column_{{ $i }}" class="form-label">Heading {{ $i }}</label>
                     <input type="text" class="form-control custom-input mb-1" id="heading_net_weight_second_column_{{ $i }}" name="heading_net_weight_second_column_{{ $i }}" style="font-weight: bold; color: #000;" value="{{ $CommercialInvoice['heading_net_weight_second_column_'.$i]}}">
+                    <input type="text" class="form-control custom-input mb-1" id="net_weight_second_column_value_{{ $i }}" name="net_weight_second_column_value_{{ $i }}" value="{{ $CommercialInvoice['net_weight_second_column_value_'.$i] }}" placeholder="ENTER Gr weight#: (left column ) ">
+                
                 </div>
                 <div class="col-sm-3 mb-3">
                     <label for="heading_gross_weight_second_column_{{ $i }}" class="form-label">Heading {{ $i }}</label>
                     <input type="text" class="form-control custom-input mb-1" id="heading_gross_weight_second_column_{{ $i }}" name="heading_gross_weight_second_column_{{ $i }}" style="font-weight: bold; color: #000;" value="{{ $CommercialInvoice['heading_gross_weight_second_column_'.$i]}}">
+                    <input type="text" class="form-control custom-input mb-1" id="gross_weight_second_column_value_{{ $i }}" name="gross_weight_second_column_value_{{ $i }}" value="{{ $CommercialInvoice['gross_weight_second_column_value_'.$i] }}" placeholder="ENTER Gr weight#: (left column ) ">
+                    
                 </div>
                 <hr>
                 <br>

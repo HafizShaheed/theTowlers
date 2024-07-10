@@ -306,6 +306,9 @@
             <!-- ---------- THIS IS HEADING  TABLE ----------- -->
             <?php
             $grandTotal = 0;
+            $palltesValueSum = [];
+                    $netWeightTotalSecondColumn = 0;
+                    $grossWeightTotalSecondColumn = 0;
             ?>
             @for ($i = 1; $i <= 5; $i++)
             @php
@@ -421,7 +424,7 @@
                     </div>
                     
                     @for ($j = $start; $j <= $end; $j++)
-                    <div style="text-align: left; white-space: nowrap;">
+                    <div style="text-align: left; white-space: nowrap; margin-top:3px">
                         <div style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; color: #000;">
                             {{ $CommercialInvoice['color_name_second_column_value_' . $j] ?? '' }}
                         </div>
@@ -435,25 +438,47 @@
                             {{ $CommercialInvoice['sku_hash_no_second_column_value_' . $j] ?? '' }}
                         </div>
                         <div style="display: inline-block; width: 18%; text-decoration: underline; color: #000;">
-                           
+                            {{ $CommercialInvoice['style_no_second_column_value_' . $j] ?? '' }}
                         </div>
                     </div>
                     
                     @endfor
                     <p style="width: 150px; word-wrap: break-word;">
                         NET WEIGHT: &nbsp; &nbsp; &nbsp; 
-                        {{ $CommercialInvoice['net_weight_second_column_value_' . $j] ?? 0 }}  KGS
+                        {{ $CommercialInvoice['net_weight_second_column_value_' . $i] ?? 0 }}  KGS
                         
                     </p>
                     <p style="width: 150px; word-wrap: break-word;">
-                        GR WEIGHT &nbsp; &nbsp; &nbsp;  {{ $CommercialInvoice['gross_weight_second_column_value_' . $j] ?? 0 }}  KGS
+                        GR WEIGHT &nbsp; &nbsp; &nbsp;  {{ $CommercialInvoice['gross_weight_second_column_value_' . $i] ?? 0 }}  KGS
                         
                     </p>
 
+                    <?php
                     
+                    $palletValue = $CommercialInvoice['carron_bales_pallets_value_' . $i] ?? 0;
+                    $palletUnit = $CommercialInvoice['heading_carron_bales_pallets_' . $i] ?? '';
+                    if (is_numeric($palletValue)) {
+                        $palletValue = (float) $palletValue;
+                        // Sum the quantities based on their units
+                        if (isset($palltesValueSum[$palletUnit])) {
+                            $palltesValueSum[$palletUnit] += $palletValue;
+                        } else {
+                            $palltesValueSum[$palletUnit] = $palletValue;
+                        }
+                    }
+                   
+                    // gr total and net total second column
+                    if (isset($CommercialInvoice['gross_weight_second_column_value_' . $i])) {
+                        $grossWeightTotalSecondColumn += $CommercialInvoice['gross_weight_second_column_value_' . $i];
+                    }
+                    // gr total and net total second column
+                    if (isset($CommercialInvoice['net_weight_second_column_value_' . $i])) {
+                        $netWeightTotalSecondColumn += $CommercialInvoice['net_weight_second_column_value_' . $i];
+                    }
+                    ?>
                     </td>
                     <td style="border-right: 1px solid;">
-                        <p style="width: 40px; word-wrap: break-word;">
+                        <p style="width: 40px; word-wrap: break-word; text-align: center">
                             @php
                             // Initialize an array to store the sums of quantities for each unit
                             $quantitySums = [];
@@ -461,8 +486,8 @@
                             @for ($j = $start; $j <= $end; $j++)
                                 <p style="margin:5px 0; opacity:0;">512 PCS</p>
                                 <p style="margin:5px 0;">
-                                    {{ $CommercialInvoice['quantity_third_column_value_' . $j] ?? '' }} &nbsp;&nbsp;
-                                    {{ $CommercialInvoice['quantity_unit_third_column_value_' . $j] }}</p>
+                                    {{ $CommercialInvoice['quantity_third_column_value_' . $j] ?? '' }} &nbsp;
+                                    {{ $CommercialInvoice['quantity_unit_third_column_value_' . $j] ?? '' }}</p>
                                 <?php
                                 $quantity = $CommercialInvoice['quantity_third_column_value_' . $j] ?? 0;
                                 $unit = $CommercialInvoice['quantity_unit_third_column_value_' . $j] ?? '';
@@ -483,7 +508,7 @@
                         <p style="width: 40px; word-wrap: break-word;">
                             @for ($j = $start; $j <= $end; $j++)
                             <p style="margin:5px 0; opacity:0;">512 PCS</p>
-                            <p style="margin:5px 0;">{{ $CommercialInvoice['currency_symbol'] ?? '' }}
+                            <p style="margin:5px 0;">{{  $CommercialInvoice['price_third_column_value_' . $j] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
                                 &nbsp;&nbsp; {{ $CommercialInvoice['price_third_column_value_' . $j] ?? '' }} </p>
                              @endfor
                         </p>
@@ -492,9 +517,9 @@
                         <p style="width: 30px; word-wrap: break-word;">
                             @for ($j = $start; $j <= $end; $j++)
                             <p style="margin:5px 0; opacity:0;">512 PCS</p>
-                            <p style="margin:5px 0;">{{ $CommercialInvoice['currency_symbol'] ?? '' }}
+                            <p style="margin:5px 0;">{{ $CommercialInvoice['total_amount_third_column_value_' . $j] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
                                 &nbsp;&nbsp;
-                                {{ $CommercialInvoice['total_amount_third_column_value_' . $j] ?? '' }} </p>
+                                {{ $CommercialInvoice['total_amount_third_column_value_' . $j] > 0 ? $CommercialInvoice['total_amount_third_column_value_' . $j] : '' }} </p>
                             <?php
                             // Add to the grand total if the value exists
                             if (isset($CommercialInvoice['total_amount_third_column_value_' . $j])) {
@@ -532,32 +557,7 @@
             <tr style="font-size:8px;">
                 <td style=" border-right: 1px solid; border-top:1px solid #000; ">
                     <div style="width: 150px; word-wrap: break-word;">
-                        <?php
-                        $palltesValueSum = [];
-                        
-                        $palletValue = $CommercialInvoice['carron_bales_pallets_value_' . $j] ?? 0;
-                        $palletUnit = $CommercialInvoice['heading_carron_bales_pallets_' . $j] ?? '';
-                        if (is_numeric($palletValue)) {
-                            $palletValue = (float) $palletValue;
-                            // Sum the quantities based on their units
-                            if (isset($palltesValueSum[$palletUnit])) {
-                                $palltesValueSum[$palletUnit] += $palletValue;
-                            } else {
-                                $palltesValueSum[$palletUnit] = $palletValue;
-                            }
-                        }
-                        
-                        $grossWeightTotalSecondColumn = 0;
-                        // gr total and net total second column
-                        if (isset($CommercialInvoice['gross_weight_second_column_value_' . $j])) {
-                            $grossWeightTotalSecondColumn += $CommercialInvoice['gross_weight_second_column_value_' . $j];
-                        }
-                        $netWeightTotalSecondColumn = 0;
-                        // gr total and net total second column
-                        if (isset($CommercialInvoice['net_weight_second_column_value_' . $j])) {
-                            $netWeightTotalSecondColumn += $CommercialInvoice['net_weight_second_column_value_' . $j];
-                        }
-                        ?>
+                  
                     </div>
                 </td>
 
@@ -565,24 +565,17 @@
                     <div style=" word-wrap: break-word; text-align: left;">
                         <table border="0" style=" border-collapse: collapse; width: 100%; border-top: 0;">
                             <tr>
+                              
                                 <td>
-                                    <div style="font-size:8px;">200 CRTNS +</div>
+                                    <div style="font-size:8px;">{{ var_dump($palltesValueSum )}}</div>
                                 </td>
+                                
                                 <td>
-                                    <div style="font-size:8px;">200 BALES +</div>
+                                    <div style="font-size:8px;"></div>
                                 </td>
-                                <td>
-                                    <div style="font-size:8px;">200 PALLETS +</div>
-                                </td>
-                                <td>
-                                    <div style="font-size:8px;">1536 PCS + </div>
-                                </td>
-                                <td>
-                                    <div style="font-size:8px;">1536 PACKS +</div>
-                                </td>
-                                <td>
-                                    <div style="font-size:8px;">60 SETS </div>
-                                </td>
+                              
+                              
+                              
                             </tr>
                         </table>
                     </div>
@@ -611,7 +604,7 @@
                                     : </div>
                             </td>
                             <td>
-                                <div style="text-align: center;">{{ $netWeightTotalSecondColumn }} </div>
+                                <div style="text-align: center;">{{ $netWeightTotalSecondColumn }} KGS</div>
                             </td>
                         </tr>
                         <tr>
@@ -619,12 +612,12 @@
                                 <div> {{ $CommercialInvoice['heading_total_gr_weight'] ?? '' }}: </div>
                             </td>
                             <td>
-                                <div style="text-align: center;">{{ $grossWeightTotalSecondColumn }}</div>
+                                <div style="text-align: center;">{{ $grossWeightTotalSecondColumn }} KGS</div>
                             </td>
                         </tr>
                         <tr>
                             <td style="border-top:1px solid #000 ;" colspan="2">
-                                <div>{{ $CommercialInvoice['heading_note'] ?? '' }}: 51.60 KGS </div>
+                                <div>{{ $CommercialInvoice['heading_note'] ?? '' }} : {{$CommercialInvoice['note_value'] ?? ''   }}  </div>
                             </td>
                         </tr>
                     </table>
@@ -663,7 +656,7 @@
                                 <div>{{ $CommercialInvoice['heading_total_buyer_discount'] ?? '' }}</div>
                             </td>
                             <td>
-                                <div style="text-align: right;">US$220.44</div>
+                                <div style="text-align: right;"> {{  $CommercialInvoice['value_total_buyer_discount'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}  {{ $CommercialInvoice['value_total_buyer_discount'] ?? '' }} </div>
                             </td>
                         </tr>
                         <tr>
@@ -671,7 +664,7 @@
                                 <div>{{ $CommercialInvoice['heading_total_less_commission'] ?? '' }}</div>
                             </td>
                             <td>
-                                <div style="text-align: right;">US$59.00</div>
+                                <div style="text-align: right;"> {{  $CommercialInvoice['value_total_less_commission'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}  {{ $CommercialInvoice['value_total_less_commission'] ?? '' }}</div>
                             </td>
                         </tr>
                         <tr>
@@ -679,7 +672,7 @@
                                 <div>{{ $CommercialInvoice['heading_total_add_fright'] ?? '' }}</div>
                             </td>
                             <td>
-                                <div style="text-align: right;">US$150.00</div>
+                                <div style="text-align: right;"> {{  $CommercialInvoice['value_total_add_fright'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}  {{ $CommercialInvoice['value_total_add_fright'] ?? '' }}</div>
                             </td>
                         </tr>
                         <tr>
@@ -687,7 +680,7 @@
                                 <div>{{ $CommercialInvoice['heading_total_net_amount_payable'] ?? '' }} </div>
                             </td>
                             <td>
-                                <div style="text-align: right;">US$10,892.56</div>
+                                <div style="text-align: right;"> {{  $CommercialInvoice['value_total_net_amount_payable'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}  {{ $CommercialInvoice['value_total_net_amount_payable'] ?? '' }} </div>
                             </td>
                         </tr>
 
