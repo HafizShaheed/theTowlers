@@ -118,7 +118,16 @@ class CreateCommercialInvoicesTable extends Migration
             $table->text("value_bank_addrss")->default('BANK AL HABIB LTD ISLAMIC BANKING')->nullable();
             $table->text("value_bank_addrss_1")->default('SHAHRA-E-FAISAL BRANCH S # 4 & 5 BUSINESS CENTER, PLOT # 19-1-A')->nullable();
             $table->text("value_bank_addrss_2")->default('BLOCK-6 PECHS SHAHRA-E- FAISAL, KARACHI-PAKISTAN')->nullable();
-            $table->text("value_statement_origin")->default('')->nullable();
+            $table->text("value_statement_origin")->default(' THE EXPORTER M/S. TOWELLERS LIMITED,
+            WSA – 30 & 31, BLOCK-1, FEDERAL ‘B’ AREA,
+            KARACHI-75950, PAKISTAN. (REX NO: PKREXPK06768890)
+            OF THE PRODUCTS COVERED BY THIS DOCUMENT
+            DECLARES THAT, EXCEPT WHERE OTHERWISE 
+            CLEARLY INDICATED, THESE PRODUCTS ARE OF 
+            PAKISTAN PREFERENTIAL ORIGIN ACCORDING TO 
+            RULES OF ORIGIN OF THE GENERALIZED SYSTEM OF
+            PREFERENCES OF THE EUROPEAN UNION AND 
+            THAT THE ORIGIN CRITERION MET IS “P”.')->nullable();
             $table->text("value_total_buyer_discount",50)->nullable();
             $table->text("value_total_less_commission",50)->nullable();
             $table->text("value_total_add_fright",50)->nullable();

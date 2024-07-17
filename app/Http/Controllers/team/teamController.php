@@ -91,9 +91,26 @@ class teamController extends Controller
         $data['title'] = "Canada Custom Invoice";
         $data['page'] = "Canada Custom Invoice";
         $data['pageIntro'] = "Canada Custom Invoice";
-        $data['CanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::where('status','<>','3')->get();
+    
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
+        $query = CanadaCustomerInvoiceFrom::where('status','<>','3')->query();
+
+
+      
+        if (isset($request->status) && !empty($request->status)) {
+            $statusMapping = [
+                'Active' => 1,
+                'Resubmit' => 2,
+              
+            ];
+            $statusString = $request->status;
+            $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+            $query->where('status', $status);
+        }
+
+
+        $data['CanadaCustomerInvoiceFrom'] = $query->latest()->get();
         return view('team.report.custom-canda-invoice.index', $data);
     }
 
@@ -358,29 +375,19 @@ class teamController extends Controller
     }
 
 
-    function view_custom_canda_invoice(){
+    function view_custom_canda_invoice($id){
         $data['title'] = "Reports Management";
         $data['page'] = "Reports Management";
         $data['pageIntro'] = "Reports View";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
+        $data['editCanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::where('id',$id)->first();
+        if (!$data['editCanadaCustomerInvoiceFrom']) {
+            return back()->with('error', 'No Canada invoice history found for the provided ID.');
+        }
         return view('team.report.custom-canda-invoice.view', $data);
     }
 
-    function activity_custom_canda_invoice($id){
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
-
-        $data['pageIntro'] = "Reports Activity";
-        $data['getAllCanadaInvoiceHistory'] = CanadaInvoiceHistory::where('canada_customer_invoice_from_id', $id)->get();
-
-        if ($data['getAllCanadaInvoiceHistory']->isEmpty()) {
-            return back()->with('error', 'No Canada invoice history found for the provided ID.');
-        }
-        $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-        return view('team.report.custom-canda-invoice.activity', $data);
-    }
+   
 
     //==================== custom canada invioce end ======================//
 
@@ -390,9 +397,26 @@ class teamController extends Controller
         $data['title'] = "Form 59 A Invoice";
         $data['page'] = "Form 59 A Invoice";
         $data['pageIntro'] = "Form 59 A Invoice";
-        $data['Form59AInvoice'] = Form59AInvoice::where('status','<>','3')->get();
+       
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
+        $query = Form59AInvoice::where('status','<>','3')->query();
+
+
+      
+        if (isset($request->status) && !empty($request->status)) {
+            $statusMapping = [
+                'Active' => 1,
+                'Resubmit' => 2,
+              
+            ];
+            $statusString = $request->status;
+            $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+            $query->where('status', $status);
+        }
+
+
+        $data['Form59AInvoice'] = $query->latest()->get();
         return view('team.report.form-59-A-invoice.index', $data);
     }
 
@@ -612,20 +636,7 @@ class teamController extends Controller
         return view('team.report.form-59-A-invoice.view', $data);
     }
 
-    function activity_form_59_a_invoice($id){
-        $data['title'] = "Activity form 59 A";
-        $data['page'] = "Activity form 59 A";
-
-        $data['pageIntro'] = "Reports Activity";
-        $data['getAllForm59AHistory'] = Form59AHistory::where('form59_a_invoice_id', $id)->get();
-
-        if ($data['getAllForm59AHistory']->isEmpty()) {
-            return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
-        }
-        $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-        return view('team.report.form-59-A-invoice.activity', $data);
-    }
+   
 
    
     //==================== form 59 A invioce end ======================//
@@ -637,9 +648,25 @@ class teamController extends Controller
         $data['title'] = "Canada Custom Invoice";
         $data['page'] = "Canada Custom Invoice";
         $data['pageIntro'] = "Canada Custom Invoice";
-        $data['ExporterTextileDeclearation'] = ExporterTextileDeclearation::where('status','<>','3')->get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
+        $query = ExporterTextileDeclearation::where('status','<>','3')->query();
+
+
+      
+        if (isset($request->status) && !empty($request->status)) {
+            $statusMapping = [
+                'Active' => 1,
+                'Resubmit' => 2,
+              
+            ];
+            $statusString = $request->status;
+            $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+            $query->where('status', $status);
+        }
+
+
+        $data['ExporterTextileDeclearation'] = $query->latest()->get();
         return view('team.report.exporter-textile-declearation.index', $data);
     }
 
@@ -833,20 +860,7 @@ class teamController extends Controller
         return view('team.report.exporter-textile-declearation.view', $data);
     }
 
-    function activity_exporter_textile_declearation_invoice($id){
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
-
-        $data['pageIntro'] = "Reports Activity";
-        $data['getAllExporterTextileDeclearation'] = ExporterTextileDeclearationHistory::where('exporter_textile_declearation_id', $id)->get();
-
-        if ($data['getAllExporterTextileDeclearation']->isEmpty()) {
-            return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
-        }
-        $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-        return view('team.report.exporter-textile-declearation.activity', $data);
-    }
+ 
 
     //==================== exporter_textile_declearation_invioce end ======================//
 
@@ -859,9 +873,25 @@ class teamController extends Controller
         $data['title'] = "Certificate Origin Invoice";
         $data['page'] = "Certificate Origin Invoice";
         $data['pageIntro'] = "Canada Custom Invoice";
-        $data['CertificateOrigin'] = CertificateOrigin::where('status','<>','3')->get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
+        $query = CertificateOrigin::where('status','<>','3')->query();
+
+
+      
+        if (isset($request->status) && !empty($request->status)) {
+            $statusMapping = [
+                'Active' => 1,
+                'Resubmit' => 2,
+              
+            ];
+            $statusString = $request->status;
+            $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+            $query->where('status', $status);
+        }
+
+
+        $data['CertificateOrigin'] = $query->latest()->get();
         return view('team.report.certificate-origins.index', $data);
     }
 
@@ -1052,20 +1082,7 @@ class teamController extends Controller
         return view('team.report.certificate-origins.view', $data);
     }
 
-    function activity_certificate_origins_invoice($id){
-        $data['title'] = "Certificate Origin Activity";
-        $data['page'] = "Certificate Origin Activity";
-
-        $data['pageIntro'] = "Reports Activity";
-        $data['getAllCertificateOrigin'] = CertificateOriginHistory::where('certificate_origin_id', $id)->get();
-
-        if ($data['getAllCertificateOrigin']->isEmpty()) {
-            return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
-        }
-        $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-        return view('team.report.certificate-origins.activity', $data);
-    }
+  
 
 //==================== certificate_origins_invioce end ======================//
 
@@ -1077,9 +1094,25 @@ class teamController extends Controller
         $data['title'] = "Certificate origin 627120 ";
         $data['page'] = "Certificate origin 627120 ";
         $data['pageIntro'] = "Certificate origin 627120 ";
-        $data['CertificateOriginNo627120'] = CertificateOriginNo627120::where('status','<>','3')->get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
+        $query = CertificateOriginNo627120::where('status','<>','3')->query();
+
+
+      
+        if (isset($request->status) && !empty($request->status)) {
+            $statusMapping = [
+                'Active' => 1,
+                'Resubmit' => 2,
+              
+            ];
+            $statusString = $request->status;
+            $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+            $query->where('status', $status);
+        }
+
+
+        $data['CertificateOriginNo627120'] = $query->latest()->get();
         return view('team.report.certificate-origin-no627120.index', $data);
     }
 
@@ -1266,20 +1299,7 @@ class teamController extends Controller
         return view('team.report.certificate-origin-no627120.view', $data);
     }
 
-    function activity_certificate_origin_no627120_invoice($id){
-        $data['title'] = "Certificate origin 627120";
-        $data['page'] = "Certificate origin 627120";
-
-        $data['pageIntro'] = "Certificate origin 627120 Activity";
-        $data['getAllCertificateOriginNo627120'] = CertificateOriginNo627120History::where('certificate_origin_no627120_id', $id)->get();
-
-        if ($data['getAllCertificateOriginNo627120']->isEmpty()) {
-            return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
-        }
-        $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-        return view('team.report.certificate-origin-no627120.activity', $data);
-    }
+   
 
     //==================== certificate_origin_no627120_invioce end ======================//
 
@@ -1291,9 +1311,25 @@ class teamController extends Controller
          $data['title'] = "Certificate origins Combined Declaration Invoice";
          $data['page'] = "Certificate origins Combined Declaration Invoice";
          $data['pageIntro'] = "Certificate origins Combined Declaration Invoice";
-         $data['CertificateOriginComDec'] = CertificateOriginComDec::where('status','<>','3')->get();
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
          // dd($data);
+         $query = CertificateOriginComDec::where('status','<>','3')->query();
+
+
+      
+         if (isset($request->status) && !empty($request->status)) {
+             $statusMapping = [
+                 'Active' => 1,
+                 'Resubmit' => 2,
+               
+             ];
+             $statusString = $request->status;
+             $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+             $query->where('status', $status);
+         }
+ 
+ 
+         $data['CertificateOriginComDec'] = $query->latest()->get();
          return view('team.report.certificate-origin-com-dec.index', $data);
      }
  
@@ -1478,20 +1514,7 @@ class teamController extends Controller
          return view('team.report.certificate-origin-com-dec.view', $data);
      }
  
-     function activity_certificate_origin_com_dec_invoice($id){
-         $data['title'] = "Reports Management";
-         $data['page'] = "Reports Management";
- 
-         $data['pageIntro'] = "Reports Activity";
-         $data['getAllCertificateOriginComDec'] = CertificateOriginComDecHistory::where('certificate_origin_com_dec_id', $id)->get();
- 
-         if ($data['getAllCertificateOriginComDec']->isEmpty()) {
-             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
-         }
-         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
- 
-         return view('team.report.certificate-origin-com-dec.activity', $data);
-     }
+   
  
      //==================== certificate_origin_com_dec_invioce end ======================//
 
@@ -1504,9 +1527,25 @@ class teamController extends Controller
          $data['title'] = "Certificate origin  IP";
          $data['page'] = "Certificate origin  IP";
          $data['pageIntro'] = "Certificate origin  IP";
-         $data['CertificateOriginComDecFormIp'] = CertificateOriginComDecFormIp::where('status','<>','3')->get();
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
          // dd($data);
+         $query = CertificateOriginComDecFormIp::where('status','<>','3')->query();
+
+
+      
+         if (isset($request->status) && !empty($request->status)) {
+             $statusMapping = [
+                 'Active' => 1,
+                 'Resubmit' => 2,
+               
+             ];
+             $statusString = $request->status;
+             $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+             $query->where('status', $status);
+         }
+ 
+ 
+         $data['CertificateOriginComDecFormIp'] = $query->latest()->get();
          return view('team.report.certificate-origin-com-dec-form-ip.index', $data);
      }
  
@@ -1695,20 +1734,7 @@ class teamController extends Controller
          return view('team.report.certificate-origin-com-dec-form-ip.view', $data);
      }
  
-     function activity_certificate_origin_com_dec_form_ip_invoice($id){
-         $data['title'] = "Certificate origin  IP  Activity";
-         $data['page'] = "Certificate origin  IP  Activity";
- 
-         $data['pageIntro'] = "Certificate origin  IP  Activity";
-         $data['getAllCertificateOriginComDecFormIp'] = CertificateOriginComDecFormIpHistory::where('certificate_origin_com_dec_form_ip_id', $id)->get();
- 
-         if ($data['getAllCertificateOriginComDecFormIp']->isEmpty()) {
-             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
-         }
-         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
- 
-         return view('team.report.certificate-origin-com-dec-form-ip.activity', $data);
-     }
+   
  
      //==================== certificate_origin_com_dec_form_ip_invioce end ======================//
 
@@ -1720,9 +1746,25 @@ class teamController extends Controller
          $data['title'] = "Certificate origin  A";
          $data['page'] = "Certificate origin  A";
          $data['pageIntro'] = "Certificate origin  A";
-         $data['CertificateOriginComDecFormA'] = CertificateOriginComDecFormA::where('status','<>','3')->get();
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
          // dd($data);
+         $query = CertificateOriginComDecFormA::where('status','<>','3')->query();
+
+
+      
+         if (isset($request->status) && !empty($request->status)) {
+             $statusMapping = [
+                 'Active' => 1,
+                 'Resubmit' => 2,
+               
+             ];
+             $statusString = $request->status;
+             $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+             $query->where('status', $status);
+         }
+ 
+ 
+         $data['CertificateOriginComDecFormA'] = $query->latest()->get();
          return view('team.report.certificate-origin-com-dec-form-a.index', $data);
      }
  
@@ -1911,20 +1953,7 @@ class teamController extends Controller
          return view('team.report.certificate-origin-com-dec-form-a.view', $data);
      }
  
-     function activity_certificate_origin_com_dec_form_a_invoice($id){
-         $data['title'] = "Certificate origin  A Activity";
-         $data['page'] = "Certificate origin  A Activity";
- 
-         $data['pageIntro'] = "Certificate origin  A Activity";
-         $data['getAllCertificateOriginComDecFormA'] = CertificateOriginComDecFormAHistory::where('certificate_origin_com_dec_form_a_id', $id)->get();
- 
-         if ($data['getAllCertificateOriginComDecFormA']->isEmpty()) {
-             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
-         }
-         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
- 
-         return view('team.report.certificate-origin-com-dec-form-a.activity', $data);
-     }
+    
  
      //==================== certificate_origin_com_dec_form_a_invioce end ======================//
 
@@ -1935,9 +1964,25 @@ class teamController extends Controller
             $data['title'] = "Certificate origin  A";
             $data['page'] = "Certificate origin  A";
             $data['pageIntro'] = "Certificate origin  A";
-            $data['CommercialInvoice'] = CommercialInvoice::where('status','<>','3')->get();
             $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
             // dd($data);
+            $query = CommercialInvoice::where('status','<>','3')->query();
+
+
+      
+            if (isset($request->status) && !empty($request->status)) {
+                $statusMapping = [
+                    'Active' => 1,
+                    'Resubmit' => 2,
+                  
+                ];
+                $statusString = $request->status;
+                $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+                $query->where('status', $status);
+            }
+    
+    
+            $data['CommercialInvoice'] = $query->latest()->get();
             return view('team.report.commercial-invoice.index', $data);
         }
     
@@ -2751,21 +2796,7 @@ class teamController extends Controller
             return view('team.report.commercial-invoice.view', $data);
         }
     
-        function activity_commercial_invoice($id)
-        {
-            $data['title'] = "Certificate origin  A Activity";
-            $data['page'] = "Certificate origin  A Activity";
-    
-            $data['pageIntro'] = "Certificate origin  A Activity";
-            $data['getAllCommercialInvoice'] = CommercialInvoiceHistory::where('commercial_invoice_id', $id)->get();
-    
-            if ($data['getAllCommercialInvoice']->isEmpty()) {
-                return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
-            }
-            $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-    
-            return view('team.report.commercial-invoice.activity', $data);
-        }
+      
       
     //==================== commercial_invoice end ======================//
 

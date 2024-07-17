@@ -14,18 +14,11 @@
             <div class="card-body justify-content-start">
                 <form id="" action="{{route('team.report_List_certificate_origins_invoice')}}" class="row d-flex justify-content-between align-items-end">
                     <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
-                        <label for="thirdPartyName">Team Member:</label>
+                        <label for="thirdPartyName"></label>
                         <div class="d-flex justify-content-start align-items-start">
+                        
 
-                            <select class="multi-select" name="PartyName" id="PartyName"
-                                placeholder="Select Third Party">
-                                <option disabled selected>Select Team</option>
 
-                                <option data-display="Select" value="">
-                                ABC
-                                </option>
-
-                            </select>
                         </div>
                     </div>
 
@@ -34,11 +27,12 @@
                         <label for="thirdPartyName">Status:</label>
                         <div class="d-flex justify-content-start align-items-start">
                             <select class="multi-select" name="status" placeholder="Select status Party">
-                                <option disabled selected>Report Status</option>
-                                <option value="Pending">Pending (0)</option>
-                                <option class="badge badge-success border-0" value="Active">Active (1) </option>
-                                <option value="Resubmit">Resubmit (2)</option>
-                                <option value="Completed">Completed (3) </option>
+                                <option disabled>Report Status</option>
+                                <option value="Active" {{ request('status') == 'Active' ? 'selected' : '' }}>Active
+                                </option>
+                                <option value="Resubmit" {{ request('status') == 'Resubmit' ? 'selected' : '' }}>
+                                    Resubmit</option>
+                              
                             </select>
                         </div>
                     </div>
@@ -57,7 +51,7 @@
                 </form>
                 <div class="col-xl-2 col-sm-6 col-6 mt-6 pt-2 ">
                         <div class="d-flex justify-content-start align-items-start">
-                            <a href="{{ URL::to('/panel/report/certificate-origins/add') }}" class="" target="_blank">
+                            <a href="{{ URL::to('/panel-team/report/certificate-origins/add') }}" class="" target="_blank">
                             <button type="submit" class="btn btn report-tab-active"
                                 id="filter-reprot-btn">Add Report</button>
                             </a>
@@ -124,7 +118,13 @@
                                     <span>{{$value->certificate_origin_invoices ?? ""}}</span>
                                 </td>
 
-                                <td><span>N/A</span></td>
+                                <?php
+                                 if (isset($certificate_origin_invoices->team_user_id)) {
+                                    # code...
+                                    $memberName = App\Models\team\TeamUser::where('id',$certificate_origin_invoices->team_user_id)->first('user_name');
+                                }
+                                ?>
+                                <td><span>{{  $memberName->user_name ?? 'N/A' }}</span></td>
                                 <td><span>{{ isset($value->created_at) ? $value->created_at->diffForHumans() : '' }}</span></td>
                                 <td>
                                     @switch(isset($value->status) ? $value->status : 0 )
@@ -155,29 +155,25 @@
 
                                 <td class="text-center space-between ">
 
-                                    <button class="btn btn-sm report-tab-active thirdpartyIdForFormResubmit" style="font-size: 10px;" href="javascript:void(0)"  data-thirdparty="{{ $value->id }}">
-                                        Re-Submit
-                                </button>
+                                  
 
 
 
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/certificate-origins/view/'.$value->id) }}" class="" target="_blank" title="View Reports">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/certificate-origins/view/'.$value->id) }}" class="" target="_blank" title="View Reports">
                                         View
                                     </a>
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel/report/certificate-origins/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel-team/report/certificate-origins/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">
                                         Edit
                                     </a>
                                     <button  class="btn btn-sm report-tab-active thirdpartyIdForForComplete" style="font-size: 10px;" href="javascript:void(0)"  data-thirdparty="{{  $value->id }}">
                                         Done
                                     </button>
                                     <span></span>
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/certificate-origins/generate_certificate_origins_invoic_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/certificate-origins/generate_certificate_origins_invoic_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
                                     PDF
                                 </a>
 
-                                <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/certificate-origins/activity/'.$value->id) }}" class="" target="_blank"  title="View Activity">
-                               Activity
-                                </a>
+                              
 
 
                                 </td>
@@ -220,53 +216,7 @@
 <script>
 
     $(document).ready(function () {
-       $('.thirdpartyIdForFormResubmit').on('click', function() {
-
-             var formId = $(this).data("thirdparty");
-
-          
-          Swal.fire({
-           title: 'Are you sure?',
-           text: 'This action cannot be undone.',
-           icon: 'warning',
-           showCancelButton: true,
-           confirmButtonColor: '#3085d6',
-           cancelButtonColor: '#d33',
-           confirmButtonText: 'Yes, re-submit!'
-           }).then((result) => {
-               if (result.isConfirmed) {
-                   // User clicked "Yes", proceed with the AJAX request
-                   $.ajax({
-                       type: "POST",
-                       headers: {
-                           "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                       },
-                       url: "{{ route('team.form_certificate_origin_invoice_resubmit') }}",
-                       data: { formId: formId }, // Send data as an object
-                       dataType: "json",
-                       success: function(response) {
-                           console.log(response);
-
-                           Swal.fire({
-                               title: "Success!",
-                               text: response.message,
-                               icon: "success",
-                               confirmButtonText: "OK",
-                               timer: 500, // 3 seconds
-                               timerProgressBar: true,
-                               willClose: () => {
-                                   window.location.href = '{{ route("team.report_List_certificate_origins_invoice") }}';
-                               },
-                           });
-                       },
-                       error: function(error) {
-                           console.log(error);
-                       }
-                   });
-               }
-           });
-       });
-
+   
 
         $('.thirdpartyIdForForComplete').on('click', function() {
 

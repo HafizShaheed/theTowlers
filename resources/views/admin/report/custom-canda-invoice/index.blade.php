@@ -16,16 +16,24 @@
                     <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
                         <label for="thirdPartyName">Team Member:</label>
                         <div class="d-flex justify-content-start align-items-start">
-
-                            <select class="multi-select" name="PartyName" id="PartyName"
+                            <?php
+                            $allTeamMember = App\Models\team\TeamUser::get();
+                            ?>
+                            <select class="multi-select" name="teamMember" id="teamMember"
                                 placeholder="Select Third Party">
-                                <option disabled selected>Select Team</option>
-
-                                <option data-display="Select" value="">
-                                ABC
-                                </option>
-
+                                <option disabled>Select Team</option>
+                                @foreach ($allTeamMember as $team)
+                                    <option value="{{ $team->id }}"
+                                        {{ request('teamMember') == $team->id ? 'selected' : '' }}>
+                                        {{ $team->user_name }}
+                                    </option>
+                                @endforeach
+                                @if ($allTeamMember->isEmpty())
+                                    <option disabled>No Member found</option>
+                                @endif
                             </select>
+
+
                         </div>
                     </div>
 
@@ -34,12 +42,16 @@
                         <label for="thirdPartyName">Status:</label>
                         <div class="d-flex justify-content-start align-items-start">
                             <select class="multi-select" name="status" placeholder="Select status Party">
-                                <option disabled selected>Report Status</option>
-                                <option value="Pending">Pending (0)</option>
-                                <option class="badge badge-success border-0" value="Active">Active (1) </option>
-                                <option value="Resubmit">Resubmit (2)</option>
-                                <option value="Completed">Completed (3) </option>
+                                <option disabled>Report Status</option>
+                                <option value="Active" {{ request('status') == 'Active' ? 'selected' : '' }}>Active
+                                </option>
+                                <option value="Resubmit" {{ request('status') == 'Resubmit' ? 'selected' : '' }}>
+                                    Resubmit</option>
+                                <option value="Completed" {{ request('status') == 'Completed' ? 'selected' : '' }}>
+                                    Completed</option>
                             </select>
+
+
                         </div>
                     </div>
                     <div class="col-xl-1 col-sm-6 col-6 mt-4 mt-md-0">
@@ -123,8 +135,13 @@
                                 <td>
                                     <span>{{$value->canada_customer_invoice ?? ""}}</span>
                                 </td>
-
-                                <td><span>N/A</span></td>
+                                <?php
+                                 if (isset($canada_customer_invoice->team_user_id)) {
+                                    # code...
+                                    $memberName = App\Models\team\TeamUser::where('id',$canada_customer_invoice->team_user_id)->first('user_name');
+                                }
+                                ?>
+                                <td><span>{{  $memberName->user_name ?? 'N/A' }}</span></td>
                                 <td><span>{{ isset($value->created_at) ? $value->created_at->diffForHumans() : '' }}</span></td>
                                 <td>
                                     @switch(isset($value->status) ? $value->status : 0 )
@@ -161,7 +178,7 @@
 
 
 
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/canda-costom_invoice/view') }}" class="" target="_blank" title="View Reports">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/canda-costom_invoice/view'.$value->id) }}" class="" target="_blank" title="View Reports">
                                         View
                                     </a>
                                     <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel/report/canda-costom_invoice/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">

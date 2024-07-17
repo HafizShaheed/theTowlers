@@ -16,16 +16,24 @@
                     <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
                         <label for="thirdPartyName">Team Member:</label>
                         <div class="d-flex justify-content-start align-items-start">
-
-                            <select class="multi-select" name="PartyName" id="PartyName"
+                            <?php
+                            $allTeamMember = App\Models\team\TeamUser::get();
+                            ?>
+                            <select class="multi-select" name="teamMember" id="teamMember"
                                 placeholder="Select Third Party">
-                                <option disabled selected>Select Team</option>
-
-                                <option data-display="Select" value="">
-                                ABC
-                                </option>
-
+                                <option disabled>Select Team</option>
+                                @foreach ($allTeamMember as $team)
+                                    <option value="{{ $team->id }}"
+                                        {{ request('teamMember') == $team->id ? 'selected' : '' }}>
+                                        {{ $team->user_name }}
+                                    </option>
+                                @endforeach
+                                @if ($allTeamMember->isEmpty())
+                                    <option disabled>No Member found</option>
+                                @endif
                             </select>
+
+
                         </div>
                     </div>
 
@@ -34,11 +42,16 @@
                         <label for="thirdPartyName">Status:</label>
                         <div class="d-flex justify-content-start align-items-start">
                             <select class="multi-select" name="status" placeholder="Select status Party">
-                                <option disabled selected>Report Status</option>
-                                <option class="badge badge-success border-0" value="Active">Active  </option>
-                                <option value="Resubmit">Resubmit </option>
-                                <option value="Completed">Completed  </option>
+                                <option disabled>Report Status</option>
+                                <option value="Active" {{ request('status') == 'Active' ? 'selected' : '' }}>Active
+                                </option>
+                                <option value="Resubmit" {{ request('status') == 'Resubmit' ? 'selected' : '' }}>
+                                    Resubmit</option>
+                                <option value="Completed" {{ request('status') == 'Completed' ? 'selected' : '' }}>
+                                    Completed</option>
                             </select>
+
+
                         </div>
                     </div>
                     <div class="col-xl-1 col-sm-6 col-6 mt-4 mt-md-0">
@@ -122,8 +135,13 @@
                                 <td>
                                     <span>{{$value->certificate_origin_com_decs_invoices ?? ""}}</span>
                                 </td>
-
-                                <td><span>N/A</span></td>
+                                <?php
+                                 if (isset($certificate_origin_com_decs_invoices->team_user_id)) {
+                                    # code...
+                                    $memberName = App\Models\team\TeamUser::where('id',$certificate_origin_com_decs_invoices->team_user_id)->first('user_name');
+                                }
+                                ?>
+                                <td><span>{{  $memberName->user_name ?? 'N/A' }}</span></td>
                                 <td><span>{{ isset($value->created_at) ? $value->created_at->diffForHumans() : '' }}</span></td>
                                 <td>
                                     @switch(isset($value->status) ? $value->status : 0 )

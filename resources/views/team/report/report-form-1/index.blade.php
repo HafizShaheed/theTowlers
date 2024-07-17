@@ -14,18 +14,11 @@
             <div class="card-body justify-content-start">
                 <form id="" action="{{route('admin.report_List')}}" class="row d-flex justify-content-between align-items-end">
                     <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
-                        <label for="thirdPartyName">Team Member:</label>
+                        <label for="thirdPartyName"></label>
                         <div class="d-flex justify-content-start align-items-start">
+                        
 
-                            <select class="multi-select" name="PartyName" id="PartyName"
-                                placeholder="Select Third Party">
-                                <option disabled selected>Select Team</option>
 
-                                <option data-display="Select" value="">
-                                ABC
-                                </option>
-
-                            </select>
                         </div>
                     </div>
 
@@ -34,11 +27,12 @@
                         <label for="thirdPartyName">Status:</label>
                         <div class="d-flex justify-content-start align-items-start">
                             <select class="multi-select" name="status" placeholder="Select status Party">
-                                <option disabled selected>Report Status</option>
-                                <option value="Pending">Pending (0)</option>
-                                <option class="badge badge-success border-0" value="Active">Active (1) </option>
-                                <option value="Resubmit">Resubmit (2)</option>
-                                <option value="Completed">Completed (3) </option>
+                                <option disabled>Report Status</option>
+                                <option value="Active" {{ request('status') == 'Active' ? 'selected' : '' }}>Active
+                                </option>
+                                <option value="Resubmit" {{ request('status') == 'Resubmit' ? 'selected' : '' }}>
+                                    Resubmit</option>
+                              
                             </select>
                         </div>
                     </div>

@@ -954,42 +954,26 @@
 
                     </table>
                 </td>
-                <td style="width: 45%;">
-                    <table border="0"
-                        style="  height: 130px;  border-collapse: collapse; width: 100%;font-size:8px;">
-                        <tr style="width: 50%;">
-                            <td>
+                <td style="width: 45%; vertical-align: top;">
+                    <table border="0" style="height: 130px; border-collapse: collapse; width: 100%; font-size: 8px;">
+                        <tr style="width: 30%;">
+                            <td style="vertical-align: top; padding-bottom: 26px;">
                                 <div style="text-align: center;">
                                     <b>“{{ $CommercialInvoice['heading_statement_origin'] ?? '' }} ” </b>
+                                    <p style="text-align: center;vertical-align: top; margin-top: 5px; word-wrap: break-word;">
+                                        <div style="display: inline-block; text-align: center;">
+                                            {{ $CommercialInvoice['value_statement_origin'] ?? '' }}
+                                        </div>
+                                    </p>
                                 </div>
                             </td>
-
                         </tr>
-                        <tr style="width: 50%;">
-                            <td style="text-align: center;word-wrap:break-word">
-                               <div styel="display:inline-block;">
-                                    <div  style=" width: 40%;"></div>
-                                    <div  style=" width: 50%;">
-                                    THE EXPORTER M/S. TOWELLERS LIMITED ,
-                                    WSA – 30 & 31, BLOCK-1, FEDERAL ‘B’ AREA,
-                                    KARACHI-75950, PAKISTAN. (REX NO: PKREXPK06768890)
-                                    OF THE PRODUCTS COVERED BY THIS DOCUMENT
-                                    DECLARES THAT, EXCEPT WHERE OTHERWISE 
-                                    CLEARLY INDICATED, THESE PRODUCTS ARE OF 
-                                    PAKISTAN PREFERENTIAL ORIGIN ACCORDING TO 
-                                    RULES OF ORIGIN OF THE GENERALIZED SYSTEM OF
-                                    PREFERENCES OF THE EUROPEAN UNION AND 
-                                    THAT THE ORIGIN CRITERION MET IS “P”.
-                                </div>
-                                <div  style=" width: 10%;"></div>
-                            </div>
-
-                            </td>
-
+                        <tr style="width: 40%;">
+                          
                         </tr>
-
                     </table>
                 </td>
+                
 
 
             </tr>

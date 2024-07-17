@@ -215,9 +215,30 @@ class adminController extends Controller
         $data['title'] = "Canada Custom Invoice";
         $data['page'] = "Canada Custom Invoice";
         $data['pageIntro'] = "Canada Custom Invoice";
-        $data['CanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
+        $query = CanadaCustomerInvoiceFrom::query();
+
+
+        if (isset($request->teamMember) && !empty($request->teamMember)) {
+            $party_id = (int)$request->input('teamMember');
+            $query->where('team_user_id', $party_id);
+        }
+       
+        if (isset($request->status) && !empty($request->status)) {
+            $statusMapping = [
+                'Active' => 1,
+                'Pending' => 0,
+                'Resubmit' => 2,
+                'Completed' => 3,
+            ];
+            $statusString = $request->status;
+            $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+            $query->where('status', $status);
+        }
+
+
+        $data['CanadaCustomerInvoiceFrom'] = $query->latest()->get();
         return view('admin.report.custom-canda-invoice.index', $data);
     }
 
@@ -482,13 +503,16 @@ class adminController extends Controller
     }
 
 
-    function view_custom_canda_invoice(){
+    function view_custom_canda_invoice($id){
         $data['title'] = "Reports Management";
         $data['page'] = "Reports Management";
         $data['pageIntro'] = "Reports View";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-        return view('admin.report.custom-canda-invoice.view', $data);
+        $data['editCanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::where('id',$id)->first();
+        if (!$data['editCanadaCustomerInvoiceFrom']) {
+            return back()->with('error', 'No Canada invoice history found for the provided ID.');
+        }
+        return view('team.report.custom-canda-invoice.view', $data);
     }
 
     function activity_custom_canda_invoice($id){
@@ -514,9 +538,30 @@ class adminController extends Controller
         $data['title'] = "Form 59 A Invoice";
         $data['page'] = "Form 59 A Invoice";
         $data['pageIntro'] = "Form 59 A Invoice";
-        $data['Form59AInvoice'] = Form59AInvoice::get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
+        $query = Form59AInvoice::query();
+
+
+        if (isset($request->teamMember) && !empty($request->teamMember)) {
+            $party_id = (int)$request->input('teamMember');
+            $query->where('team_user_id', $party_id);
+        }
+       
+        if (isset($request->status) && !empty($request->status)) {
+            $statusMapping = [
+                'Active' => 1,
+                'Pending' => 0,
+                'Resubmit' => 2,
+                'Completed' => 3,
+            ];
+            $statusString = $request->status;
+            $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+            $query->where('status', $status);
+        }
+
+
+        $data['Form59AInvoice'] = $query->latest()->get();
         return view('admin.report.form-59-A-invoice.index', $data);
     }
 
@@ -761,9 +806,31 @@ class adminController extends Controller
         $data['title'] = "Canada Custom Invoice";
         $data['page'] = "Canada Custom Invoice";
         $data['pageIntro'] = "Canada Custom Invoice";
-        $data['ExporterTextileDeclearation'] = ExporterTextileDeclearation::get();
+       
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
+        $query = ExporterTextileDeclearation::query();
+
+
+        if (isset($request->teamMember) && !empty($request->teamMember)) {
+            $party_id = (int)$request->input('teamMember');
+            $query->where('team_user_id', $party_id);
+        }
+       
+        if (isset($request->status) && !empty($request->status)) {
+            $statusMapping = [
+                'Active' => 1,
+                'Pending' => 0,
+                'Resubmit' => 2,
+                'Completed' => 3,
+            ];
+            $statusString = $request->status;
+            $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+            $query->where('status', $status);
+        }
+
+
+        $data['ExporterTextileDeclearation'] = $query->latest()->get();
         return view('admin.report.exporter-textile-declearation.index', $data);
     }
 
@@ -983,9 +1050,30 @@ class adminController extends Controller
         $data['title'] = "Certificate Origin Invoice";
         $data['page'] = "Certificate Origin Invoice";
         $data['pageIntro'] = "Canada Custom Invoice";
-        $data['CertificateOrigin'] = CertificateOrigin::get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
+        $query = CertificateOrigin::query();
+
+
+        if (isset($request->teamMember) && !empty($request->teamMember)) {
+            $party_id = (int)$request->input('teamMember');
+            $query->where('team_user_id', $party_id);
+        }
+       
+        if (isset($request->status) && !empty($request->status)) {
+            $statusMapping = [
+                'Active' => 1,
+                'Pending' => 0,
+                'Resubmit' => 2,
+                'Completed' => 3,
+            ];
+            $statusString = $request->status;
+            $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+            $query->where('status', $status);
+        }
+
+
+        $data['CertificateOrigin'] = $query->latest()->get();
         return view('admin.report.certificate-origins.index', $data);
     }
 
@@ -1201,9 +1289,30 @@ class adminController extends Controller
         $data['title'] = "Certificate origin 627120 ";
         $data['page'] = "Certificate origin 627120 ";
         $data['pageIntro'] = "Certificate origin 627120 ";
-        $data['CertificateOriginNo627120'] = CertificateOriginNo627120::get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
+        $query = CertificateOriginNo627120::query();
+
+
+        if (isset($request->teamMember) && !empty($request->teamMember)) {
+            $party_id = (int)$request->input('teamMember');
+            $query->where('team_user_id', $party_id);
+        }
+       
+        if (isset($request->status) && !empty($request->status)) {
+            $statusMapping = [
+                'Active' => 1,
+                'Pending' => 0,
+                'Resubmit' => 2,
+                'Completed' => 3,
+            ];
+            $statusString = $request->status;
+            $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+            $query->where('status', $status);
+        }
+
+
+        $data['CertificateOriginNo627120'] = $query->latest()->get();
         return view('admin.report.certificate-origin-no627120.index', $data);
     }
 
@@ -1415,9 +1524,31 @@ class adminController extends Controller
          $data['title'] = "Certificate origins Combined Declaration Invoice";
          $data['page'] = "Certificate origins Combined Declaration Invoice";
          $data['pageIntro'] = "Certificate origins Combined Declaration Invoice";
-         $data['CertificateOriginComDec'] = CertificateOriginComDec::get();
+         
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
          // dd($data);
+         $query = CertificateOriginComDec::query();
+
+
+         if (isset($request->teamMember) && !empty($request->teamMember)) {
+             $party_id = (int)$request->input('teamMember');
+             $query->where('team_user_id', $party_id);
+         }
+        
+         if (isset($request->status) && !empty($request->status)) {
+             $statusMapping = [
+                 'Active' => 1,
+                 'Pending' => 0,
+                 'Resubmit' => 2,
+                 'Completed' => 3,
+             ];
+             $statusString = $request->status;
+             $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+             $query->where('status', $status);
+         }
+ 
+ 
+         $data['CertificateOriginComDec'] = $query->latest()->get();
          return view('admin.report.certificate-origin-com-dec.index', $data);
      }
  
@@ -1628,9 +1759,31 @@ class adminController extends Controller
          $data['title'] = "Certificate origin  IP";
          $data['page'] = "Certificate origin  IP";
          $data['pageIntro'] = "Certificate origin  IP";
-         $data['CertificateOriginComDecFormIp'] = CertificateOriginComDecFormIp::get();
+      
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
          // dd($data);
+         $query = CertificateOriginComDecFormIp::query();
+
+
+         if (isset($request->teamMember) && !empty($request->teamMember)) {
+             $party_id = (int)$request->input('teamMember');
+             $query->where('team_user_id', $party_id);
+         }
+        
+         if (isset($request->status) && !empty($request->status)) {
+             $statusMapping = [
+                 'Active' => 1,
+                 'Pending' => 0,
+                 'Resubmit' => 2,
+                 'Completed' => 3,
+             ];
+             $statusString = $request->status;
+             $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+             $query->where('status', $status);
+         }
+ 
+ 
+         $data['CertificateOriginComDecFormIp'] = $query->latest()->get();
          return view('admin.report.certificate-origin-com-dec-form-ip.index', $data);
      }
  
@@ -1844,9 +1997,31 @@ class adminController extends Controller
          $data['title'] = "Certificate origin  A";
          $data['page'] = "Certificate origin  A";
          $data['pageIntro'] = "Certificate origin  A";
-         $data['CertificateOriginComDecFormA'] = CertificateOriginComDecFormA::get();
+        
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
          // dd($data);
+         $query = CertificateOriginComDecFormA::query();
+
+
+         if (isset($request->teamMember) && !empty($request->teamMember)) {
+             $party_id = (int)$request->input('teamMember');
+             $query->where('team_user_id', $party_id);
+         }
+        
+         if (isset($request->status) && !empty($request->status)) {
+             $statusMapping = [
+                 'Active' => 1,
+                 'Pending' => 0,
+                 'Resubmit' => 2,
+                 'Completed' => 3,
+             ];
+             $statusString = $request->status;
+             $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+             $query->where('status', $status);
+         }
+ 
+ 
+         $data['CertificateOriginComDecFormA'] = $query->latest()->get();
          return view('admin.report.certificate-origin-com-dec-form-a.index', $data);
      }
  
@@ -2057,8 +2232,8 @@ class adminController extends Controller
         function report_List_commercial_invoice(Request $request)
         {
             // dd($request->all());
-         
-
+           
+        
             $data['title'] = "Certificate origin  A";
             $data['page'] = "Certificate origin  A";
             $data['pageIntro'] = "Certificate origin  A";
