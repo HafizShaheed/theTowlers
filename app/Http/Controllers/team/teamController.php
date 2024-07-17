@@ -86,43 +86,12 @@ class teamController extends Controller
 
 
     // report started =============================
-  
-
-    public function generatePDF($count)
-    {
-        $viewName = 'team.report.custom-canda-invoice.pdf.'.$count.'my_pdf';
-
-        // Check if the view exists
-        if (!view()->exists($viewName)) {
-            abort(404); // Redirect to 404 page if the view does not exist
-        }
-
-        $data = [
-            'title' => 'Canada Customer Invoice Pdf',
-            'CanadaCustomerInvoiceFrom' => CanadaCustomerInvoiceFrom::where('id', 1)->first(),
-        ];
-
-        $pdf = PDF::loadView($viewName, $data);
-
-        return $pdf->stream('document.pdf');
-    }
-
-
-
-
-
-
-  
-
-
-    // vender means Reports list start
-    //==================== custom canada invioce start ======================//
     function report_List_custom_canda_invoice(Request $request)
     {
         $data['title'] = "Canada Custom Invoice";
         $data['page'] = "Canada Custom Invoice";
         $data['pageIntro'] = "Canada Custom Invoice";
-        $data['CanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::get();
+        $data['CanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::where('status','<>','3')->get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
         return view('team.report.custom-canda-invoice.index', $data);
@@ -250,9 +219,9 @@ class teamController extends Controller
             // Create CanadaCustomerInvoiceFrom record
             $canadaCustomerInvoiceFrom = new CanadaCustomerInvoiceFrom();
             $canadaCustomerInvoiceFrom->invioce_generator = rand(0000, 9999).now();
-        $canadaCustomerInvoiceFrom->team_user_id = Auth::guard('team')->id();
+        $canadaCustomerInvoiceFrom->team_user_id = $request->input('team_user_id');
         $canadaCustomerInvoiceFrom->commercial_invoice_id = $request->input('commercial_invoice_id');
-
+        $canadaCustomerInvoiceFrom->status=1;
         $canadaCustomerInvoiceFrom->canada_customer_invoice = $request->input('canada_customer_invoice');
         $canadaCustomerInvoiceFrom->vender_name = $request->input('vender_name');
         $canadaCustomerInvoiceFrom->vender_address = $request->input('vender_address');
@@ -297,7 +266,7 @@ class teamController extends Controller
 
         $CanadaInvoiceHistory = new CanadaInvoiceHistory();
         $CanadaInvoiceHistory->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-        $CanadaInvoiceHistory->editer_name = Auth::guard('team')->user()->user_name;
+        $CanadaInvoiceHistory->editer_name = Auth::guard('admin')->user()->user_name;
 
         $CanadaInvoiceHistory->edited_at = now();
         $CanadaInvoiceHistory->save();
@@ -349,7 +318,9 @@ class teamController extends Controller
             // Assign values from the request to the CanadaCustomerInvoiceFrom model
             $canadaCustomerInvoiceFrom->fill($request->all());
 
-            // Save the CanadaCustomerInvoiceFrom model
+            // Save the CanadaCustomerInvoiceFrom model 
+            $canadaCustomerInvoiceFrom->status=1;
+
             $canadaCustomerInvoiceFrom->save();
 
             // Create or update related records using a loop
@@ -370,7 +341,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $CanadaInvoiceHistory = new CanadaInvoiceHistory();
             $CanadaInvoiceHistory->canada_customer_invoice_from_id = $canadaCustomerInvoiceFrom->id;
-            $CanadaInvoiceHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $CanadaInvoiceHistory->editer_name = Auth::guard('admin')->user()->user_name;
 
             $CanadaInvoiceHistory->edited_at = now();
             $CanadaInvoiceHistory->save();
@@ -419,7 +390,7 @@ class teamController extends Controller
         $data['title'] = "Form 59 A Invoice";
         $data['page'] = "Form 59 A Invoice";
         $data['pageIntro'] = "Form 59 A Invoice";
-        $data['Form59AInvoice'] = Form59AInvoice::get();
+        $data['Form59AInvoice'] = Form59AInvoice::where('status','<>','3')->get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
         return view('team.report.form-59-A-invoice.index', $data);
@@ -507,7 +478,7 @@ class teamController extends Controller
             // Create CanadaCustomerInvoiceFrom record
             $Form59AInvoice = new Form59AInvoice();
             $Form59AInvoice->invioce_generator = rand(0000, 9999).now();
-        $Form59AInvoice->team_user_id = Auth::guard('team')->id();
+        $Form59AInvoice->team_user_id = $request->input('team_user_id');
         $Form59AInvoice->commercial_invoice_id = $request->input('commercial_invoice_id');
 
         $Form59AInvoice->form59_a_invoices = $request->input('form59_a_invoices');
@@ -526,7 +497,8 @@ class teamController extends Controller
         $Form59AInvoice->final_destination_of_goods = $request->input('final_destination_of_goods');
         $Form59AInvoice->if_amount_has_been_inciuded_in_the_current_domestic_value = $request->input('if_amount_has_been_inciuded_in_the_current_domestic_value');
         $Form59AInvoice->drawback_or_remission_of_duty = $request->input('drawback_or_remission_of_duty');
-       
+        $Form59AInvoice->status=1;
+
         // Create related records using loop
         for ($i = 1; $i <= 6; $i++) {
 
@@ -548,7 +520,7 @@ class teamController extends Controller
 
         $Form59AHistory = new Form59AHistory();
         $Form59AHistory->form59_a_invoice_id = $Form59AInvoice->id;
-        $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
+        $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
 
         $Form59AHistory->edited_at = now();
         $Form59AHistory->save();
@@ -600,6 +572,7 @@ class teamController extends Controller
             // Assign values from the request to the CanadaCustomerInvoiceFrom model
             $Form59AInvoice->fill($request->all());
             $Form59AInvoice->commercial_invoice_id = $request->input('commercial_invoice_id');
+            $Form59AInvoice->status=1;
 
             // Save the Form59AInvoice model
             $Form59AInvoice->save();
@@ -609,7 +582,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $Form59AHistory = new Form59AHistory();
             $Form59AHistory->form59_a_invoice_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
 
     
             $Form59AHistory->edited_at = now();
@@ -664,7 +637,7 @@ class teamController extends Controller
         $data['title'] = "Canada Custom Invoice";
         $data['page'] = "Canada Custom Invoice";
         $data['pageIntro'] = "Canada Custom Invoice";
-        $data['ExporterTextileDeclearation'] = ExporterTextileDeclearation::get();
+        $data['ExporterTextileDeclearation'] = ExporterTextileDeclearation::where('status','<>','3')->get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
         return view('team.report.exporter-textile-declearation.index', $data);
@@ -752,9 +725,10 @@ class teamController extends Controller
             // Create CanadaCustomerInvoiceFrom record
             $ExporterTextileDeclearation = new ExporterTextileDeclearation();
             $ExporterTextileDeclearation->invioce_generator = rand(0000, 9999).now();
-        $ExporterTextileDeclearation->team_user_id = Auth::guard('team')->id();
+        $ExporterTextileDeclearation->team_user_id = $request->input('team_user_id');
      
         $ExporterTextileDeclearation->commercial_invoice_id = $request->input('commercial_invoice_id');
+        $ExporterTextileDeclearation->status=1;
        
         // Create related records using loop
     
@@ -765,7 +739,7 @@ class teamController extends Controller
 
         $ExporterTextileDeclearationHistory = new ExporterTextileDeclearationHistory();
         $ExporterTextileDeclearationHistory->exporter_textile_declearation_id = $ExporterTextileDeclearation->id;
-        $ExporterTextileDeclearationHistory->editer_name = Auth::guard('team')->user()->user_name;
+        $ExporterTextileDeclearationHistory->editer_name = Auth::guard('admin')->user()->user_name;
 
 
         $ExporterTextileDeclearationHistory->edited_at = now();
@@ -820,6 +794,8 @@ class teamController extends Controller
             $ExporterTextileDeclearation->commercial_invoice_id = $request->input('commercial_invoice_id');
 
             // Save the ExporterTextileDeclearation model
+             $ExporterTextileDeclearation->status=1;
+
             $ExporterTextileDeclearation->save();
 
             // Create or update related records using a loop
@@ -828,7 +804,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $ExporterTextileDeclearationHistory = new ExporterTextileDeclearationHistory();
             $ExporterTextileDeclearationHistory->exporter_textile_declearation_id = $ExporterTextileDeclearation->id;
-            $ExporterTextileDeclearationHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $ExporterTextileDeclearationHistory->editer_name = Auth::guard('admin')->user()->user_name;
     
             $ExporterTextileDeclearationHistory->edited_at = now();
             $ExporterTextileDeclearationHistory->save();
@@ -883,7 +859,7 @@ class teamController extends Controller
         $data['title'] = "Certificate Origin Invoice";
         $data['page'] = "Certificate Origin Invoice";
         $data['pageIntro'] = "Canada Custom Invoice";
-        $data['CertificateOrigin'] = CertificateOrigin::get();
+        $data['CertificateOrigin'] = CertificateOrigin::where('status','<>','3')->get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
         return view('team.report.certificate-origins.index', $data);
@@ -971,18 +947,20 @@ class teamController extends Controller
             // Create CanadaCustomerInvoiceFrom record
             $CertificateOrigin = new CertificateOrigin();
             $CertificateOrigin->invioce_generator = rand(0000, 9999).now();
-        $CertificateOrigin->team_user_id = Auth::guard('team')->id();
+        $CertificateOrigin->team_user_id = $request->input('team_user_id');
         $CertificateOrigin->certificate_origin_invoices = $request->input('certificate_origin_invoices');
         $CertificateOrigin->commercial_invoice_id = $request->input('commercial_invoice_id');
        
         // Create related records using loop
          // Assign values from the request to the CanadaCustomerInvoiceFrom model
          $CertificateOrigin->fill($request->all());
+         $CertificateOrigin->status=1;
+
         $CertificateOrigin->save();
 
         $CertificateOriginHistory = new CertificateOriginHistory();
         $CertificateOriginHistory->certificate_origin_id = $CertificateOrigin->id;
-        $CertificateOriginHistory->editer_name = Auth::guard('team')->user()->user_name;
+        $CertificateOriginHistory->editer_name = Auth::guard('admin')->user()->user_name;
 
         $CertificateOriginHistory->edited_at = now();
         $CertificateOriginHistory->save();
@@ -1034,6 +1012,7 @@ class teamController extends Controller
             // Assign values from the request to the CanadaCustomerInvoiceFrom model
             $CertificateOrigin->fill($request->all());
             $CertificateOrigin->commercial_invoice_id = $request->input('commercial_invoice_id');
+            $CertificateOrigin->status=1;
 
             // Save the CertificateOrigin model
             $CertificateOrigin->save();
@@ -1043,7 +1022,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $CertificateOriginHistory = new CertificateOriginHistory();
             $CertificateOriginHistory->certificate_origin_id = $CertificateOrigin->id;
-            $CertificateOriginHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $CertificateOriginHistory->editer_name = Auth::guard('admin')->user()->user_name;
     
             $CertificateOriginHistory->edited_at = now();
             $CertificateOriginHistory->save();
@@ -1098,7 +1077,7 @@ class teamController extends Controller
         $data['title'] = "Certificate origin 627120 ";
         $data['page'] = "Certificate origin 627120 ";
         $data['pageIntro'] = "Certificate origin 627120 ";
-        $data['CertificateOriginNo627120'] = CertificateOriginNo627120::get();
+        $data['CertificateOriginNo627120'] = CertificateOriginNo627120::where('status','<>','3')->get();
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
         return view('team.report.certificate-origin-no627120.index', $data);
@@ -1185,17 +1164,18 @@ class teamController extends Controller
             // Create CanadaCustomerInvoiceFrom record
             $CertificateOriginNo627120 = new CertificateOriginNo627120();
             $CertificateOriginNo627120->invioce_generator = rand(0000, 9999).now();
-        $CertificateOriginNo627120->team_user_id = Auth::guard('team')->id();
+        $CertificateOriginNo627120->team_user_id = $request->input('team_user_id');
         $CertificateOriginNo627120->commercial_invoice_id = $request->input('commercial_invoice_id');
        
         // Create related records using loop
         $CertificateOriginNo627120->fill($request->all());
+        $CertificateOriginNo627120->status=1;
 
         $CertificateOriginNo627120->save();
 
         $CertificateOriginNo627120History = new CertificateOriginNo627120History();
         $CertificateOriginNo627120History->certificate_origin_no627120_id = $CertificateOriginNo627120->id;
-        $CertificateOriginNo627120History->editer_name = Auth::guard('team')->user()->user_name;
+        $CertificateOriginNo627120History->editer_name = Auth::guard('admin')->user()->user_name;
 
         $CertificateOriginNo627120History->edited_at = now();
         $CertificateOriginNo627120History->save();
@@ -1249,6 +1229,7 @@ class teamController extends Controller
             $CertificateOriginNo627120->commercial_invoice_id = $request->input('commercial_invoice_id');
 
           
+            $CertificateOriginNo627120->status=1;
 
             // Save the CanadaCustomerInvoiceFrom model again after updating related records
             $CertificateOriginNo627120->save();
@@ -1256,7 +1237,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $CertificateOriginNo627120History = new CertificateOriginNo627120History();
             $CertificateOriginNo627120History->certificate_origin_no627120_id = $CertificateOriginNo627120->id;
-            $CertificateOriginNo627120History->editer_name = Auth::guard('team')->user()->user_name;
+            $CertificateOriginNo627120History->editer_name = Auth::guard('admin')->user()->user_name;
     
             $CertificateOriginNo627120History->edited_at = now();
             $CertificateOriginNo627120History->save();
@@ -1310,7 +1291,7 @@ class teamController extends Controller
          $data['title'] = "Certificate origins Combined Declaration Invoice";
          $data['page'] = "Certificate origins Combined Declaration Invoice";
          $data['pageIntro'] = "Certificate origins Combined Declaration Invoice";
-         $data['CertificateOriginComDec'] = CertificateOriginComDec::get();
+         $data['CertificateOriginComDec'] = CertificateOriginComDec::where('status','<>','3')->get();
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
          // dd($data);
          return view('team.report.certificate-origin-com-dec.index', $data);
@@ -1396,17 +1377,19 @@ class teamController extends Controller
              // Create CanadaCustomerInvoiceFrom record
              $CertificateOriginComDec = new CertificateOriginComDec();
              $CertificateOriginComDec->invioce_generator = rand(0000, 9999).now();
-         $CertificateOriginComDec->team_user_id = Auth::guard('team')->id();
+         $CertificateOriginComDec->team_user_id = $request->input('team_user_id');
          $CertificateOriginComDec->commercial_invoice_id = $request->input('commercial_invoice_id');
          $CertificateOriginComDec->certificate_origin_com_decs_invoices = $request->input('certificate_origin_com_decs_invoices');
         
          // Create related records using loop
          $CertificateOriginComDec->fill($request->all());
+         $CertificateOriginComDec->status=1;
+
          $CertificateOriginComDec->save();
  
          $CertificateOriginComDecHistory = new CertificateOriginComDecHistory();
          $CertificateOriginComDecHistory->certificate_origin_com_dec_id = $CertificateOriginComDec->id;
-         $CertificateOriginComDecHistory->editer_name = Auth::guard('team')->user()->user_name;
+         $CertificateOriginComDecHistory->editer_name = Auth::guard('admin')->user()->user_name;
  
          $CertificateOriginComDecHistory->edited_at = now();
          $CertificateOriginComDecHistory->save();
@@ -1456,6 +1439,7 @@ class teamController extends Controller
              // Assign values from the request to the CanadaCustomerInvoiceFrom model
              $CertificateOriginComDec->fill($request->all());
              $CertificateOriginComDec->commercial_invoice_id = $request->input('commercial_invoice_id');
+             $CertificateOriginComDec->status=1;
  
          
              // Save the CanadaCustomerInvoiceFrom model again after updating related records
@@ -1464,7 +1448,7 @@ class teamController extends Controller
              // Create CanadaInvoiceHistory record
              $CertificateOriginComDecHistory = new CertificateOriginComDecHistory();
              $CertificateOriginComDecHistory->certificate_origin_com_dec_id = $CertificateOriginComDec->id;
-             $CertificateOriginComDecHistory->editer_name = Auth::guard('team')->user()->user_name;
+             $CertificateOriginComDecHistory->editer_name = Auth::guard('admin')->user()->user_name;
      
              $CertificateOriginComDecHistory->edited_at = now();
              $CertificateOriginComDecHistory->save();
@@ -1520,7 +1504,7 @@ class teamController extends Controller
          $data['title'] = "Certificate origin  IP";
          $data['page'] = "Certificate origin  IP";
          $data['pageIntro'] = "Certificate origin  IP";
-         $data['CertificateOriginComDecFormIp'] = CertificateOriginComDecFormIp::get();
+         $data['CertificateOriginComDecFormIp'] = CertificateOriginComDecFormIp::where('status','<>','3')->get();
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
          // dd($data);
          return view('team.report.certificate-origin-com-dec-form-ip.index', $data);
@@ -1607,17 +1591,19 @@ class teamController extends Controller
              // Create CanadaCustomerInvoiceFrom record
              $CertificateOriginComDecFormIp = new CertificateOriginComDecFormIp();
              $CertificateOriginComDecFormIp->invioce_generator = rand(0000, 9999).now();
-         $CertificateOriginComDecFormIp->team_user_id = Auth::guard('team')->id();
+         $CertificateOriginComDecFormIp->team_user_id = $request->input('team_user_id');
          $CertificateOriginComDecFormIp->yes_or_no_preferential_treatment = $request->input('yes_or_no_preferential_treatment') == 1 ?  1 : 0;
          $CertificateOriginComDecFormIp->commercial_invoice_id = $request->input('commercial_invoice_id');
         
          // Create related records using loop
          $CertificateOriginComDecFormIp->fill($request->all());
+         $CertificateOriginComDecFormIp->status=1;
+
          $CertificateOriginComDecFormIp->save();
  
          $CertificateOriginComDecFormIpHistory = new CertificateOriginComDecFormIpHistory();
          $CertificateOriginComDecFormIpHistory->certificate_origin_com_dec_form_ip_id = $CertificateOriginComDecFormIp->id;
-         $CertificateOriginComDecFormIpHistory->editer_name = Auth::guard('team')->user()->user_name;
+         $CertificateOriginComDecFormIpHistory->editer_name = Auth::guard('admin')->user()->user_name;
  
          $CertificateOriginComDecFormIpHistory->edited_at = now();
          $CertificateOriginComDecFormIpHistory->save();
@@ -1669,6 +1655,7 @@ class teamController extends Controller
              $CertificateOriginComDecFormIp->yes_or_no_preferential_treatment = $request->input('yes_or_no_preferential_treatment') == 1 ?  1 : 0;
              $CertificateOriginComDecFormIp->fill($request->all());
              $CertificateOriginComDecFormIp->commercial_invoice_id = $request->input('commercial_invoice_id');
+             $CertificateOriginComDecFormIp->status=1;
  
              // Save the CertificateOriginComDecFormIp model
              $CertificateOriginComDecFormIp->save();
@@ -1679,7 +1666,7 @@ class teamController extends Controller
              // Create CanadaInvoiceHistory record
              $CertificateOriginComDecFormIpHistory = new CertificateOriginComDecFormIpHistory();
              $CertificateOriginComDecFormIpHistory->certificate_origin_com_dec_form_ip_id = $CertificateOriginComDecFormIp->id;
-             $CertificateOriginComDecFormIpHistory->editer_name = Auth::guard('team')->user()->user_name;
+             $CertificateOriginComDecFormIpHistory->editer_name = Auth::guard('admin')->user()->user_name;
      
              $CertificateOriginComDecFormIpHistory->edited_at = now();
              $CertificateOriginComDecFormIpHistory->save();
@@ -1733,7 +1720,7 @@ class teamController extends Controller
          $data['title'] = "Certificate origin  A";
          $data['page'] = "Certificate origin  A";
          $data['pageIntro'] = "Certificate origin  A";
-         $data['CertificateOriginComDecFormA'] = CertificateOriginComDecFormA::get();
+         $data['CertificateOriginComDecFormA'] = CertificateOriginComDecFormA::where('status','<>','3')->get();
          $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
          // dd($data);
          return view('team.report.certificate-origin-com-dec-form-a.index', $data);
@@ -1821,17 +1808,18 @@ class teamController extends Controller
              // Create CanadaCustomerInvoiceFrom record
              $CertificateOriginComDecFormA = new CertificateOriginComDecFormA();
              $CertificateOriginComDecFormA->invioce_generator = rand(0000, 9999).now();
-         $CertificateOriginComDecFormA->team_user_id = Auth::guard('team')->id();
+         $CertificateOriginComDecFormA->team_user_id = $request->input('team_user_id');
          $CertificateOriginComDecFormA->commercial_invoice_id = $request->input('commercial_invoice_id');
 
          $CertificateOriginComDecFormA->fill($request->all());
+         $CertificateOriginComDecFormA->status=1;
  
          // Save the CertificateOriginComDecFormA model
          $CertificateOriginComDecFormA->save();
  
          $CertificateOriginComDecFormAHistory = new CertificateOriginComDecFormAHistory();
          $CertificateOriginComDecFormAHistory->certificate_origin_com_dec_form_a_id = $CertificateOriginComDecFormA->id;
-         $CertificateOriginComDecFormAHistory->editer_name = Auth::guard('team')->user()->user_name;
+         $CertificateOriginComDecFormAHistory->editer_name = Auth::guard('admin')->user()->user_name;
  
          $CertificateOriginComDecFormAHistory->edited_at = now();
          $CertificateOriginComDecFormAHistory->save();
@@ -1881,6 +1869,7 @@ class teamController extends Controller
              // Assign values from the request to the CanadaCustomerInvoiceFrom model
              $CertificateOriginComDecFormA->fill($request->all());
              $CertificateOriginComDecFormA->commercial_invoice_id = $request->input('commercial_invoice_id');
+             $CertificateOriginComDecFormA->status=1;
  
              // Save the CertificateOriginComDecFormA model
              $CertificateOriginComDecFormA->save();
@@ -1893,7 +1882,7 @@ class teamController extends Controller
              // Create CanadaInvoiceHistory record
              $CertificateOriginComDecFormAHistory = new CertificateOriginComDecFormAHistory();
              $CertificateOriginComDecFormAHistory->certificate_origin_com_dec_form_a_id = $CertificateOriginComDecFormA->id;
-             $CertificateOriginComDecFormAHistory->editer_name = Auth::guard('team')->user()->user_name;
+             $CertificateOriginComDecFormAHistory->editer_name = Auth::guard('admin')->user()->user_name;
      
              $CertificateOriginComDecFormAHistory->edited_at = now();
              $CertificateOriginComDecFormAHistory->save();
@@ -1946,7 +1935,7 @@ class teamController extends Controller
             $data['title'] = "Certificate origin  A";
             $data['page'] = "Certificate origin  A";
             $data['pageIntro'] = "Certificate origin  A";
-            $data['CommercialInvoice'] = CommercialInvoice::get();
+            $data['CommercialInvoice'] = CommercialInvoice::where('status','<>','3')->get();
             $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
             // dd($data);
             return view('team.report.commercial-invoice.index', $data);
@@ -2072,7 +2061,7 @@ class teamController extends Controller
                 // Create CanadaCustomerInvoiceFrom record
                 $CommercialInvoice = new CommercialInvoice();
                 $CommercialInvoice->invioce_generator = rand(0000, 9999).now();
-            $CommercialInvoice->team_user_id = Auth::guard('team')->id();
+            $CommercialInvoice->team_user_id = $request->input('team_user_id');
             
             $CommercialInvoice->heading_f_i_no = $request->input('heading_f_i_no');
             $CommercialInvoice->heading_shipper = $request->input('heading_shipper');
@@ -2172,7 +2161,7 @@ class teamController extends Controller
             $CommercialInvoice->value_total_add_fright = $request->value_total_add_fright;
             $CommercialInvoice->value_total_net_amount_payable = $request->value_total_net_amount_payable;
             $CommercialInvoice->value_currency_name = $request->value_currency_name;
-            $CommercialInvoice->status = 3;
+            $CommercialInvoice->status = 1;
             $CommercialInvoice->commercial_invoice = $request->commercial_invoice;
     
             // $CommercialInvoice->fill($request->all());
@@ -2342,7 +2331,7 @@ class teamController extends Controller
 
             $CommercialInvoiceHistory = new CommercialInvoiceHistory();
             $CommercialInvoiceHistory->commercial_invoice_id = $CommercialInvoice->id;
-            $CommercialInvoiceHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $CommercialInvoiceHistory->editer_name = Auth::guard('admin')->user()->user_name;
     
             $CommercialInvoiceHistory->edited_at = now();
             $CommercialInvoiceHistory->save();
@@ -2439,7 +2428,7 @@ class teamController extends Controller
                     $CommercialInvoice->{"pdf_upload_file_ic"} = $filename;
                 }
                 // Assign values from the request to the CanadaCustomerInvoiceFrom model
-                $CommercialInvoice->team_user_id = Auth::guard('team')->id();
+                $CommercialInvoice->team_user_id = $request->input('team_user_id');
             
                 $CommercialInvoice->heading_f_i_no = $request->input('heading_f_i_no');
                 $CommercialInvoice->heading_shipper = $request->input('heading_shipper');
@@ -2539,7 +2528,7 @@ class teamController extends Controller
                 $CommercialInvoice->value_total_add_fright = $request->value_total_add_fright;
                 $CommercialInvoice->value_total_net_amount_payable = $request->value_total_net_amount_payable;
                 $CommercialInvoice->value_currency_name = $request->value_currency_name;
-                $CommercialInvoice->status = 3;
+                $CommercialInvoice->status = 1;
                 $CommercialInvoice->commercial_invoice = $request->commercial_invoice;
         
                 // $CommercialInvoice->fill($request->all());
@@ -2709,7 +2698,7 @@ class teamController extends Controller
                 // Create CanadaInvoiceHistory record
                 $CommercialInvoiceHistory = new CommercialInvoiceHistory();
                 $CommercialInvoiceHistory->commercial_invoice_id = $CommercialInvoice->id;
-                $CommercialInvoiceHistory->editer_name = Auth::guard('team')->user()->user_name;
+                $CommercialInvoiceHistory->editer_name = Auth::guard('admin')->user()->user_name;
         
                 $CommercialInvoiceHistory->edited_at = now();
                 $CommercialInvoiceHistory->save();
@@ -2784,51 +2773,7 @@ class teamController extends Controller
 
    
 
-    function form_canada_invoice_resubmit(Request $request) {
-       
-
-        try {
-            // Validate the incoming request if necessary
-            // $request->validate([...]);
-
-            // Check if an ID is provided in the request
-            $id = $request->input('formId');
-            if ($id) {
-                // If an ID is provided, update the existing record
-                $Form59AInvoice = CanadaCustomerInvoiceFrom::findOrFail($id);
-            } else {
-                // If no ID is provided, create a new record
-                $Form59AInvoice = new CanadaCustomerInvoiceFrom();
-                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
-            }
-
-            // Assign values from the request to the CanadaCustomerInvoiceFrom model
-            $Form59AInvoice->status = 2;
-
-            // Save the Form59AInvoice model
-            $Form59AInvoice->save();
-
-      
-
-            // Create CanadaInvoiceHistory record
-            $Form59AHistory = new CanadaInvoiceHistory();
-            $Form59AHistory->canada_customer_invoice_from_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
-    
-            $Form59AHistory->edited_at = now();
-            $Form59AHistory->save();
-
-            // Return a success response
-            return response()->json(['message' => 'All records submitted successfully!']);
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error($e);
-
-            // Return an error response
-            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
-        }
-        
-    }
+  
     function form_canada_invoice_completed(Request $request) {
        
 
@@ -2858,7 +2803,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $Form59AHistory = new CanadaInvoiceHistory();
             $Form59AHistory->canada_customer_invoice_from_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
     
             $Form59AHistory->edited_at = now();
             $Form59AHistory->save();
@@ -2875,51 +2820,7 @@ class teamController extends Controller
         
     }
 
-    function commercial_invoice_resubmit(Request $request) {
-       
-
-        try {
-            // Validate the incoming request if necessary
-            // $request->validate([...]);
-
-            // Check if an ID is provided in the request
-            $id = $request->input('formId');
-            if ($id) {
-                // If an ID is provided, update the existing record
-                $Form59AInvoice = CommercialInvoice::findOrFail($id);
-            } else {
-                // If no ID is provided, create a new record
-                $Form59AInvoice = new CommercialInvoice();
-                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
-            }
-
-            // Assign values from the request to the CanadaCustomerInvoiceFrom model
-            $Form59AInvoice->status = 2;
-
-            // Save the Form59AInvoice model
-            $Form59AInvoice->save();
-
-      
-
-            // Create CanadaInvoiceHistory record
-            $Form59AHistory = new CommercialInvoiceHistory();
-            $Form59AHistory->commercial_invoice_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
-    
-            $Form59AHistory->edited_at = now();
-            $Form59AHistory->save();
-
-            // Return a success response
-            return response()->json(['message' => 'All records submitted successfully!']);
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error($e);
-
-            // Return an error response
-            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
-        }
-        
-    }
+  
     function commercial_invoice_completed(Request $request) {
        
 
@@ -2949,7 +2850,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $Form59AHistory = new CommercialInvoiceHistory();
             $Form59AHistory->commercial_invoice_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
     
             $Form59AHistory->edited_at = now();
             $Form59AHistory->save();
@@ -2966,51 +2867,7 @@ class teamController extends Controller
         
     }
 
-    function form_59_invoice_resubmit(Request $request) {
-       
-
-        try {
-            // Validate the incoming request if necessary
-            // $request->validate([...]);
-
-            // Check if an ID is provided in the request
-            $id = $request->input('formId');
-            if ($id) {
-                // If an ID is provided, update the existing record
-                $Form59AInvoice = Form59AInvoice::findOrFail($id);
-            } else {
-                // If no ID is provided, create a new record
-                $Form59AInvoice = new Form59AInvoice();
-                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
-            }
-
-            // Assign values from the request to the CanadaCustomerInvoiceFrom model
-            $Form59AInvoice->status = 2;
-
-            // Save the Form59AInvoice model
-            $Form59AInvoice->save();
-
-      
-
-            // Create CanadaInvoiceHistory record
-            $Form59AHistory = new Form59AHistory();
-            $Form59AHistory->form59_a_invoice_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
-    
-            $Form59AHistory->edited_at = now();
-            $Form59AHistory->save();
-
-            // Return a success response
-            return response()->json(['message' => 'All records submitted successfully!']);
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error($e);
-
-            // Return an error response
-            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
-        }
-        
-    }
+  
     function form_59_invoice_completed(Request $request) {
        
 
@@ -3040,7 +2897,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $Form59AHistory = new Form59AHistory();
             $Form59AHistory->form59_a_invoice_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
     
             $Form59AHistory->edited_at = now();
             $Form59AHistory->save();
@@ -3057,51 +2914,7 @@ class teamController extends Controller
         
     }
 
-    function form_exporter_textile_invoice_resubmit(Request $request) {
-       
-
-        try {
-            // Validate the incoming request if necessary
-            // $request->validate([...]);
-
-            // Check if an ID is provided in the request
-            $id = $request->input('formId');
-            if ($id) {
-                // If an ID is provided, update the existing record
-                $Form59AInvoice = ExporterTextileDeclearation::findOrFail($id);
-            } else {
-                // If no ID is provided, create a new record
-                $Form59AInvoice = new ExporterTextileDeclearation();
-                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
-            }
-
-            // Assign values from the request to the CanadaCustomerInvoiceFrom model
-            $Form59AInvoice->status = 2;
-
-            // Save the Form59AInvoice model
-            $Form59AInvoice->save();
-
-      
-
-            // Create CanadaInvoiceHistory record
-            $Form59AHistory = new ExporterTextileDeclearationHistory();
-            $Form59AHistory->exporter_textile_declearation_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
-    
-            $Form59AHistory->edited_at = now();
-            $Form59AHistory->save();
-
-            // Return a success response
-            return response()->json(['message' => 'All records submitted successfully!']);
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error($e);
-
-            // Return an error response
-            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
-        }
-        
-    }
+  
     function form_exporter_textile_invoice_completed(Request $request) {
        
 
@@ -3131,7 +2944,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $Form59AHistory = new ExporterTextileDeclearationHistory();
             $Form59AHistory->exporter_textile_declearation_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
     
             $Form59AHistory->edited_at = now();
             $Form59AHistory->save();
@@ -3148,51 +2961,7 @@ class teamController extends Controller
         
     }
 
-    function form_certificate_origin_invoice_resubmit(Request $request) {
-       
-
-        try {
-            // Validate the incoming request if necessary
-            // $request->validate([...]);
-
-            // Check if an ID is provided in the request
-            $id = $request->input('formId');
-            if ($id) {
-                // If an ID is provided, update the existing record
-                $Form59AInvoice = CertificateOrigin::findOrFail($id);
-            } else {
-                // If no ID is provided, create a new record
-                $Form59AInvoice = new CertificateOrigin();
-                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
-            }
-
-            // Assign values from the request to the CanadaCustomerInvoiceFrom model
-            $Form59AInvoice->status = 2;
-
-            // Save the Form59AInvoice model
-            $Form59AInvoice->save();
-
-      
-
-            // Create CanadaInvoiceHistory record
-            $Form59AHistory = new CertificateOriginHistory();
-            $Form59AHistory->certificate_origin_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
-    
-            $Form59AHistory->edited_at = now();
-            $Form59AHistory->save();
-
-            // Return a success response
-            return response()->json(['message' => 'All records submitted successfully!']);
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error($e);
-
-            // Return an error response
-            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
-        }
-        
-    }
+  
     function form_certificate_origin_invoice_completed(Request $request) {
        
 
@@ -3222,7 +2991,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $Form59AHistory = new CertificateOriginHistory();
             $Form59AHistory->certificate_origin_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
     
             $Form59AHistory->edited_at = now();
             $Form59AHistory->save();
@@ -3239,51 +3008,7 @@ class teamController extends Controller
         
     }
 
-    function form_certificate_origin_no627120_invoice_resubmit(Request $request) {
-       
-
-        try {
-            // Validate the incoming request if necessary
-            // $request->validate([...]);
-
-            // Check if an ID is provided in the request
-            $id = $request->input('formId');
-            if ($id) {
-                // If an ID is provided, update the existing record
-                $Form59AInvoice = CertificateOriginNo627120::findOrFail($id);
-            } else {
-                // If no ID is provided, create a new record
-                $Form59AInvoice = new CertificateOriginNo627120();
-                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
-            }
-
-            // Assign values from the request to the CanadaCustomerInvoiceFrom model
-            $Form59AInvoice->status = 2;
-
-            // Save the Form59AInvoice model
-            $Form59AInvoice->save();
-
-      
-
-            // Create CanadaInvoiceHistory record
-            $Form59AHistory = new CertificateOriginNo627120History();
-            $Form59AHistory->certificate_origin_no627120_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
-    
-            $Form59AHistory->edited_at = now();
-            $Form59AHistory->save();
-
-            // Return a success response
-            return response()->json(['message' => 'All records submitted successfully!']);
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error($e);
-
-            // Return an error response
-            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
-        }
-        
-    }
+  
     function form_certificate_origin_no627120_invoice_completed(Request $request) {
        
 
@@ -3313,7 +3038,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $Form59AHistory = new CertificateOriginNo627120History();
             $Form59AHistory->certificate_origin_no627120_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
     
             $Form59AHistory->edited_at = now();
             $Form59AHistory->save();
@@ -3330,51 +3055,7 @@ class teamController extends Controller
         
     }
 
-    function form_certificate_origin_com_dec_invoice_resubmit(Request $request) {
-       
-
-        try {
-            // Validate the incoming request if necessary
-            // $request->validate([...]);
-
-            // Check if an ID is provided in the request
-            $id = $request->input('formId');
-            if ($id) {
-                // If an ID is provided, update the existing record
-                $Form59AInvoice = CertificateOriginComDec::findOrFail($id);
-            } else {
-                // If no ID is provided, create a new record
-                $Form59AInvoice = new CertificateOriginComDec();
-                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
-            }
-
-            // Assign values from the request to the CanadaCustomerInvoiceFrom model
-            $Form59AInvoice->status = 2;
-
-            // Save the Form59AInvoice model
-            $Form59AInvoice->save();
-
-      
-
-            // Create CanadaInvoiceHistory record
-            $Form59AHistory = new CertificateOriginComDecHistory();
-            $Form59AHistory->certificate_origin_com_dec_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
-    
-            $Form59AHistory->edited_at = now();
-            $Form59AHistory->save();
-
-            // Return a success response
-            return response()->json(['message' => 'All records submitted successfully!']);
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error($e);
-
-            // Return an error response
-            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
-        }
-        
-    }
+   
     function form_certificate_origin_com_dec_invoice_completed(Request $request) {
        
 
@@ -3404,7 +3085,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $Form59AHistory = new CertificateOriginComDecHistory();
             $Form59AHistory->certificate_origin_com_dec_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
     
             $Form59AHistory->edited_at = now();
             $Form59AHistory->save();
@@ -3420,51 +3101,7 @@ class teamController extends Controller
         }
         
     }
-    function form_certificate_origin_com_dec_form_ip_invoice_resubmit(Request $request) {
-       
 
-        try {
-            // Validate the incoming request if necessary
-            // $request->validate([...]);
-
-            // Check if an ID is provided in the request
-            $id = $request->input('formId');
-            if ($id) {
-                // If an ID is provided, update the existing record
-                $Form59AInvoice = CertificateOriginComDecFormIp::findOrFail($id);
-            } else {
-                // If no ID is provided, create a new record
-                $Form59AInvoice = new CertificateOriginComDecFormIp();
-                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
-            }
-
-            // Assign values from the request to the CanadaCustomerInvoiceFrom model
-            $Form59AInvoice->status = 2;
-
-            // Save the Form59AInvoice model
-            $Form59AInvoice->save();
-
-      
-
-            // Create CanadaInvoiceHistory record
-            $Form59AHistory = new CertificateOriginComDecFormIpHistory();
-            $Form59AHistory->certificate_origin_com_dec_form_ip_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
-    
-            $Form59AHistory->edited_at = now();
-            $Form59AHistory->save();
-
-            // Return a success response
-            return response()->json(['message' => 'All records submitted successfully!']);
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error($e);
-
-            // Return an error response
-            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
-        }
-        
-    }
     function form_certificate_origin_com_dec_form_ip_invoice_completed(Request $request) {
        
 
@@ -3494,7 +3131,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $Form59AHistory = new CertificateOriginComDecFormIpHistory();
             $Form59AHistory->certificate_origin_com_dec_form_ip_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
     
             $Form59AHistory->edited_at = now();
             $Form59AHistory->save();
@@ -3511,51 +3148,7 @@ class teamController extends Controller
         
     }
 
-    function form_certificate_origin_com_dec_form_a_invoice_resubmit(Request $request) {
-       
-
-        try {
-            // Validate the incoming request if necessary
-            // $request->validate([...]);
-
-            // Check if an ID is provided in the request
-            $id = $request->input('formId');
-            if ($id) {
-                // If an ID is provided, update the existing record
-                $Form59AInvoice = CertificateOriginComDecFormA::findOrFail($id);
-            } else {
-                // If no ID is provided, create a new record
-                $Form59AInvoice = new CertificateOriginComDecFormA();
-                $Form59AInvoice->invioce_generator = rand(0000, 9999) . now();
-            }
-
-            // Assign values from the request to the CanadaCustomerInvoiceFrom model
-            $Form59AInvoice->status = 2;
-
-            // Save the Form59AInvoice model
-            $Form59AInvoice->save();
-
-      
-
-            // Create CanadaInvoiceHistory record
-            $Form59AHistory = new CertificateOriginComDecFormAHistory();
-            $Form59AHistory->certificate_origin_com_dec_form_a_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
-    
-            $Form59AHistory->edited_at = now();
-            $Form59AHistory->save();
-
-            // Return a success response
-            return response()->json(['message' => 'All records submitted successfully!']);
-        } catch (\Exception $e) {
-            // Log the error
-            Log::error($e);
-
-            // Return an error response
-            return response()->json(['message' => 'An error occurred while submitting the records. Please try again.', 'error' => $e->getMessage()], 500);
-        }
-        
-    }
+   
     function form_certificate_origin_com_dec_form_a_invoice_completed(Request $request) {
        
 
@@ -3585,7 +3178,7 @@ class teamController extends Controller
             // Create CanadaInvoiceHistory record
             $Form59AHistory = new CertificateOriginComDecFormAHistory();
             $Form59AHistory->certificate_origin_com_dec_form_a_id = $Form59AInvoice->id;
-            $Form59AHistory->editer_name = Auth::guard('team')->user()->user_name;
+            $Form59AHistory->editer_name = Auth::guard('admin')->user()->user_name;
     
             $Form59AHistory->edited_at = now();
             $Form59AHistory->save();
@@ -3662,7 +3255,7 @@ class teamController extends Controller
     
         foreach ($models as $tableName => $modelClass) {
             try {
-                $result = $modelClass::where('commercial_invoice_id', $id)->first(['id','table_name', 'created_at']);
+                $result = $modelClass::where('commercial_invoice_id', $id)->where('status','<>','3')->first(['id','table_name', 'created_at']);
                 if (!$result) {
                     $notFoundTables[] = $tableName;
                 } else {

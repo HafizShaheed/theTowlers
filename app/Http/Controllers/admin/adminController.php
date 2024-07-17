@@ -345,7 +345,7 @@ class adminController extends Controller
             $canadaCustomerInvoiceFrom->invioce_generator = rand(0000, 9999).now();
         $canadaCustomerInvoiceFrom->team_user_id = $request->input('team_user_id');
         $canadaCustomerInvoiceFrom->commercial_invoice_id = $request->input('commercial_invoice_id');
-
+        $canadaCustomerInvoiceFrom->status=1;
         $canadaCustomerInvoiceFrom->canada_customer_invoice = $request->input('canada_customer_invoice');
         $canadaCustomerInvoiceFrom->vender_name = $request->input('vender_name');
         $canadaCustomerInvoiceFrom->vender_address = $request->input('vender_address');
@@ -442,7 +442,9 @@ class adminController extends Controller
             // Assign values from the request to the CanadaCustomerInvoiceFrom model
             $canadaCustomerInvoiceFrom->fill($request->all());
 
-            // Save the CanadaCustomerInvoiceFrom model
+            // Save the CanadaCustomerInvoiceFrom model 
+            $canadaCustomerInvoiceFrom->status=1;
+
             $canadaCustomerInvoiceFrom->save();
 
             // Create or update related records using a loop
@@ -619,7 +621,8 @@ class adminController extends Controller
         $Form59AInvoice->final_destination_of_goods = $request->input('final_destination_of_goods');
         $Form59AInvoice->if_amount_has_been_inciuded_in_the_current_domestic_value = $request->input('if_amount_has_been_inciuded_in_the_current_domestic_value');
         $Form59AInvoice->drawback_or_remission_of_duty = $request->input('drawback_or_remission_of_duty');
-       
+        $Form59AInvoice->status=1;
+
         // Create related records using loop
         for ($i = 1; $i <= 6; $i++) {
 
@@ -693,6 +696,7 @@ class adminController extends Controller
             // Assign values from the request to the CanadaCustomerInvoiceFrom model
             $Form59AInvoice->fill($request->all());
             $Form59AInvoice->commercial_invoice_id = $request->input('commercial_invoice_id');
+            $Form59AInvoice->status=1;
 
             // Save the Form59AInvoice model
             $Form59AInvoice->save();
@@ -848,6 +852,7 @@ class adminController extends Controller
         $ExporterTextileDeclearation->team_user_id = $request->input('team_user_id');
      
         $ExporterTextileDeclearation->commercial_invoice_id = $request->input('commercial_invoice_id');
+        $ExporterTextileDeclearation->status=1;
        
         // Create related records using loop
     
@@ -913,6 +918,8 @@ class adminController extends Controller
             $ExporterTextileDeclearation->commercial_invoice_id = $request->input('commercial_invoice_id');
 
             // Save the ExporterTextileDeclearation model
+             $ExporterTextileDeclearation->status=1;
+
             $ExporterTextileDeclearation->save();
 
             // Create or update related records using a loop
@@ -1071,6 +1078,8 @@ class adminController extends Controller
         // Create related records using loop
          // Assign values from the request to the CanadaCustomerInvoiceFrom model
          $CertificateOrigin->fill($request->all());
+         $CertificateOrigin->status=1;
+
         $CertificateOrigin->save();
 
         $CertificateOriginHistory = new CertificateOriginHistory();
@@ -1127,6 +1136,7 @@ class adminController extends Controller
             // Assign values from the request to the CanadaCustomerInvoiceFrom model
             $CertificateOrigin->fill($request->all());
             $CertificateOrigin->commercial_invoice_id = $request->input('commercial_invoice_id');
+            $CertificateOrigin->status=1;
 
             // Save the CertificateOrigin model
             $CertificateOrigin->save();
@@ -1283,6 +1293,7 @@ class adminController extends Controller
        
         // Create related records using loop
         $CertificateOriginNo627120->fill($request->all());
+        $CertificateOriginNo627120->status=1;
 
         $CertificateOriginNo627120->save();
 
@@ -1342,6 +1353,7 @@ class adminController extends Controller
             $CertificateOriginNo627120->commercial_invoice_id = $request->input('commercial_invoice_id');
 
           
+            $CertificateOriginNo627120->status=1;
 
             // Save the CanadaCustomerInvoiceFrom model again after updating related records
             $CertificateOriginNo627120->save();
@@ -1495,6 +1507,8 @@ class adminController extends Controller
         
          // Create related records using loop
          $CertificateOriginComDec->fill($request->all());
+         $CertificateOriginComDec->status=1;
+
          $CertificateOriginComDec->save();
  
          $CertificateOriginComDecHistory = new CertificateOriginComDecHistory();
@@ -1549,6 +1563,7 @@ class adminController extends Controller
              // Assign values from the request to the CanadaCustomerInvoiceFrom model
              $CertificateOriginComDec->fill($request->all());
              $CertificateOriginComDec->commercial_invoice_id = $request->input('commercial_invoice_id');
+             $CertificateOriginComDec->status=1;
  
          
              // Save the CanadaCustomerInvoiceFrom model again after updating related records
@@ -1706,6 +1721,8 @@ class adminController extends Controller
         
          // Create related records using loop
          $CertificateOriginComDecFormIp->fill($request->all());
+         $CertificateOriginComDecFormIp->status=1;
+
          $CertificateOriginComDecFormIp->save();
  
          $CertificateOriginComDecFormIpHistory = new CertificateOriginComDecFormIpHistory();
@@ -1762,6 +1779,7 @@ class adminController extends Controller
              $CertificateOriginComDecFormIp->yes_or_no_preferential_treatment = $request->input('yes_or_no_preferential_treatment') == 1 ?  1 : 0;
              $CertificateOriginComDecFormIp->fill($request->all());
              $CertificateOriginComDecFormIp->commercial_invoice_id = $request->input('commercial_invoice_id');
+             $CertificateOriginComDecFormIp->status=1;
  
              // Save the CertificateOriginComDecFormIp model
              $CertificateOriginComDecFormIp->save();
@@ -1918,6 +1936,7 @@ class adminController extends Controller
          $CertificateOriginComDecFormA->commercial_invoice_id = $request->input('commercial_invoice_id');
 
          $CertificateOriginComDecFormA->fill($request->all());
+         $CertificateOriginComDecFormA->status=1;
  
          // Save the CertificateOriginComDecFormA model
          $CertificateOriginComDecFormA->save();
@@ -1974,6 +1993,7 @@ class adminController extends Controller
              // Assign values from the request to the CanadaCustomerInvoiceFrom model
              $CertificateOriginComDecFormA->fill($request->all());
              $CertificateOriginComDecFormA->commercial_invoice_id = $request->input('commercial_invoice_id');
+             $CertificateOriginComDecFormA->status=1;
  
              // Save the CertificateOriginComDecFormA model
              $CertificateOriginComDecFormA->save();
@@ -2265,7 +2285,7 @@ class adminController extends Controller
             $CommercialInvoice->value_total_add_fright = $request->value_total_add_fright;
             $CommercialInvoice->value_total_net_amount_payable = $request->value_total_net_amount_payable;
             $CommercialInvoice->value_currency_name = $request->value_currency_name;
-            $CommercialInvoice->status = 3;
+            $CommercialInvoice->status = 1;
             $CommercialInvoice->commercial_invoice = $request->commercial_invoice;
     
             // $CommercialInvoice->fill($request->all());
@@ -2632,7 +2652,7 @@ class adminController extends Controller
                 $CommercialInvoice->value_total_add_fright = $request->value_total_add_fright;
                 $CommercialInvoice->value_total_net_amount_payable = $request->value_total_net_amount_payable;
                 $CommercialInvoice->value_currency_name = $request->value_currency_name;
-                $CommercialInvoice->status = 3;
+                $CommercialInvoice->status = 1;
                 $CommercialInvoice->commercial_invoice = $request->commercial_invoice;
         
                 // $CommercialInvoice->fill($request->all());
