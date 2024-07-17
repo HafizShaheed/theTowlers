@@ -35,17 +35,17 @@
         margin-bottom: 25px;
     }
 
-    header {
-        position: fixed;
+  
+
+    .header {
+        position: absolute;
         top: -60px;
-        left: 0;
-        right: 0;
-        height: 70px;
-        z-index: 1000; /* Header ko sabse upar le aaye */
+        left: 0px;
+        right: 0px;
     }
 
     .content {
-        margin-top: 200px; /* Adjust as per your content flow */
+        margin-top: 20px; /* Adjust as per your content flow */
     }
 
     .invoice-table {
@@ -89,9 +89,12 @@
 
 <body style="font-family: sans-serif;">
 
-    <header>
+    
 
+    <div style="clear:both;"></div>
+    <div class="header">
 
+    
         <table style="text-align: center; margin: 0 auto;">
             <tr>
                 <td>
@@ -321,7 +324,7 @@
             </tr>
         </table>
 
-    </header>
+    </div>
     <main>
 
 
@@ -525,6 +528,77 @@
                                     </div>
                                 </div>
 
+
+                                <div class="no-margin"
+                                style="text-align: left; white-space: nowrap; margin-top:5px; margin-left:10px">
+                                <div
+                                    style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                    {{ $colorName }}
+                                </div>
+                                <div
+                                    style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                    {{ $skuNo }}
+                                </div>
+                                <div
+                                    style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                    {{ $eanNo }}
+                                </div>
+                                <div
+                                    style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                    {{ $skuHashNo }}
+                                </div>
+                                <div
+                                    style="display: inline-block; width: 18%; text-decoration: underline; color: #000;">
+                                    {{ $styleNo }}
+                                </div>
+                            </div>
+                            <div class="no-margin"
+                            style="text-align: left; white-space: nowrap; margin-top:5px; margin-left:10px">
+                            <div
+                                style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                {{ $colorName }}
+                            </div>
+                            <div
+                                style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                {{ $skuNo }}
+                            </div>
+                            <div
+                                style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                {{ $eanNo }}
+                            </div>
+                            <div
+                                style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                {{ $skuHashNo }}
+                            </div>
+                            <div
+                                style="display: inline-block; width: 18%; text-decoration: underline; color: #000;">
+                                {{ $styleNo }}
+                            </div>
+                        </div>
+                        <div class="no-margin"
+                        style="text-align: left; white-space: nowrap; margin-top:5px; margin-left:10px">
+                        <div
+                            style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; color: #000;">
+                            {{ $colorName }}
+                        </div>
+                        <div
+                            style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                            {{ $skuNo }}
+                        </div>
+                        <div
+                            style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                            {{ $eanNo }}
+                        </div>
+                        <div
+                            style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                            {{ $skuHashNo }}
+                        </div>
+                        <div
+                            style="display: inline-block; width: 18%; text-decoration: underline; color: #000;">
+                            {{ $styleNo }}
+                        </div>
+                    </div>
+
       
                             @endif
                         @endfor
@@ -658,15 +732,17 @@
 
                 
                 @if (($j - $start + 1) % 8 == 0 && $j != $end)
+               
+                <div style="page-break-after: always; margin-top:-60px"></div>
                 {{-- Insert a page break --}}
-                <div style="page-break-after: always;"></div>
+         
             @endif
 
 
 
             @endfor
            
-
+         
 
 
 
@@ -756,7 +832,7 @@
                 </td>
             </tr>
         </table>
-     
+        <div style="clear:both;"></div>
        
         <table border="0" style=" margin-top: 2px; border-collapse: collapse; width: 100%;font-size:8px;">
             <tr>
