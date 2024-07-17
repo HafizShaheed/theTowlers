@@ -108,15 +108,17 @@ class CreateCommercialInvoicesTable extends Migration
             $table->text("note_value")->nullable();
 
             $table->text("value_remarks")->nullable();
-            $table->text("value_intermediary_bank")->nullable();
-            $table->text("value_intermediary_bank_swift_no")->nullable();
-            $table->text("value_intermediary_bank_ac_no")->nullable();
-            $table->text("value_for_onword_credit_to")->nullable();
-            $table->text("value_tw_ac_no")->nullable();
-            $table->text("value_swift_no")->nullable();
-            $table->text("value_iban_no")->nullable();
-            $table->text("value_bank_addrss")->nullable();
-            $table->text("value_statement_origin")->nullable();
+            $table->text("value_intermediary_bank")->default('HABIB AMERICAN BANK,N /Y BRANCH // FW026007362')->nullable();
+            $table->text("value_intermediary_bank_swift_no")->default('HANYUS33XXX')->nullable();
+            $table->text("value_intermediary_bank_ac_no")->default('BANK AL HABIB LIMITED & / 20729933')->nullable();
+            $table->text("value_for_onword_credit_to")->default('TOWELLERS LIMITED, KARACHI-PAKISTAN')->nullable();
+            $table->text("value_tw_ac_no")->default('5001-0081-018265-01-1')->nullable();
+            $table->text("value_swift_no")->default('BAHLPKKAXXX')->nullable();
+            $table->text("value_iban_no")->default(' PK46BAHL5001008101826501')->nullable();
+            $table->text("value_bank_addrss")->default('BANK AL HABIB LTD ISLAMIC BANKING')->nullable();
+            $table->text("value_bank_addrss_1")->default('SHAHRA-E-FAISAL BRANCH S # 4 & 5 BUSINESS CENTER, PLOT # 19-1-A')->nullable();
+            $table->text("value_bank_addrss_2")->default('BLOCK-6 PECHS SHAHRA-E- FAISAL, KARACHI-PAKISTAN')->nullable();
+            $table->text("value_statement_origin")->default('')->nullable();
             $table->text("value_total_buyer_discount",50)->nullable();
             $table->text("value_total_less_commission",50)->nullable();
             $table->text("value_total_add_fright",50)->nullable();

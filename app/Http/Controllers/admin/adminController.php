@@ -2257,6 +2257,8 @@ class adminController extends Controller
             $CommercialInvoice->value_swift_no = $request->value_swift_no; 
             $CommercialInvoice->value_iban_no = $request->value_iban_no;
             $CommercialInvoice->value_bank_addrss = $request->value_bank_addrss;
+            $CommercialInvoice->value_bank_addrss_1 = $request->value_bank_addrss_1;
+            $CommercialInvoice->value_bank_addrss_2 = $request->value_bank_addrss_2;
             $CommercialInvoice->value_statement_origin = $request->value_statement_origin;
             $CommercialInvoice->value_total_buyer_discount = $request->value_total_buyer_discount;
             $CommercialInvoice->value_total_less_commission = $request->value_total_less_commission;
@@ -2622,6 +2624,8 @@ class adminController extends Controller
                 $CommercialInvoice->value_swift_no = $request->value_swift_no; 
                 $CommercialInvoice->value_iban_no = $request->value_iban_no;
                 $CommercialInvoice->value_bank_addrss = $request->value_bank_addrss;
+                $CommercialInvoice->value_bank_addrss_1 = $request->value_bank_addrss_1;
+                $CommercialInvoice->value_bank_addrss_2 = $request->value_bank_addrss_2;
                 $CommercialInvoice->value_statement_origin = $request->value_statement_origin;
                 $CommercialInvoice->value_total_buyer_discount = $request->value_total_buyer_discount;
                 $CommercialInvoice->value_total_less_commission = $request->value_total_less_commission;

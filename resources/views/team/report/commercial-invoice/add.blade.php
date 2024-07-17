@@ -1,4 +1,4 @@
-@extends('admin.includes.master')
+@extends('team.includes.master')
 
 
 
@@ -643,7 +643,7 @@ $(document).ready(function() {
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            url: "{{ route('admin.submit_commercial_invoice') }}",
+            url: "{{ route('team.submit_commercial_invoice') }}",
             data: formData,
             dataType: "json",
             processData: false, // important for FormData
@@ -660,7 +660,7 @@ $(document).ready(function() {
                     timerProgressBar: true,
                     willClose: () => {
                         window.location.href =
-                            "{{ route('admin.report_List_commercial_invoice') }}"
+                            "{{ route('team.report_List_commercial_invoice') }}"
 
                     },
                 });

@@ -78,25 +78,157 @@ Route::prefix('panel-team')->namespace('team')->group(function () {
 
         Route::get('/dashboard', 'teamController@index')->name('team.index');
         Route::prefix('report')->group(function () {
-            Route::get('/', 'teamController@report_List')->name('team.report_List');
-            Route::get('/generate-pdf/{count}', 'teamController@generatePDF');
-            Route::get('/custom_canda_invoice', 'teamController@custom_canda_invoice')->name('team.custom_canda_invoice');
-            Route::get('/edit_report_form_1', 'teamController@edit_report_form_1')->name('team.edit_report_form_1');
-            Route::get('/view_report_form_1', 'teamController@view_report_form_1')->name('team.view_report_form_1');
-            Route::get('/activity_report_form_1', 'teamController@activity_report_form_1')->name('team.activity_report_form_1');
-            // =========================================
-            Route::get('/view', 'teamController@report_View')->name('team.report_View');
-            Route::get('/edit/{id}', 'teamController@add_report')->name('team.add_report');
 
-            Route::post('/update_firm_background', 'teamController@update_firm_background')->name('team.update_firm_background');
-            Route::post('/update_documents', 'teamController@update_documents')->name('team.update_documents');
-            Route::post('/update_on_ground_verification', 'teamController@update_on_ground_verification')->name('team.update_on_ground_verification');
-            Route::post('/update_court_check', 'teamController@update_court_check')->name('team.update_court_check');
-            Route::post('/update_financial', 'teamController@update_financial')->name('team.update_financial');
-            Route::post('/update_Business_Intelligence', 'teamController@update_Business_Intelligence')->name('team.update_Business_Intelligence');
-            Route::post('/update_Tax_Return_and_Credit', 'teamController@update_Tax_Return_and_Credit')->name('team.update_Tax_Return_and_Credit');
-            Route::post('/update_Market_Reputation', 'teamController@update_Market_Reputation')->name('team.update_Market_Reputation');
-            Route::post('/update_Key_Observation', 'teamController@update_Key_Observation')->name('team.update_Key_Observation');
+            Route::get('/generate-pdf/{count}', 'teamController@generatePDF');
+            Route::prefix('canda-costom_invoice')->group(function () {
+
+                Route::get('/', 'teamController@report_List_custom_canda_invoice')->name('team.report_List_custom_canda_invoice');
+                Route::get('/generate_custom_canda_invoic_PDF/{id}', 'teamController@generate_custom_canda_invoic_PDF')->name('team.generate_custom_canda_invoic_PDF');
+
+                Route::get('/add', 'teamController@add_custom_canda_invoice')->name('team.add_custom_canda_invoice');
+                Route::post('/submit_custom_canda_invoice', 'teamController@submit_custom_canda_invoice')->name('team.submit_custom_canda_invoice');
+                Route::get('/edit/{id}', 'teamController@edit_custom_canda_invoice')->name('team.edit_custom_canda_invoice');
+                Route::post('/update_submit_custom_canda_invoice', 'teamController@update_submit_custom_canda_invoice')->name('team.update_submit_custom_canda_invoice');
+
+                Route::get('/view', 'teamController@view_custom_canda_invoice')->name('team.view_custom_canda_invoice');
+                Route::get('/activity/{id}', 'teamController@activity_custom_canda_invoice')->name('team.activity_custom_canda_invoice');
+                Route::post('/form_canada_invoice_resubmit', 'teamController@form_canada_invoice_resubmit')->name('team.form_canada_invoice_resubmit');
+                Route::post('/form_canada_invoice_completed', 'teamController@form_canada_invoice_completed')->name('team.form_canada_invoice_completed');
+            });
+
+            Route::prefix('commercial-invoice')->group(function () {
+
+                Route::get('/', 'teamController@report_List_commercial_invoice')->name('team.report_List_commercial_invoice');
+                Route::get('/generate_commercial_invoice_PDF/{id}', 'teamController@generate_commercial_invoice_PDF')->name('team.generate_commercial_invoice_PDF');
+                Route::post('/commercial_invoice_resubmit', 'teamController@commercial_invoice_resubmit')->name('team.commercial_invoice_resubmit');
+                Route::post('/commercial_invoice_completed', 'teamController@commercial_invoice_completed')->name('team.commercial_invoice_completed');
+
+                Route::get('/add', 'teamController@add_commercial_invoice')->name('team.add_commercial_invoice');
+                Route::post('/submit_commercial_invoice', 'teamController@submit_commercial_invoice')->name('team.submit_commercial_invoice');
+                Route::get('/edit/{id}', 'teamController@edit_commercial_invoice')->name('team.edit_commercial_invoice');
+                Route::post('/update_submit_commercial_invoice', 'teamController@update_submit_commercial_invoice')->name('team.update_submit_commercial_invoice');
+
+                Route::get('/view/{id}', 'teamController@view_commercial_invoice')->name('team.view_commercial_invoice');
+                Route::get('/activity/{id}', 'teamController@activity_commercial_invoice')->name('team.activity_commercial_invoice');
+                Route::get('/pdf_file_view/{id}', 'teamController@firm_file_view')->name('team.firm_file_view');
+                Route::get('/commercial_invoice_by_pdf/{id}', 'teamController@commercial_invoice_by_pdf')->name('team.commercial_invoice_by_pdf');
+            });
+
+            Route::prefix('form-59-a-invoice')->group(function () {
+
+                Route::get('/', 'teamController@report_List_form_59_a_invoice')->name('team.report_List_form_59_a_invoice');
+                Route::get('/generate_form_59_a_invoic_PDF/{id}', 'teamController@generate_form_59_a_invoic_PDF')->name('team.generate_form_59_a_invoic_PDF');
+                Route::post('/form_59_invoice_resubmit', 'teamController@form_59_invoice_resubmit')->name('team.form_59_invoice_resubmit');
+                Route::post('/form_59_invoice_completed', 'teamController@form_59_invoice_completed')->name('team.form_59_invoice_completed');
+
+                Route::get('/add', 'teamController@add_form_59_a_invoice')->name('team.add_form_59_a_invoice');
+                Route::post('/submit_form_59_a_invoice', 'teamController@submit_form_59_a_invoice')->name('team.submit_form_59_a_invoice');
+                Route::get('/edit/{id}', 'teamController@edit_form_59_a_invoice')->name('team.edit_form_59_a_invoice');
+                Route::post('/update_submit_form_59_a_invoice', 'teamController@update_submit_form_59_a_invoice')->name('team.update_submit_form_59_a_invoice');
+
+                Route::get('/view/{id}', 'teamController@view_form_59_a_invoice')->name('team.view_form_59_a_invoice');
+                Route::get('/activity/{id}', 'teamController@activity_form_59_a_invoice')->name('team.activity_form_59_a_invoice');
+            });
+
+
+            Route::prefix('exporter-textile-declearation')->group(function () {
+
+                Route::get('/', 'teamController@report_List_exporter_textile_declearation_invoice')->name('team.report_List_exporter_textile_declearation_invoice');
+                Route::get('/generate_exporter_textile_declearation_invoic_PDF/{id}', 'teamController@generate_exporter_textile_declearation_invoic_PDF')->name('team.generate_exporter_textile_declearation_invoic_PDF');
+
+                Route::post('/form_exporter_textile_invoice_resubmit', 'teamController@form_exporter_textile_invoice_resubmit')->name('team.form_exporter_textile_invoice_resubmit');
+                Route::post('/form_exporter_textile_invoice_completed', 'teamController@form_exporter_textile_invoice_completed')->name('team.form_exporter_textile_invoice_completed');
+
+                Route::get('/add', 'teamController@add_exporter_textile_declearation_invoice')->name('team.add_exporter_textile_declearation_invoice');
+                Route::post('/submit_exporter_textile_declearation_invoice', 'teamController@submit_exporter_textile_declearation_invoice')->name('team.submit_exporter_textile_declearation_invoice');
+                Route::get('/edit/{id}', 'teamController@edit_exporter_textile_declearation_invoice')->name('team.edit_exporter_textile_declearation_invoice');
+                Route::post('/update_submit_exporter_textile_declearation_invoice', 'teamController@update_submit_exporter_textile_declearation_invoice')->name('team.update_submit_exporter_textile_declearation_invoice');
+
+                Route::get('/view/{id}', 'teamController@view_exporter_textile_declearation_invoice')->name('team.view_exporter_textile_declearation_invoice');
+                Route::get('/activity/{id}', 'teamController@activity_exporter_textile_declearation_invoice')->name('team.activity_exporter_textile_declearation_invoice');
+            });
+            Route::prefix('certificate-origins')->group(function () {
+
+                Route::get('/', 'teamController@report_List_certificate_origins_invoice')->name('team.report_List_certificate_origins_invoice');
+                Route::get('/generate_certificate_origins_invoic_PDF/{id}', 'teamController@generate_certificate_origins_invoic_PDF')->name('team.generate_certificate_origins_invoic_PDF');
+
+                Route::post('/form_certificate_origin_invoice_resubmit', 'teamController@form_certificate_origin_invoice_resubmit')->name('team.form_certificate_origin_invoice_resubmit');
+                Route::post('/form_certificate_origin_invoice_completed', 'teamController@form_certificate_origin_invoice_completed')->name('team.form_certificate_origin_invoice_completed');
+
+                Route::get('/add', 'teamController@add_certificate_origins_invoice')->name('team.add_certificate_origins_invoice');
+                Route::post('/submit_certificate_origins_invoice', 'teamController@submit_certificate_origins_invoice')->name('team.submit_certificate_origins_invoice');
+                Route::get('/edit/{id}', 'teamController@edit_certificate_origins_invoice')->name('team.edit_certificate_origins_invoice');
+                Route::post('/update_submit_certificate_origins_invoice', 'teamController@update_submit_certificate_origins_invoice')->name('team.update_submit_certificate_origins_invoice');
+
+                Route::get('/view/{id}', 'teamController@view_certificate_origins_invoice')->name('team.view_certificate_origins_invoice');
+                Route::get('/activity/{id}', 'teamController@activity_certificate_origins_invoice')->name('team.activity_certificate_origins_invoice');
+            });
+            Route::prefix('certificate-origin-no627120')->group(function () {
+
+                Route::get('/', 'teamController@report_List_certificate_origin_no627120_invoice')->name('team.report_List_certificate_origin_no627120_invoice');
+                Route::get('/generate_certificate_origin_no627120_invoic_PDF/{id}', 'teamController@generate_certificate_origin_no627120_invoic_PDF')->name('team.generate_certificate_origin_no627120_invoic_PDF');
+
+                Route::post('/form_certificate_origin_no627120_invoice_resubmit', 'teamController@form_certificate_origin_no627120_invoice_resubmit')->name('team.form_certificate_origin_no627120_invoice_resubmit');
+                Route::post('/form_certificate_origin_no627120_invoice_completed', 'teamController@form_certificate_origin_no627120_invoice_completed')->name('team.form_certificate_origin_no627120_invoice_completed');
+
+
+                Route::get('/add', 'teamController@add_certificate_origin_no627120_invoice')->name('team.add_certificate_origin_no627120_invoice');
+                Route::post('/submit_certificate_origin_no627120_invoice', 'teamController@submit_certificate_origin_no627120_invoice')->name('team.submit_certificate_origin_no627120_invoice');
+                Route::get('/edit/{id}', 'teamController@edit_certificate_origin_no627120_invoice')->name('team.edit_certificate_origin_no627120_invoice');
+                Route::post('/update_submit_certificate_origin_no627120_invoice', 'teamController@update_submit_certificate_origin_no627120_invoice')->name('team.update_submit_certificate_origin_no627120_invoice');
+
+                Route::get('/view/{id}', 'teamController@view_certificate_origin_no627120_invoice')->name('team.view_certificate_origin_no627120_invoice');
+                Route::get('/activity/{id}', 'teamController@activity_certificate_origin_no627120_invoice')->name('team.activity_certificate_origin_no627120_invoice');
+            });
+            Route::prefix('certificate-origin-com-dec')->group(function () {
+
+                Route::get('/', 'teamController@report_List_certificate_origin_com_dec_invoice')->name('team.report_List_certificate_origin_com_dec_invoice');
+                Route::get('/generate_certificate_origin_com_dec_invoic_PDF/{id}', 'teamController@generate_certificate_origin_com_dec_invoic_PDF')->name('team.generate_certificate_origin_com_dec_invoic_PDF');
+                Route::post('/form_certificate_origin_com_dec_invoice_resubmit', 'teamController@form_certificate_origin_com_dec_invoice_resubmit')->name('team.form_certificate_origin_com_dec_invoice_resubmit');
+                Route::post('/form_certificate_origin_com_dec_invoice_completed', 'teamController@form_certificate_origin_com_dec_invoice_completed')->name('team.form_certificate_origin_com_dec_invoice_completed');
+
+                Route::get('/add', 'teamController@add_certificate_origin_com_dec_invoice')->name('team.add_certificate_origin_com_dec_invoice');
+                Route::post('/submit_certificate_origin_com_dec_invoice', 'teamController@submit_certificate_origin_com_dec_invoice')->name('team.submit_certificate_origin_com_dec_invoice');
+                Route::get('/edit/{id}', 'teamController@edit_certificate_origin_com_dec_invoice')->name('team.edit_certificate_origin_com_dec_invoice');
+                Route::post('/update_submit_certificate_origin_com_dec_invoice', 'teamController@update_submit_certificate_origin_com_dec_invoice')->name('team.update_submit_certificate_origin_com_dec_invoice');
+
+                Route::get('/view/{id}', 'teamController@view_certificate_origin_com_dec_invoice')->name('team.view_certificate_origin_com_dec_invoice');
+                Route::get('/activity/{id}', 'teamController@activity_certificate_origin_com_dec_invoice')->name('team.activity_certificate_origin_com_dec_invoice');
+            });
+            Route::prefix('certificate-origin-com-dec-from-ip')->group(function () {
+
+                Route::get('/', 'teamController@report_List_certificate_origin_com_dec_form_ip_invoice')->name('team.report_List_certificate_origin_com_dec_form_ip_invoice');
+                Route::get('/generate_certificate_origin_com_dec_form_ip_invoic_PDF/{id}', 'teamController@generate_certificate_origin_com_dec_form_ip_invoic_PDF')->name('team.generate_certificate_origin_com_dec_form_ip_invoic_PDF');
+                Route::post('/form_certificate_origin_com_dec_form_ip_invoice_resubmit', 'teamController@form_certificate_origin_com_dec_form_ip_invoice_resubmit')->name('team.form_certificate_origin_com_dec_form_ip_invoice_resubmit');
+                Route::post('/form_certificate_origin_com_dec_form_ip_invoice_completed', 'teamController@form_certificate_origin_com_dec_form_ip_invoice_completed')->name('team.form_certificate_origin_com_dec_form_ip_invoice_completed');
+
+
+                Route::get('/add', 'teamController@add_certificate_origin_com_dec_form_ip_invoice')->name('team.add_certificate_origin_com_dec_form_ip_invoice');
+                Route::post('/submit_certificate_origin_com_dec_form_ip_invoice', 'teamController@submit_certificate_origin_com_dec_form_ip_invoice')->name('team.submit_certificate_origin_com_dec_form_ip_invoice');
+                Route::get('/edit/{id}', 'teamController@edit_certificate_origin_com_dec_form_ip_invoice')->name('team.edit_certificate_origin_com_dec_form_ip_invoice');
+                Route::post('/update_submit_certificate_origin_com_dec_form_ip_invoice', 'teamController@update_submit_certificate_origin_com_dec_form_ip_invoice')->name('team.update_submit_certificate_origin_com_dec_form_ip_invoice');
+
+                Route::get('/view/{id}', 'teamController@view_certificate_origin_com_dec_form_ip_invoice')->name('team.view_certificate_origin_com_dec_form_ip_invoice');
+                Route::get('/activity/{id}', 'teamController@activity_certificate_origin_com_dec_form_ip_invoice')->name('team.activity_certificate_origin_com_dec_form_ip_invoice');
+            });
+
+            Route::prefix('certificate-origin-com-dec-from-a')->group(function () {
+
+                Route::get('/', 'teamController@report_List_certificate_origin_com_dec_form_a_invoice')->name('team.report_List_certificate_origin_com_dec_form_a_invoice');
+                Route::get('/generate_certificate_origin_com_dec_form_a_invoic_PDF/{id}', 'teamController@generate_certificate_origin_com_dec_form_a_invoic_PDF')->name('team.generate_certificate_origin_com_dec_form_a_invoic_PDF');
+                Route::post('/form_certificate_origin_com_dec_form_a_invoice_resubmit', 'teamController@form_certificate_origin_com_dec_form_a_invoice_resubmit')->name('team.form_certificate_origin_com_dec_form_a_invoice_resubmit');
+                Route::post('/form_certificate_origin_com_dec_form_a_invoice_completed', 'teamController@form_certificate_origin_com_dec_form_a_invoice_completed')->name('team.form_certificate_origin_com_dec_form_a_invoice_completed');
+
+                Route::get('/add', 'teamController@add_certificate_origin_com_dec_form_a_invoice')->name('team.add_certificate_origin_com_dec_form_a_invoice');
+                Route::post('/submit_certificate_origin_com_dec_form_a_invoice', 'teamController@submit_certificate_origin_com_dec_form_a_invoice')->name('team.submit_certificate_origin_com_dec_form_a_invoice');
+                Route::get('/edit/{id}', 'teamController@edit_certificate_origin_com_dec_form_a_invoice')->name('team.edit_certificate_origin_com_dec_form_a_invoice');
+                Route::post('/update_submit_certificate_origin_com_dec_form_a_invoice', 'teamController@update_submit_certificate_origin_com_dec_form_a_invoice')->name('team.update_submit_certificate_origin_com_dec_form_a_invoice');
+
+                Route::get('/view/{id}', 'teamController@view_certificate_origin_com_dec_form_a_invoice')->name('team.view_certificate_origin_com_dec_form_a_invoice');
+                Route::get('/activity/{id}', 'teamController@activity_certificate_origin_com_dec_form_a_invoice')->name('team.activity_certificate_origin_com_dec_form_a_invoice');
+            });
+            // =======================================
+
         });
         Route::prefix('third-party')->group(function () {
             Route::get('/', 'teamController@vender_List')->name('team.vender_List');
@@ -170,9 +302,8 @@ Route::prefix('panel')->namespace('admin')->group(function () {
 
                 Route::get('/view/{id}', 'adminController@view_commercial_invoice')->name('admin.view_commercial_invoice');
                 Route::get('/activity/{id}', 'adminController@activity_commercial_invoice')->name('admin.activity_commercial_invoice');
-              Route::get('/pdf_file_view/{id}', 'adminController@firm_file_view')->name('admin.firm_file_view');
-              Route::get('/commercial_invoice_by_pdf/{id}', 'adminController@commercial_invoice_by_pdf')->name('admin.commercial_invoice_by_pdf');
-
+                Route::get('/pdf_file_view/{id}', 'adminController@firm_file_view')->name('admin.firm_file_view');
+                Route::get('/commercial_invoice_by_pdf/{id}', 'adminController@commercial_invoice_by_pdf')->name('admin.commercial_invoice_by_pdf');
             });
 
             Route::prefix('form-59-a-invoice')->group(function () {

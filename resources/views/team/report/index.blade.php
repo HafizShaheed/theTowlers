@@ -12,7 +12,7 @@
         <h2>Filter:</h2>
         <div class="card">
             <div class="card-body justify-content-start">
-                <form id="" action="{{route('admin.report_List')}}" class="row d-flex justify-content-between align-items-end">
+                <form id="" action="{{route('team.report_List')}}" class="row d-flex justify-content-between align-items-end">
                     <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
                         <label for="thirdPartyName">Third Party:</label>
                         <div class="d-flex justify-content-start align-items-start">
@@ -71,14 +71,14 @@
                     </div>
                     <div class="col-xl-1 col-sm-6 col-6 mt-4 mt-md-0">
                         <div class="d-flex justify-content-start align-items-start">
-                            <a href="{{route('admin.report_List')}}" class="btn btn report-tab-unactive"
+                            <a href="{{route('team.report_List')}}" class="btn btn report-tab-unactive"
                                 id="filter-reprot-btn">Reset</a>
                         </div>
                     </div>
                 </form>
 
 
-                <!-- <form id="" action="{{route('admin.report_List')}}" class="row d-flex justify-content-between align-items-end">
+                <!-- <form id="" action="{{route('team.report_List')}}" class="row d-flex justify-content-between align-items-end">
 
                     <div class="col-xl-6 col-sm-3 col-3 ml-3 " >
                         <div class="c-list ">

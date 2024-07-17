@@ -27,34 +27,47 @@
 
 
                 <li
-                    class="{{ $page == 'Reports View' ? 'mm-active' : '' }}">
-                    <a href="javascript:void(0);" aria-expanded="false">
-                        <div class="menu-icon">
-                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                                <path d="M14.4065 14.8714H7.78821" stroke="#888888" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M14.4065 11.0338H7.78821" stroke="#888888" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M10.3137 7.2051H7.78827" stroke="#888888" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M14.5829 2.52066C14.5829 2.52066 7.54563 2.52433 7.53463 2.52433C5.00463 2.53991 3.43805 4.20458 3.43805 6.74374V15.1734C3.43805 17.7254 5.01655 19.3965 7.56855 19.3965C7.56855 19.3965 14.6049 19.3937 14.6168 19.3937C17.1468 19.3782 18.7143 17.7126 18.7143 15.1734V6.74374C18.7143 4.19174 17.1349 2.52066 14.5829 2.52066Z"
-                                    stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
+                class="{{ $page == 'Reports View' ? 'mm-active' : '' }}">
+                <a href="javascript:void(0);" aria-expanded="false">
+                    <div class="menu-icon">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path d="M14.4065 14.8714H7.78821" stroke="#888888" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M14.4065 11.0338H7.78821" stroke="#888888" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M10.3137 7.2051H7.78827" stroke="#888888" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M14.5829 2.52066C14.5829 2.52066 7.54563 2.52433 7.53463 2.52433C5.00463 2.53991 3.43805 4.20458 3.43805 6.74374V15.1734C3.43805 17.7254 5.01655 19.3965 7.56855 19.3965C7.56855 19.3965 14.6049 19.3937 14.6168 19.3937C17.1468 19.3782 18.7143 17.7126 18.7143 15.1734V6.74374C18.7143 4.19174 17.1349 2.52066 14.5829 2.52066Z"
+                                stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
 
-                        <span class="nav-text">Forms</span>
-                    </a>
-                    <ul aria-expanded="true">
-                        <li> <a class="nav-text" href="#"
-                                class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">Form
-                                1</a></li>
-                        <li><a class="nav-text" href="#">Wizard</a></li>
+                    <span class="nav-text">FORMS</span>
+                </a>
+                <ul aria-expanded="true">
+                    <li> <a class="nav-text" href="{{ route('team.report_List_custom_canda_invoice') }}"
+                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">
+                            CANADA INVOICE</a></li>
+                            <li><a class="nav-text" href="{{ route('team.report_List_commercial_invoice') }}"
+                                class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">COMMERCIAL INVOICE</a></li>
+                            <li><a class="nav-text" href="{{ route('team.report_List_form_59_a_invoice') }}"
+                                class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">Form 59 A INVOICE</a></li>
+                    <li><a class="nav-text" href="{{ route('team.report_List_exporter_textile_declearation_invoice') }}"
+                        class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">EXPORTER'S TEXTILE DECLARATION</a></li>
+                    <li><a class="nav-text" href="{{ route('team.report_List_certificate_origins_invoice') }}"
+                        class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE ORIGIN</a></li>
+                    <li><a class="nav-text" href="{{ route('team.report_List_certificate_origin_no627120_invoice') }}"
+                        class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE ORIGIN 627120</a></li>
+                    <li><a class="nav-text" href="{{ route('team.report_List_certificate_origin_com_dec_invoice') }}"
+                        class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE ORIGIN <sub>(Combined Declaration)</sub></a></li>
+                    <li><a class="nav-text" href="{{ route('team.report_List_certificate_origin_com_dec_form_ip_invoice') }}"
+                        class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form IP</sub></a></li>
+                    <li><a class="nav-text" href="{{ route('team.report_List_certificate_origin_com_dec_form_a_invoice') }}"
+                        class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form A</sub></a></li>
 
-                    </ul>
-                </li>
-
-                <li class="menu-title"></li>
+                </ul>
+            </li>
 
 
                 <li class="menu-title"></li>

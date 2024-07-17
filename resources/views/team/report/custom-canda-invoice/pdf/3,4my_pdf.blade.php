@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $title }}</title>
+</head>
+
+
+<style>
+
+
+</style>
+
+<body style="font-family: sans-serif;">
+    <table border="0" style="width:100%; border: 1px solid #000; border-collapse: collapse;">
+
+        <tr>
+            <td style="font-size: 12px; width: 50%; border-right: 1px solid;">
+                <table>
+                    <tr>
+                        <td style="border-bottom: 1px solid #000; width: 100%;">
+                            <div style="height: 75px; width: 342px;">
+                                1.Goods consigned from (Exporter's business name, <br> address, country)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="height: 75px;">
+                                2.Goods consigned to (consignee's name,address(country)
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+            <td style="font-size: 12px; width: 50%;">
+                <div style="height: 150px; ">
+                    <div style="margin-bottom: 20px;">
+                        Refernce No.
+                    </div>
+
+                    <div style="text-align: center; height: 60px; font-weight: 500px;">
+                        PREFERENTIAL ARRANGEMENTS AMONG DEVELOPING<br>
+                        COUNTRIES NEGOTIATED IN GATT<br>CERTIFICATE OF ORIGIN<br>
+
+                        (Combined Declaration and Certificate) <br>
+
+                        Issued in <input type="text" style="width: 200px; border: 0; border-bottom: 1px solid;"> <br>
+                        (Country)
+                    </div>
+                </div>
+
+            </td>
+
+        </tr>
+    </table>
+
+    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
+        <tr style="font-size: 12px;">
+            <td style="width: 50%; border-right: 1px solid #000;">
+                <div style="height: 100px;">
+                    3.Means of transport and route (as far as known)
+                </div>
+            </td>
+            <td style="width: 50%; ">
+                <div style="height: 100px;">
+                    4.for officail use
+                </div>
+            </td>
+        </tr>
+
+    </table>
+
+
+
+    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
+        <tr style="font-size: 12px;">
+            <td style="border-left: 1px solid; width: 10%;">
+                <div style="width: 80px;">
+                    5.Item number
+                </div>
+
+            </td>
+
+            <td style="border-left: 1px solid; width: 10%;">
+                <div style="width: 80px;">
+                    6.Marks and number of packages
+                </div>
+
+            </td>
+
+            <td style="border-left: 1px solid; width: 45%;">
+                <div style="width: 200px;">
+                    7.number and kind of packages description
+                </div>
+
+            </td>
+
+            <td style="border-left: 1px solid; width: 10%;">
+                <div style="width: 80px;">
+                    8.Origin criterion
+                </div>
+
+            </td>
+
+            <td style="border-left: 1px solid; width: 10%;">
+                <div style="width: 80px;">
+                    9.Gross weight or other quantity
+                </div>
+
+            </td>
+
+            <td style="border-left: 1px solid; width: 15%;">
+                <div style="width: 95px;">
+                    10.Number and dates of inovoices
+                </div>
+
+            </td>
+
+        </tr>
+        <tr style="border-top: 1px solid;">
+            <td style="border-right: 1px solid #000; ">
+                <div style="height: 350px; width: 60px; word-wrap: break-word;">
+
+                </div>
+            </td>
+            <td style="border-right: 1px solid #000; ">
+                <div style="height: 350px; width: 60px; word-wrap: break-word;">
+
+                </div>
+            </td>
+            <td style="border-right: 1px solid #000; ">
+                <div style="height: 350px; width: 200px; word-wrap: break-word;">
+
+                </div>
+            </td>
+            <td style="border-right: 1px solid #000; ">
+                <div style="height: 350px; width: 60px; word-wrap: break-word;">
+
+                </div>
+            </td>
+            <td style="border-right: 1px solid #000; ">
+                <div style="height: 350px; width: 60px; word-wrap: break-word;">
+
+                </div>
+            </td>
+            <td style="border-right: 1px solid #000; ">
+                <div style="height: 350px; width: 60px; word-wrap: break-word;">
+
+                </div>
+            </td>
+        </tr>
+
+
+    </table>
+
+    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0; ">
+        <tr style="font-size: 12px; ">
+            <td style="width: 45%;">
+                <div style="height: 140px; padding: 10px;">
+                    11. Certificate
+
+                    It is hereby certified, on the basis of control<br>carried out, that the declaration by the<br>
+                    exporter is
+                    correct <br>
+                    <input type="text"
+                        style="border: 0; border-bottom: 1px dotted #000; margin-top: 70px; width: 250px;"><br>
+                    Place and date,signature and stamp of certifying body
+                </div>
+            </td>
+            <td style="width: 55%;">
+                <div style="padding-bottom: 5px;">
+
+                    12. Declaration by the exporter <br>
+                    The under signed hereby declares that the above
+                    details and <br> statements
+
+                    are correct, that all the goods were produced in
+                    <br><input type="text" style="width: 150px; border: 0; border-bottom: 1px solid;">
+
+                    and that they comply with the <br> origin requirements specified for these goods in the Preferential
+                    <br>
+                    Arrangements Among developing countries for goods
+                    exported <br>
+                    to <input type="text" style="width: 85%; border: 0; border-bottom: 1px solid;"> <br>
+                    <input type="text" style="width: 50%; border: 0; border-bottom: 1px dotted; margin-top: 43px;"> <br>
+                    place and date ,signature of authorized signatory
+                </div>
+            </td>
+        </tr>
+
+    </table>
+    <table>
+        <tr style="font-size: 12px;">
+            <td style="width: 50%;">
+                <div>Trade Development Authority of Pakistan, Goverment of Pakistan</div>
+            </td>
+            <td style="width: 340px; text-align: right;">
+                <div>(See Instruction Overleaf)</div>
+            </td>
+        </tr>
+    </table>
+
+
+
+
+    <!-- ------------- BACK PAGE ------------------ -->
+    <table style="margin-top: 150px; width: 80%; margin:150px auto 0 auto;">
+        <tr style="font-size: 12px;">
+            <td colspan="3">
+                List of countries signatories to Preferential Arrangements Among Developing Countries
+            </td>
+
+        </tr>
+        <tr style="font-size: 12px;">
+            <td>
+                <ul style="list-style: none;">
+                    <li>Bangladesh</li>
+                    <li>Brazil</li>
+                    <li>Chile</li>
+                    <li>Egypt</li>
+                </ul>
+            </td>
+            <td>
+                <ul style="list-style: none;">
+                    <li>Mexico</li>
+                    <li>Pakistan</li>
+                    <li>Peru</li>
+                    <li>Republic of korea</li>
+                    <li>Romania</li>
+                </ul>
+            </td>
+            <td>
+                <ul style="list-style: none;">
+                    <li>Turkey</li>
+                    <li>Tunisia</li>
+                    <li>Uruguay</li>
+                    <li>Yugoslavia</li>
+                </ul>
+            </td>
+        </tr>
+        <tr style="font-size: 16px;">
+            <td colspan="3" style="font-weight: 600; text-align: center; margin-top: 20px;">
+                INSTRUCTION FOR FILLING IN THE FORM
+            </td>
+        </tr>
+        <tr style="font-size: 12px;">
+            <td colspan="3" style="margin-top: 20px;">
+                <ol>
+                    <li> The main condition for admission to preference are that goods sent to any of the <br>
+                        countries participating in the Preferential Arrangements Among Developing Countries <br>
+                        negotiated in GATT
+                        <ol style="width: 80%; margin: 10px auto; list-style-type: lower-roman;">
+                            <li>
+                                must fall within a description of good eligible for <br>
+                                preference in the country of destination, and <br>
+                            </li>
+                            <li>
+                                must comply with the origin criteria specified for <br>
+                                those goods by the countries of destination<br>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>If the good qualify under the origin criteria of the country of destination, the exporter
+                        <br>must indicate in box 8 of the form as below:
+                    </li>
+                    <div style="margin-top: 20px;">
+                        <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; font-size: 12px;">
+                            <tr style="border-right: 1px solid;">
+                                <td style="width: 50%; border-right: 1px solid;">
+                                    <div style="padding: 5px;">
+                                        Classification of goods by types of origin <br>
+                                        Criteria complied with
+                                    </div>
+                                </td>
+                                <td style="width: 50%;">
+                                    <div style="padding: 5px;">Indication to be made in Box 8 of the <br> form</div>
+                                </td>
+
+                            </tr>
+                            <tr style="border-top: 1px solid;">
+                                <td style="width: 50%; border-right: 1px solid;">
+                                    <div style="padding: 5px;">
+                                        Goods wholly produced in the exporting <br> country
+                                    </div>
+                                </td>
+                                <td style="width: 50%;">
+                                    <div style="padding: 5px;">-P-</div>
+                                </td>
+
+                            </tr>
+                            <tr style="border-top: 1px solid;">
+                                <td style="width: 50%; border-right: 1px solid;">
+                                    <div style="padding: 5px;">
+                                        Goods not wholly produced in the <br> exporting country
+                                    </div>
+                                </td>
+                                <td style="width: 50%;">
+                                    <div style="padding: 5px;"></div>
+                                </td>
+                            </tr>
+
+                            <tr style="border-top: 1px solid;">
+                                <td style="width: 50%; border-right: 1px solid;">
+                                    <div style="padding: 5px;">
+                                        Goods satisfying the origin criterion based <br>on added value
+                                    </div>
+                                </td>
+                                <td style="width: 50%;">
+                                    <div style="padding: 5px;">
+                                        -Y- Followed by the value of materials <br>
+                                        imported or of undetermined origin <br>
+                                        expressed as a percentage of the <br>
+                                        value of the exported goods. <br>
+                                        Example: Y less than 50%
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr style="border-top: 1px solid;">
+                                <td style="width: 50%; border-right: 1px solid;">
+                                    <div style="padding: 5px;">
+                                        Goods satisfying the origin criterion based on <br>
+                                        a change in BTN heading or other origin criteria
+                                    </div>
+                                </td>
+                                <td style="width: 50%;">
+                                    <div style="padding: 5px;">
+                                        -X- followed by the BTN heading No.<br>
+                                        of the exported goods <br>
+                                        example -X-97 05
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr style="border-top: 1px solid;">
+                                <td style="width: 50%; border-right: 1px solid;">
+                                    <div style="padding: 5px;">
+                                        Goods satisfying two origin criteria
+                                    </div>
+                                </td>
+                                <td style="width: 50%;">
+                                    <div style="padding: 5px;">
+                                        Example: -X- 84 05 <br>
+                                        -Y- less than 40%
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <li style="margin-top: 15px;">Each article must qualify, it should be noted that all the goods in a
+                        consignment must
+                        qualify <br> separately in their own right.
+                    </li>
+                    <li style="margin-top: 15px;">Language, description of goods, etc, in making out the form, it is
+                        recommended that <br>
+                        English, French or Spanish be used, taking into account the acceptability of the language in
+                        <br>
+                        the importing country. Entries on the form should be typed or hand written: In the latter case
+                        <br>
+                        use ink and capital letters. Any unused space should be struck through in such a manner as <br>
+                        to make any later addition impossible. Any alteration must be endorsed by the certifying <br>
+                        authority or body. The description of goods must be sufficiently detailed to enable the goods
+                        <br>
+                        to be indentified by the Custom officer examining them.
+                    </li>
+                    <li style="margin-top: 15px;">Procedure for claiming preference. A declaration on the certificate of
+                        origin forrn must be <br>
+                        prepared by the exporter of the goods and submitted in duplicate to the certifying authority or
+                        <br>
+                        body of the country of exportation, which will, if satisfied, certify the top copy of the
+                        certificate <br>
+                        of origin and return it to the exporter for transmission to the importer in the cOuntry of
+                        desti- <br>
+                        natíon. The certifying authority or body will itself keep the second copy duly completed and
+                        <br>
+                        signed by the exporter.
+                    </li>
+                </ol>
+            </td>
+        </tr>
+
+    </table>
+
+
+</body>
+
+</html>
