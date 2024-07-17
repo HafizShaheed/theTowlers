@@ -2056,12 +2056,37 @@ class adminController extends Controller
 
         function report_List_commercial_invoice(Request $request)
         {
+            // dd($request->all());
+         
+
             $data['title'] = "Certificate origin  A";
             $data['page'] = "Certificate origin  A";
             $data['pageIntro'] = "Certificate origin  A";
-            $data['CommercialInvoice'] = CommercialInvoice::get();
+          
             $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
             // dd($data);
+            $query = CommercialInvoice::query();
+
+
+            if (isset($request->teamMember) && !empty($request->teamMember)) {
+                $party_id = (int)$request->input('teamMember');
+                $query->where('team_user_id', $party_id);
+            }
+           
+            if (isset($request->status) && !empty($request->status)) {
+                $statusMapping = [
+                    'Active' => 1,
+                    'Pending' => 0,
+                    'Resubmit' => 2,
+                    'Completed' => 3,
+                ];
+                $statusString = $request->status;
+                $status = isset($statusMapping[$statusString]) ? (int)$statusMapping[$statusString] : null;
+                $query->where('status', $status);
+            }
+    
+    
+            $data['CommercialInvoice'] = $query->latest()->get();
             return view('admin.report.commercial-invoice.index', $data);
         }
     

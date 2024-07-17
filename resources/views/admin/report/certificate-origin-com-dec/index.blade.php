@@ -35,10 +35,9 @@
                         <div class="d-flex justify-content-start align-items-start">
                             <select class="multi-select" name="status" placeholder="Select status Party">
                                 <option disabled selected>Report Status</option>
-                                <option value="Pending">Pending (0)</option>
-                                <option class="badge badge-success border-0" value="Active">Active (1) </option>
-                                <option value="Resubmit">Resubmit (2)</option>
-                                <option value="Completed">Completed (3) </option>
+                                <option class="badge badge-success border-0" value="Active">Active  </option>
+                                <option value="Resubmit">Resubmit </option>
+                                <option value="Completed">Completed  </option>
                             </select>
                         </div>
                     </div>
