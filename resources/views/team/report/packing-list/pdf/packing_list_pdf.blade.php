@@ -372,6 +372,7 @@
             $netWeightTotalSecondColumn = 0;
             $grossWeightTotalSecondColumn = 0;
             $quantitySums = [];
+            $priceSums = [];
             ?>
             @for ($i = 1; $i <= 5; $i++)
                 @php
@@ -700,10 +701,28 @@
                     <td style="border-right: 1px solid; text-align: center">
                         <p style="width: 40px; word-wrap: break-word; margin-top:106px">
                             @for ($j = $start; $j <= $end; $j++)
-                               
+
+                            @php
+                            // Extract quantity and unit from current iteration
+                            $price = $CommercialInvoice['price_third_column_value_' . $j] ?? '';
+                            $unit = $CommercialInvoice['price_unit_third_column_value_' . $j] ?? '';
+                
+                            // Check if quantity is numeric
+                            if (is_numeric($price)) {
+                                $price = (float) $price;
+                                $chunkSum += $price; // Add quantity to chunk sum
+                
+                                // Sum the quantities based on their units
+                                if (isset($priceSums[$unit])) {
+                                    $priceSums[$unit] += $price;
+                                } else {
+                                    $priceSums[$unit] = $price;
+                                }
+                            }
+                        @endphp
                                 <p style="margin:5px 0;">
-                                    {{ $CommercialInvoice['price_third_column_value_' . $j] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
-                                     {{ $CommercialInvoice['price_third_column_value_' . $j] ?? '' }} </p>
+                                    {{ $CommercialInvoice['price_third_column_value_' . $j] ?? '' }} 
+                                    {{ $CommercialInvoice['price_unit_third_column_value_' . $j] ?? '' }}</p>
                             @endfor
                         </p>
                     </td>
@@ -771,6 +790,8 @@
                                         $pallets = $palltesValueSum;
                                         $perValues = $perValueSum;
                                         $quantities = $quantitySums;
+                                        $prices = $priceSums;
+                                        
                                         // var_dump($quantities);
                                         // die;
                                     @endphp
@@ -811,7 +832,14 @@
                                 </td>
 
                                 <td>
-                                    <div style="font-size:8px;"></div>
+                                    <div style="font-size:8px;">
+                                        @foreach ($quantities as $key => $item)
+                                        {{ $item . ' ' . $key }}
+                                        @if (!$loop->last)
+                                            +
+                                        @endif
+                                    @endforeach
+                                    </div>
                                 </td>
 
 
@@ -822,12 +850,16 @@
                 </td>
                 <td style="border-right: 1px solid; border-top:1px solid #000;">
                     <div style="width: 40px; word-wrap: break-word;">
-                        TOTAL
+                        @foreach ($prices as $key => $item)
+                        {{ $item . ' ' . $key }}
+                        @if (!$loop->last)
+                            +
+                        @endif
+                    @endforeach
                     </div>
                 </td>
                 <td style="border-right: 1px solid; border-top:1px solid #000; text-align: center">
                     <div style="width: 60px; word-wrap: break-word; font-size:8px;">
-                       {{ isset($grandTotal) ? $CommercialInvoice['currency_symbol'].' '.number_format($grandTotal, 2, '.', '') : '' }}
                     </div>
                 </td>
             </tr>
