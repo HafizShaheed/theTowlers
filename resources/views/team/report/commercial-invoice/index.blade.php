@@ -118,9 +118,9 @@
                                     <span>{{$value->commercial_invoice ?? ""}}</span>
                                 </td>
                                 <?php
-                                 if (isset($commercial_invoice->team_user_id)) {
+                                 if (isset($value->team_user_id)) {
                                     # code...
-                                    $memberName = App\Models\team\TeamUser::where('id',$commercial_invoice->team_user_id)->first('user_name');
+                                    $memberName = App\Models\team\TeamUser::where('id',$value->team_user_id)->first('user_name');
                                 }
                                 ?>
                                 <td><span>{{  $memberName->user_name ?? 'N/A' }}</span></td>
@@ -160,9 +160,13 @@
                                     <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/commercial-invoice/view/'.$value->id) }}" class="" target="_blank" title="View Reports">
                                         View
                                     </a>
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel-team/report/commercial-invoice/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">
+                                 
+                                        @if ( $value->status ==2)
+                                        <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel-team/report/commercial-invoice/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">
                                         Edit
                                     </a>
+                                        @endif
+                                   
                                     <button  class="btn btn-sm report-tab-active thirdpartyIdForForComplete" style="font-size: 10px;" href="javascript:void(0)"  data-thirdparty="{{  $value->id }}">
                                         Done
                                     </button>

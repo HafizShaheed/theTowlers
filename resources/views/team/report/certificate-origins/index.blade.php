@@ -162,9 +162,11 @@
                                     <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/certificate-origins/view/'.$value->id) }}" class="" target="_blank" title="View Reports">
                                         View
                                     </a>
+                                    @if ( $value->status ==2)
                                     <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel-team/report/certificate-origins/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">
                                         Edit
                                     </a>
+                                    @endif
                                     <button  class="btn btn-sm report-tab-active thirdpartyIdForForComplete" style="font-size: 10px;" href="javascript:void(0)"  data-thirdparty="{{  $value->id }}">
                                         Done
                                     </button>

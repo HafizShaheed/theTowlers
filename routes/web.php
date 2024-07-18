@@ -114,6 +114,23 @@ Route::prefix('panel-team')->namespace('team')->group(function () {
                 Route::get('/commercial_invoice_by_pdf/{id}', 'teamController@commercial_invoice_by_pdf')->name('team.commercial_invoice_by_pdf');
             });
 
+            Route::prefix('packing-list')->group(function () {
+
+                Route::get('/', 'teamController@report_List_packing_list')->name('team.report_List_packing_list');
+                Route::get('/generate_packing_list_PDF/{id}', 'teamController@generate_packing_list_PDF')->name('team.generate_packing_list_PDF');
+                Route::post('/packing_list_resubmit', 'teamController@packing_list_resubmit')->name('team.packing_list_resubmit');
+                Route::post('/packing_list_completed', 'teamController@packing_list_completed')->name('team.packing_list_completed');
+                
+                Route::get('/add', 'teamController@add_packing_list')->name('team.add_packing_list');
+                Route::post('/submit_packing_list', 'teamController@submit_packing_list')->name('team.submit_packing_list');
+                Route::get('/edit/{id}', 'teamController@edit_packing_list')->name('team.edit_packing_list');
+                Route::post('/update_submit_packing_list', 'teamController@update_submit_packing_list')->name('team.update_submit_packing_list');
+                
+                Route::get('/view/{id}', 'teamController@view_packing_list')->name('team.view_packing_list');
+                Route::get('/activity/{id}', 'teamController@activity_packing_list')->name('team.activity_packing_list');
+                
+            });
+
             Route::prefix('form-59-a-invoice')->group(function () {
 
                 Route::get('/', 'teamController@report_List_form_59_a_invoice')->name('team.report_List_form_59_a_invoice');
@@ -304,6 +321,24 @@ Route::prefix('panel')->namespace('admin')->group(function () {
                 Route::get('/activity/{id}', 'adminController@activity_commercial_invoice')->name('admin.activity_commercial_invoice');
                 Route::get('/pdf_file_view/{id}', 'adminController@firm_file_view')->name('admin.firm_file_view');
                 Route::get('/commercial_invoice_by_pdf/{id}', 'adminController@commercial_invoice_by_pdf')->name('admin.commercial_invoice_by_pdf');
+            });
+
+            // packiglist
+            Route::prefix('packing-list')->group(function () {
+
+                Route::get('/', 'adminController@report_List_packing_list')->name('admin.report_List_packing_list');
+                Route::get('/generate_packing_list_PDF/{id}', 'adminController@generate_packing_list_PDF')->name('admin.generate_packing_list_PDF');
+                Route::post('/packing_list_resubmit', 'adminController@packing_list_resubmit')->name('admin.packing_list_resubmit');
+                Route::post('/packing_list_completed', 'adminController@packing_list_completed')->name('admin.packing_list_completed');
+                
+                Route::get('/add', 'adminController@add_packing_list')->name('admin.add_packing_list');
+                Route::post('/submit_packing_list', 'adminController@submit_packing_list')->name('admin.submit_packing_list');
+                Route::get('/edit/{id}', 'adminController@edit_packing_list')->name('admin.edit_packing_list');
+                Route::post('/update_submit_packing_list', 'adminController@update_submit_packing_list')->name('admin.update_submit_packing_list');
+                
+                Route::get('/view/{id}', 'adminController@view_packing_list')->name('admin.view_packing_list');
+                Route::get('/activity/{id}', 'adminController@activity_packing_list')->name('admin.activity_packing_list');
+                
             });
 
             Route::prefix('form-59-a-invoice')->group(function () {

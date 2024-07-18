@@ -51,6 +51,8 @@
                             CANADA INVOICE</a></li>
                             <li><a class="nav-text" href="{{ route('team.report_List_commercial_invoice') }}"
                                 class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">COMMERCIAL INVOICE</a></li>
+                            <li><a class="nav-text" href="{{ route('team.report_List_packing_list') }}"
+                                    class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">Packing List</a></li>
                             <li><a class="nav-text" href="{{ route('team.report_List_form_59_a_invoice') }}"
                                 class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">Form 59 A INVOICE</a></li>
                     <li><a class="nav-text" href="{{ route('team.report_List_exporter_textile_declearation_invoice') }}"

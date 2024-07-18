@@ -10,7 +10,7 @@
             <h2>Filter:</h2>
             <div class="card">
                 <div class="card-body justify-content-start">
-                    <form id="" action="{{ route('admin.report_List_commercial_invoice') }}"
+                    <form id="" action="{{ route('admin.report_List_packing_list') }}"
                         class="row d-flex justify-content-between align-items-end">
                         <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
                             <label for="thirdPartyName">Team Member:</label>
@@ -61,14 +61,14 @@
                         </div>
                         <div class="col-xl-1 col-sm-6 col-6 mt-4 mt-md-0">
                             <div class="d-flex justify-content-start align-items-start">
-                                <a href="{{ route('admin.report_List_commercial_invoice') }}"
+                                <a href="{{ route('admin.report_List_packing_list') }}"
                                     class="btn btn report-tab-unactive" id="filter-reprot-btn">Reset</a>
                             </div>
                         </div>
                     </form>
                     <div class="col-xl-2 col-sm-6 col-6 mt-6 pt-2 ">
                         <div class="d-flex justify-content-start align-items-start">
-                            <a href="{{ URL::to('/panel/report/commercial-invoice/add') }}" class="" target="_blank">
+                            <a href="{{ URL::to('/panel/report/packing-list/add') }}" class="" target="_blank">
                                 <button type="submit" class="btn btn report-tab-active" id="filter-reprot-btn">Add
                                     Report</button>
                             </a>
@@ -76,7 +76,7 @@
                         </div>
                     </div>
 
-                    <!-- <form id="" action="{{ route('admin.report_List_commercial_invoice') }}" class="row d-flex justify-content-between align-items-end">
+                    <!-- <form id="" action="{{ route('admin.report_List_packing_list') }}" class="row d-flex justify-content-between align-items-end">
 
                         <div class="col-xl-6 col-sm-3 col-3 ml-3 " >
                             <div class="c-list ">
@@ -132,7 +132,7 @@
 
 
                                         <td>
-                                            <span>{{ $value->commercial_invoice ?? '' }}</span>
+                                            <span>{{ $value->packing_list_invoice ?? '' }}</span>
                                         </td>
                                         <?php
                                          if (isset($value->team_user_id)) {
@@ -175,12 +175,12 @@
 
 
                                             <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
-                                                href="{{ URL::to('/panel/report/commercial-invoice/view/' . $value->id) }}"
+                                                href="{{ URL::to('/panel/report/packing-list/view/' . $value->id) }}"
                                                 class="" target="_blank" title="View Reports">
                                                 View
                                             </a>
                                             <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
-                                                href="{{ URL::to('/panel/report/commercial-invoice/edit/' . $value->id) }}"
+                                                href="{{ URL::to('/panel/report/packing-list/edit/' . $value->id) }}"
                                                 class="" target="_blank" title="Edit Reports">
                                                 Edit
                                             </a>
@@ -191,27 +191,18 @@
                                             </button>
                                             <span></span>
                                             <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
-                                                href="{{ URL::to('/panel/report/commercial-invoice/generate_commercial_invoice_PDF/' . $value->id) }}"
+                                                href="{{ URL::to('/panel/report/packing-list/generate_packing_list_PDF/' . $value->id) }}"
                                                 class="" target="_blank" title="View Pdf">
                                                 PDF
                                             </a>
 
 
                                             <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
-                                                href="{{ URL::to('/panel/report/commercial-invoice/activity/' . $value->id) }}"
+                                                href="{{ URL::to('/panel/report/packing-list/activity/' . $value->id) }}"
                                                 class="" target="_blank" title="View Activity">
                                                 Activity
                                             </a>
-                                            <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
-                                                href="{{ URL::to('/panel/report/commercial-invoice/commercial_invoice_by_pdf/' . base64_encode($value->id)) }}"
-                                                class="" target="_blank" title="View Pdf">
-                                                Related Invoice
-                                            </a>
-                                            <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
-                                                href="{{ URL::to('/panel/report/commercial-invoice/pdf_file_view/' . base64_encode($value->id)) }}"
-                                                class="" target="_blank" title="View Pdf">
-                                                File View
-                                            </a>
+                                        
 
 
                                         </td>
@@ -260,7 +251,7 @@
                                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                                     "content"),
                             },
-                            url: "{{ route('admin.commercial_invoice_resubmit') }}",
+                            url: "{{ route('admin.packing_list_resubmit') }}",
                             data: {
                                 formId: formId
                             }, // Send data as an object
@@ -277,7 +268,7 @@
                                     timerProgressBar: true,
                                     willClose: () => {
                                         window.location.href =
-                                            '{{ route('admin.report_List_commercial_invoice') }}';
+                                            '{{ route('admin.report_List_packing_list') }}';
                                     },
                                 });
                             },
@@ -312,7 +303,7 @@
                                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                                     "content"),
                             },
-                            url: "{{ route('admin.commercial_invoice_completed') }}",
+                            url: "{{ route('admin.packing_list_completed') }}",
                             data: {
                                 forCompetingFormId: forCompetingFormId
                             }, // Send data as an object
@@ -329,7 +320,7 @@
                                     timerProgressBar: true,
                                     willClose: () => {
                                         window.location.href =
-                                            '{{ route('admin.report_List_commercial_invoice') }}';
+                                            '{{ route('admin.report_List_packing_list') }}';
                                     },
                                 });
                             },
