@@ -535,7 +535,7 @@ class adminController extends Controller
         if (!$data['editCanadaCustomerInvoiceFrom']) {
             return back()->with('error', 'No Canada invoice history found for the provided ID.');
         }
-        return view('team.report.custom-canda-invoice.view', $data);
+        return view('admin.report.custom-canda-invoice.view', $data);
     }
 
     function activity_custom_canda_invoice($id)
