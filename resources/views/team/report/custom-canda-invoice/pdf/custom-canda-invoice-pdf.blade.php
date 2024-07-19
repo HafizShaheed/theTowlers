@@ -6,796 +6,1015 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
 </head>
-<style>
-    .page-break {
-    page-break-before: always; /* or page-break-after: always; */
-}
+{{-- <style>
+    @page {
+        margin: 100px 25px;
+    }
 
+    header {
+        position: fixed;
+        top: -60px;
+        left: 0px;
+        right: 0px;
+        height: 70px;
+    }
+
+    .content {
+        margin-top: 200px;
+        /* padding: 20px;
+        margin-bottom: 0px; */
+    }
+
+    .no-margin {
+        margin: 0;
+    }
+</style> --}}
+<style>
+    @page {
+        margin-top: 100px; /* Height of the header */
+        margin-bottom: 25px;
+    }
+
+  
+
+    .header {
+        position: absolute;
+        top: -60px;
+        left: 0px;
+        right: 0px;
+    }
+
+    .content {
+        margin-top: 20px; /* Adjust as per your content flow */
+    }
+
+    .invoice-table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .invoice-table td {
+        width: 50%;
+        font-size: 8px;
+        vertical-align: top;
+    }
+
+    .address-div {
+        width: 100%;
+        text-align: center;
+    }
+
+    .address-div div {
+        width: 100%;
+    }
+
+    .address-div table {
+        width: 100%;
+    }
+
+    .address-div p {
+        margin: 2px;
+    }
+
+    .address-div b {
+        margin: 2px;
+        text-decoration: underline;
+    }
 </style>
+
+
+
 
 <body style="font-family: sans-serif;">
 
     
-    
 
-    <header>
-        <table>
+    <div style="clear:both;"></div>
+    <div class="header">
+
+    
+        <table style="text-align: center; margin: 0 auto;">
             <tr>
                 <td>
-                    <img width="50px"
-                        src="https://preview.redd.it/rate-this-canada-flag-v0-9osv9uu5isy91.jpg?auto=webp&s=7f962afeb601368b84675544a84b6afffd71e696"
+                    <img style="width: 70px; "
+                         src="data:image/jpeg;base64,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"
                         alt="">
-
                 </td>
-                <td style="font-size: 10px;"><span> Canada Border <br> Services Agency </span>
-                </td>
-                <td style="font-size: 10px;">
-                    <span> Agence des services <br>
-                        frontailers du Canada</span>
-                </td>
-                <td style="text-align: center; font-weight: 700; font-size: 14px; padding: 0px 10px;"> CANADA CUSTOMS
-                    INVOICE <br> FACTURE
-                    DES DOUANES
-                    CANADIENNES </td>
                 <td>
-                    <table style="border-collapse: collapse;">
-                        <tr style="background-color: #000; color: #fff;">
-                            <td>
-                                <div style="font-size: 8px; text-align: right;">
-                                    PROTECTED<br>PROTEGE
-                                </div>
-                            </td>
-                            <td style="font-size: 15px; padding: 0 5px;">
-                                B
-                            </td>
-                            <td style="font-size: 8px;">
-                                when us completed <br> une fois rempli
-                            </td>
-
-                        </tr>
-                    </table>
-
-
+                    <h1 style="font-family: serif; margin:0;">Towellers Limited</h1>
                 </td>
-
+            </tr>
+            <tr>
+                <td style="margin-top:-30px;padding-left:80px;" colspan="2">
+                    <b style="font-family: serif; text-decoration: underline; display:block; margin:-20px 0;">COMMERCIAL
+                        INVOICE</b>
+                    <b
+                        style="font-family: serif; text-decoration: underline; display:block; margin:-10px 0; font-size:10px;">{{ $CommercialInvoice['heading_f_i_no'] ?? '' }}
+                        &nbsp;&nbsp;{{ $CommercialInvoice['value_f_i_no'] ?? '' }} </b>
+                </td>
             </tr>
         </table>
-        </div>
-    </header>
-    <table border="1" style="border: 1px solid #000; border-collapse: collapse; width: 100%;">
-        <tr>
-            <td style="width: 50%; font-size: 10px;">
-                <div style="height: 80px;">
-
-                    <span>1. Vender(name and address) - (nom et adresse)</span><br>
-                    <div style="font-size: 10px;">
-                        {{ $CanadaCustomerInvoiceFrom->vender_name ?? "" }}</div>
-                    <div style="font-size: 10px;">{{ optional($CanadaCustomerInvoiceFrom)->vender_address }}</div>
-                    <div style="font-size: 10px;">
-                        {{ $CanadaCustomerInvoiceFrom->vender_nom_et_adresse ?? "" }}
-                    </div>
-
-                </div>
-            </td>
-            <td style="width: 50%; font-size: 10px;">
-                <table border="0" style="width: 100%; border-collapse: collapse; ">
-                    <tr style="border-bottom: 0.5px solid #000;">
-                        <td>
-                            <div style="height: 40px; width: 100%;">
-                                <span>2. Date of direct shipment to Canada - Date d'expedition directle vers le
-                                    Canada</span>
-                                <div style="font-size: 10px;">
-                                    {{ $CanadaCustomerInvoiceFrom->date_of_direct_shipment_to_canada_1 ?? "" }}
-                                </div>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div style="height: 40px; width: 100%;">
-
-                                <span>3. Date of direct shipment to Canada - Date d'expedition directle vers le
-                                    Canada</span>
-                                <div style="font-size: 10px;">
-                                    {{ $CanadaCustomerInvoiceFrom->date_of_direct_shipment_to_canada_1 ?? "" }}
-                                </div>
-
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 50%; font-size: 10px;">
-                <div style="height: 120px;">
-
-                    <span>4. Consignee (name and address) - (nom et adresse)</span> <br>
-
-                    <div style="font-size: 10px;">
-                        {{ $CanadaCustomerInvoiceFrom->consignee_name ?? "" }}</div>
-                    <div style="font-size: 10px;">
-                        {{ $CanadaCustomerInvoiceFrom->consignee_address ?? "" }}</div>
-                    <div style="font-size: 10px;">
-                        {{ $CanadaCustomerInvoiceFrom->consignee_nom_et_adresse ?? "" }}
-                    </div>
-                </div>
-            </td>
-            <td>
-                <table border="0" style="width: 100%; border-collapse: collapse; ">
-                    <tr style="border-bottom: 0.5px solid #000;">
-                        <td style=" width: 50%; font-size: 10px;">
-                            <div style="height: 70px;">
-
-                                <span>5. Purchaser's name and address (if other than consignee) <br> Nam sit paresse de
-                                    racheteur
-                                    (s'il diffère du destinataire)</span><br>
-                                <div style="font-size: 10px;">
-                                    {{ $CanadaCustomerInvoiceFrom->purchaser_name ?? "" }}
-                                </div>
-                                <div style="font-size: 10px;">
-                                    {{ $CanadaCustomerInvoiceFrom->purchaser_address ?? "" }}
-                                </div>
-                                <div style="font-size: 10px;">
-                                    {{ $CanadaCustomerInvoiceFrom->purchaser_nom_et_adresse ?? "" }}
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr style="border-bottom: 0.5px solid #000;">
-                        <td style="width: 50%; font-size: 10px;">
-                            <div style="height: 25px;">
-
-                                <span>6. Country of transhipment- Pays de transbordement</span>
-                                <div style="font-size: 10px;">
-                                    {{ $CanadaCustomerInvoiceFrom->purchaser_nom_et_adresse ?? "" }}
-                                </div>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <table border="0" style="width: 100%; border-collapse: collapse; ">
-                            <tr>
-                                <td style="width: 50%; font-size: 10px; border-right: 0.5px solid #000;">7. Country of
-                                    origin of goods<br>Pays dongine
-                                    des marchandises
-                                    <div style="font-size: 10px;">
-                                        {{ $CanadaCustomerInvoiceFrom->country_of_origin_pays ?? "" }}
-                                    </div>
-                                </td>
-                                <td style="width: 50%; font-size: 10px; font-weight: 500;"> IF SHIPLENT INCLUDES GOCIOS
-                                    OF OFFERENT CROS
-                                    ENTER ORIGINS AGAINST TEMEIND L'EXPEDITION COMPREND DES MACHANCHIES D'ORIGINES
-                                    DIFFERENTER, PRECIE LEUR PROVENANCE EN 12
-                                </td>
-
-                            </tr>
-                        </table>
-                    </tr>
-
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 50%; font-size: 10px;">
-                <div style="height: 100px;">
-
-                    <span>4. Transportation: Give mode and place of direct shipment to Canada Transport Précisez mode et
-                        point d'expédition directe vers le Canada</span>
-                    <div style="font-size: 10px;">
-                        {{ $CanadaCustomerInvoiceFrom->transportation_place_of_direct_shipment_to_canada ?? "" }}
-                    </div>
-
-                </div>
-            </td>
-            <td>
-                <table border="0" style="width: 100%; border-collapse: collapse; ">
-                    <tr style="border-bottom: 0.5px solid #000;">
-                        <td style="width: 50%; font-size: 10px;">
-                            <div style="height: 65px;">
-
-                                <span>Conditions of sale and terms of payment <br>
-
-                                    (ie sale, consignment shipment, leased goods, etc.) <br>
-
-                                    Conditions de vente et modalités de paiement <br>
-
-                                    (p ex vente, expédition en consignation, location de marchandises, etc)</span>
-                                <div style="font-size: 10px;">
-                                    {{ $CanadaCustomerInvoiceFrom->conditions_of_sale_and_terms_of_payment ?? "" }}
-                                </div>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 50%; font-size: 10px;">
-                            <div style="height: 35px;">
-
-                                <span>6. Country of transhipment- Pays de transbordement</span>
-                            </div>
-                        </td>
-                    </tr>
-
-
-                </table>
-            </td>
-        </tr>
-    </table>
-    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
-        <tr>
-            <td style="text-align: left; width: 10px; font-size: 8px; border-right: 1px solid #000; ">
-                <div style="height: 39px;">
-                    <span>11.</span> <br> <span>
-
-                        Number of packages nombre de coils
-                    </span>
-                </div>
-            </td>
-            <td style="width: 200px; font-size: 8px; border-right: 1px solid #000; ">
-                <div style="height: 39px;">
-                    <table>
+        <table border="1" style="border: 1px solid #000; border-collapse: collapse; width: 100%; margin-top:20px;">
+            <tr>
+                <td style="width: 50%; font-size:8px;">
+                    <table border="0">
                         <tr>
                             <td>
-                                <div style="height: 39px;">
-                                    12.
-                                </div>
-                            </td>
-                            <td>
-                                <div style="height: 39px;">
-                                    Specification of commodities (kind of packages, marks and numbers, general <br>
-                                    description and characteristics, ie, grade, quality) <br>
-                                    Désignation des articles (nature des colis, marques et numéros, description générale
-                                    <br> et caractéristiques, p. ex. classe, qualité)
+                                <div style="border-bottom: 1px solid #000; height: 60px; width:370px;">
+                                    <b
+                                        style="margin: 2px; text-decoration: underline">{{ $CommercialInvoice['heading_shipper'] ?? '' }}</b>
+                                    <p style="margin: 2px; ">{{ $CommercialInvoice['name_shipper'] ?? '' }}</p>
+                                    <p style="margin: 2px; ">{{ $CommercialInvoice['address_shipper'] ?? '' }}</p>
+                                    <p style="margin: 2px; ">
+                                        {{ $CommercialInvoice['city_shipper'] ?? '' }}&nbsp;&nbsp;{{ $CommercialInvoice['country_shipper'] ?? '' }}
+                                    </p>
+                                    <p style="margin: 2px; ">{{ $CommercialInvoice['phone_shipper'] ?? '' }}</p>
                                 </div>
                             </td>
                         </tr>
-                    </table>
-                </div>
-            </td>
-            <td style="text-align: center; width: 10px; font-size: 8px; border-right: 1px solid #000;">
-                <div style="height: 39px;">
-                    <table>
                         <tr>
                             <td>
-                                <div style="height: 39px;">
-                                    13.
-                                </div>
-                            </td>
-                            <td style="text-align: left;">
-                                <div style="height: 39px;">
-                                    Quantity <br> (state unit) <br> Quantite <br> (precisez I'unite)
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-            <td style="text-align: left; width: 80px; font-size: 8px; padding-bottom: 20px;">
-                <div style="height: 39px;">
-                    <div style="border-bottom: 1px solid; text-align: center;">
-                        Selling price - Prixe de vente
-                    </div>
-                    <table>
-                        <tr>
-                            <td style="text-align: left; width: 70%; font-size: 8px; border-right: 1px solid #000;">
-                                <div style="height: 49px;width: 120px;">
-                                    14. Unit price Prix unitaire
-                                </div>
-                            </td>
-                            <td style="text-align: left; width: 30%; font-size: 8px;">
-                                <div style="height: 49px;width: 49px;">
-                                    15. Total
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-        </tr>
-
-@php
-    $descriptionPrinted = false;
-    $totalQuantity = 0;
-    $totalPrice= 0;
-    $grandTotal=0;
-@endphp
-
-@for($i = 0; $i < 7; $i++)
-    @if(isset($CanadaCustomerInvoiceFrom["number_of_packages_nombre_de_coils_" . $i]))
-        @php
-            $quantity = $CanadaCustomerInvoiceFrom["quantity_" . $i] ?? 0;
-            $totalQuantity += $quantity; // Add quantity to the total
-
-            $unitPrice = $CanadaCustomerInvoiceFrom["unit_price_" . $i] ?? 0;
-            $totalPrice += $unitPrice; // Add quantity to the total
-
-            $total = $quantity * $unitPrice;
-            $grandTotal += $total; // Add quantity to the total
-
-        @endphp
-        <tr>
-            <td style="text-align: left; width: 10px; font-size: 8px; border-right: 1px solid #000;">
-                <div style="height: 39px;">
-                    <span></span><br>
-                    <span>{{ $CanadaCustomerInvoiceFrom["number_of_packages_nombre_de_coils_" . $i] }}</span>
-                </div>
-            </td>
-            <td style="width: 200px; font-size: 8px; border-right: 1px solid #000;">
-                <div style="height: 39px;">
-                    <table>
-                        <tr>
-                            <td>
-                                <div style="height: 39px;"></div>
-                            </td>
-                            <td>
-                                <div style="height: 39px;">
-                                    @if(!$descriptionPrinted)
-                                        {{ $CanadaCustomerInvoiceFrom["description_pecification_of_commodities"] ?? "" }}
-                                        @php
-                                            $descriptionPrinted = true;
-                                        @endphp
-                                    @endif
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-            <td style="text-align: center; width: 10px; font-size: 8px; border-right: 1px solid #000;">
-                <div style="height: 39px;">
-                    <table>
-                        <tr>
-                            <td>
-                                <div style="height: 39px;"></div>
-                            </td>
-                            <td style="text-align: left;">
-                                <div style="height: 39px;">
-                                    {{ $quantity }}
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-            <td style="text-align: left; width: 80px; font-size: 8px; padding-bottom: 20px;">
-                <div style="height: 39px;">
-                    <div style="border-bottom: 1px solid; text-align: center; display: none;">
-                        Selling price - Prixe de vente
-                    </div>
-                    <table>
-                        <tr>
-                            <td style="text-align: left; width: 70%; font-size: 8px; border-right: 1px solid #000 ;">
-                                <div style="height: 58px; width: 120px;">
-                                    {{ $unitPrice }}
-                                </div>
-                            </td>
-                            <td style="text-align: left; width: 30%; font-size: 8px;">
-                                <div style="height: 58px; width: 49px;">
-                                    {{ $total }}
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-        </tr>
-    @endif
-@endfor
-
-
-
-
-
-
-    </table>
-
-
-
-
-    <table
-        style=" margin-top: 0px; border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0px solid #000;">
-        <tr>
-            <td style=" width: 300px; font-size: 8px;">
-                <div style="height: 50px; border-right: 1px solid #000;">
-                    <table>
-                        <tr>
-                            <td>
-                                <div style="height: 30px; ">
-                                    18.
-                                </div>
-                            </td>
-                            <td>
-                                <div style="height: 30px; ">
-                                    If any of fields 1 to 17 are included on an attached commercial invoice, check this
-                                    bax <br>
-                                    tout renseignement relativement aux zones 1 à 17 figure sur une ou des factures <br>
-
-                                    commerciales ci-attachées, cochez cette case <br>Commercial Invoice No. N° de la
-                                    facture commerciale
-                                </div>
-                            </td>
-                            <td>
-                                <div style="height: 30px; ">
-                                    <input type="checkbox" name="" id="">
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-            <!-- <td style="text-align: center; width: 10px; font-size: 8px;">
-                <div style="height: 50px; border-right: 1px solid #000;">
-                    <table>
-                        <tr>
-                            <td>
-                                <div style="height: 50px; ">
-                                    13.
-                                </div>
-                            </td>
-                            <td style="text-align: center;">
-                                <div style="height: 50px; ">
-                                    Quantity <br> (state unit) <br> Quantite <br> (precisez I'unite)
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td> -->
-            <td style="text-align: center; width: 80px; font-size: 8px;">
-                <div style="height: 50px; ">
-                    <div style="border-bottom: 1px solid; text-align: center;">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div style="height: 10px; ">
-                                        16.
-                                    </div>
-                                </td>
-                                <td>
-                                    <div style="height: 10px; ">
-                                        Total weight - Poids total: 
-                                        {{ ' '.$totalQuantity  }}
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <table>
-
-                        <tr>
-                            <td style="width: 80px;">
-                                <div style="border-right: 1px solid #000; height: 30px;">
-
+                                <div style="height: 65px; width: 300px;">
                                     <table>
                                         <tr>
-
-                                            <td style=" text-align: center;">
-                                                <div style="height: 10px; ">
-                                                    Net:  
-                                                    {{' '. $totalPrice }}
+                                            <td>
+                                                <div style="width: 150px;">
+                                                    <b
+                                                        style="margin: 2px; text-decoration: underline">{{ $CommercialInvoice['heading_buyer'] ?? '' }}</b>
+                                                    <p style="margin: 2px; ">
+                                                        {{ $CommercialInvoice['name_buyer'] ?? '' }}</p>
+                                                    <p style="margin: 2px; ">
+                                                        {{ $CommercialInvoice['address_buyer'] ?? '' }}</p>
+                                                    <p style="margin: 2px; ">
+                                                        {{ $CommercialInvoice['city_buyer'] ?? '' }}&nbsp;&nbsp;{{ $CommercialInvoice['country_buyer'] ?? '' }}
+                                                    </p>
+                                                    <p style="margin: 2px; ">
+                                                        {{ $CommercialInvoice['phone_buyer'] ?? '' }}</p>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div style="width: 150px;">
+                                                    <b
+                                                        style="margin: 2px; text-decoration: underline">{{ $CommercialInvoice['heading_ship_to'] ?? '' }}</b>
+                                                    <p style="margin: 2px; ">
+                                                        {{ $CommercialInvoice['name_ship_to'] ?? '' }}</p>
+                                                    <p style="margin: 2px; ">
+                                                        {{ $CommercialInvoice['address_ship_to'] ?? '' }}</p>
+                                                    <p style="margin: 2px; ">
+                                                        {{ $CommercialInvoice['city_ship_to'] ?? '' }}&nbsp;&nbsp;{{ $CommercialInvoice['country_ship_to'] ?? '' }}
+                                                    </p>
+                                                    <p style="margin: 2px; ">
+                                                        {{ $CommercialInvoice['phone_ship_to'] ?? '' }}</p>
                                                 </div>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
                             </td>
-                            <td style="width: 80px;">
-                                <div style="height: 30px;">
-
-                                    <table>
-                                        <tr>
-
-                                            <td style=" text-align: center;">
-                                                <div style="height: 10px;  text-align: center;">
-                                                    Gross - Brut</div>
-                                            </td>
-                                        </tr>
-                                    </table>
+                        </tr>
+                        <!-- <tr>
+                            <td>
+                                <div style="border-bottom: 1px solid #000; height: 30px; width: 300px;">
+                                    Exporter's Membership Number
                                 </div>
                             </td>
-
                         </tr>
-                    </table>
-                </div>
-            </td>
-            <td style=" width: 100px; font-size: 8px;">
-                <div style="height: 50px; border-left: 1px solid #000;">
-                    <table>
                         <tr>
                             <td>
-                                <div style="height: 50px; ">
-                                    17.
+                                <div style="height: 50px; width: 300px;">
+                                    Particular of transport ( as far as known )
+                                </div>
+                            </td>
+                        </tr> -->
+                    </table>
+                </td>
+                <td style="width: 50%; font-size:8px; height:50px">
+                    <table border="0" style="width: 100%; border-collapse: collapse; ">
+                        <tr>
+                            <td style="border-right:.5px solid #000;">
+                                <div style=" width: 100%; text-align:center;">
+                                    <b
+                                        style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $CommercialInvoice['heading_invioce'] ?? '' }}</b>
+                                    <p
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
+                                        {{ $CommercialInvoice['commercial_invoice'] ?? '' }} </p>
+                                    <b
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_total_pkg'] ?? '' }}</b>
+                                    <p
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
+                                        {{ $CommercialInvoice['total_pkg_value'] ?? '' }} </p>
+                                    <b
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_lc'] ?? '' }}#</b>
+                                    <p
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
+                                        {{ $CommercialInvoice['lc_value'] ?? '' }}
+                                    </p>
+
+                                </div>
+                            </td>
+                            <td style="border-right:.5px solid #000;">
+                                <div style=" width: 100%; text-align:center;">
+                                    <b
+                                        style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $CommercialInvoice['heading_vessel'] ?? '' }}</b>
+                                    <p
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
+                                        {{ $CommercialInvoice['vessel_value'] ?? '' }}
+                                    </p>
+                                    <b
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_contract_no'] ?? '' }}</b>
+                                    <p
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
+                                        {{ $CommercialInvoice['contract_no_value'] ?? '' }}</p>
+                                    <b
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_issue_date_lc'] ?? '' }}</b>
+                                    <p
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
+                                        {{ $CommercialInvoice['lc_issue_date_value'] ?? '' }}</p>
+
                                 </div>
                             </td>
                             <td>
-                                <div style="height: 50px; ">
-                                    Invoice Total <br>
-                                    Total de la facture
-                                    <br>
-                                    {{ 
-                                        $grandTotal }}
+                                <div style=" width: 100%; text-align:center;">
+                                    <b
+                                        style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $CommercialInvoice['heading_dated'] ?? '' }}</b>
+                                    <p
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
+                                        {{ $CommercialInvoice['dated'] ?? '' }}</p>
+                                    <b
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_contract_date'] ?? '' }}</b>
+                                    <p
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
+                                        {{ $CommercialInvoice['contract_date_value'] ?? '' }} </p>
+                                    <b
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_pyment_terms'] ?? '' }}</b>
+                                    <p
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
+                                        {{ $CommercialInvoice['pyment_terms_value'] ?? '' }} </p>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-right:.5px solid #000;">
+                                <div style=" width: 100%; text-align:center;">
+                                    <b
+                                        style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $CommercialInvoice['heading_drawn_at'] ?? '' }}</b>
+                                    <b
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_drawn_under'] ?? '' }}</b>
+                                    <b
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_part_of_loading'] ?? '' }}</b>
+                                    <b
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_part_of_discharge'] ?? '' }}</b>
                                 </div>
                             </td>
 
-                        </tr>
-                    </table>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
-        <tr>
-            <td style="width: 50%; font-size: 7px; border-right: 1px solid;">
-                <div style="height: 50px;">
-                    <table>
-                        <tr>
-                            <td>
-                                <div style="height: 50px;">
-                                    19.
+                            <td colspan="2">
+                                <div style=" width: 100%; text-align:center;">
+                                    <p style="border-bottom:.5px solid #000; display:block; margin:0;">
+                                        {{ $CommercialInvoice['drawn_at_value'] ?? '' }}</p>
+                                    <p
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
+                                        {{ $CommercialInvoice['drawn_under_value'] ?? '' }}</p>
+                                    <p
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
+                                        {{ $CommercialInvoice['port_of_loading_value'] ?? '' }}</p>
+                                    <p
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
+                                        {{ $CommercialInvoice['port_of_discharge_value'] ?? '' }}</p>
+
                                 </div>
                             </td>
+                        </tr>
+
+
+
+                    </table>
+                    <table border="0" style="width: 100%; border-collapse: collapse; ">
+                        <tr>
+                            <td style="width: 130px;"><b
+                                    style="display: block; border-right:.5px solid #000 ; border-bottom:.5px solid #000; text-align: center; ">{{ $CommercialInvoice['heading_container_no'] ?? '' }}</b>
+                            </td>
+                            <td style="width: 60px;"><b
+                                    style="display: block; border-right:.5px solid #000 ; border-bottom:.5px solid #000; text-align: center; width: 60px;">{{ $CommercialInvoice['heading_currency'] ?? '' }}</b>
+                            </td>
+                            <td><b
+                                    style="display: block;  border-bottom:.5px solid #000; text-align: center;">{{ $CommercialInvoice['heading_term_of_delivery'] ?? '' }}</b>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>
-                                <div style="height: 50px;">
-                                    Exporter's name and address (if other than vendor) <br>
-                                    nome et adresse de I'exportateur (s'il differe du vendeur)
-                                    <br>
-                                        {{ $CanadaCustomerInvoiceFrom->exporter_name ?? "" }}
+                                <p
+                                    style="border-right:.5px solid #000 ;  margin: 0px; text-align: center; width: 130px;">
+                                    {{ $CommercialInvoice['container_no_value'] ?? '' }}</p>
+                            </td>
+                            <td>
+                                <p
+                                    style="border-right:.5px solid #000 ;  margin: 0px; text-align: center; width: 60px; ">
+                                    {{ $CommercialInvoice['currency_value'] ?? '' }}</p>
+                            </td>
+                            <td>
+                                <p style="  margin: 0px; text-align: center;">
+                                    {{ $CommercialInvoice['term_of_delivery_value'] ?? '' }}</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <main>
+
+
+
+        <table border="0"
+            style="border: 1px solid #000; border-collapse: collapse; width: 100%;  margin-top: 200px;">
+            <thead>
+                <tr style="font-size:8px; text-align: center;">
+                    <th style="width: 20%; border: 1px solid;">
+                        <div style="text-transform: uppercase;">
+                            {{ $CommercialInvoice['heading_marks_no'] ?? '' }}
+                        </div>
+                    </th>
+
+                    <th style="width: 40%; border: 1px solid;">
+                        <div style="text-transform: uppercase;">
+                            {{ $CommercialInvoice['heading_discription_of_goods'] ?? '' }}
+                        </div>
+                    </th>
+
+                    <th style="width: 8%; border: 1px solid;">
+                        <div style="text-transform: uppercase;">
+                            {{ $CommercialInvoice['heading_quantity'] ?? '' }}
+                        </div>
+                    </th>
+                    <th style="width: 9%; border: 1px solid;">
+                        <div style="text-transform: uppercase; ">
+                            {{ $CommercialInvoice['heading_prices'] ?? '' }}
+                        </div>
+
+                    </th>
+                    <th style="width: 10%; border: 1px solid;">
+                        <div style="text-transform: uppercase; ">
+                            {{ $CommercialInvoice['heading_total_amount'] ?? '' }}
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <!-- ---------- THIS IS HEADING  TABLE ----------- -->
+
+            <!-- ---------- THIS IS HEADING  TABLE ----------- -->
+            <?php
+            $grandTotal = 0;
+            $palltesValueSum = [];
+            $netWeightTotalSecondColumn = 0;
+            $grossWeightTotalSecondColumn = 0;
+            $quantitySums = [];
+            ?>
+            @for ($i = 1; $i <= 5; $i++)
+                @php
+                    $start = ($i - 1) * 10 + 1;
+                    $end = $i * 10;
+                    $hasData = false;
+                @endphp
+
+                @for ($j = $start; $j <= $end; $j++)
+                    @if (
+                        !empty($CommercialInvoice['color_name_second_column_value_' . $j]) ||
+                            !empty($CommercialInvoice['sku_no_second_column_value_' . $j]) ||
+                            !empty($CommercialInvoice['ean_no_second_column_value_' . $j]) ||
+                            !empty($CommercialInvoice['style_no_second_column_value_' . $j]) ||
+                            !empty($CommercialInvoice['sku_hash_no_second_column_value_' . $j])
+                            )
+                        @php
+                            $hasData = true;
+                            break;
+                        @endphp
+                    @endif
+                @endfor
+
+                @if (!$hasData)
+                    @continue
+                @endif
+
+
+
+
+
+
+
+                <tr style="font-size:8px; ">
+                    <td style=" border-right: 1px solid;">
+                        <p style="width: 150px; word-wrap: break-word;">
+                            {{ $CommercialInvoice['heading_long_side_' . $i] ?? '' }}
+                        </p>
+                        <p style="width: 150px; word-wrap: break-word;">
+                            {{ $CommercialInvoice['heading_po_number_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_po_number_value_' . $i] ?? '' }}
+                        </p>
+                        <p style="width: 150px; word-wrap: break-word;">
+                            {{ $CommercialInvoice['heading_style_name_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_style_name_value_' . $i] ?? '' }}
+                        </p>
+                        <p style="width: 150px; word-wrap: break-word;">
+                            {{ $CommercialInvoice['heading_style_number_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_style_number_value_' . $i] ?? '' }}
+
+                        </p>
+                        <p style="width: 150px; word-wrap: break-word;">
+                            {{ $CommercialInvoice['heading_color_left_column_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_color_left_column_value' . $i] ?? '' }}
+                        </p>
+                        <p style="width: 150px; word-wrap: break-word;">
+                            {{ $CommercialInvoice['heading_size_break_down_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_size_break_down_value_' . $i] ?? '' }}
+                        </p>
+                        <p style="width: 150px; word-wrap: break-word;">
+                            {{ $CommercialInvoice['heading_carton_count_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_carton_count_value_' . $i] ?? '' }}
+                        </p>
+
+                    </td>
+
+                    <td style=" border-right: 1px solid;">
+                        <p style="width: 260px ; word-wrap: break-word; text-align: left;">
+                            <b style="text-decoration: underline;">
+                                {{ $CommercialInvoice['heading_performa_invioce_no'] ?? '' }}
+                                : {{ $CommercialInvoice['performa_invioce_no_value'] ?? '' }}</b>
+
+                        </p>
+                        <p style="width: 260px ; word-wrap: break-word; text-align: left;">
+
+                            <b style="text-decoration: underline;"> {{ $CommercialInvoice['heading_po_' . $i] ?? '' }}
+                                &nbsp;&nbsp; {{ $CommercialInvoice['value_po_' . $i] ?? '' }}</b>
+                        </p>
+                        <p style="width: 260px ; word-wrap: break-word; text-align: left;">
+
+                            <b style="text-decoration: underline;">
+                                {{ $CommercialInvoice['heading_cotton_' . $i] ?? '' }} </b>
+                        </p>
+                        <p style="width: 260px ; word-wrap: break-word; text-align: left;">
+
+                            <b style="text-decoration: underline;">
+                                {{ $CommercialInvoice['heading_seahorse_' . $i] ?? '' }} </b>
+                        </p>
+                        <p style="width: 200px ; word-wrap: break-word; text-align: left;">
+                            {{ $CommercialInvoice['heading_terry_' . $i] ?? '' }}
+                        </p>
+                        <p style="width: 200px ; word-wrap: break-word; text-align: left;">
+                            {{ $CommercialInvoice['carron_bales_pallets_value_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_carron_bales_pallets_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['pcs_pack_pallet_per_value_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_pcs_pack_pallet_per_' . $i] ?? '' }}
+                        </p>
+                        {{-- ============================== start heading of value sku ern etc --}}
+
+                        <div style="text-align: left; white-space: nowrap; margin-left:10px">
+                            <div
+                                style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; font-weight: bold; color: #000;">
+                                {{ $CommercialInvoice['heading_color_' . $i] ?? '' }}
+                            </div>
+                            <div
+                                style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; font-weight: bold; color: #000;">
+                                {{ $CommercialInvoice['heading_sku_no_' . $i] ?? '' }}
+                            </div>
+                            <div
+                                style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; font-weight: bold; color: #000;">
+                                {{ $CommercialInvoice['heading_ean_no_' . $i] ?? '' }}
+                            </div>
+                            <div
+                                style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; font-weight: bold; color: #000;">
+                                {{ $CommercialInvoice['heading_sku_hash_' . $i] ?? '' }}
+                            </div>
+                            <div
+                                style="display: inline-block; width: 18%; text-decoration: underline; font-weight: bold; color: #000;">
+                                {{ $CommercialInvoice['heading_style_' . $i] ?? '' }}
+                            </div>
+                        </div>
+
+                        @for ($j = $start; $j <= $end; $j++)
+                            @php
+                                $colorName = $CommercialInvoice['color_name_second_column_value_' . $j] ?? '';
+                                $skuNo = $CommercialInvoice['sku_no_second_column_value_' . $j] ?? '';
+                                $eanNo = $CommercialInvoice['ean_no_second_column_value_' . $j] ?? '';
+                                $skuHashNo = $CommercialInvoice['sku_hash_no_second_column_value_' . $j] ?? '';
+                                $styleNo = $CommercialInvoice['style_no_second_column_value_' . $j] ?? '';
+                            @endphp
+
+                            @if ($colorName || $skuNo || $eanNo || $skuHashNo || $styleNo)
+                                <div class="no-margin"
+                                    style="text-align: left; white-space: nowrap; margin-top:5px; margin-left:10px">
+                                    <div
+                                        style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                        {{ $colorName }}
+                                    </div>
+                                    <div
+                                        style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                        {{ $skuNo }}
+                                    </div>
+                                    <div
+                                        style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                        {{ $eanNo }}
+                                    </div>
+                                    <div
+                                        style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                        {{ $skuHashNo }}
+                                    </div>
+                                    <div
+                                        style="display: inline-block; width: 18%; text-decoration: underline; color: #000;">
+                                        {{ $styleNo }}
+                                    </div>
+                                </div>
+
+
+
+      
+                            @endif
+                        @endfor
+
+                        <div>
+                            <p style=" margin-top:10px; word-wrap: break-word;">
+                                NET WEIGHT: &nbsp; &nbsp; &nbsp;
+                                {{ $CommercialInvoice['net_weight_second_column_value_' . $i] ?? 0 }} KGS
+
+                            </p>
+                            <p style=" margin-top:2px; word-wrap: break-word;">
+                                GR WEIGHT &nbsp; &nbsp; &nbsp;
+                                {{ $CommercialInvoice['gross_weight_second_column_value_' . $i] ?? 0 }} KGS
+
+                            </p>
+                        </div>
+
+
+                        <?php
+                        
+                            $palletValue = $CommercialInvoice['carron_bales_pallets_value_' . $i] ?? '';
+                            $palletUnit = $CommercialInvoice['heading_carron_bales_pallets_' . $i] ?? '';
+                
+                            if (is_numeric($palletValue)) {
+                                $palletValue = (float) $palletValue;
+                                // Sum the quantities based on their units
+                                if (isset($palltesValueSum[$palletUnit])) {
+                                    $palltesValueSum[$palletUnit] += $palletValue;
+                                } else {
+                                    $palltesValueSum[$palletUnit] = $palletValue;
+                                }
+                            }
+
+                            $perValue = $CommercialInvoice['pcs_pack_pallet_per_value_' . $i] ?? '';
+                            $perUnit = $CommercialInvoice['heading_pcs_pack_pallet_per_' . $i] ?? '';
+                
+                            if (is_numeric($perValue)) {
+                                $perValue = (float) $perValue;
+                                // Sum the quantities based on their units
+                                if (isset($perValueSum[$perUnit])) {
+                                    $perValueSum[$perUnit] += $perValue;
+                                } else {
+                                    $perValueSum[$perUnit] = $perValue;
+                                }
+                            }
+                            
+                            // gr total and net total second column
+                            if (isset($CommercialInvoice['gross_weight_second_column_value_' . $i])) {
+                                $grossWeightTotalSecondColumn += $CommercialInvoice['gross_weight_second_column_value_' . $i];
+                            }
+                            // gr total and net total second column
+                            if (isset($CommercialInvoice['net_weight_second_column_value_' . $i])) {
+                                $netWeightTotalSecondColumn += $CommercialInvoice['net_weight_second_column_value_' . $i];
+                            }
+                        ?>
+                    </td>
+                    <td style="border-right: 1px solid; text-align: center">
+                        <p style="width: 40px; word-wrap: break-word; margin-top:106px ">
+                         
+                            @php
+                            // Initialize sum for the current chunk
+                            $chunkSum = 0;
+                        @endphp
+                    
+                        @for ($j = $start; $j <= $end; $j++)
+                            @php
+                                // Extract quantity and unit from current iteration
+                                $quantity = $CommercialInvoice['quantity_third_column_value_' . $j] ?? '';
+                                $unit = $CommercialInvoice['quantity_unit_third_column_value_' . $j] ?? '';
+                    
+                                // Check if quantity is numeric
+                                if (is_numeric($quantity)) {
+                                    $quantity = (float) $quantity;
+                                    $chunkSum += $quantity; // Add quantity to chunk sum
+                    
+                                    // Sum the quantities based on their units
+                                    if (isset($quantitySums[$unit])) {
+                                        $quantitySums[$unit] += $quantity;
+                                    } else {
+                                        $quantitySums[$unit] = $quantity;
+                                    }
+                                }
+                            @endphp
+                              <p style="margin:5px 0;">
+                                {{ $CommercialInvoice['quantity_third_column_value_' . $j] ?? '' }} 
+                                {{ $CommercialInvoice['quantity_unit_third_column_value_' . $j] ?? '' }}</p>
+                        @endfor
+                    
+                        {{-- Display sum for the current chunk --}}
+                      
+                    
+                    {{-- @php
+                        // Display sum of quantities for each unit after all loops complete
+                       var_dump($quantitySums);
+                       die;
+                    @endphp --}}
+                        </p>
+                    </td>
+                    <td style="border-right: 1px solid; text-align: center">
+                        <p style="width: 40px; word-wrap: break-word; margin-top:106px">
+                            @for ($j = $start; $j <= $end; $j++)
+                               
+                                <p style="margin:5px 0;">
+                                    {{ $CommercialInvoice['price_third_column_value_' . $j] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
+                                     {{ $CommercialInvoice['price_third_column_value_' . $j] ?? '' }} </p>
+                            @endfor
+                        </p>
+                    </td>
+                    <td style="text-align: center"> 
+                        <p style="width: 30px; word-wrap: break-word;margin-top:106px ">
+                            @for ($j = $start; $j <= $end; $j++)
+                                <p style="margin:5px 0; margin-left:2px">
+                                    {{ $CommercialInvoice['total_amount_third_column_value_' . $j] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
                                     
-                                    <br>
-                                        {{ $CanadaCustomerInvoiceFrom->exporter_address ?? "" }}
+                                    {{ $CommercialInvoice['total_amount_third_column_value_' . $j] > 0 ? $CommercialInvoice['total_amount_third_column_value_' . $j] : '' }}
+                                </p>
+                                <?php
+                                // Add to the grand total if the value exists
+                                if (isset($CommercialInvoice['total_amount_third_column_value_' . $j])) {
+                                    $grandTotal += $CommercialInvoice['total_amount_third_column_value_' . $j];
+                                }
+                                ?>
+                            @endfor
+                        </p>
+                    </td>
+
+
+                </tr>
+
+
+
+                
+                @if (($j - $start + 1) % 8 == 0 && $j != $end)
+               
+                <div style="page-break-after: always; margin-top:-60px"></div>
+                {{-- Insert a page break --}}
+         
+            @endif
+
+
+
+            @endfor
+           
+         
+
+
+
+
+
+            <!-- ============ >>THIRD <<< =========== -->
+
+            <!-- ============ >>THIRD<<< =========== -->
+
+
+            <tr style="font-size:8px;">
+                <td style=" border-right: 1px solid; border-top:1px solid #000; ">
+                    <div style="width: 150px; word-wrap: break-word;">
+
+                    </div>
+                </td>
+
+                <td style=" border-right: 1px solid; border-top:1px solid #000;" colspan="2">
+                    <div style=" word-wrap: break-word; text-align: left;">
+                        <table border="0" style=" border-collapse: collapse; width: 100%; border-top: 0;">
+                            <tr>
+
+                                <td>
+                                    <div style="font-size:8px;"> 
+                                        @php
+                                        $pallets = $palltesValueSum;
+                                        $perValues = $perValueSum;
+                                        $quantities = $quantitySums;
+                                        // var_dump($quantities);
+                                        // die;
+                                    @endphp
                                     
-                                    <br>
-                                        {{ $CanadaCustomerInvoiceFrom->exporter_nom_et_adresse ?? "" }}
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-
-                </div>
-            </td>
-            <td style="width: 50%; font-size: 7px;">
-                <div style="height: 50px;">
-                    <table>
-                        <tr>
-                            <td>
-                                <div style="height: 50px;">
-                                    20.
-                                </div>
-                            </td>
-                            <td>
-                                <div style="height: 50px;">
-                                    <span>Originator (name and address) - Expediteur d'origine (nom et adresse)</span><br>
-                                        {{ $CanadaCustomerInvoiceFrom->originator_name ?? "" }}
+                                    <!-- Display Pallets -->
+                                    @foreach ($pallets as $key => $item)
+                                        {{ $item . ' ' . $key }}
+                                        @if (!$loop->last)
+                                            +
+                                        @endif
+                                    @endforeach
                                     
-                                    <br>
-                                        {{ $CanadaCustomerInvoiceFrom->originator_address ?? "" }}
+                                    @if (count($pallets) > 0 && count($perValues) > 0)
+                                        +
+                                    @endif
                                     
-                                    <br>
-                                        {{ $CanadaCustomerInvoiceFrom->originator_nom_et_adresse ?? "" }}
+                                    <!-- Display Per Values -->
+                                    @foreach ($perValues as $key => $item)
+                                        {{ $item . ' ' . str_replace("SET PER ", "", $key) }}
+                                        @if (!$loop->last)
+                                            +
+                                        @endif
+                                    @endforeach
                                     
+                                    @if ((count($pallets) > 0 || count($perValues) > 0) && count($quantities) > 0)
+                                        =
+                                    @endif
                                     
-                                   
-                                </div>
+                                    <!-- Display Quantities -->
+                                    @foreach ($quantities as $key => $item)
+                                        {{ $item . ' ' . $key }}
+                                        @if (!$loop->last)
+                                            +
+                                        @endif
+                                    @endforeach
+                                    
+                                 </div>
+                                </td>
+
+                                <td>
+                                    <div style="font-size:8px;"></div>
+                                </td>
+
+
+
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td style="border-right: 1px solid; border-top:1px solid #000;">
+                    <div style="width: 40px; word-wrap: break-word;">
+                        TOTAL
+                    </div>
+                </td>
+                <td style="border-right: 1px solid; border-top:1px solid #000; text-align: center">
+                    <div style="width: 60px; word-wrap: break-word; font-size:8px;">
+                       {{ isset($grandTotal) ? $CommercialInvoice['currency_symbol'].' '.number_format($grandTotal, 2, '.', '') : '' }}
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div style="clear:both;"></div>
+       
+        <table border="0" style=" margin-top: 2px; border-collapse: collapse; width: 100%;font-size:8px;">
+            <tr>
+                <td style="width: 33.33%;">
+                    <table border="0"
+                        style="border: 1px solid #000; border-collapse: collapse; width: 100%;font-size:8px;">
+                        <tr>
+                            <td style="border-right:1px solid #000 ;">
+                                <div> {{ $CommercialInvoice['heading_total_net_weight'] ?? '' }}
+                                    : </div>
+                            </td>
+                            <td>
+                                <div style="text-align: center;">{{ $netWeightTotalSecondColumn }} KGS</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-right:1px solid #000 ;">
+                                <div> {{ $CommercialInvoice['heading_total_gr_weight'] ?? '' }}: </div>
+                            </td>
+                            <td>
+                                <div style="text-align: center;">{{ $grossWeightTotalSecondColumn }} KGS</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-top:1px solid #000 ;" colspan="2">
+                                <div>{{ $CommercialInvoice['heading_note'] ?? '' }} :
+                                    {{ $CommercialInvoice['note_value'] ?? '' }} </div>
                             </td>
                         </tr>
                     </table>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <div class="page-break"></div>
-<div style="page-break-after:auto;">
-    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; ">
-        <tr>
-            <td style="width: 50%; font-size: 7px; border-right: 1px solid;">
-                <div style="height: 30px;">
-                    <table>
+                </td>
+                <td style="width: 33.33%; visibility: hidden;">
+                    <table border="0"
+                        style="border: 1px solid #000; border-collapse: collapse; width: 100%; font-size:8px; opacity: 0 ;">
+                        <tr>
+                            <td style="border-right:1px solid #000 ;">
+                                <div>{{ $CommercialInvoice['heading_total_net_weight'] ?? '' }}: </div>
+                            </td>
+                            <td>
+                                <div style="text-align: center;">230.00 KGS </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-right:1px solid #000 ;">
+                                <div>{{ $CommercialInvoice['heading_total_gr_weight'] ?? '' }}: </div>
+                            </td>
+                            <td>
+                                <div style="text-align: center;">280.00 KGS </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-top:1px solid #000 ;" colspan="2">
+                                <div>{{ $CommercialInvoice['heading_note'] ?? '' }}: 51.60 KGS </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="width: 33.33%;">
+                    <table border="0"
+                        style="border: 1px solid #000; border-collapse: collapse; width: 100%;font-size:8px;">
                         <tr>
                             <td>
-                                <div style="height: 30px;">
-                                    21.
-                                </div>
+                                <div>{{ $CommercialInvoice['heading_total_buyer_discount'] ?? '' }}</div>
                             </td>
                             <td>
-                                <div style="height: 30px;">
-                                    Agency ruling (if applicable) - Decision de I'Agence (s'il y a lieu)
-                                </div>
-                                <div style="font-size: 10px;">
-                                    {{ $CanadaCustomerInvoiceFrom->agency_ruling ?? "" }}
-                                </div>
-
+                                <div style="text-align: right;">
+                                    {{ $CommercialInvoice['value_total_buyer_discount'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
+                                    {{ $CommercialInvoice['value_total_buyer_discount'] ?? '' }} </div>
                             </td>
                         </tr>
-                    </table>
-
-                </div>
-            </td>
-            <td style="width: 50%; font-size: 7px;">
-                <div style="height: 30px;">
-                    <table>
                         <tr>
                             <td>
-                                <div style="height: 30px;">
-                                    22.
-                                </div>
+                                <div>{{ $CommercialInvoice['heading_total_less_commission'] ?? '' }}</div>
                             </td>
                             <td>
-                                <div style="height: 30px;">
-                                    If field 23 to 25 are not applicable, check this box <br>
-                                    Si les zones 23 a 25 sont sans objet, cochez cette case
-                                </div>
-                            </td>
-                            <td>
-                                <div style="height: 30px; margin-left: 40px;">
-                                    <input type="checkbox">
-                                </div>
+                                <div style="text-align: right;">
+                                    {{ $CommercialInvoice['value_total_less_commission'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
+                                    {{ $CommercialInvoice['value_total_less_commission'] ?? '' }}</div>
                             </td>
                         </tr>
-                    </table>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
-        <tr>
-            <td style="width: 33.33%; font-size: 7px; border-right: 1px solid;">
-                <div style="height: 150px;">
-                    <table>
                         <tr>
                             <td>
-                                <div style="height: 150px;">
-                                    23.
-                                </div>
+                                <div>{{ $CommercialInvoice['heading_total_add_fright'] ?? '' }}</div>
                             </td>
                             <td>
-                                <div style="height: 30px;">
-                                    If included in field 17 indicate amount: <br>
-                                    Si compris dans le total a la zone 17 precisez:
-                                </div>
-                                <div style="width: 100%; margin: auto;">
-                                    (i) Transportation charges, expenses and insurance <br>
-                                    from the place of direct shipment to Canada <br>
-                                    Les Frais de transport,
-                                    depences directe verse le Canada
-                                    <div>
-                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;">
-                                    </div>
-
-                                </div>
-
-                                <div style="width: 100%; margin: auto;">
-                                    (ii) Costs for contruction, erection and assembly<br>
-                                    incurred after importation into Canada <br>
-                                    Les couts de construction, d'erection et <br>
-                                    d'assemblage apres importation au Canada
-                                    <div>
-                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;">
-                                    </div>
-
-                                </div>
-
-                                <div style="width: 100%; margin: auto;">
-                                    (iii) Exporting packing <br>
-                                    Le cout de I'emballage d'exportation
-                                    <div>
-                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;">
-                                    </div>
-
-                                </div>
-
+                                <div style="text-align: right;">
+                                    {{ $CommercialInvoice['value_total_add_fright'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
+                                    {{ $CommercialInvoice['value_total_add_fright'] ?? '' }}</div>
                             </td>
                         </tr>
-
-                    </table>
-
-                </div>
-            </td>
-            <td style="width: 33.33%; font-size: 7px; border-right: 1px solid;">
-                <div style="height: 150px;">
-                    <table>
                         <tr>
                             <td>
-                                <div style="height: 150px;">
-                                    24.
-                                </div>
+                                <div>{{ $CommercialInvoice['heading_total_net_amount_payable'] ?? '' }} </div>
                             </td>
                             <td>
-                                <div style="height: 30px;">
-                                    If included in field 17 indicate amount: <br>
-                                    Si compris dans le total a la zone 17 precisez:
-                                </div>
-                                <div style="width: 100%; margin: auto;">
-                                    (i) Transportation charges, expenses and insurance <br>
-                                    from the place of direct shipment to Canada <br>
-                                    Les Frais de transport,
-                                    depences directe verse le Canada
-                                    <div>
-                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;">
-                                    </div>
-
-                                </div>
-
-                                <div style="width: 100%; margin: auto;">
-                                    (ii) Costs for contruction, erection and assembly<br>
-                                    incurred after importation into Canada <br>
-                                    Les couts de construction, d'erection et <br>
-                                    d'assemblage apres importation au Canada
-                                    <div>
-                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;">
-                                    </div>
-
-                                </div>
-
-                                <div style="width: 100%; margin: auto;">
-                                    (iii) Exporting packing <br>
-                                    Le cout de I'emballage d'exportation
-                                    <div>
-                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;">
-                                    </div>
-
-                                </div>
-
+                                <div style="text-align: right;">
+                                    {{ $CommercialInvoice['value_total_net_amount_payable'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
+                                    {{ $CommercialInvoice['value_total_net_amount_payable'] ?? '' }} </div>
                             </td>
                         </tr>
 
                     </table>
-
-                </div>
-            </td>
-            <td style="width: 33.33%; font-size: 7px; border-right: 1px solid;">
-                <div style="height: 150px;">
-                    <table>
+                </td>
+            </tr>
+        </table>
+        <table border="1" style=" margin-top: 4px; border-collapse: collapse; width: 100%;font-size:8px;">
+            <tr>
+                <td style="width: 55%;">
+                    <table border="0"
+                        style="  height: 130px;  border-collapse: collapse; width: 100%;font-size:8px;">
                         <tr>
                             <td>
-                                <div style="height: 150px;">
-                                    25.
-                                </div>
+                                <div><b>BANK OPTION</b></div>
                             </td>
                             <td>
-                                <div style="height: 30px;">
-                                    If included in field 17 indicate amount: <br>
-                                    Si compris dans le total a la zone 17 precisez:
-                                </div>
-                                <div style="width: 100%; margin: auto;">
-                                    (i) Transportation charges, expenses and insurance <br>
-                                    from the place of direct shipment to Canada <br>
-                                    Les Frais de transport,
-                                    depences directe verse le Canada
-                                    <div style="text-align: center;">
-                                        <input type="checkbox">
-                                    </div>
-
-                                </div>
-
-                                <div style="width: 100%; margin: auto;">
-                                    (ii) Costs for contruction, erection and assembly<br>
-                                    incurred after importation into Canada <br>
-                                    Les couts de construction, d'erection et <br>
-                                    d'assemblage apres importation au Canada
-                                    <div style="text-align: center;">
-                                        <input type="checkbox">
-                                    </div>
-
-                                </div>
-
+                                <div><b>BANK DETAIL</b></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>{{ $CommercialInvoice['heading_intermediary_bank'] ?? '' }} </div>
+                            </td>
+                            <td>
+                                
+                                <div> {{ $CommercialInvoice['value_intermediary_bank'] ?? '' }}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>{{ $CommercialInvoice['heading_intermediary_bank_swift_no'] ?? '' }} </div>
+                            </td>
+                            <td>
+                                <div>{{ $CommercialInvoice['value_intermediary_bank_swift_no'] ?? '' }} </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>{{ $CommercialInvoice['heading_intermediary_bank_ac_no'] ?? '' }}:</div>
+                            </td>
+                            <td>
+                                <div>{{ $CommercialInvoice['value_intermediary_bank_ac_no'] ?? '' }}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>{{ $CommercialInvoice['heading_for_onword_credit_to'] ?? '' }} :</div>
+                            </td>
+                            <td>
+                                <div>{{ $CommercialInvoice['value_for_onword_credit_to'] ?? '' }}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>{{ $CommercialInvoice['heading_tw_ac_no'] ?? '' }} </div>
+                            </td>
+                            <td>
+                                <div>{{ $CommercialInvoice['value_tw_ac_no'] ?? '' }}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>{{ $CommercialInvoice['heading_swift_no'] ?? '' }} : </div>
+                            </td>
+                            <td>
+                                <div>{{ $CommercialInvoice['value_swift_no'] ?? '' }}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>{{ $CommercialInvoice['heading_iban_no'] ?? '' }} : </div>
+                            </td>
+                            <td>
+                                <div>{{ $CommercialInvoice['value_iban_no'] ?? '' }} </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>{{ $CommercialInvoice['heading_bank_addrss'] ?? '' }} :</div>
+                            </td>
+                            <td>
+                                <div>{{ $CommercialInvoice['value_bank_addrss'] ?? '' }}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div>{{ $CommercialInvoice['value_bank_addrss_1'] ?? '' }}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div>{{ $CommercialInvoice['value_bank_addrss_2'] ?? '' }}</div>
 
                             </td>
                         </tr>
 
                     </table>
+                </td>
+                <td style="width: 45%; vertical-align: top;">
+                    <table border="0" style="height: 130px; border-collapse: collapse; width: 100%; font-size: 8px;">
+                        <tr style="width: 30%;">
+                            <td style="vertical-align: top; padding-bottom: 26px;">
+                                <div style="text-align: center;">
+                                    <b>“{{ $CommercialInvoice['heading_statement_origin'] ?? '' }} ” </b>
+                                    <p style="text-align: center;vertical-align: top; margin-top: 5px; word-wrap: break-word;">
+                                        <div style="display: inline-block; text-align: center;">
+                                            {{ $CommercialInvoice['value_statement_origin'] ?? '' }}
+                                        </div>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="width: 40%;">
+                          
+                        </tr>
+                    </table>
+                </td>
+                
 
-                </div>
-            </td>
-        <tr style="border-top: 0.5px solid;">
-            <td colspan="3" style="text-align: center; font-size: 7px; ">Dans ce formulaire, toutes les expressions
-                designant des personnes visent a la fois les hommes et les femmes</td>
-        </tr>
-        </tr>
-    </table>
-    
+
+            </tr>
+
+        </table>
+        <table border="0" style=" margin-top: 4px; border-collapse: collapse; width: 100%;font-size:8px;">
+            <tr>
+                <td>
+                    <div style="width: 20%; margin-left:auto; text-align: center; margin-top: 10px;">
+                        <input type="text"
+                            style="border: 0; border-bottom: .5px solid #000; display: block; margin: 0 auto;">
+                        EXPORT MANAGER
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table border="0"
+            style=" border: 1px solid #000; margin-top:4px ; border-collapse: collapse; width: 100%;font-size:8px;">
+            <tr>
+                <td>
+                    <div style="margin-left:auto; text-align: center; ">
+                        THE GOODS COVERED UNDER THIS INVOICE ARE THE PROPERTY OF TOWELLERS LTD UNTIL ITS PAYMENT
+                        RECEIVED. <br>
+                        We hereby declare that all the particulars stated in respect of the Goods are true and correct.
+                        <br>
+                        CERTIFIED THAT THE ABOVE GOODS/FABRIC ARE MANUFACTURED IN PAKISTAN <br>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+  
+
     <script type="text/php">
         if ( isset($pdf) ) {
             // OLD
@@ -814,8 +1033,8 @@
             $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
         }
     </script>
+   
+      </main>
 </body>
-
-
 
 </html>

@@ -12,49 +12,7 @@
         <h2>Filter:</h2>
         <div class="card">
             <div class="card-body justify-content-start">
-                <form id="" action="{{route('admin.report_List_commercial_invoice')}}" class="row d-flex justify-content-between align-items-end">
-                    <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
-                        <label for="thirdPartyName">Team Member:</label>
-                        <div class="d-flex justify-content-start align-items-start">
-
-                            <select class="multi-select" name="PartyName" id="PartyName"
-                                placeholder="Select Third Party">
-                                <option disabled selected>Select Team</option>
-
-                                <option data-display="Select" value="">
-                                ABC
-                                </option>
-
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
-
-                        <label for="thirdPartyName">Status:</label>
-                        <div class="d-flex justify-content-start align-items-start">
-                            <select class="multi-select" name="status" placeholder="Select status Party">
-                                <option disabled selected>Report Status</option>
-                                <option value="Pending">Pending (0)</option>
-                                <option class="badge badge-success border-0" value="Active">Active (1) </option>
-                                <option value="Resubmit">Resubmit (2)</option>
-                                <option value="Completed">Completed (3) </option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xl-1 col-sm-6 col-6 mt-4 mt-md-0">
-                        <div class="d-flex justify-content-start align-items-start">
-                            <button type="submit" class="btn btn report-tab-active"
-                                id="filter-reprot-btn">Filter</button>
-                        </div>
-                    </div>
-                    <div class="col-xl-1 col-sm-6 col-6 mt-4 mt-md-0">
-                        <div class="d-flex justify-content-start align-items-start">
-                            <a href="{{route('admin.report_List_commercial_invoice')}}" class="btn btn report-tab-unactive"
-                                id="filter-reprot-btn">Reset</a>
-                        </div>
-                    </div>
-                </form>
+           
                 <div class="col-xl-2 col-sm-6 col-6 mt-6 pt-2 ">
                         <div class="d-flex justify-content-start align-items-start">
                             <a href="{{ URL::to('/panel/report/commercial-invoice/add') }}" class="" target="_blank">
@@ -131,29 +89,29 @@
                                     @php
                                    
                                     switch ($result['table_name']) {
-                                        case 'canada customer invoice':
-                                           $urlParams = route('admin.view_custom_canda_invoice', ['id' => $result['id']]);
+                                        case 'canada customer invoice';                                    
+                                        $urlParams = route('admin.view_custom_canda_invoice', ['id' => $result['id']]);
                                             break;
-                                        case 'certificate origins':
+                                        case 'certificate origins';
                                           
                                         $urlParams = route('admin.view_certificate_origins_invoice', ['id' => $result['id']]);
                                             break;
-                                        case 'Certificate Origin Com Decs':
+                                        case 'Certificate Origin Com Decs';
                                             $urlParams = route('admin.view_certificate_origin_com_dec_invoice', ['id' => $result['id']]);
                                             break;
-                                        case 'Certificate Origin Com Decs from A':
+                                        case 'Certificate Origin Com Decs from A';
                                         $urlParams = route('admin.view_certificate_origin_com_dec_form_a_invoice', ['id' => $result['id']]);
                                             break;
-                                        case 'Certificate Origin Com Decs from IPs':
+                                        case 'Certificate Origin Com Decs from IPs';
                                             $urlParams = route('admin.view_certificate_origin_com_dec_form_ip_invoice', ['id' => $result['id']]);
                                             break;
-                                        case 'Certificate Origin No 627120s':
+                                        case 'Certificate Origin No 627120s';
                                         $urlParams = route('admin.view_certificate_origin_no627120_invoice', ['id' => $result['id']]);
                                             break;
-                                        case 'Exporter Textile Declearations':
+                                        case 'Exporter Textile Declearations';
                                         $urlParams = route('admin.view_exporter_textile_declearation_invoice', ['id' => $result['id']]);
                                             break;
-                                        case 'Form 59 A invoice':
+                                        case 'Form 59 A invoice';
                                             $urlParams = route('admin.view_form_59_a_invoice', ['id' => $result['id']]);
                                             break;
                                        default;

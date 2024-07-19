@@ -126,7 +126,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($CommercialInvoice as $key => $value)
+                                @foreach ($PackingList as $key => $value)
                                     <tr>
                                         <td><span>{{ $value->id ?? '' }}</span></td>
 
