@@ -90,7 +90,7 @@ Route::prefix('panel-team')->namespace('team')->group(function () {
                 Route::get('/edit/{id}', 'teamController@edit_custom_canda_invoice')->name('team.edit_custom_canda_invoice');
                 Route::post('/update_submit_custom_canda_invoice', 'teamController@update_submit_custom_canda_invoice')->name('team.update_submit_custom_canda_invoice');
 
-                Route::get('/view', 'teamController@view_custom_canda_invoice')->name('team.view_custom_canda_invoice');
+                Route::get('/view/{id}', 'teamController@view_custom_canda_invoice')->name('team.view_custom_canda_invoice');
                 Route::get('/activity/{id}', 'teamController@activity_custom_canda_invoice')->name('team.activity_custom_canda_invoice');
                 Route::post('/form_canada_invoice_resubmit', 'teamController@form_canada_invoice_resubmit')->name('team.form_canada_invoice_resubmit');
                 Route::post('/form_canada_invoice_completed', 'teamController@form_canada_invoice_completed')->name('team.form_canada_invoice_completed');
@@ -299,7 +299,7 @@ Route::prefix('panel')->namespace('admin')->group(function () {
                 Route::get('/edit/{id}', 'adminController@edit_custom_canda_invoice')->name('admin.edit_custom_canda_invoice');
                 Route::post('/update_submit_custom_canda_invoice', 'adminController@update_submit_custom_canda_invoice')->name('admin.update_submit_custom_canda_invoice');
 
-                Route::get('/view', 'adminController@view_custom_canda_invoice')->name('admin.view_custom_canda_invoice');
+                Route::get('/view/{id}', 'adminController@view_custom_canda_invoice')->name('admin.view_custom_canda_invoice');
                 Route::get('/activity/{id}', 'adminController@activity_custom_canda_invoice')->name('admin.activity_custom_canda_invoice');
                 Route::post('/form_canada_invoice_resubmit', 'adminController@form_canada_invoice_resubmit')->name('admin.form_canada_invoice_resubmit');
                 Route::post('/form_canada_invoice_completed', 'adminController@form_canada_invoice_completed')->name('admin.form_canada_invoice_completed');
