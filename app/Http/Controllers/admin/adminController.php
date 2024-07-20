@@ -2297,6 +2297,12 @@ class adminController extends Controller
             $party_id = (int)$request->input('teamMember');
             $query->where('team_user_id', $party_id);
         }
+        if (isset($request->InvoiceNUmber) && !empty($request->InvoiceNUmber)) {
+            $invoice = (int)$request->input('InvoiceNUmber');
+            $query->where('id', $invoice);
+        }
+
+        
 
         if (isset($request->status) && !empty($request->status)) {
             $statusMapping = [

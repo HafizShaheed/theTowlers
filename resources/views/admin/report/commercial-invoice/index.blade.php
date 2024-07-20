@@ -12,15 +12,43 @@
                 <div class="card-body justify-content-start">
                     <form id="" action="{{ route('admin.report_List_commercial_invoice') }}"
                         class="row d-flex justify-content-between align-items-end">
-                        <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
+                        <div class="col-xl-2 col-sm-6 col-6 mt-4 mt-md-0">
+                            <label for="thirdPartyName">Invoice Numbers:</label>
+                            <div class="d-flex justify-content-start align-items-start">
+                                <?php
+                                $allInvoiceNUmber = App\Models\CommercialInvoice::get();
+                                ?>
+                                <select class="multi-select" name="InvoiceNUmber" id="InvoiceNUmber"
+                                    placeholder="Select Third Party">
+                                    <option value="" >Select Invoice number</option>
+                                    @forelse ($allInvoiceNUmber as $invoice)
+                                        <option value="{{ $invoice->id }}"
+                                            {{ request('InvoiceNUmber') == $invoice->id ? 'selected' : '' }}>
+                                            {{ $invoice->commercial_invoice }}
+                                        </option>
+                                  
+                                      
+                                    @empty
+                                        
+                                    <option >No record found</option>
+                                    @endforelse
+                                   
+                                </select>
+
+
+                            </div>
+                            
+                        </div>
+                        <div class="col-xl-2 col-sm-6 col-6 mt-4 mt-md-0">
                             <label for="thirdPartyName">Team Member:</label>
                             <div class="d-flex justify-content-start align-items-start">
                                 <?php
                                 $allTeamMember = App\Models\team\TeamUser::get();
+                                
                                 ?>
                                 <select class="multi-select" name="teamMember" id="teamMember"
                                     placeholder="Select Third Party">
-                                    <option disabled>Select Team</option>
+                                    <option value="" >Select Team</option>
                                     @foreach ($allTeamMember as $team)
                                         <option value="{{ $team->id }}"
                                             {{ request('teamMember') == $team->id ? 'selected' : '' }}>
@@ -34,14 +62,16 @@
 
 
                             </div>
+                            
                         </div>
+                        
 
-                        <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
+                        <div class="col-xl-2 col-sm-6 col-6 mt-4 mt-md-0">
 
                             <label for="thirdPartyName">Status:</label>
                             <div class="d-flex justify-content-start align-items-start">
                                 <select class="multi-select" name="status" placeholder="Select status Party">
-                                    <option disabled>Report Status</option>
+                                    <option value="" >Report Status</option>
                                     <option value="Active" {{ request('status') == 'Active' ? 'selected' : '' }}>Active
                                     </option>
                                     <option value="Resubmit" {{ request('status') == 'Resubmit' ? 'selected' : '' }}>
@@ -51,6 +81,13 @@
                                 </select>
 
 
+                            </div>
+                        </div>
+
+                        <div class="col-xl-1 col-sm-6 col-6 mt-4 mt-md-0">
+                            <div class="d-flex justify-content-start align-items-start">
+                                <button type="submit" class="btn btn report-tab-active"
+                                    id="filter-reprot-btn">Filter</button>
                             </div>
                         </div>
                         <div class="col-xl-1 col-sm-6 col-6 mt-4 mt-md-0">
@@ -207,7 +244,7 @@
                                                 class="" target="_blank" title="View Pdf">
                                                 Related Invoice
                                             </a>
-                                            <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
+                                            <a class="btn btn-sm report-tab-active" style="font-size: 10px; {{ isset($value->pdf_upload_file_ic) || !empty($value->pdf_upload_file_ic) ?  'background-color: #2032ae !important;' : 'background-color: #45ae20 !important; pointer-events: none;  cursor: default; text-decoration: none;' }}" 
                                                 href="{{ URL::to('/panel/report/commercial-invoice/pdf_file_view/' . base64_encode($value->id)) }}"
                                                 class="" target="_blank" title="View Pdf">
                                                 File View

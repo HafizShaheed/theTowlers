@@ -14,9 +14,27 @@
             <div class="card-body justify-content-start">
                 <form id="" action="{{route('team.report_List_commercial_invoice')}}" class="row d-flex justify-content-between align-items-end">
                     <div class="col-xl-3 col-sm-6 col-6 mt-4 mt-md-0">
-                        <label for="thirdPartyName"></label>
+                        <label for="thirdPartyName">Invoice Numbers:</label>
                         <div class="d-flex justify-content-start align-items-start">
-                        
+                            <?php
+                            $allInvoiceNUmber = App\Models\CommercialInvoice::where('status','<>', '2')->get();
+                            ?>
+                            <select class="multi-select" name="InvoiceNUmber" id="InvoiceNUmber"
+                                placeholder="Select Third Party">
+                                <option value="" >Select Invoice number</option>
+                                @forelse ($allInvoiceNUmber as $invoice)
+                                    <option value="{{ $invoice->id }}"
+                                        {{ request('InvoiceNUmber') == $invoice->id ? 'selected' : '' }}>
+                                        {{ $invoice->commercial_invoice }}
+                                    </option>
+                              
+                                  
+                                @empty
+                                    
+                                <option >No record found</option>
+                                @endforelse
+                               
+                            </select>
 
 
                         </div>
@@ -27,11 +45,13 @@
                         <label for="thirdPartyName">Status:</label>
                         <div class="d-flex justify-content-start align-items-start">
                             <select class="multi-select" name="status" placeholder="Select status Party">
-                                <option disabled>Report Status</option>
+                                <option value="">Report Status</option>
                                 <option value="Active" {{ request('status') == 'Active' ? 'selected' : '' }}>Active
                                 </option>
                                 <option value="Resubmit" {{ request('status') == 'Resubmit' ? 'selected' : '' }}>
                                     Resubmit</option>
+                                    <option value="Completed" {{ request('status') == 'Completed' ? 'selected' : '' }}>
+                                        Completed</option>
                               
                             </select>
                         </div>

@@ -407,6 +407,8 @@
 
                 <tr style="font-size:8px; ">
                     <td style=" border-right: 1px solid;">
+                        @if (isset($CommercialInvoice['heading_carton_count_value_' . $i]) && !empty($CommercialInvoice['heading_carton_count_value_' . $i]))
+                            
                         <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_long_side_' . $i] ?? '' }}
                         </p>
@@ -435,6 +437,8 @@
                             {{ $CommercialInvoice['heading_carton_count_' . $i] ?? '' }} &nbsp;&nbsp;
                             {{ $CommercialInvoice['heading_carton_count_value_' . $i] ?? '' }}
                         </p>
+                        @endif
+
 
                     </td>
 
@@ -714,19 +718,12 @@
                                         @endif
                                     @endforeach
                                     
-                                    @if (count($pallets) > 0 && count($perValues) > 0)
-                                        +
-                                    @endif
+                                  
                                     
                                     <!-- Display Per Values -->
-                                    @foreach ($perValues as $key => $item)
-                                        {{ $item . ' ' . str_replace("SET PER ", "", $key) }}
-                                        @if (!$loop->last)
-                                            +
-                                        @endif
-                                    @endforeach
+                                   
                                     
-                                    @if ((count($pallets) > 0 || count($perValues) > 0) && count($quantities) > 0)
+                                    @if ((count($pallets) > 0 ) && count($quantities) > 0)
                                         =
                                     @endif
                                     
@@ -773,7 +770,7 @@
                         <tr>
                             <td style="border-right:1px solid #000 ;">
                                 <div> {{ $CommercialInvoice['heading_total_net_weight'] ?? '' }}
-                                    : </div>
+                                     </div>
                             </td>
                             <td>
                                 <div style="text-align: center;">{{ $netWeightTotalSecondColumn }} KGS</div>
@@ -781,7 +778,7 @@
                         </tr>
                         <tr>
                             <td style="border-right:1px solid #000 ;">
-                                <div> {{ $CommercialInvoice['heading_total_gr_weight'] ?? '' }}: </div>
+                                <div> {{ $CommercialInvoice['heading_total_gr_weight'] ?? '' }} </div>
                             </td>
                             <td>
                                 <div style="text-align: center;">{{ $grossWeightTotalSecondColumn }} KGS</div>
@@ -816,7 +813,7 @@
                         </tr>
                         <tr>
                             <td style="border-top:1px solid #000 ;" colspan="2">
-                                <div>{{ $CommercialInvoice['heading_note'] ?? '' }}: 51.60 KGS </div>
+                                <div>{{ $CommercialInvoice['heading_note'] ?? '' }}</div>
                             </td>
                         </tr>
                     </table>
@@ -869,6 +866,14 @@
                 </td>
             </tr>
         </table>
+        <table border="0"
+        style="border: 0px solid #000; border-collapse: collapse; width: 60%;font-size:8px;">
+        <tr>
+            <td>
+                <div>{{ $CommercialInvoice['heading_remarks'] ?? ''}}  {{ $CommercialInvoice['value_remarks'] ?? '' }}</div>
+            </td>
+        </tr>
+                </table>
         <table border="1" style=" margin-top: 4px; border-collapse: collapse; width: 100%;font-size:8px;">
             <tr>
                 <td style="width: 55%;">

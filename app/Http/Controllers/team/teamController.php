@@ -117,7 +117,7 @@ class teamController extends Controller
 
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
-        $query = CanadaCustomerInvoiceFrom::query()->where('status', '<>', '3');
+        $query = CanadaCustomerInvoiceFrom::query();
 
 
 
@@ -332,7 +332,7 @@ class teamController extends Controller
         $data['title'] = "Reports Management";
         $data['page'] = "Reports Management";
         $data['pageIntro'] = "Reports Edit";
-        $data['editCanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::where('id', $id)->where('status', '3')->first();
+        $data['editCanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::where('id', $id)->where('status', '2')->first();
         if (!$data['editCanadaCustomerInvoiceFrom']) {
             return back()->with('error', 'No Canada invoice history found for the provided ID.');
         }
@@ -426,7 +426,7 @@ class teamController extends Controller
 
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
-        $query = Form59AInvoice::query()->where('status', '<>', '3');
+        $query = Form59AInvoice::query();
 
 
 
@@ -594,7 +594,7 @@ class teamController extends Controller
         $data['title'] = "Edit form 59 A";
         $data['page'] = "Edit form 59 A";
         $data['pageIntro'] = "Reports Edit";
-        $data['Form59AInvoice'] = Form59AInvoice::where('id', $id)->where('status', '3')->first();
+        $data['Form59AInvoice'] = Form59AInvoice::where('id', $id)->where('status', '2')->first();
         if (!$data['Form59AInvoice']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
         }
@@ -677,7 +677,7 @@ class teamController extends Controller
         $data['pageIntro'] = "Canada Custom Invoice";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
-        $query = ExporterTextileDeclearation::query()->where('status', '<>', '3');
+        $query = ExporterTextileDeclearation::query();
 
 
 
@@ -820,7 +820,7 @@ class teamController extends Controller
         $data['title'] = "Reports Management";
         $data['page'] = "Reports Management";
         $data['pageIntro'] = "Reports Edit";
-        $data['ExporterTextileDeclearation'] = ExporterTextileDeclearation::where('id', $id)->where('status', '3')->first();
+        $data['ExporterTextileDeclearation'] = ExporterTextileDeclearation::where('id', $id)->where('status', '2')->first();
         if (!$data['ExporterTextileDeclearation']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
         }
@@ -905,7 +905,7 @@ class teamController extends Controller
         $data['pageIntro'] = "Canada Custom Invoice";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
-        $query = CertificateOrigin::query()->where('status', '<>', '3');
+        $query = CertificateOrigin::query();
 
 
 
@@ -1046,7 +1046,7 @@ class teamController extends Controller
         $data['title'] = "Reports Management";
         $data['page'] = "Reports Management";
         $data['pageIntro'] = "Reports Edit";
-        $data['CertificateOrigin'] = CertificateOrigin::where('id', $id)->where('status', '3')->first();
+        $data['CertificateOrigin'] = CertificateOrigin::where('id', $id)->where('status', '2')->first();
         if (!$data['CertificateOrigin']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
         }
@@ -1129,7 +1129,7 @@ class teamController extends Controller
         $data['pageIntro'] = "Certificate origin 627120 ";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
-        $query = CertificateOriginNo627120::query()->where('status', '<>', '3');
+        $query = CertificateOriginNo627120::query();
 
 
 
@@ -1267,7 +1267,7 @@ class teamController extends Controller
         $data['title'] = "Certificate origin 627120";
         $data['page'] = "Certificate origin 627120";
         $data['pageIntro'] = "Certificate origin 627120 Edit";
-        $data['CertificateOriginNo627120'] = CertificateOriginNo627120::where('id', $id)->where('status', '3')->first();
+        $data['CertificateOriginNo627120'] = CertificateOriginNo627120::where('id', $id)->where('status', '2')->first();
         if (!$data['CertificateOriginNo627120']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
         }
@@ -1349,7 +1349,7 @@ class teamController extends Controller
         $data['pageIntro'] = "Certificate origins Combined Declaration Invoice";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
-        $query = CertificateOriginComDec::query()->where('status', '<>', '3');
+        $query = CertificateOriginComDec::query();
 
 
 
@@ -1485,7 +1485,7 @@ class teamController extends Controller
         $data['title'] = "Reports Management";
         $data['page'] = "Reports Management";
         $data['pageIntro'] = "Reports Edit";
-        $data['CertificateOriginComDec'] = CertificateOriginComDec::where('id', $id)->where('status', '3')->first();
+        $data['CertificateOriginComDec'] = CertificateOriginComDec::where('id', $id)->where('status', '2')->first();
         if (!$data['CertificateOriginComDec']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
         }
@@ -1568,7 +1568,7 @@ class teamController extends Controller
         $data['pageIntro'] = "Certificate origin  IP";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
-        $query = CertificateOriginComDecFormIp::query()->where('status', '<>', '3');
+        $query = CertificateOriginComDecFormIp::query();
 
 
 
@@ -1705,7 +1705,7 @@ class teamController extends Controller
         $data['title'] = "Certificate origin  IP";
         $data['page'] = "Certificate origin  IP ";
         $data['pageIntro'] = "Certificate origin  IP Edit";
-        $data['CertificateOriginComDecFormIp'] = CertificateOriginComDecFormIp::where('id', $id)->where('status', '3')->first();
+        $data['CertificateOriginComDecFormIp'] = CertificateOriginComDecFormIp::where('id', $id)->where('status', '2')->first();
         //  dd($data['CertificateOriginComDecFormIp']);
         if (!$data['CertificateOriginComDecFormIp']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
@@ -1790,7 +1790,7 @@ class teamController extends Controller
         $data['pageIntro'] = "Certificate origin  A";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
-        $query = CertificateOriginComDecFormA::query()->where('status', '<>', '3');
+        $query = CertificateOriginComDecFormA::query();
 
 
 
@@ -1927,7 +1927,7 @@ class teamController extends Controller
         $data['title'] = "Certificate origin  A";
         $data['page'] = "Certificate origin  A";
         $data['pageIntro'] = "Certificate origin  A Edit";
-        $data['CertificateOriginComDecFormA'] = CertificateOriginComDecFormA::where('id', $id)->where('status', '3')->first();
+        $data['CertificateOriginComDecFormA'] = CertificateOriginComDecFormA::where('id', $id)->where('status', '2')->first();
         if (!$data['CertificateOriginComDecFormA']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
         }
@@ -2011,14 +2011,20 @@ class teamController extends Controller
         $data['pageIntro'] = "Certificate origin  A";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
-        $query = CommercialInvoice::query()->where('status', '<>', '3');
+        $query = CommercialInvoice::query();
 
 
+        if (isset($request->InvoiceNUmber) && !empty($request->InvoiceNUmber)) {
+            $invoice = (int)$request->input('InvoiceNUmber');
+            $query->where('id', $invoice);
+        }
 
         if (isset($request->status) && !empty($request->status)) {
             $statusMapping = [
                 'Active' => 1,
+                'Pending' => 0,
                 'Resubmit' => 2,
+                'Completed' => 3,
 
             ];
             $statusString = $request->status;
@@ -2446,7 +2452,7 @@ class teamController extends Controller
         $data['pageIntro'] = "Certificate origin  A Edit";
         // Fetch the main commercial invoice data
         // Fetch the CommercialInvoice and convert it to an array if it exists
-        $invoice = CommercialInvoice::where('id', $id)->where('status','3')->first();
+        $invoice = CommercialInvoice::where('id', $id)->where('status','2')->first();
         if (!$invoice) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
         }
@@ -2869,7 +2875,7 @@ class teamController extends Controller
 
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
-        $query = PackingList::query()->where('status', '<>', '3');
+        $query = PackingList::query();
 
 
         if (isset($request->teamMember) && !empty($request->teamMember)) {

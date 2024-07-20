@@ -15,10 +15,7 @@
            
                 <div class="col-xl-2 col-sm-6 col-6 mt-6 pt-2 ">
                         <div class="d-flex justify-content-start align-items-start">
-                            <a href="{{ URL::to('/panel/report/commercial-invoice/add') }}" class="" target="_blank">
-                            <button type="submit" class="btn btn report-tab-active"
-                                id="filter-reprot-btn">Add Report</button>
-                            </a>
+                          
 
                         </div>
                     </div>
