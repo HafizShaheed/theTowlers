@@ -136,9 +136,9 @@
                                     <span>{{$value->certificate_origin_com_decs_from_a_invoices ?? ""}}</span>
                                 </td>
                                 <?php
-                                 if (isset($certificate_origin_com_decs_from_a_invoices->team_user_id)) {
+                                 if (isset($value->team_user_id)) {
                                     # code...
-                                    $memberName = App\Models\team\TeamUser::where('id',$certificate_origin_com_decs_from_a_invoices->team_user_id)->first('user_name');
+                                    $memberName = App\Models\team\TeamUser::where('id',$value->team_user_id)->first('user_name');
                                 }
                                 ?>
                                 <td><span>{{  $memberName->user_name ?? 'N/A' }}</span></td>

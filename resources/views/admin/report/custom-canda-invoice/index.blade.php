@@ -136,9 +136,9 @@
                                     <span>{{$value->canada_customer_invoice ?? ""}}</span>
                                 </td>
                                 <?php
-                                 if (isset($canada_customer_invoice->team_user_id)) {
+                                 if (isset($value->team_user_id)) {
                                     # code...
-                                    $memberName = App\Models\team\TeamUser::where('id',$canada_customer_invoice->team_user_id)->first('user_name');
+                                    $memberName = App\Models\team\TeamUser::where('id',$value->team_user_id)->first('user_name');
                                 }
                                 ?>
                                 <td><span>{{  $memberName->user_name ?? 'N/A' }}</span></td>

@@ -136,9 +136,9 @@
                                     <span>{{$value->exporter_textile_declearation_invoices ?? ""}}</span>
                                 </td>
                                 <?php
-                                 if (isset($exporter_textile_declearation_invoices->team_user_id)) {
+                                 if (isset($value->team_user_id)) {
                                     # code...
-                                    $memberName = App\Models\team\TeamUser::where('id',$exporter_textile_declearation_invoices->team_user_id)->first('user_name');
+                                    $memberName = App\Models\team\TeamUser::where('id',$value->team_user_id)->first('user_name');
                                 }
                                 ?>
                                 <td><span>{{  $memberName->user_name ?? 'N/A' }}</span></td>

@@ -200,10 +200,12 @@
                                 <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/commercial-invoice/commercial_invoice_by_pdf/'.base64_encode($value->id)) }}" class="" target="_blank" title="View Pdf">
                                     Related Invoice
                                 </a>
-                                <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/commercial-invoice/pdf_file_view/'.base64_encode($value->id)) }}" class="" target="_blank" title="View Pdf">
+                               
+                                <a class="btn btn-sm report-tab-active" style="font-size: 10px; {{ isset($value->pdf_upload_file_ic) || !empty($value->pdf_upload_file_ic) ?  'background-color: #2032ae !important;' : 'background-color: #45ae20 !important; pointer-events: none;  cursor: default; text-decoration: none;' }}" 
+                                    href="{{ URL::to('/panel-team//report/commercial-invoice/pdf_file_view/' . base64_encode($value->id)) }}"
+                                    class="" target="_blank" title="View Pdf">
                                     File View
                                 </a>
-
 
                                 </td>
                             </tr>

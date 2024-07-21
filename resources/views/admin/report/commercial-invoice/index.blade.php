@@ -84,12 +84,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-1 col-sm-6 col-6 mt-4 mt-md-0">
-                            <div class="d-flex justify-content-start align-items-start">
-                                <button type="submit" class="btn btn report-tab-active"
-                                    id="filter-reprot-btn">Filter</button>
-                            </div>
-                        </div>
+                      
                         <div class="col-xl-1 col-sm-6 col-6 mt-4 mt-md-0">
                             <div class="d-flex justify-content-start align-items-start">
                                 <button type="submit" class="btn btn report-tab-active"

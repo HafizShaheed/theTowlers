@@ -9,8 +9,19 @@
 <script src="{{URL::to('/public/admin/assets')}}/vendor/jqvmap/js/jquery.vmap.world.js"></script>
 <script src="{{URL::to('/public/admin/assets')}}/vendor/jqvmap/js/jquery.vmap.usa.js"></script>
 
+<script>
+    // Hide success message after 3 seconds
+    setTimeout(function() {
+        document.getElementById('successAlert').style.display = 'none';
+    }, 4000);
+
+    // Hide error message after 3 seconds
+    setTimeout(function() {
+        document.getElementById('errorAlert').style.display = 'none';
+    }, 4000);
+</script>
 <!-- Custom Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+  
 <script src="{{URL::to('/public/admin/assets')}}/js/custom.js"></script>
 <script src="{{URL::to('/public/admin/assets')}}/js/deznav-init.js"></script>
