@@ -635,15 +635,15 @@
                             $perValue = $CommercialInvoice['pcs_pack_pallet_per_value_' . $i] ?? '';
                             $perUnit = $CommercialInvoice['heading_pcs_pack_pallet_per_' . $i] ?? '';
                 
-                            if (is_numeric($perValue)) {
-                                $perValue = (float) $perValue;
-                                // Sum the quantities based on their units
-                                if (isset($perValueSum[$perUnit])) {
-                                    $perValueSum[$perUnit] += $perValue;
-                                } else {
-                                    $perValueSum[$perUnit] = $perValue;
-                                }
-                            }
+                            // if (is_numeric($perValue)) {
+                            //     $perValue = (float) $perValue;
+                            //     // Sum the quantities based on their units
+                            //     if (isset($perValueSum[$perUnit])) {
+                            //         $perValueSum[$perUnit] += $perValue;
+                            //     } else {
+                            //         $perValueSum[$perUnit] = $perValue;
+                            //     }
+                            // }
                             
                             // gr total and net total second column
                             if (isset($CommercialInvoice['gross_weight_second_column_value_' . $i])) {
@@ -769,7 +769,7 @@
                                     <div style="font-size:8px;"> 
                                         @php
                                         $pallets = $palltesValueSum;
-                                        $perValues = $perValueSum;
+                                        // $perValues = $perValueSum;
                                         $quantities = $quantitySums;
                                         // var_dump($quantities);
                                         // die;
