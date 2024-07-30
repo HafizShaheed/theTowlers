@@ -135,7 +135,7 @@
                                 <td>
                                     <span>{{$value->certificate_origin_no627120_invoices ?? ""}}</span>
                                 </td>
-                                <?phps
+                                <?php
                                  if (isset($value->team_user_id)) {
                                     # code...
                                     $memberName = App\Models\team\TeamUser::where('id',$value->team_user_id)->first('user_name');
