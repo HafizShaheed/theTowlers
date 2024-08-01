@@ -137,7 +137,7 @@
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-12">
                         <div class="card card-custom ">
 
@@ -150,7 +150,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                   <!-- ============================================================== -->
                   @if(session('success'))
                     <div class="alert alert-success" id="successAlert">

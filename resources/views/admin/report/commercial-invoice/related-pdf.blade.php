@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h2>Filter:</h2>
+         {{-- <h2>Filter:</h2> --}}
         <div class="card">
             <div class="card-body justify-content-start">
            
@@ -51,7 +51,7 @@
             <div class="card-body p-0">
                 <div class="table-responsive active-projects style-1">
                     <div class="tbl-caption">
-                        <h4 class="heading mb-0">Reprts List</h4>
+                        <h4 class="heading mb-0">Invoice List</h4>
                         <div>
 
 

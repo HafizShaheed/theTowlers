@@ -25,7 +25,7 @@
 
 <div class="row"></div>
 <div class="col-12">
-    <h2>Filter:</h2>
+     {{-- <h2>Filter:</h2> --}}
 
 
     <div class="card">

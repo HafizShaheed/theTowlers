@@ -38,7 +38,8 @@
 					<a href="../index.html"><img  src="{{URL::to('/public/admin/assets')}}/images/logo-full.png" class="mb-3 logo-dark" alt=""></a>
 					<a href="../index.html"><img  src="{{URL::to('/public/admin/assets')}}/images/logi-white.png" class="mb-3 logo-light" alt=""></a>
 
-					<p>Towellers is at the forefront of redefining textile manufacturing in Pakistan. Established in 1973, Towellers has always prioritized a seamless production process that guarantees exceptional quality across its diverse product range.</p>
+					{{-- <p>Towellers is at the forefront of redefining textile manufacturing in Pakistan. Established in 1973, Towellers has always prioritized a seamless production process that guarantees exceptional quality across its diverse product range.</p> --}}
+					<p>{{ strtoupper('Excellence in every thread') }}</p>
 				</div>
 				<div class="login-media text-center">
 					<!-- <img  src="{{URL::to('/public/admin/assets')}}/images/login.png" alt=""> -->
@@ -49,7 +50,7 @@
 			<div class="login-form">
 				<div class="text-center">
 					<h3 class="title">Sign In</h3>
-					<p>Sign in to your account to start using The Towellers Team  Dahsboard</p>
+					{{-- <p>Sign in to your account to start using The Towellers Team  Dahsboard</p> --}}
                     @if(session()->has('success'))
                    <div class="alert alert-success">
                        {{ session()->get('success') }}
@@ -65,11 +66,11 @@
                   @csrf
 					<div class="mb-4">
 						<label class="mb-1 text-dark">Email</label>
-						<input type="email" class="form-control form-control" placeholder="hello@example.com" name="team_email">
+						<input type="email" class="form-control form-control" placeholder="Please Enter Email" name="team_email">
 					</div>
 					<div class="mb-4 position-relative">
 						<label class="mb-1 text-dark">Password</label>
-						<input type="password" id="dz-password" class="form-control form-control" placeholder="123456" name="password">
+						<input type="password" id="dz-password" class="form-control form-control" placeholder="Please Enter Password"  name="password">
 						<span class="show-pass eye">
 
 							<i class="fa fa-eye-slash"></i>

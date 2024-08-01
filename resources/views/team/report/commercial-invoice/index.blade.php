@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h2>Filter:</h2>
+         {{-- <h2>Filter:</h2> --}}
         <div class="card">
             <div class="card-body justify-content-start">
                 <form id="" action="{{route('team.report_List_commercial_invoice')}}" class="row d-flex justify-content-between align-items-end">
@@ -73,7 +73,7 @@
                         <div class="d-flex justify-content-start align-items-start">
                             <a href="{{ URL::to('/panel-team/report/commercial-invoice/add') }}" class="" target="_blank">
                             <button type="submit" class="btn btn report-tab-active"
-                                id="filter-reprot-btn">Add Report</button>
+                                id="filter-reprot-btn">Add  Invoice</button>
                             </a>
 
                         </div>
@@ -110,7 +110,7 @@
             <div class="card-body p-0">
                 <div class="table-responsive active-projects style-1">
                     <div class="tbl-caption">
-                        <h4 class="heading mb-0">Reprts List</h4>
+                        <h4 class="heading mb-0">Invoice List</h4>
                         <div>
 
 

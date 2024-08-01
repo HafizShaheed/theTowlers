@@ -138,7 +138,7 @@
                                         <label for="clientStatusCheck" class="form-label">Status<span
                                                 class="text-danger">*</span></label>
                                         <input type="checkbox" class="form-check-input" id="clientStatusCheck"
-                                            name="clientStatusCheck"  checked />
+                                            name="clientStatusCheck"  />
                                     </div>
                                 </div>
                             </div>
