@@ -829,9 +829,9 @@ class adminController extends Controller
     //==================== exporter_textile_declearation_invioce start ======================//
     function report_List_exporter_textile_declearation_invoice(Request $request)
     {
-        $data['title'] = "Canada Custom Invoice";
-        $data['page'] = "Canada Custom Invoice";
-        $data['pageIntro'] = "Canada Custom Invoice";
+        $data['title'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
+        $data['page'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
+        $data['pageIntro'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
 
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
@@ -912,7 +912,7 @@ class adminController extends Controller
         $output = $dompdf->output();
 
         // Generate PDF file name
-        $pdfName = $id . now() . '-Exporter-Textile-Declearation-invoice.pdf';
+        $pdfName = $id . now() . '-EXPORTERS-TEXTILE-DECLARATION-OF-COUNTRY-OF-ORIGIN-invoice.pdf';
 
         // Output the PDF as stream
 
@@ -924,9 +924,9 @@ class adminController extends Controller
     function add_exporter_textile_declearation_invoice()
     {
 
-        $data['title'] = "Canada Custom Invoicet";
-        $data['page'] = "Canada Custom Invoice";
-        $data['pageIntro'] = "Canada Custom Invoice Add";
+        $data['title'] = "ADD | EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
+        $data['page'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
+        $data['pageIntro'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
         return view('admin.report.exporter-textile-declearation.add', $data);
@@ -980,9 +980,9 @@ class adminController extends Controller
 
     function edit_exporter_textile_declearation_invoice($id)
     {
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
-        $data['pageIntro'] = "Reports Edit";
+        $data['title'] = "EDIT | EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
+        $data['page'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
+        $data['pageIntro'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
         $data['ExporterTextileDeclearation'] = ExporterTextileDeclearation::where('id', $id)->first();
         if (!$data['ExporterTextileDeclearation']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
@@ -1042,8 +1042,8 @@ class adminController extends Controller
 
     function view_exporter_textile_declearation_invoice($id)
     {
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
+        $data['title'] = "VIEW EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
+        $data['page'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
         $data['pageIntro'] = "Reports View";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         $data['ExporterTextileDeclearation'] = ExporterTextileDeclearation::where('id', $id)->first();
@@ -1055,8 +1055,8 @@ class adminController extends Controller
 
     function activity_exporter_textile_declearation_invoice($id)
     {
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
+        $data['title'] = "ACTIVITY | EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
+        $data['page'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
 
         $data['pageIntro'] = "Reports Activity";
         $data['getAllExporterTextileDeclearation'] = ExporterTextileDeclearationHistory::where('exporter_textile_declearation_id', $id)->get();

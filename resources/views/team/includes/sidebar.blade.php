@@ -46,15 +46,24 @@
                     <span class="nav-text">FORMS</span>
                 </a>
                 <ul aria-expanded="true">
+                    <li><a class="nav-text" href="{{ route('team.report_List_exporter_textile_declearation_invoice') }}"
+                        class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">
+                        EXPORTERS TEXTILE 
+                        <sub>
+                            DECLARATION OF COUNTRY OF ORIGIN
+                        </sub>
+                        </a>
+                    </li>
+                    <li><a class="nav-text" href="{{ route('team.report_List_certificate_origins_invoice') }}"
+                        class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN - TMA</a></li>
+
                     <li> <a class="nav-text" href="{{ route('team.report_List_custom_canda_invoice') }}"
                             class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">
                             CANADA INVOICE</a></li>
                             <li><a class="nav-text" href="{{ route('team.report_List_form_59_a_invoice') }}"
                                 class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">Form 59 A INVOICE</a></li>
-                    <li><a class="nav-text" href="{{ route('team.report_List_exporter_textile_declearation_invoice') }}"
-                        class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">EXPORTER'S TEXTILE DECLARATION</a></li>
-                    <li><a class="nav-text" href="{{ route('team.report_List_certificate_origins_invoice') }}"
-                        class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE ORIGIN</a></li>
+                 
+                        
                     <li><a class="nav-text" href="{{ route('team.report_List_certificate_origin_no627120_invoice') }}"
                         class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE ORIGIN 627120</a></li>
                     <li><a class="nav-text" href="{{ route('team.report_List_certificate_origin_com_dec_invoice') }}"
