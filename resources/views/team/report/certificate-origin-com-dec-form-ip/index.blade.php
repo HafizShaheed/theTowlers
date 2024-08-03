@@ -162,7 +162,7 @@
                                     <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/certificate-origin-com-dec-from-ip/view/'.$value->id) }}"  target="" title="View Reports">
                                         View
                                     </a>
-                                    @if ( $value->status ==2)
+                                    @if ( $value->status ==2  || $value->status ==1)
                                     <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel-team/report/certificate-origin-com-dec-from-ip/edit/'.$value->id) }}"  target="" title="Edit Reports">
                                         Edit
                                     </a>

@@ -175,7 +175,7 @@
                                                 class="" target="" title="View Reports">
                                                 View
                                             </a>
-                                            @if ( $value->status ==2)
+                                            @if ( $value->status ==2  || $value->status ==1)
                                             <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
                                                 href="{{ URL::to('/panel-team/report/packing-list/edit/' . $value->id) }}"
                                                 class="" target="" title="Edit Reports">
