@@ -226,20 +226,25 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) <div class="col-sm-4 mb-4">
+                    @for($i=1; $i <= 6; $i++) <div class="col-sm-3 mb-4">
                         <label for="" class="form-label">Number of Packages </label>
                         <input type="text" class="form-control custom-input"
                             id="number_of_packages_nombre_de_coils_{{ $i }}"
                             name="number_of_packages_nombre_de_coils_{{ $i }}" value="{{ $editCanadaCustomerInvoiceFrom->{'number_of_packages_nombre_de_coils_' . $i} }}">
                 </div>
 
-                <div class="col-sm-4 mb-4">
+                <div class="col-sm-3 mb-4">
                     <label for="quantity_{{ $i }}" class="form-label">Quantity</label>
                     <input type="number" step="any" class="form-control custom-input" id="quantity_{{ $i }}"
                         name="quantity_{{ $i }}" value="{{ $editCanadaCustomerInvoiceFrom->{'quantity_' . $i} }}">
                 </div>
+                <div class="col-sm-3 mb-4">
+                    <label for="quantity_unit_{{ $i }}" class="form-label">Quantity</label>
+                    <input type="text" step="any" class="form-control custom-input" id="quantity_unit_{{ $i }}"
+                        name="quantity_unit_{{ $i }}" value="{{ $editCanadaCustomerInvoiceFrom->{'quantity_unit_' . $i} }}">
+                </div>
 
-                <div class="col-sm-4 mb-4">
+                <div class="col-sm-3 mb-4">
                     <label for="" class="form-label">Unit Price </label>
                     <input type="number" step="any" class="form-control custom-input" id="unit_price_{{ $i }}"
                         name="unit_price_{{ $i }}" value="{{ $editCanadaCustomerInvoiceFrom->{'unit_price_' . $i} }}">

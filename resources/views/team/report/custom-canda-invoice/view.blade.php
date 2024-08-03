@@ -224,7 +224,7 @@
                 </div>
                 <div class="col-sm-4 mb-4">
                     <label for="quantity_unit_{{ $i }}" class="form-label">Quantity</label>
-                    <input type="number" step="any" class="form-control custom-input" id="quantity_unit_{{ $i }}"
+                    <input type="text" step="any" class="form-control custom-input" id="quantity_unit_{{ $i }}"
                         name="quantity_unit_{{ $i }}" disabled readonly value="{{ $editCanadaCustomerInvoiceFrom->{'quantity_' . $i} }}">
                 </div>
 
