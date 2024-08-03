@@ -67,7 +67,7 @@
 
 
                 <h4 class="card-title"> {{strtoupper("Certificate origins Combined Declaration Add")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Certificate origins Combined Declaration </span>
+                    {{-- <span style="color:darkgray; font-size:12px;">Certificate origins Combined Declaration </span> --}}
                 </h4>
                 <div class="row">
                     <div class="col-sm-3 mb-3">

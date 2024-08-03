@@ -67,7 +67,7 @@
 
 
                 <h4 class="card-title"> {{strtoupper("Canada Custom Invoice Edit")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Canada Custom Invoice</span>
+                    {{-- <span style="color:darkgray; font-size:12px;">Canada Custom Invoice</span> --}}
                 </h4>
                 <div class="row">
                
@@ -222,6 +222,11 @@
                     <input type="number" step="any" class="form-control custom-input" id="quantity_{{ $i }}"
                         name="quantity_{{ $i }}" disabled readonly value="{{ $editCanadaCustomerInvoiceFrom->{'quantity_' . $i} }}">
                 </div>
+                <div class="col-sm-4 mb-4">
+                    <label for="quantity_unit_{{ $i }}" class="form-label">Quantity</label>
+                    <input type="number" step="any" class="form-control custom-input" id="quantity_unit_{{ $i }}"
+                        name="quantity_unit_{{ $i }}" disabled readonly value="{{ $editCanadaCustomerInvoiceFrom->{'quantity_' . $i} }}">
+                </div>
 
                 <div class="col-sm-4 mb-4">
                     <label for="" class="form-label">Unit Price </label>
@@ -238,7 +243,7 @@
                 <button type="button" class="btn btn report-tab-unactive" id="firm-prev-4">Cancel</button>
             </div>
             <div class="col-xl-6 d-flex justify-content-end">
-                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Submit</button>
+                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Save</button>
             </div>
         </div>
 

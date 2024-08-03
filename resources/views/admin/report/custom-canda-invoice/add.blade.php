@@ -67,7 +67,7 @@
 
 
                 <h4 class="card-title"> {{strtoupper("Canada Custom Invoice Add")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Canada Custom Invoice</span>
+                    {{-- <span style="color:darkgray; font-size:12px;">Canada Custom Invoice</span> --}}
                 </h4>
                 <div class="row">
                     <div class="col-sm-3 mb-3">
@@ -95,12 +95,12 @@
                     <div class="col-sm-3 mb-3">
                         <label for="vender_name" class="form-label">Vender Name</label>
                         <input type="text" class="form-control custom-input" id="vender_name" name="vender_name"
-                            value="">
+                            value="TOWELLERS LIMITED">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="vender_address" class="form-label">Vender Address</label>
                         <input type="text" class="form-control custom-input" id="vender_address" name="vender_address"
-                            value="">
+                            value="WS 30/31, FB AREA , KARACHI, PAKISTAN">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="vender_nom_et_adresse" class="form-label">Vender Nom et Adresse</label>
@@ -252,7 +252,7 @@
                 <button type="button" class="btn btn report-tab-unactive" id="firm-prev-4">Cancel</button>
             </div>
             <div class="col-xl-6 d-flex justify-content-end">
-                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Submit</button>
+                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Save</button>
             </div>
         </div>
 

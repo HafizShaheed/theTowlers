@@ -71,7 +71,7 @@
                 </form>
                 <div class="col-xl-2 col-sm-6 col-6 mt-6 pt-2 ">
                         <div class="d-flex justify-content-start align-items-start">
-                            <a href="{{ URL::to('/panel-team/report/commercial-invoice/add') }}" class="" target="_blank">
+                            <a href="{{ URL::to('/panel-team/report/commercial-invoice/add') }}" class="" target="">
                             <button type="submit" class="btn btn report-tab-active"
                                 id="filter-reprot-btn">Add  Invoice</button>
                             </a>
@@ -177,12 +177,12 @@
                               
 
 
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/commercial-invoice/view/'.$value->id) }}" class="" target="_blank" title="View Reports">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/commercial-invoice/view/'.$value->id) }}" class="" target="" title="View Reports">
                                         View
                                     </a>
                                  
                                         @if ( $value->status ==2)
-                                        <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel-team/report/commercial-invoice/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">
+                                        <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel-team/report/commercial-invoice/edit/'.$value->id) }}" class="" target="" title="Edit Reports">
                                         Edit
                                     </a>
                                         @endif
@@ -191,19 +191,19 @@
                                         Done
                                     </button>
                                     <span></span>
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/commercial-invoice/generate_commercial_invoice_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/commercial-invoice/generate_commercial_invoice_PDF/'.$value->id) }}" class="" target="" title="View Pdf">
                                     PDF
                                 </a>
 
 
                              
-                                <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/commercial-invoice/commercial_invoice_by_pdf/'.base64_encode($value->id)) }}" class="" target="_blank" title="View Pdf">
+                                <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel-team/report/commercial-invoice/commercial_invoice_by_pdf/'.base64_encode($value->id)) }}" class="" target="" title="View Pdf">
                                     Related Invoice
                                 </a>
                                
                                 <a class="btn btn-sm report-tab-active" style="font-size: 10px; {{ isset($value->pdf_upload_file_ic) || !empty($value->pdf_upload_file_ic) ?  'background-color: #2032ae !important;' : 'background-color: #45ae20 !important; pointer-events: none;  cursor: default; text-decoration: none;' }}" 
                                     href="{{ URL::to('/panel-team//report/commercial-invoice/pdf_file_view/' . base64_encode($value->id)) }}"
-                                    class="" target="_blank" title="View Pdf">
+                                    class="" target="" title="View Pdf">
                                     File View
                                 </a>
 

@@ -353,7 +353,7 @@
                             </td>
                             <td style="text-align: left;">
                                 <div style="height: 39px;">
-                                    {{ $quantity }}
+                                    {{ $quantity }} {{ $CanadaCustomerInvoiceFrom["quantity_unit_" . $i] ?? '' }}
                                 </div>
                             </td>
                         </tr>

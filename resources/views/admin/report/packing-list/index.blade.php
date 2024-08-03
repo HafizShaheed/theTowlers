@@ -68,7 +68,7 @@
                     </form>
                     <div class="col-xl-2 col-sm-6 col-6 mt-6 pt-2 ">
                         <div class="d-flex justify-content-start align-items-start">
-                            <a href="{{ URL::to('/panel/report/packing-list/add') }}" class="" target="_blank">
+                            <a href="{{ URL::to('/panel/report/packing-list/add') }}" class="" target="">
                                 <button type="submit" class="btn btn report-tab-active" id="filter-reprot-btn">Add
                                     Report</button>
                             </a>
@@ -176,12 +176,12 @@
 
                                             <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
                                                 href="{{ URL::to('/panel/report/packing-list/view/' . $value->id) }}"
-                                                class="" target="_blank" title="View Reports">
+                                                class="" target="" title="View Reports">
                                                 View
                                             </a>
                                             <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
                                                 href="{{ URL::to('/panel/report/packing-list/edit/' . $value->id) }}"
-                                                class="" target="_blank" title="Edit Reports">
+                                                class="" target="" title="Edit Reports">
                                                 Edit
                                             </a>
                                             <button class="btn btn-sm report-tab-active thirdpartyIdForForComplete"
@@ -192,14 +192,14 @@
                                             <span></span>
                                             <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
                                                 href="{{ URL::to('/panel/report/packing-list/generate_packing_list_PDF/' . $value->id) }}"
-                                                class="" target="_blank" title="View Pdf">
+                                                class="" target="" title="View Pdf">
                                                 PDF
                                             </a>
 
 
                                             <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
                                                 href="{{ URL::to('/panel/report/packing-list/activity/' . $value->id) }}"
-                                                class="" target="_blank" title="View Activity">
+                                                class="" target="" title="View Activity">
                                                 Activity
                                             </a>
                                         

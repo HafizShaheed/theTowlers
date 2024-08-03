@@ -204,12 +204,12 @@
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_total_pkg'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['total_pkg_value'] ?? '' }} </p>
+                                        {{ $CommercialInvoice['total_pkg_value'] ?? '------------' }} </p>
                                     <b
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_lc'] ?? '' }}#</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['lc_value'] ?? '' }}
+                                        {{ $CommercialInvoice['lc_value'] ?? '------------' }}
                                     </p>
 
                                 </div>
@@ -220,18 +220,18 @@
                                         style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $CommercialInvoice['heading_vessel'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['vessel_value'] ?? '' }}
+                                        {{ $CommercialInvoice['vessel_value'] ?? '------------' }}
                                     </p>
                                     <b
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_contract_no'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['contract_no_value'] ?? '' }}</p>
+                                        {{ $CommercialInvoice['contract_no_value'] ?? '------------' }}</p>
                                     <b
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_issue_date_lc'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['lc_issue_date_value'] ?? '' }}</p>
+                                        {{ $CommercialInvoice['lc_issue_date_value'] ?? '------------' }}</p>
 
                                 </div>
                             </td>
@@ -246,12 +246,12 @@
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_contract_date'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['contract_date_value'] ?? '' }} </p>
+                                        {{ $CommercialInvoice['contract_date_value'] ?? '------------' }} </p>
                                     <b
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_pyment_terms'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['pyment_terms_value'] ?? '' }} </p>
+                                        {{ $CommercialInvoice['pyment_terms_value'] ?? '------------' }} </p>
 
                                 </div>
                             </td>
@@ -273,16 +273,16 @@
                             <td colspan="2">
                                 <div style=" width: 100%; text-align:center;">
                                     <p style="border-bottom:.5px solid #000; display:block; margin:0;">
-                                        {{ $CommercialInvoice['drawn_at_value'] ?? '' }}</p>
+                                        {{ $CommercialInvoice['drawn_at_value'] ?? '------------' }}</p>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['drawn_under_value'] ?? '' }}</p>
+                                        {{ $CommercialInvoice['drawn_under_value'] ?? '------------' }}</p>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['port_of_loading_value'] ?? '' }}</p>
+                                        {{ $CommercialInvoice['port_of_loading_value'] ?? '------------' }}</p>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['port_of_discharge_value'] ?? '' }}</p>
+                                        {{ $CommercialInvoice['port_of_discharge_value'] ?? '------------' }}</p>
 
                                 </div>
                             </td>
@@ -307,16 +307,16 @@
                             <td>
                                 <p
                                     style="border-right:.5px solid #000 ;  margin: 0px; text-align: center; width: 130px;">
-                                    {{ $CommercialInvoice['container_no_value'] ?? '' }}</p>
+                                    {{ $CommercialInvoice['container_no_value'] ?? '------------' }}</p>
                             </td>
                             <td>
                                 <p
                                     style="border-right:.5px solid #000 ;  margin: 0px; text-align: center; width: 60px; ">
-                                    {{ $CommercialInvoice['currency_value'] ?? '' }}</p>
+                                    {{ $CommercialInvoice['currency_value'] ?? '------------' }}</p>
                             </td>
                             <td>
                                 <p style="  margin: 0px; text-align: center;">
-                                    {{ $CommercialInvoice['term_of_delivery_value'] ?? '' }}</p>
+                                    {{ $CommercialInvoice['term_of_delivery_value'] ?? '------------' }}</p>
                             </td>
                         </tr>
                     </table>

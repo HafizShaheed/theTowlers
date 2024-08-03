@@ -146,7 +146,7 @@
                                                                     <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2 text-start">{{$License->{'date_of_expiry_'.$i} }}</td>
                                                                     <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2 text-start">
                                                                         @if(!empty($License->{'licenses_upload_file_'.$i}))
-                                                                            <a href="{{ URL::to('/panel/report/firm_file_download'.'/'.base64_encode($License->id).'/'.$i) }}" target="_blank" class="download-license-btn" style=" width: 100px;  text-align: center; ">Download </a>
+                                                                            <a href="{{ URL::to('/panel/report/firm_file_download'.'/'.base64_encode($License->id).'/'.$i) }}" target="" class="download-license-btn" style=" width: 100px;  text-align: center; ">Download </a>
                                                                         @else
                                                                             <!-- Handle if document doesn't exist -->
                                                                             <a  class="download-license-btn" style=" width: 200px;  text-align: center; ">N/A</a>
@@ -154,7 +154,7 @@
                                                                     </td>
                                                                     <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2 text-end">
                                                                         @if(!empty($License->{'licenses_upload_file_'.$i}))
-                                                                            <a href="{{ URL::to('/panel/report/firm_file_view'.'/'.base64_encode($License->id).'/'.$i) }}" target="_blank" class="download-license-btn" style=" width: 200px;  text-align: center; ">View</a>
+                                                                            <a href="{{ URL::to('/panel/report/firm_file_view'.'/'.base64_encode($License->id).'/'.$i) }}" target="" class="download-license-btn" style=" width: 200px;  text-align: center; ">View</a>
                                                                         @else
                                                                             <!-- Handle if document doesn't exist -->
                                                                             <a  class="download-license-btn" style=" width: 200px;  text-align: center; ">N/A</a>
@@ -190,7 +190,7 @@
                                                         <!-- <tr>
                                                             <td style="text-align-last: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" colspan="4" class="col-md-3">
                                                             <a href="{{ URL::to('/panel/report/firm_file_download'.'/'.base64_encode($FirmBackground->id)) }}" class="download-license-btn" style="display: inline-block; width: 200px;  text-align: center; ">Download Licenses</a>
-                                                                <a href="{{ URL::to('/panel/report/firm_file_view'.'/'.base64_encode($FirmBackground->id)) }}" target="_blank" class="download-license-btn" style="display: inline-block; width: 200px;  text-align: center; ">View Licenses</a>
+                                                                <a href="{{ URL::to('/panel/report/firm_file_view'.'/'.base64_encode($FirmBackground->id)) }}" target="" class="download-license-btn" style="display: inline-block; width: 200px;  text-align: center; ">View Licenses</a>
                                                             </td>
 
                                                         </tr> -->
@@ -494,7 +494,7 @@
                                                                     <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2 text-start">{{$Document->{'document_date_of_expiry_'.$i} }}</td>
                                                                     <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2 text-start">
                                                                         @if(!empty($Document->{'document_upload_file'.$i}))
-                                                                            <a href="{{ URL::to('/panel/report/document_file_download'.'/'.base64_encode($Document->id).'/'.$i) }}" target="_blank" class="download-license-btn" style=" width: 100px;  text-align: center; ">Download </a>
+                                                                            <a href="{{ URL::to('/panel/report/document_file_download'.'/'.base64_encode($Document->id).'/'.$i) }}" target="" class="download-license-btn" style=" width: 100px;  text-align: center; ">Download </a>
                                                                         @else
                                                                             <!-- Handle if document doesn't exist -->
                                                                             <a  class="download-license-btn" style=" width: 200px;  text-align: center; ">N/A</a>
@@ -502,7 +502,7 @@
                                                                     </td>
                                                                     <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="col-md-2 text-end">
                                                                         @if(!empty($Document->{'document_upload_file'.$i}))
-                                                                            <a href="{{ URL::to('/panel/report/document_file_view'.'/'.base64_encode($Document->id).'/'.$i) }}" target="_blank" class="download-license-btn" style=" width: 200px;  text-align: center; ">View</a>
+                                                                            <a href="{{ URL::to('/panel/report/document_file_view'.'/'.base64_encode($Document->id).'/'.$i) }}" target="" class="download-license-btn" style=" width: 200px;  text-align: center; ">View</a>
                                                                         @else
                                                                             <!-- Handle if document doesn't exist -->
                                                                             <a  class="download-license-btn" style=" width: 200px;  text-align: center; ">N/A</a>
@@ -585,7 +585,7 @@
                                                         <td style=" text-align-last: center; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" colspan="2"  class="col-md-4">
                                                         <a href="{{ URL::to('/panel/report/onGround_file_download'.'/'. base64_encode($OnGroundVerification->id)) }}" class="download-license-btn" style="display: inline-block; width: 200px;  text-align: center; ">Download PDF or Image</a>
 
-                                                        <a href="{{ URL::to('/panel/report/onGround_file_view'.'/'. base64_encode($OnGroundVerification->id)) }}" target="_blank" class="download-license-btn" style="display: inline-block; width: 200px;text-align: center; ">View Report</a>
+                                                        <a href="{{ URL::to('/panel/report/onGround_file_view'.'/'. base64_encode($OnGroundVerification->id)) }}" target="" class="download-license-btn" style="display: inline-block; width: 200px;text-align: center; ">View Report</a>
                                                     </td>
 
                                                     </tr>

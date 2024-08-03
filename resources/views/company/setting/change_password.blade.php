@@ -45,7 +45,7 @@
                         </div>
                         <div>
                             <a href="{{route('company.dashboard')}}" class="btn btn- light ms-1 report-tab-unactive">Cancel</a>
-                            <button type="submit" id="submit-client_password_setting" class="btn btn me-1 report-tab-active ">Submit</button>
+                            <button type="submit" id="submit-client_password_setting" class="btn btn me-1 report-tab-active ">Save</button>
                         </div>
 
                     </div>

@@ -232,9 +232,9 @@ class adminController extends Controller
     //==================== custom canada invioce start ======================//
     function report_List_custom_canda_invoice(Request $request)
     {
-        $data['title'] = "Canada Custom Invoice";
-        $data['page'] = "Canada Custom Invoice";
-        $data['pageIntro'] = "Canada Custom Invoice";
+        $data['title'] = "CANADA CUSTOMS INVOICE";
+        $data['page'] = "CANADA CUSTOMS INVOICE";
+        $data['pageIntro'] = "CANADA CUSTOMS INVOICE";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
         $query = CanadaCustomerInvoiceFrom::query();
@@ -366,9 +366,9 @@ class adminController extends Controller
     function add_custom_canda_invoice()
     {
 
-        $data['title'] = "Canada Custom Invoicet";
-        $data['page'] = "Canada Custom Invoice";
-        $data['pageIntro'] = "Canada Custom Invoice Add";
+        $data['title'] = "CANADA CUSTOMS INVOICE";
+        $data['page'] = "CANADA CUSTOMS INVOICE";
+        $data['pageIntro'] = "CANADA CUSTOMS INVOICE";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
         return view('admin.report.custom-canda-invoice.add', $data);
@@ -423,6 +423,8 @@ class adminController extends Controller
                 $canadaCustomerInvoiceFrom->{"number_of_packages_nombre_de_coils_$i"} = $request->input("number_of_packages_nombre_de_coils_$i");
                 // Quantity
                 $canadaCustomerInvoiceFrom->{"quantity_$i"} = $request->input("quantity_$i");
+                $canadaCustomerInvoiceFrom->{"quantity_unit_$i"} = $request->input("quantity_unit_$i");
+                
                 // Unit Price
 
                 $canadaCustomerInvoiceFrom->{"unit_price_$i"} = $request->input("unit_price_$i");
@@ -454,9 +456,9 @@ class adminController extends Controller
 
     function edit_custom_canda_invoice($id)
     {
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
-        $data['pageIntro'] = "Reports Edit";
+        $data['title'] = "CANADA CUSTOMS INVOICE";
+        $data['page'] = "CANADA CUSTOMS INVOICE";
+        $data['pageIntro'] = "CANADA CUSTOMS INVOICE";
         $data['editCanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::where('id', $id)->first();
         if (!$data['editCanadaCustomerInvoiceFrom']) {
             return back()->with('error', 'No Canada invoice history found for the provided ID.');
@@ -496,7 +498,10 @@ class adminController extends Controller
                 $canadaCustomerInvoiceFrom->{"number_of_packages_nombre_de_coils_$i"} = $request->input("number_of_packages_nombre_de_coils_$i");
                 // Quantity
                 $canadaCustomerInvoiceFrom->{"quantity_$i"} = $request->input("quantity_$i");
+                $canadaCustomerInvoiceFrom->{"quantity_unit_$i"} = $request->input("quantity_unit_$i");
+
                 // Unit Price
+                
                 $canadaCustomerInvoiceFrom->{"unit_price_$i"} = $request->input("unit_price_$i");
             }
             $canadaCustomerInvoiceFrom->commercial_invoice_id = $request->input('commercial_invoice_id');
@@ -527,8 +532,8 @@ class adminController extends Controller
 
     function view_custom_canda_invoice($id)
     {
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
+        $data['title'] = "CANADA CUSTOMS INVOICE";
+        $data['page'] = "CANADA CUSTOMS INVOICE";
         $data['pageIntro'] = "Reports View";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         $data['editCanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::where('id', $id)->first();
@@ -540,8 +545,8 @@ class adminController extends Controller
 
     function activity_custom_canda_invoice($id)
     {
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
+        $data['title'] = "CANADA CUSTOMS INVOICE";
+        $data['page'] = "CANADA CUSTOMS INVOICE";
 
         $data['pageIntro'] = "Reports Activity";
         $data['getAllCanadaInvoiceHistory'] = CanadaInvoiceHistory::where('canada_customer_invoice_from_id', $id)->get();
@@ -1559,9 +1564,9 @@ class adminController extends Controller
     //==================== certificate_origin_com_dec_invioce start ======================//
     function report_List_certificate_origin_com_dec_invoice(Request $request)
     {
-        $data['title'] = "Certificate origins Combined Declaration Invoice";
-        $data['page'] = "Certificate origins Combined Declaration Invoice";
-        $data['pageIntro'] = "Certificate origins Combined Declaration Invoice";
+        $data['title'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
+        $data['page'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
+        $data['pageIntro'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
 
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
@@ -1640,7 +1645,7 @@ class adminController extends Controller
         $output = $dompdf->output();
 
         // Generate PDF file name
-        $pdfName = $id . now() . '-Certificate-Origin-combine-declare-invoice.pdf';
+        $pdfName = $id . now() . '-Certificate-of-origin-Preferential-arrangements-among-developing-countries-negotiated-in-GATT.pdf';
 
         // Output the PDF as stream
 
@@ -1652,8 +1657,8 @@ class adminController extends Controller
     function add_certificate_origin_com_dec_invoice()
     {
 
-        $data['title'] = "Certificate origins Combined Declaration ";
-        $data['page'] = "Certificate origins Combined Declaration ";
+        $data['title'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
+        $data['page'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
         $data['pageIntro'] = "Certificate origins Combined Declaration ";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
@@ -1703,8 +1708,8 @@ class adminController extends Controller
 
     function edit_certificate_origin_com_dec_invoice($id)
     {
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
+        $data['title'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
+        $data['page'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
         $data['pageIntro'] = "Reports Edit";
         $data['CertificateOriginComDec'] = CertificateOriginComDec::where('id', $id)->first();
         if (!$data['CertificateOriginComDec']) {
@@ -1762,8 +1767,8 @@ class adminController extends Controller
 
     function view_certificate_origin_com_dec_invoice($id)
     {
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
+        $data['title'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
+        $data['page'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
         $data['pageIntro'] = "Reports View";
         $data['CertificateOriginComDec'] = CertificateOriginComDec::where('id', $id)->first();
         if (!$data['CertificateOriginComDec']) {
@@ -1776,8 +1781,8 @@ class adminController extends Controller
 
     function activity_certificate_origin_com_dec_invoice($id)
     {
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
+        $data['title'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
+        $data['page'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
 
         $data['pageIntro'] = "Reports Activity";
         $data['getAllCertificateOriginComDec'] = CertificateOriginComDecHistory::where('certificate_origin_com_dec_id', $id)->get();
@@ -1798,9 +1803,9 @@ class adminController extends Controller
     //==================== certificate_origin_com_dec_form_ip_invioce start ======================//
     function report_List_certificate_origin_com_dec_form_ip_invoice(Request $request)
     {
-        $data['title'] = "Certificate origin  IP";
-        $data['page'] = "Certificate origin  IP";
-        $data['pageIntro'] = "Certificate origin  IP";
+        $data['title'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
+        $data['page'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
+        $data['pageIntro'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
 
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
@@ -1880,7 +1885,7 @@ class adminController extends Controller
         $output = $dompdf->output();
 
         // Generate PDF file name
-        $pdfName = $id . now() . '-Certificate-Origin-combine-declare-IP-invoice.pdf';
+        $pdfName = $id . now() . '-Certificate-of-origin-Indonesia-Pakistan-Preferential-Trade-Agreement-(IPPTA).pdf';
 
         // Output the PDF as stream
 
@@ -1892,9 +1897,9 @@ class adminController extends Controller
     function add_certificate_origin_com_dec_form_ip_invoice()
     {
 
-        $data['title'] = "Certificate origin  IP Add";
-        $data['page'] = "Certificate origin  IP Add";
-        $data['pageIntro'] = "Certificate origin  IP Add";
+        $data['title'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
+        $data['page'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
+        $data['pageIntro'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
         return view('admin.report.certificate-origin-com-dec-form-ip.add', $data);
@@ -2006,9 +2011,9 @@ class adminController extends Controller
 
     function view_certificate_origin_com_dec_form_ip_invoice($id)
     {
-        $data['title'] = "Certificate origin  IP  View";
-        $data['page'] = "Certificate origin  IP  View";
-        $data['pageIntro'] = "Certificate origin  IP  View";
+        $data['title'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
+        $data['page'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
+        $data['pageIntro'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         $data['CertificateOriginComDecFormIp'] = CertificateOriginComDecFormIp::where('id', $id)->first();
         if (!$data['CertificateOriginComDecFormIp']) {
@@ -2019,10 +2024,10 @@ class adminController extends Controller
 
     function activity_certificate_origin_com_dec_form_ip_invoice($id)
     {
-        $data['title'] = "Certificate origin  IP  Activity";
-        $data['page'] = "Certificate origin  IP  Activity";
+        $data['title'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
+        $data['page'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
 
-        $data['pageIntro'] = "Certificate origin  IP  Activity";
+        $data['pageIntro'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
         $data['getAllCertificateOriginComDecFormIp'] = CertificateOriginComDecFormIpHistory::where('certificate_origin_com_dec_form_ip_id', $id)->get();
 
         if ($data['getAllCertificateOriginComDecFormIp']->isEmpty()) {
@@ -2284,9 +2289,9 @@ class adminController extends Controller
         // dd($request->all());
 
 
-        $data['title'] = "Certificate origin  A";
-        $data['page'] = "Certificate origin  A";
-        $data['pageIntro'] = "Certificate origin  A";
+        $data['title'] = "COMMERCIAL INVOICE";
+        $data['page'] = "COMMERCIAL INVOICE";
+        $data['pageIntro'] = "COMMERCIAL INVOICE";
 
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
@@ -2422,9 +2427,9 @@ class adminController extends Controller
     function add_commercial_invoice()
     {
 
-        $data['title'] = "Certificate origin  A";
-        $data['page'] = "Certificate origin  A";
-        $data['pageIntro'] = "Certificate origin  A Add";
+        $data['title'] = "COMMERCIAL INVOICE";
+        $data['page'] = "COMMERCIAL INVOICE";
+        $data['pageIntro'] = "COMMERCIAL INVOICE Add";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         return view('admin.report.commercial-invoice.add', $data);
     }
@@ -2731,9 +2736,9 @@ class adminController extends Controller
 
     function edit_commercial_invoice($id)
     {
-        $data['title'] = "Certificate origin  A";
-        $data['page'] = "Certificate origin  A";
-        $data['pageIntro'] = "Certificate origin  A Edit";
+        $data['title'] = "COMMERCIAL INVOICE";
+        $data['page'] = "COMMERCIAL INVOICE";
+        $data['pageIntro'] = "COMMERCIAL INVOICE Edit";
         // Fetch the main commercial invoice data
         $data['CommercialInvoice'] = CommercialInvoice::where('id', $id)->first()->toArray();
 
@@ -3098,9 +3103,9 @@ class adminController extends Controller
 
     function view_commercial_invoice($id)
     {
-        $data['title'] = "Certificate origin  A View";
-        $data['page'] = "Certificate origin  A View";
-        $data['pageIntro'] = "Certificate origin  A View";
+        $data['title'] = "COMMERCIAL INVOICE";
+        $data['page'] = "COMMERCIAL INVOICE";
+        $data['pageIntro'] = "COMMERCIAL INVOICE View";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         $data['CommercialInvoice'] = CommercialInvoice::where('id', $id)->first()->toArray();
 
@@ -3134,10 +3139,10 @@ class adminController extends Controller
 
     function activity_commercial_invoice($id)
     {
-        $data['title'] = "Certificate origin  A Activity";
-        $data['page'] = "Certificate origin  A Activity";
+        $data['title'] = "COMMERCIAL INVOICE";
+        $data['page'] = "COMMERCIAL INVOICE";
 
-        $data['pageIntro'] = "Certificate origin  A Activity";
+        $data['pageIntro'] = "COMMERCIAL INVOICE Activity";
         $data['getAllCommercialInvoice'] = CommercialInvoiceHistory::where('commercial_invoice_id', $id)->get();
 
         if ($data['getAllCommercialInvoice']->isEmpty()) {
@@ -3163,9 +3168,9 @@ class adminController extends Controller
         // dd($request->all());
 
 
-        $data['title'] = "Certificate origin  A";
-        $data['page'] = "Certificate origin  A";
-        $data['pageIntro'] = "Certificate origin  A";
+        $data['title'] = "PACKING SLIP";
+        $data['page'] = "PACKING SLIP";
+        $data['pageIntro'] = "PACKING SLIP";
 
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
@@ -3283,7 +3288,7 @@ class adminController extends Controller
         $output = $dompdf->output();
 
         // Generate PDF file name
-        $pdfName = $id . now() . '-packing-list.pdf';
+        $pdfName = $id . now() . '-packing-slip.pdf';
 
         // Output the PDF as stream
 
@@ -3295,9 +3300,9 @@ class adminController extends Controller
     function add_packing_list()
     {
 
-        $data['title'] = "Certificate origin  A";
-        $data['page'] = "Certificate origin  A";
-        $data['pageIntro'] = "Certificate origin  A Add";
+        $data['title'] = "PACKING SLIP";
+        $data['page'] = "PACKING SLIP";
+        $data['pageIntro'] = "PACKING SLIP";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         return view('admin.report.packing-list.add', $data);
     }
@@ -3604,9 +3609,9 @@ class adminController extends Controller
 
     function edit_packing_list($id)
     {
-        $data['title'] = "Certificate origin  A";
-        $data['page'] = "Certificate origin  A";
-        $data['pageIntro'] = "Certificate origin  A Edit";
+        $data['title'] = "PACKING SLIP";
+        $data['page'] = "PACKING SLIP";
+        $data['pageIntro'] = "PACKING SLIP";
         // Fetch the main commercial invoice data
         $data['PackingList'] = PackingList::where('id', $id)->first()->toArray();
 
@@ -3971,9 +3976,9 @@ class adminController extends Controller
 
     function view_packing_list($id)
     {
-        $data['title'] = "Certificate origin  A View";
-        $data['page'] = "Certificate origin  A View";
-        $data['pageIntro'] = "Certificate origin  A View";
+        $data['title'] = "PACKING SLIP";
+        $data['page'] = "PACKING SLIP";
+        $data['pageIntro'] = "PACKING SLIP";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         $data['PackingList'] = PackingList::where('id', $id)->first()->toArray();
 
@@ -4007,10 +4012,10 @@ class adminController extends Controller
 
     function activity_packing_list($id)
     {
-        $data['title'] = "Certificate origin  A Activity";
-        $data['page'] = "Certificate origin  A Activity";
+        $data['title'] = "PACKING SLIP";
+        $data['page'] = "PACKING SLIP";
 
-        $data['pageIntro'] = "Certificate origin  A Activity";
+        $data['pageIntro'] = "PACKING SLIP";
         $data['getAllPackingList'] = PackingListHistory::where('packing_list_id', $id)->get();
 
         if ($data['getAllPackingList']->isEmpty()) {

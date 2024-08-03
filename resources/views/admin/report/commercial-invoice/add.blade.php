@@ -67,7 +67,7 @@
 
 
                 <h4 class="card-title"> {{strtoupper("Commercial Invioce Add")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Commercial Invioce</span>
+                    {{-- <span style="color:darkgray; font-size:12px;">Commercial Invioce</span> --}}
                     <p style="color:rgb(236, 7, 7); font-size:12px;"> Note: Every Heading input field can be change according to the requirement </p>
                 </h4>
                 <div class="row">
@@ -75,6 +75,9 @@
                         <input type="text" style="background-color: #616161; color:#000; font-weight: 700" class="form-control custom-input mb-1" id="heading_invioce" name="heading_invioce" value="INVOICE. NO" style="font-weight: bold; color: #000;">
                         <input type="text" class="form-control custom-input" id="commercial_invoice" name="commercial_invoice"
                             value="">
+                            <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mt-2" id="heading_dated" style="font-weight: bold; color: #000;" name="heading_dated" value="DATED">
+                            <input type="text" class="form-control custom-input mt-1" id="dated" name="dated"
+                                value="">
                     </div>
                     
                  
@@ -105,6 +108,7 @@
                         <input type="text" class="form-control custom-input" id="country_ship_to" name="country_ship_to" value="">
                         <input type="text" class="form-control custom-input" id="phone_ship_to" name="phone_ship_to" value="">
                     </div>
+                   
                     <div class="col-sm-3 mb-3">
                         <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_f_i_no" style="font-weight: bold; color: #000;" name="heading_f_i_no" value="F.I NO / GD #">
                         <input type="text" class="form-control custom-input" id="value_f_i_no" name="value_f_i_no"
@@ -116,11 +120,7 @@
                         <input type="text" class="form-control custom-input" id="vessel_value" name="vessel_value"
                             value="">
                     </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_dated" style="font-weight: bold; color: #000;" name="heading_dated" value="DATED">
-                        <input type="text" class="form-control custom-input" id="dated" name="dated"
-                            value="">
-                    </div>
+                 
 
                     <div class="col-sm-3 mb-3">
                         <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_total_pkg"  style="font-weight: bold; color: #000;"  name="heading_total_pkg" value="TOTAL PKGS">
@@ -522,7 +522,7 @@
                 <button type="button" class="btn btn report-tab-unactive" id="firm-prev-4">Cancel</button>
             </div>
             <div class="col-xl-6 d-flex justify-content-end">
-                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Submit</button>
+                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Save</button>
             </div>
         </div>
 

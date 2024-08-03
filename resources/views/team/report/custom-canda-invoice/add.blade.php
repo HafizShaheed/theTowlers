@@ -67,7 +67,7 @@
 
 
                 <h4 class="card-title"> {{strtoupper("Canada Custom Invoice Add")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Canada Custom Invoice</span>
+                    {{-- <span style="color:darkgray; font-size:12px;">Canada Custom Invoice</span> --}}
                 </h4>
                 <div class="row">
                     <div class="col-sm-3 mb-3">
@@ -95,12 +95,12 @@
                     <div class="col-sm-3 mb-3">
                         <label for="vender_name" class="form-label">Vender Name</label>
                         <input type="text" class="form-control custom-input" id="vender_name" name="vender_name"
-                            value="">
+                            value="TOWELLERS LIMITED">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="vender_address" class="form-label">Vender Address</label>
                         <input type="text" class="form-control custom-input" id="vender_address" name="vender_address"
-                            value="">
+                            value="WS 30/31, FB AREA , KARACHI, PAKISTAN">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="vender_nom_et_adresse" class="form-label">Vender Nom et Adresse</label>
@@ -224,20 +224,24 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) <div class="col-sm-4 mb-4">
+                    @for($i=1; $i <= 6; $i++) <div class="col-sm-3 mb-4">
                         <label for="" class="form-label">Number of Packages </label>
                         <input type="text" class="form-control custom-input"
                             id="number_of_packages_nombre_de_coils_{{ $i }}"
                             name="number_of_packages_nombre_de_coils_{{ $i }}" value="">
                 </div>
 
-                <div class="col-sm-4 mb-4">
+                <div class="col-sm-3 mb-4">
                     <label for="quantity_{{ $i }}" class="form-label">Quantity</label>
                     <input type="number" step="any" class="form-control custom-input" id="quantity_{{ $i }}"
                         name="quantity_{{ $i }}" value="">
                 </div>
-
-                <div class="col-sm-4 mb-4">
+                <div class="col-sm-3 mb-4">
+                    <label for="quantity_unit_{{ $i }}" class="form-label">Quantity Unit</label>
+                    <input type="number" step="any" class="form-control custom-input" id="quantity_unit_{{ $i }}"
+                        name="quantity_unit_{{ $i }}" value="">
+                </div>
+                <div class="col-sm-3 mb-4">
                     <label for="" class="form-label">Unit Price </label>
                     <input type="number" step="any" class="form-control custom-input" id="unit_price_{{ $i }}"
                         name="unit_price_{{ $i }}" value="">
@@ -252,7 +256,7 @@
                 <button type="button" class="btn btn report-tab-unactive" id="firm-prev-4">Cancel</button>
             </div>
             <div class="col-xl-6 d-flex justify-content-end">
-                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Submit</button>
+                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Save</button>
             </div>
         </div>
 

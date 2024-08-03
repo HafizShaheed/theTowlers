@@ -510,7 +510,7 @@
                             </div>
                             <div class="col-xl-6 d-flex justify-content-end">
 
-                                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Submit</button>
+                                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Save</button>
                             </div>
                         </div>
                     </div>
@@ -582,7 +582,7 @@
 
 
                         <div class="col-xl-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn report-tab-active" id="submit-Documents">submit</button>
+                            <button type="submit" class="btn btn report-tab-active" id="submit-Documents">Save</button>
                         </div>
 
 
@@ -650,7 +650,7 @@
 
 
                         <div class="col-xl-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn report-tab-active" id="submit-onGround">submit</button>
+                            <button type="submit" class="btn btn report-tab-active" id="submit-onGround">Save</button>
                         </div>
 
 
@@ -775,7 +775,7 @@
                         </div>
                         <div class="col-xl-6 d-flex justify-content-end">
 
-                            <button type="submit" class="btn btn report-tab-active" id="court-submit">Submit</button>
+                            <button type="submit" class="btn btn report-tab-active" id="court-submit">Save</button>
 
                         </div>
                     </div>
@@ -2288,7 +2288,7 @@
                             </div>
                             <div class="col-xl-6 d-flex justify-content-end">
 
-                                <button type="submit" class="btn btn report-tab-active" id="Financials-submit">Submit</button>
+                                <button type="submit" class="btn btn report-tab-active" id="Financials-submit">Save</button>
                             </div>
                         </div>
 
@@ -2775,7 +2775,7 @@
                         </div>
                         <div class="col-xl-6 d-flex justify-content-end">
 
-                        <button type="submit" class="btn btn report-tab-active" id="submit-Business-Intelligence">Submit</button>
+                        <button type="submit" class="btn btn report-tab-active" id="submit-Business-Intelligence">Save</button>
                         </div>
                     </div>
 
@@ -2905,7 +2905,7 @@
                         </div>
                         <div class="col-xl-6 d-flex justify-content-end">
 
-                            <button type="submit" class="btn btn report-tab-active" id="Tax-Return-and-Credit-submit">Submit</button>
+                            <button type="submit" class="btn btn report-tab-active" id="Tax-Return-and-Credit-submit">Save</button>
 
                         </div>
                     </div>
@@ -2968,7 +2968,7 @@
 
 
                         <div class="col-xl-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn report-tab-active" id="submit-Market-Reputation">submit</button>
+                            <button type="submit" class="btn btn report-tab-active" id="submit-Market-Reputation">Save</button>
                         </div>
 
 
@@ -3087,7 +3087,7 @@
                         </div>
                         <div class="col-xl-6 d-flex justify-content-end">
 
-                            <button type="submit" class="btn btn report-tab-active" id="Key-Observation-submit">Submit</button>
+                            <button type="submit" class="btn btn report-tab-active" id="Key-Observation-submit">Save</button>
 
                         </div>
                     </div>

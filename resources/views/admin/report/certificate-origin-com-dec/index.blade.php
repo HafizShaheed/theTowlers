@@ -69,7 +69,7 @@
                 </form>
                 <div class="col-xl-2 col-sm-6 col-6 mt-6 pt-2 ">
                         <div class="d-flex justify-content-start align-items-start">
-                            <a href="{{ URL::to('/panel/report/certificate-origin-com-dec/add') }}" class="" target="_blank">
+                            <a href="{{ URL::to('/panel/report/certificate-origin-com-dec/add') }}" class="" target="">
                             <button type="submit" class="btn btn report-tab-active"
                                 id="filter-reprot-btn">Add  Invoice</button>
                             </a>
@@ -178,21 +178,21 @@
 
 
 
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/certificate-origin-com-dec/view/'.$value->id) }}" class="" target="_blank" title="View Reports">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/certificate-origin-com-dec/view/'.$value->id) }}" class="" target="" title="View Reports">
                                         View
                                     </a>
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel/report/certificate-origin-com-dec/edit/'.$value->id) }}" class="" target="_blank" title="Edit Reports">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;"  href="{{ URL::to('/panel/report/certificate-origin-com-dec/edit/'.$value->id) }}" class="" target="" title="Edit Reports">
                                         Edit
                                     </a>
                                     <button  class="btn btn-sm report-tab-active thirdpartyIdForForComplete" style="font-size: 10px;" href="javascript:void(0)"  data-thirdparty="{{ $value->id }}">
                                         Done
                                     </button>
                                     <span></span>
-                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/certificate-origin-com-dec/generate_certificate_origin_com_dec_invoic_PDF/'.$value->id) }}" class="" target="_blank" title="View Pdf">
+                                    <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/certificate-origin-com-dec/generate_certificate_origin_com_dec_invoic_PDF/'.$value->id) }}" class="" target="" title="View Pdf">
                                     PDF
                                 </a>
 
-                                <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/certificate-origin-com-dec/activity/'.$value->id) }}" class="" target="_blank"  title="View Activity">
+                                <a  class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ URL::to('/panel/report/certificate-origin-com-dec/activity/'.$value->id) }}" class="" target=""  title="View Activity">
                                Activity
                                 </a>
 

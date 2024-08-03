@@ -95,10 +95,10 @@
 
 					<div class="mb-3">
 						<ul class="d-flex align-self-center justify-content-center">
-							<li><a target="_blank" href="https://www.facebook.com/" class="fab fa-facebook-f btn-facebook"></a></li>
-							<li><a target="_blank" href="https://www.google.com/" class="fab fa-google-plus-g btn-google-plus mx-2"></a></li>
-							<li><a target="_blank" href="https://www.linkedin.com/" class="fab fa-linkedin-in btn-linkedin me-2"></a></li>
-							<li><a target="_blank" href="https://twitter.com/" class="fab fa-twitter btn-twitter"></a></li>
+							<li><a target="" href="https://www.facebook.com/" class="fab fa-facebook-f btn-facebook"></a></li>
+							<li><a target="" href="https://www.google.com/" class="fab fa-google-plus-g btn-google-plus mx-2"></a></li>
+							<li><a target="" href="https://www.linkedin.com/" class="fab fa-linkedin-in btn-linkedin me-2"></a></li>
+							<li><a target="" href="https://twitter.com/" class="fab fa-twitter btn-twitter"></a></li>
 						</ul>
 					</div>
 					<p class="text-center">

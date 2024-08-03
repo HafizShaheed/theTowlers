@@ -51,7 +51,7 @@
                 </form>
                 <div class="col-xl-2 col-sm-6 col-6 mt-6 pt-2 ">
                         <div class="d-flex justify-content-start align-items-start">
-                            <a href="{{ URL::to('/panel-team/report/add_report_form_1') }}" class="" target="_blank">
+                            <a href="{{ URL::to('/panel-team/report/add_report_form_1') }}" class="" target="">
                             <button type="submit" class="btn btn report-tab-active"
                                 id="filter-reprot-btn">Add  Invoice</button>
                             </a>
@@ -154,7 +154,7 @@
                                     </a>
 
 
-                                    <a href="{{ URL::to('/panel-team/report/view_report_form_1') }}" class="" target="_blank" title="View Reports">
+                                    <a href="{{ URL::to('/panel-team/report/view_report_form_1') }}" class="" target="" title="View Reports">
 
                                         <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5096 2.53165H7.41104C5.50437 2.52432 3.94146 4.04415 3.89654 5.9499V15.7701C3.85437 17.7071 5.38979 19.3121 7.32671 19.3552C7.35512 19.3552 7.38262 19.3561 7.41104 19.3552H14.7343C16.6538 19.2773 18.1663 17.6915 18.1525 15.7701V7.36798L13.5096 2.53165Z" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -163,7 +163,7 @@
                                             <path d="M11.2229 10.6388H8.14655" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </a>
-                                    <a  href="{{ URL::to('/panel-team/report/edit_report_form_1') }}" class="" target="_blank" title="Edit Reports">
+                                    <a  href="{{ URL::to('/panel-team/report/edit_report_form_1') }}" class="" target="" title="Edit Reports">
 
                                         <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
                                             <path d="M11.4925 2.789H7.75349C4.67849 2.789 2.75049 4.966 2.75049 8.048V16.362C2.75049 19.444 4.66949 21.621 7.75349 21.621H16.5775C19.6625 21.621 21.5815 19.444 21.5815 16.362V12.334" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -175,7 +175,7 @@
                                         <i class="fa fa-check-square fa-2x" title="Click to complete Report" aria-hidden="true"></i>
                                     </a>
                                     <span></span>
-                                    <a href="{{ URL::to('/panel-team/report/generate-pdf/1') }}" class="" target="_blank" title="View Pdf">
+                                    <a href="{{ URL::to('/panel-team/report/generate-pdf/1') }}" class="" target="" title="View Pdf">
 
                                     <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
                                 <path d="M12.1221 15.4361L12.1221 3.39508" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -184,7 +184,7 @@
                                 </svg>
                                 </a>
 
-                                <a href="{{ URL::to('/panel-team/report/activity_report_form_1') }}" class="" target="_blank"  title="View Activity">
+                                <a href="{{ URL::to('/panel-team/report/activity_report_form_1') }}" class="" target=""  title="View Activity">
                                 <svg width="35" height="35" viewBox="0 0 35 35" fill="none" title="Activity">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.3345 2.75018H7.66549C4.64449 2.75018 2.75049 4.88918 2.75049 7.91618V16.0842C2.75049 19.1112 4.63449 21.2502 7.66549 21.2502H16.3335C19.3645 21.2502 21.2505 19.1112 21.2505 16.0842V7.91618C21.2505 4.88918 19.3645 2.75018 16.3345 2.75018Z" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M15.391 14.0177L12 11.9947V7.63367" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

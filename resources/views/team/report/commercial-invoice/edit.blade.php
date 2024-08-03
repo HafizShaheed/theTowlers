@@ -67,7 +67,7 @@
 
 
                 <h4 class="card-title"> {{strtoupper("Commercial Invioce Edit")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Commercial Invioce</span>
+                    {{-- <span style="color:darkgray; font-size:12px;">Commercial Invioce</span> --}}
                     <p style="color:rgb(236, 7, 7); font-size:12px;"> Note: Every Heading input field can be change according to the requirement </p>
                 </h4>
                 <div class="row">
@@ -514,7 +514,7 @@
                 <button type="button" class="btn btn report-tab-unactive" id="firm-prev-4">Cancel</button>
             </div>
             <div class="col-xl-6 d-flex justify-content-end">
-                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Submit</button>
+                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Save</button>
             </div>
         </div>
 

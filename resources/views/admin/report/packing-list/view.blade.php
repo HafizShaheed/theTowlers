@@ -66,8 +66,8 @@
 
 
 
-<h4 class="card-title"> {{strtoupper("Commercial Invioce View")}} <br>
-    <span style="color:darkgray; font-size:12px;">Commercial Invioce</span>
+<h4 class="card-title"> {{strtoupper("PAKING Slip View")}} <br>
+    {{-- <span style="color:darkgray; font-size:12px;">Commercial Invioce</span> --}}
     <p style="color:rgb(236, 7, 7); font-size:12px;"> Note: Every Heading input field can be change
         according to the requirement </p>
 </h4>
@@ -75,7 +75,7 @@
     <div class="col-sm-3 mb-3">
         <label for="heading_invioce" class="form-label">Heading</label>
         <input type="text" class="form-control custom-input mb-1" id="heading_invioce" name="heading_invioce"  readonly disabled value="{{ $PackingList['heading_invioce'] }}" style="font-weight: bold; color: #000;">
-        <input type="text" class="form-control custom-input" id="commercial_invoice" name="packing-list_invoice"  readonly disabled value="{{ $PackingList['packing-list_invoice']}}">
+        <input type="text" class="form-control custom-input" id="commercial_invoice" name="packing-list_invoice"  readonly disabled value="{{ $PackingList['packing_list_invoice']}}">
         <input type="hidden" class="form-control custom-input" id="id" name="id"  readonly disabled value="{{ $PackingList['id']}}">
     </div>
 

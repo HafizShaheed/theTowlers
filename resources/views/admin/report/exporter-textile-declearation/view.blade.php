@@ -67,7 +67,7 @@
 
 
                 <h4 class="card-title"> {{strtoupper("Exporter textile declearation Invoice View")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Exporter textile declearation Invoice</span>
+                    {{-- <span style="color:darkgray; font-size:12px;">Exporter textile declearation Invoice</span> --}}
                 </h4>
                 <div class="row">
                     <div class="col-sm-3 mb-3">

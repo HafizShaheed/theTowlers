@@ -66,8 +66,8 @@
 
 
 
-                <h4 class="card-title"> {{strtoupper("Paking List Add")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Packing List</span>
+                <h4 class="card-title"> {{strtoupper("Paking Slip Add")}} <br>
+                    {{-- <span style="color:darkgray; font-size:12px;">Packing List</span> --}}
                     <p style="color:rgb(236, 7, 7); font-size:12px;"> Note: Every Heading input field can be change according to the requirement </p>
                 </h4>
                 <div class="row">
@@ -75,6 +75,9 @@
                         <input type="text" style="background-color: #616161; color:#000; font-weight: 700" class="form-control custom-input mb-1" id="heading_invioce" name="heading_invioce" value="INVOICE. NO" style="font-weight: bold; color: #000;">
                         <input type="text" class="form-control custom-input" id="packing_list_invoice" name="packing_list_invoice"
                             value="">
+                            <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mt-2" id="heading_dated" style="font-weight: bold; color: #000;" name="heading_dated" value="DATED">
+                            <input type="text" class="form-control custom-input mt-1" id="dated" name="dated"
+                                value="">
                     </div>
                     
                  
@@ -116,11 +119,7 @@
                         <input type="text" class="form-control custom-input" id="vessel_value" name="vessel_value"
                             value="">
                     </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_dated" style="font-weight: bold; color: #000;" name="heading_dated" value="DATED">
-                        <input type="text" class="form-control custom-input" id="dated" name="dated"
-                            value="">
-                    </div>
+                   
 
                     <div class="col-sm-3 mb-3">
                         <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_total_pkg"  style="font-weight: bold; color: #000;"  name="heading_total_pkg" value="TOTAL PKGS">
@@ -475,7 +474,7 @@
                 <button type="button" class="btn btn report-tab-unactive" id="firm-prev-4">Cancel</button>
             </div>
             <div class="col-xl-6 d-flex justify-content-end">
-                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Submit</button>
+                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Save</button>
             </div>
         </div>
 

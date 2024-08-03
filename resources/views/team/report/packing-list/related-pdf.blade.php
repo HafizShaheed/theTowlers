@@ -57,7 +57,7 @@
                 </form>
                 <div class="col-xl-2 col-sm-6 col-6 mt-6 pt-2 ">
                         <div class="d-flex justify-content-start align-items-start">
-                            <a href="{{ URL::to('/panel/report/commercial-invoice/add') }}" class="" target="_blank">
+                            <a href="{{ URL::to('/panel/report/commercial-invoice/add') }}" class="" target="">
                             <button type="submit" class="btn btn report-tab-active"
                                 id="filter-reprot-btn">Add  Invoice</button>
                             </a>
@@ -160,7 +160,7 @@
                                     }
                                 @endphp
                             
-                                <a class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ $urlParams}}" target="_blank" title="View Reports">
+                                <a class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ $urlParams}}" target="" title="View Reports">
                                     View
                                 </a>
 

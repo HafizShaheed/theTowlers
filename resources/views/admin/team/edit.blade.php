@@ -82,7 +82,7 @@
                         </div>
                         <div>
                             <button class="btn btn- light ms-1 report-tab-unactive">Cancel</button>
-                            <button class="btn btn me-1 report-tab-active " >Submit</button>
+                            <button class="btn btn me-1 report-tab-active " >Save</button>
                         </div>
 
                     </div>

@@ -67,7 +67,7 @@
 
 
 <h4 class="card-title"> {{strtoupper("Commercial Invioce View")}} <br>
-    <span style="color:darkgray; font-size:12px;">Commercial Invioce</span>
+    {{-- <span style="color:darkgray; font-size:12px;">Commercial Invioce</span> --}}
     <p style="color:rgb(236, 7, 7); font-size:12px;"> Note: Every Heading input field can be change
         according to the requirement </p>
 </h4>

@@ -67,7 +67,7 @@
 
 
                 <h4 class="card-title"> {{strtoupper("Certificate origins Add")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Certificate origins</span>
+                    {{-- <span style="color:darkgray; font-size:12px;">Certificate origins</span> --}}
                 </h4>
                 <div class="row">
                     <div class="col-sm-3 mb-3">
@@ -204,7 +204,7 @@
                 <button type="button" class="btn btn report-tab-unactive" id="firm-prev-4">Cancel</button>
             </div>
             <div class="col-xl-6 d-flex justify-content-end">
-                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Submit</button>
+                <button type="submit" class="btn btn report-tab-active" id="firm-submit">Save</button>
             </div>
         </div>
 

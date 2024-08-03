@@ -115,7 +115,7 @@
                                     }
                                 @endphp
                             
-                                <a class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ $urlParams}}" target="_blank" title="View Reports">
+                                <a class="btn btn-sm report-tab-active" style="font-size: 10px;" href="{{ $urlParams}}" target="" title="View Reports">
                                     View
                                 </a>
 

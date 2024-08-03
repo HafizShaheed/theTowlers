@@ -204,12 +204,12 @@
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_total_pkg'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['total_pkg_value'] ?? '' }} </p>
+                                        {{ $CommercialInvoice['total_pkg_value'] ?? '------------' }} </p>
                                     <b
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_lc'] ?? '' }}#</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['lc_value'] ?? '' }}
+                                        {{ $CommercialInvoice['lc_value'] ?? '------------' }}
                                     </p>
 
                                 </div>
@@ -220,18 +220,18 @@
                                         style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $CommercialInvoice['heading_vessel'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['vessel_value'] ?? '' }}
+                                        {{ $CommercialInvoice['vessel_value'] ?? '------------' }}
                                     </p>
                                     <b
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_contract_no'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['contract_no_value'] ?? '' }}</p>
+                                        {{ $CommercialInvoice['contract_no_value'] ?? '------------' }}</p>
                                     <b
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_issue_date_lc'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['lc_issue_date_value'] ?? '' }}</p>
+                                        {{ $CommercialInvoice['lc_issue_date_value'] ?? '------------' }}</p>
 
                                 </div>
                             </td>
@@ -246,12 +246,12 @@
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_contract_date'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['contract_date_value'] ?? '' }} </p>
+                                        {{ $CommercialInvoice['contract_date_value'] ?? '------------' }} </p>
                                     <b
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_pyment_terms'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['pyment_terms_value'] ?? '' }} </p>
+                                        {{ $CommercialInvoice['pyment_terms_value'] ?? '------------' }} </p>
 
                                 </div>
                             </td>
@@ -273,16 +273,16 @@
                             <td colspan="2">
                                 <div style=" width: 100%; text-align:center;">
                                     <p style="border-bottom:.5px solid #000; display:block; margin:0;">
-                                        {{ $CommercialInvoice['drawn_at_value'] ?? '' }}</p>
+                                        {{ $CommercialInvoice['drawn_at_value'] ?? '------------' }}</p>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['drawn_under_value'] ?? '' }}</p>
+                                        {{ $CommercialInvoice['drawn_under_value'] ?? '------------' }}</p>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['port_of_loading_value'] ?? '' }}</p>
+                                        {{ $CommercialInvoice['port_of_loading_value'] ?? '------------' }}</p>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['port_of_discharge_value'] ?? '' }}</p>
+                                        {{ $CommercialInvoice['port_of_discharge_value'] ?? '------------' }}</p>
 
                                 </div>
                             </td>
@@ -307,16 +307,16 @@
                             <td>
                                 <p
                                     style="border-right:.5px solid #000 ;  margin: 0px; text-align: center; width: 130px;">
-                                    {{ $CommercialInvoice['container_no_value'] ?? '' }}</p>
+                                    {{ $CommercialInvoice['container_no_value'] ?? '------------' }}</p>
                             </td>
                             <td>
                                 <p
                                     style="border-right:.5px solid #000 ;  margin: 0px; text-align: center; width: 60px; ">
-                                    {{ $CommercialInvoice['currency_value'] ?? '' }}</p>
+                                    {{ $CommercialInvoice['currency_value'] ?? '------------' }}</p>
                             </td>
                             <td>
                                 <p style="  margin: 0px; text-align: center;">
-                                    {{ $CommercialInvoice['term_of_delivery_value'] ?? '' }}</p>
+                                    {{ $CommercialInvoice['term_of_delivery_value'] ?? '------------' }}</p>
                             </td>
                         </tr>
                     </table>
@@ -407,6 +407,8 @@
 
                 <tr style="font-size:8px; ">
                     <td style=" border-right: 1px solid;">
+                        @if (isset($CommercialInvoice['heading_carton_count_value_' . $i]) && !empty($CommercialInvoice['heading_carton_count_value_' . $i]))
+                            
                         <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_long_side_' . $i] ?? '' }}
                         </p>
@@ -435,6 +437,8 @@
                             {{ $CommercialInvoice['heading_carton_count_' . $i] ?? '' }} &nbsp;&nbsp;
                             {{ $CommercialInvoice['heading_carton_count_value_' . $i] ?? '' }}
                         </p>
+                        @endif
+
 
                     </td>
 
@@ -529,75 +533,6 @@
                                 </div>
 
 
-                                <div class="no-margin"
-                                style="text-align: left; white-space: nowrap; margin-top:5px; margin-left:10px">
-                                <div
-                                    style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                    {{ $colorName }}
-                                </div>
-                                <div
-                                    style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                    {{ $skuNo }}
-                                </div>
-                                <div
-                                    style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                    {{ $eanNo }}
-                                </div>
-                                <div
-                                    style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                    {{ $skuHashNo }}
-                                </div>
-                                <div
-                                    style="display: inline-block; width: 18%; text-decoration: underline; color: #000;">
-                                    {{ $styleNo }}
-                                </div>
-                            </div>
-                            <div class="no-margin"
-                            style="text-align: left; white-space: nowrap; margin-top:5px; margin-left:10px">
-                            <div
-                                style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                {{ $colorName }}
-                            </div>
-                            <div
-                                style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                {{ $skuNo }}
-                            </div>
-                            <div
-                                style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                {{ $eanNo }}
-                            </div>
-                            <div
-                                style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                {{ $skuHashNo }}
-                            </div>
-                            <div
-                                style="display: inline-block; width: 18%; text-decoration: underline; color: #000;">
-                                {{ $styleNo }}
-                            </div>
-                        </div>
-                        <div class="no-margin"
-                        style="text-align: left; white-space: nowrap; margin-top:5px; margin-left:10px">
-                        <div
-                            style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; color: #000;">
-                            {{ $colorName }}
-                        </div>
-                        <div
-                            style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                            {{ $skuNo }}
-                        </div>
-                        <div
-                            style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                            {{ $eanNo }}
-                        </div>
-                        <div
-                            style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                            {{ $skuHashNo }}
-                        </div>
-                        <div
-                            style="display: inline-block; width: 18%; text-decoration: underline; color: #000;">
-                            {{ $styleNo }}
-                        </div>
-                    </div>
 
       
                             @endif
@@ -783,19 +718,12 @@
                                         @endif
                                     @endforeach
                                     
-                                    @if (count($pallets) > 0 && count($perValues) > 0)
-                                        +
-                                    @endif
+                                  
                                     
                                     <!-- Display Per Values -->
-                                    @foreach ($perValues as $key => $item)
-                                        {{ $item . ' ' . str_replace("SET PER ", "", $key) }}
-                                        @if (!$loop->last)
-                                            +
-                                        @endif
-                                    @endforeach
+                                   
                                     
-                                    @if ((count($pallets) > 0 || count($perValues) > 0) && count($quantities) > 0)
+                                    @if ((count($pallets) > 0 ) && count($quantities) > 0)
                                         =
                                     @endif
                                     
@@ -842,7 +770,7 @@
                         <tr>
                             <td style="border-right:1px solid #000 ;">
                                 <div> {{ $CommercialInvoice['heading_total_net_weight'] ?? '' }}
-                                    : </div>
+                                     </div>
                             </td>
                             <td>
                                 <div style="text-align: center;">{{ $netWeightTotalSecondColumn }} KGS</div>
@@ -850,7 +778,7 @@
                         </tr>
                         <tr>
                             <td style="border-right:1px solid #000 ;">
-                                <div> {{ $CommercialInvoice['heading_total_gr_weight'] ?? '' }}: </div>
+                                <div> {{ $CommercialInvoice['heading_total_gr_weight'] ?? '' }} </div>
                             </td>
                             <td>
                                 <div style="text-align: center;">{{ $grossWeightTotalSecondColumn }} KGS</div>
@@ -885,7 +813,7 @@
                         </tr>
                         <tr>
                             <td style="border-top:1px solid #000 ;" colspan="2">
-                                <div>{{ $CommercialInvoice['heading_note'] ?? '' }}: 51.60 KGS </div>
+                                <div>{{ $CommercialInvoice['heading_note'] ?? '' }}</div>
                             </td>
                         </tr>
                     </table>
@@ -938,6 +866,14 @@
                 </td>
             </tr>
         </table>
+        <table border="0"
+        style="border: 0px solid #000; border-collapse: collapse; width: 60%;font-size:8px;">
+        <tr>
+            <td>
+                <div>{{ $CommercialInvoice['heading_remarks'] ?? ''}}  {{ $CommercialInvoice['value_remarks'] ?? '' }}</div>
+            </td>
+        </tr>
+                </table>
         <table border="1" style=" margin-top: 4px; border-collapse: collapse; width: 100%;font-size:8px;">
             <tr>
                 <td style="width: 55%;">

@@ -67,7 +67,7 @@
 
 
                 <h4 class="card-title"> {{strtoupper("Certificate origin 627120 View")}} <br>
-                    <span style="color:darkgray; font-size:12px;">Certificate origin 627120 </span>
+                    {{-- <span style="color:darkgray; font-size:12px;">Certificate origin 627120 </span> --}}
                 </h4>
                 <div class="row">
                     <div class="col-sm-3 mb-3">

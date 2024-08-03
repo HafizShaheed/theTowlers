@@ -52,6 +52,7 @@ class CreateCanadaCustomerInvoiceFromsTable extends Migration
             for ($i = 1; $i <= 7; $i++) {
                 $table->string('number_of_packages_nombre_de_coils_' . $i)->nullable();
                 $table->string('quantity_' . $i)->nullable();
+                $table->string('quantity_unit_' . $i)->nullable();
                 $table->string('unit_price_' . $i)->nullable();
                 $table->string('total_' . $i)->nullable();
 

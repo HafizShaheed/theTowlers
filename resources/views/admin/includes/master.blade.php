@@ -17,7 +17,38 @@
     <!-- FAVICONS ICON -->
     <link rel="shortcut icon" type="image/png" href="{{URL::to('/public/admin/assets/images/logo/logo.png')}}">
 
-    <title> The Towellers  | {{ $title }} </title>
+    <title> THE TOWELLERS ADMIN  | {{ $title }} </title>
+    <style>
+        /* Scrollbar styles for WebKit browsers (Chrome, Safari) */
+        ::-webkit-scrollbar {
+            width: 12px !important;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #ffffff !important; /* Dark background color */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #ffffff !important; /* Darker thumb color */
+            border-radius: 50% !important;
+            border: 2px solid #ffffff !important; /* Optional: to give padding around thumb */
+        }
+
+        /* Scrollbar styles for Firefox */
+        * {
+            scrollbar-width: auto !important;
+            scrollbar-color: #ffffff #3f3025 !important;
+        }
+
+        ::-webkit-scrollbar-button {
+            display: none !important;
+        }
+        /* General styles */
+        body {
+            height: 200vh !important; /* Example to show scrollbar */
+            background-color: #ecf0f1 !important;
+        }
+    </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
@@ -187,7 +218,7 @@
 ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Developed by <a href="#" target="_blank">WS</a> 2023</p>
+                <p>Copyright © Developed by <a href="#" target="">WS</a> 2023</p>
             </div>
         </div>
         <!--**********************************
