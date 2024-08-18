@@ -35,6 +35,7 @@ use App\Models\CommercialInvoiceRelatedFieldPart6;
 use App\Models\CommercialInvoiceRelatedFieldPart7;
 use App\Models\CommercialInvoiceRelatedFieldPart8;
 use App\Models\CommercialInvoiceRelatedValuePart1;
+use App\Models\CommercialInvoiceRelatedValuePart10;
 use App\Models\CommercialInvoiceRelatedValuePart2;
 use App\Models\CommercialInvoiceRelatedValuePart3;
 use App\Models\CommercialInvoiceRelatedValuePart4;
@@ -60,6 +61,8 @@ use App\Models\PackingListRelatedFieldPart6;
 use App\Models\PackingListRelatedFieldPart7;
 use App\Models\PackingListRelatedFieldPart8;
 use App\Models\PackingListRelatedValuePart1;
+use App\Models\PackingListRelatedValuePart10;
+use App\Models\PackingListRelatedValuePart11;
 use App\Models\PackingListRelatedValuePart2;
 use App\Models\PackingListRelatedValuePart3;
 use App\Models\PackingListRelatedValuePart4;
@@ -2363,6 +2366,7 @@ class adminController extends Controller
             CommercialInvoiceRelatedValuePart7::class,
             CommercialInvoiceRelatedValuePart8::class,
             CommercialInvoiceRelatedValuePart9::class,
+            CommercialInvoiceRelatedValuePart10::class,
         ];
 
         foreach ($relatedFieldParts as $relatedPart) {
@@ -2559,7 +2563,7 @@ class adminController extends Controller
             $CommercialInvoiceRelatedFieldPart1->commercial_invoice_id = $CommercialInvoice->id;
             $CommercialInvoiceRelatedFieldPart1->heading_proforma_invioce = $request->heading_proforma_invioce;
             $CommercialInvoiceRelatedFieldPart1->value_proforma_invioce = $request->value_proforma_invioce;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart1->{"heading_long_side_$i"} = $request->input("heading_long_side_$i");
                 $CommercialInvoiceRelatedFieldPart1->{"heading_po_$i"} = $request->input("heading_po_$i");
                 $CommercialInvoiceRelatedFieldPart1->{"value_po_$i"} = $request->input("value_po_$i");
@@ -2570,7 +2574,7 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedFieldPart2 = new CommercialInvoiceRelatedFieldPart2();
             $CommercialInvoiceRelatedFieldPart2->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart2->{"heading_terry_$i"} = $request->input("heading_terry_$i");
                 $CommercialInvoiceRelatedFieldPart2->{"heading_carron_bales_pallets_$i"} = $request->input("heading_carron_bales_pallets_$i");
                 $CommercialInvoiceRelatedFieldPart2->{"carron_bales_pallets_value_$i"} = $request->input("carron_bales_pallets_value_$i");
@@ -2582,7 +2586,7 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedFieldPart3 = new CommercialInvoiceRelatedFieldPart3();
             $CommercialInvoiceRelatedFieldPart3->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart3->{"heading_color_$i"} = $request->input("heading_color_$i");
                 $CommercialInvoiceRelatedFieldPart3->{"heading_sku_no_$i"} = $request->input("heading_sku_no_$i");
                 $CommercialInvoiceRelatedFieldPart3->{"heading_ean_no_$i"} = $request->input("heading_ean_no_$i");
@@ -2593,7 +2597,7 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedFieldPart4 = new CommercialInvoiceRelatedFieldPart4();
             $CommercialInvoiceRelatedFieldPart4->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart4->{"heading_po_number_$i"} = $request->input("heading_po_number_$i");
                 $CommercialInvoiceRelatedFieldPart4->{"heading_po_number_value_$i"} = $request->input("heading_po_number_value_$i");
                 $CommercialInvoiceRelatedFieldPart4->{"heading_style_name_$i"} = $request->input("heading_style_name_$i");
@@ -2604,7 +2608,7 @@ class adminController extends Controller
             $CommercialInvoiceRelatedFieldPart5 = new CommercialInvoiceRelatedFieldPart5();
             $CommercialInvoiceRelatedFieldPart5->commercial_invoice_id = $CommercialInvoice->id;
 
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart5->{"heading_style_number_$i"} = $request->input("heading_style_number_$i");
                 $CommercialInvoiceRelatedFieldPart5->{"heading_style_number_value_$i"} = $request->input("heading_style_number_value_$i");
                 $CommercialInvoiceRelatedFieldPart5->{"heading_color_left_column_$i"} = $request->input("heading_color_left_column_$i");
@@ -2616,7 +2620,7 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedFieldPart6 = new CommercialInvoiceRelatedFieldPart6();
             $CommercialInvoiceRelatedFieldPart6->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart6->{"heading_size_break_down_value_$i"} = $request->input("heading_size_break_down_value_$i");
                 $CommercialInvoiceRelatedFieldPart6->{"heading_carton_count_$i"} = $request->input("heading_carton_count_$i");
                 $CommercialInvoiceRelatedFieldPart6->{"heading_carton_count_value_$i"} = $request->input("heading_carton_count_value_$i");
@@ -2627,7 +2631,7 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedFieldPart7 = new CommercialInvoiceRelatedFieldPart7();
             $CommercialInvoiceRelatedFieldPart7->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart7->{"heading_bale_left_column_$i"} = $request->input("heading_bale_left_column_$i");
                 $CommercialInvoiceRelatedFieldPart7->{"heading_bale_left_column_value_$i"} = $request->input("heading_bale_left_column_value_$i");
                 $CommercialInvoiceRelatedFieldPart7->{"heading_net_weight_left_column_$i"} = $request->input("heading_net_weight_left_column_$i");
@@ -2638,7 +2642,7 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedFieldPart8 = new CommercialInvoiceRelatedFieldPart8();
             $CommercialInvoiceRelatedFieldPart8->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart8->{"heading_gross_weight_second_column_$i"} = $request->input("heading_gross_weight_second_column_$i");
                 $CommercialInvoiceRelatedFieldPart8->{"net_weight_second_column_value_$i"} = $request->input("net_weight_second_column_value_$i");
                 $CommercialInvoiceRelatedFieldPart8->{"gross_weight_second_column_value_$i"} = $request->input("gross_weight_second_column_value_$i");
@@ -2650,68 +2654,73 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedValuePart1 = new CommercialInvoiceRelatedValuePart1();
             $CommercialInvoiceRelatedValuePart1->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart1->{"color_name_second_column_value_$i"} = $request->input("color_name_second_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart1->save();
 
             $CommercialInvoiceRelatedValuePart2 = new CommercialInvoiceRelatedValuePart2();
             $CommercialInvoiceRelatedValuePart2->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart2->{"sku_no_second_column_value_$i"} = $request->input("sku_no_second_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart2->save();
 
             $CommercialInvoiceRelatedValuePart3 = new CommercialInvoiceRelatedValuePart3();
             $CommercialInvoiceRelatedValuePart3->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart3->{"ean_no_second_column_value_$i"} = $request->input("ean_no_second_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart3->save();
 
             $CommercialInvoiceRelatedValuePart4 = new CommercialInvoiceRelatedValuePart4();
             $CommercialInvoiceRelatedValuePart4->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart4->{"sku_hash_no_second_column_value_$i"} = $request->input("sku_hash_no_second_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart4->save();
 
             $CommercialInvoiceRelatedValuePart5 = new CommercialInvoiceRelatedValuePart5();
             $CommercialInvoiceRelatedValuePart5->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart5->{"style_no_second_column_value_$i"} = $request->input("style_no_second_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart5->save();
 
             $CommercialInvoiceRelatedValuePart6 = new CommercialInvoiceRelatedValuePart6();
             $CommercialInvoiceRelatedValuePart6->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart6->{"quantity_third_column_value_$i"} = $request->input("quantity_third_column_value_$i");
-                $CommercialInvoiceRelatedValuePart6->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart6->save();
 
             $CommercialInvoiceRelatedValuePart7 = new CommercialInvoiceRelatedValuePart7();
             $CommercialInvoiceRelatedValuePart7->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart7->{"price_third_column_value_$i"} = $request->input("price_third_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart7->save();
 
             $CommercialInvoiceRelatedValuePart8 = new CommercialInvoiceRelatedValuePart8();
             $CommercialInvoiceRelatedValuePart8->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart8->{"currency_symbol_third_column_value_$i"} = $request->input("currency_symbol_third_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart8->save();
 
             $CommercialInvoiceRelatedValuePart9 = new CommercialInvoiceRelatedValuePart9();
             $CommercialInvoiceRelatedValuePart9->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart9->{"total_amount_third_column_value_$i"} = $request->input("total_amount_third_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart9->save();
 
+            $CommercialInvoiceRelatedValuePart10 = new CommercialInvoiceRelatedValuePart10();
+            $CommercialInvoiceRelatedValuePart10->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 350; $i++) {
+                $CommercialInvoiceRelatedValuePart10->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart10->save();
 
 
             $CommercialInvoiceHistory = new CommercialInvoiceHistory();
@@ -2762,6 +2771,7 @@ class adminController extends Controller
             CommercialInvoiceRelatedValuePart7::where('commercial_invoice_id', $id)->first()->toArray(),
             CommercialInvoiceRelatedValuePart8::where('commercial_invoice_id', $id)->first()->toArray(),
             CommercialInvoiceRelatedValuePart9::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart10::where('commercial_invoice_id', $id)->first()->toArray(),
         );
 
         // Debug the fetched data
@@ -2926,7 +2936,7 @@ class adminController extends Controller
             $CommercialInvoiceRelatedFieldPart1->commercial_invoice_id = $CommercialInvoice->id;
             $CommercialInvoiceRelatedFieldPart1->heading_proforma_invioce = $request->heading_proforma_invioce;
             $CommercialInvoiceRelatedFieldPart1->value_proforma_invioce = $request->value_proforma_invioce;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart1->{"heading_long_side_$i"} = $request->input("heading_long_side_$i");
                 $CommercialInvoiceRelatedFieldPart1->{"heading_po_$i"} = $request->input("heading_po_$i");
                 $CommercialInvoiceRelatedFieldPart1->{"value_po_$i"} = $request->input("value_po_$i");
@@ -2937,7 +2947,7 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedFieldPart2 =  CommercialInvoiceRelatedFieldPart2::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedFieldPart2->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart2->{"heading_terry_$i"} = $request->input("heading_terry_$i");
                 $CommercialInvoiceRelatedFieldPart2->{"heading_carron_bales_pallets_$i"} = $request->input("heading_carron_bales_pallets_$i");
                 $CommercialInvoiceRelatedFieldPart2->{"carron_bales_pallets_value_$i"} = $request->input("carron_bales_pallets_value_$i");
@@ -2949,7 +2959,7 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedFieldPart3 =  CommercialInvoiceRelatedFieldPart3::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedFieldPart3->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart3->{"heading_color_$i"} = $request->input("heading_color_$i");
                 $CommercialInvoiceRelatedFieldPart3->{"heading_sku_no_$i"} = $request->input("heading_sku_no_$i");
                 $CommercialInvoiceRelatedFieldPart3->{"heading_ean_no_$i"} = $request->input("heading_ean_no_$i");
@@ -2960,7 +2970,7 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedFieldPart4 =  CommercialInvoiceRelatedFieldPart4::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedFieldPart4->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart4->{"heading_po_number_$i"} = $request->input("heading_po_number_$i");
                 $CommercialInvoiceRelatedFieldPart4->{"heading_po_number_value_$i"} = $request->input("heading_po_number_value_$i");
                 $CommercialInvoiceRelatedFieldPart4->{"heading_style_name_$i"} = $request->input("heading_style_name_$i");
@@ -2971,7 +2981,7 @@ class adminController extends Controller
             $CommercialInvoiceRelatedFieldPart5 =  CommercialInvoiceRelatedFieldPart5::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedFieldPart5->commercial_invoice_id = $CommercialInvoice->id;
 
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart5->{"heading_style_number_$i"} = $request->input("heading_style_number_$i");
                 $CommercialInvoiceRelatedFieldPart5->{"heading_style_number_value_$i"} = $request->input("heading_style_number_value_$i");
                 $CommercialInvoiceRelatedFieldPart5->{"heading_color_left_column_$i"} = $request->input("heading_color_left_column_$i");
@@ -2983,7 +2993,7 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedFieldPart6 =  CommercialInvoiceRelatedFieldPart6::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedFieldPart6->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart6->{"heading_size_break_down_value_$i"} = $request->input("heading_size_break_down_value_$i");
                 $CommercialInvoiceRelatedFieldPart6->{"heading_carton_count_$i"} = $request->input("heading_carton_count_$i");
                 $CommercialInvoiceRelatedFieldPart6->{"heading_carton_count_value_$i"} = $request->input("heading_carton_count_value_$i");
@@ -2994,7 +3004,7 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedFieldPart7 =  CommercialInvoiceRelatedFieldPart7::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedFieldPart7->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart7->{"heading_bale_left_column_$i"} = $request->input("heading_bale_left_column_$i");
                 $CommercialInvoiceRelatedFieldPart7->{"heading_bale_left_column_value_$i"} = $request->input("heading_bale_left_column_value_$i");
                 $CommercialInvoiceRelatedFieldPart7->{"heading_net_weight_left_column_$i"} = $request->input("heading_net_weight_left_column_$i");
@@ -3005,7 +3015,7 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedFieldPart8 =  CommercialInvoiceRelatedFieldPart8::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedFieldPart8->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $CommercialInvoiceRelatedFieldPart8->{"heading_gross_weight_second_column_$i"} = $request->input("heading_gross_weight_second_column_$i");
                 $CommercialInvoiceRelatedFieldPart8->{"net_weight_second_column_value_$i"} = $request->input("net_weight_second_column_value_$i");
                 $CommercialInvoiceRelatedFieldPart8->{"gross_weight_second_column_value_$i"} = $request->input("gross_weight_second_column_value_$i");
@@ -3017,68 +3027,73 @@ class adminController extends Controller
 
             $CommercialInvoiceRelatedValuePart1 =  CommercialInvoiceRelatedValuePart1::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedValuePart1->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart1->{"color_name_second_column_value_$i"} = $request->input("color_name_second_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart1->save();
 
             $CommercialInvoiceRelatedValuePart2 =  CommercialInvoiceRelatedValuePart2::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedValuePart2->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart2->{"sku_no_second_column_value_$i"} = $request->input("sku_no_second_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart2->save();
 
             $CommercialInvoiceRelatedValuePart3 =  CommercialInvoiceRelatedValuePart3::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedValuePart3->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart3->{"ean_no_second_column_value_$i"} = $request->input("ean_no_second_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart3->save();
 
             $CommercialInvoiceRelatedValuePart4 =  CommercialInvoiceRelatedValuePart4::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedValuePart4->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart4->{"sku_hash_no_second_column_value_$i"} = $request->input("sku_hash_no_second_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart4->save();
 
             $CommercialInvoiceRelatedValuePart5 =  CommercialInvoiceRelatedValuePart5::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedValuePart5->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart5->{"style_no_second_column_value_$i"} = $request->input("style_no_second_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart5->save();
 
             $CommercialInvoiceRelatedValuePart6 =  CommercialInvoiceRelatedValuePart6::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedValuePart6->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart6->{"quantity_third_column_value_$i"} = $request->input("quantity_third_column_value_$i");
-                $CommercialInvoiceRelatedValuePart6->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart6->save();
 
             $CommercialInvoiceRelatedValuePart7 =  CommercialInvoiceRelatedValuePart7::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedValuePart7->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart7->{"price_third_column_value_$i"} = $request->input("price_third_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart7->save();
 
             $CommercialInvoiceRelatedValuePart8 =  CommercialInvoiceRelatedValuePart8::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedValuePart8->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart8->{"currency_symbol_third_column_value_$i"} = $request->input("currency_symbol_third_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart8->save();
 
             $CommercialInvoiceRelatedValuePart9 =  CommercialInvoiceRelatedValuePart9::where('commercial_invoice_id', $id)->first();
             $CommercialInvoiceRelatedValuePart9->commercial_invoice_id = $CommercialInvoice->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $CommercialInvoiceRelatedValuePart9->{"total_amount_third_column_value_$i"} = $request->input("total_amount_third_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart9->save();
 
+            $CommercialInvoiceRelatedValuePart10 =  CommercialInvoiceRelatedValuePart10::where('commercial_invoice_id', $id)->first();
+            $CommercialInvoiceRelatedValuePart10->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 350; $i++) {
+                $CommercialInvoiceRelatedValuePart10->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart10->save();
 
 
             // Create CanadaInvoiceHistory record
@@ -3129,6 +3144,7 @@ class adminController extends Controller
             CommercialInvoiceRelatedValuePart7::where('commercial_invoice_id', $id)->first()->toArray(),
             CommercialInvoiceRelatedValuePart8::where('commercial_invoice_id', $id)->first()->toArray(),
             CommercialInvoiceRelatedValuePart9::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart10::where('commercial_invoice_id', $id)->first()->toArray(),
         );
 
         if (!$data['CommercialInvoice']) {
@@ -3236,6 +3252,7 @@ class adminController extends Controller
             PackingListRelatedValuePart7::class,
             PackingListRelatedValuePart8::class,
             PackingListRelatedValuePart9::class,
+            PackingListRelatedValuePart10::class,
         ];
 
         foreach ($relatedFieldParts as $relatedPart) {
@@ -3432,7 +3449,7 @@ class adminController extends Controller
             $PackingListRelatedFieldPart1->packing_list_id = $PackingList->id;
             $PackingListRelatedFieldPart1->heading_proforma_invioce = $request->heading_proforma_invioce;
             $PackingListRelatedFieldPart1->value_proforma_invioce = $request->value_proforma_invioce;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart1->{"heading_long_side_$i"} = $request->input("heading_long_side_$i");
                 $PackingListRelatedFieldPart1->{"heading_po_$i"} = $request->input("heading_po_$i");
                 $PackingListRelatedFieldPart1->{"value_po_$i"} = $request->input("value_po_$i");
@@ -3443,7 +3460,7 @@ class adminController extends Controller
 
             $PackingListRelatedFieldPart2 = new PackingListRelatedFieldPart2();
             $PackingListRelatedFieldPart2->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart2->{"heading_terry_$i"} = $request->input("heading_terry_$i");
                 $PackingListRelatedFieldPart2->{"heading_carron_bales_pallets_$i"} = $request->input("heading_carron_bales_pallets_$i");
                 $PackingListRelatedFieldPart2->{"carron_bales_pallets_value_$i"} = $request->input("carron_bales_pallets_value_$i");
@@ -3455,7 +3472,7 @@ class adminController extends Controller
 
             $PackingListRelatedFieldPart3 = new PackingListRelatedFieldPart3();
             $PackingListRelatedFieldPart3->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart3->{"heading_color_$i"} = $request->input("heading_color_$i");
                 $PackingListRelatedFieldPart3->{"heading_sku_no_$i"} = $request->input("heading_sku_no_$i");
                 $PackingListRelatedFieldPart3->{"heading_ean_no_$i"} = $request->input("heading_ean_no_$i");
@@ -3466,7 +3483,7 @@ class adminController extends Controller
 
             $PackingListRelatedFieldPart4 = new PackingListRelatedFieldPart4();
             $PackingListRelatedFieldPart4->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart4->{"heading_po_number_$i"} = $request->input("heading_po_number_$i");
                 $PackingListRelatedFieldPart4->{"heading_po_number_value_$i"} = $request->input("heading_po_number_value_$i");
                 $PackingListRelatedFieldPart4->{"heading_style_name_$i"} = $request->input("heading_style_name_$i");
@@ -3477,7 +3494,7 @@ class adminController extends Controller
             $PackingListRelatedFieldPart5 = new PackingListRelatedFieldPart5();
             $PackingListRelatedFieldPart5->packing_list_id = $PackingList->id;
 
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart5->{"heading_style_number_$i"} = $request->input("heading_style_number_$i");
                 $PackingListRelatedFieldPart5->{"heading_style_number_value_$i"} = $request->input("heading_style_number_value_$i");
                 $PackingListRelatedFieldPart5->{"heading_color_left_column_$i"} = $request->input("heading_color_left_column_$i");
@@ -3489,7 +3506,7 @@ class adminController extends Controller
 
             $PackingListRelatedFieldPart6 = new PackingListRelatedFieldPart6();
             $PackingListRelatedFieldPart6->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart6->{"heading_size_break_down_value_$i"} = $request->input("heading_size_break_down_value_$i");
                 $PackingListRelatedFieldPart6->{"heading_carton_count_$i"} = $request->input("heading_carton_count_$i");
                 $PackingListRelatedFieldPart6->{"heading_carton_count_value_$i"} = $request->input("heading_carton_count_value_$i");
@@ -3500,7 +3517,7 @@ class adminController extends Controller
 
             $PackingListRelatedFieldPart7 = new PackingListRelatedFieldPart7();
             $PackingListRelatedFieldPart7->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart7->{"heading_bale_left_column_$i"} = $request->input("heading_bale_left_column_$i");
                 $PackingListRelatedFieldPart7->{"heading_bale_left_column_value_$i"} = $request->input("heading_bale_left_column_value_$i");
                 $PackingListRelatedFieldPart7->{"heading_net_weight_left_column_$i"} = $request->input("heading_net_weight_left_column_$i");
@@ -3511,7 +3528,7 @@ class adminController extends Controller
 
             $PackingListRelatedFieldPart8 = new PackingListRelatedFieldPart8();
             $PackingListRelatedFieldPart8->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart8->{"heading_gross_weight_second_column_$i"} = $request->input("heading_gross_weight_second_column_$i");
                 $PackingListRelatedFieldPart8->{"net_weight_second_column_value_$i"} = $request->input("net_weight_second_column_value_$i");
                 $PackingListRelatedFieldPart8->{"gross_weight_second_column_value_$i"} = $request->input("gross_weight_second_column_value_$i");
@@ -3523,69 +3540,74 @@ class adminController extends Controller
 
             $PackingListRelatedValuePart1 = new PackingListRelatedValuePart1();
             $PackingListRelatedValuePart1->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart1->{"color_name_second_column_value_$i"} = $request->input("color_name_second_column_value_$i");
             }
             $PackingListRelatedValuePart1->save();
 
             $PackingListRelatedValuePart2 = new PackingListRelatedValuePart2();
             $PackingListRelatedValuePart2->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart2->{"sku_no_second_column_value_$i"} = $request->input("sku_no_second_column_value_$i");
             }
             $PackingListRelatedValuePart2->save();
 
             $PackingListRelatedValuePart3 = new PackingListRelatedValuePart3();
             $PackingListRelatedValuePart3->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart3->{"ean_no_second_column_value_$i"} = $request->input("ean_no_second_column_value_$i");
             }
             $PackingListRelatedValuePart3->save();
 
             $PackingListRelatedValuePart4 = new PackingListRelatedValuePart4();
             $PackingListRelatedValuePart4->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart4->{"sku_hash_no_second_column_value_$i"} = $request->input("sku_hash_no_second_column_value_$i");
             }
             $PackingListRelatedValuePart4->save();
 
             $PackingListRelatedValuePart5 = new PackingListRelatedValuePart5();
             $PackingListRelatedValuePart5->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart5->{"style_no_second_column_value_$i"} = $request->input("style_no_second_column_value_$i");
             }
             $PackingListRelatedValuePart5->save();
 
             $PackingListRelatedValuePart6 = new PackingListRelatedValuePart6();
             $PackingListRelatedValuePart6->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart6->{"quantity_third_column_value_$i"} = $request->input("quantity_third_column_value_$i");
-                $PackingListRelatedValuePart6->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
             }
             $PackingListRelatedValuePart6->save();
 
             $PackingListRelatedValuePart7 = new PackingListRelatedValuePart7();
             $PackingListRelatedValuePart7->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart7->{"price_third_column_value_$i"} = $request->input("price_third_column_value_$i");
             }
             $PackingListRelatedValuePart7->save();
 
             $PackingListRelatedValuePart8 = new PackingListRelatedValuePart8();
             $PackingListRelatedValuePart8->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart8->{"currency_symbol_third_column_value_$i"} = $request->input("currency_symbol_third_column_value_$i");
             }
             $PackingListRelatedValuePart8->save();
 
             $PackingListRelatedValuePart9 = new PackingListRelatedValuePart9();
             $PackingListRelatedValuePart9->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart9->{"total_amount_third_column_value_$i"} = $request->input("total_amount_third_column_value_$i");
             }
             $PackingListRelatedValuePart9->save();
 
 
+            $PackingListRelatedValuePart10 = new PackingListRelatedValuePart10();
+            $PackingListRelatedValuePart10->packing_list_id = $PackingList->id;
+            for ($i = 1; $i <= 350; $i++) {
+                $PackingListRelatedValuePart10->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
+            }
+            $PackingListRelatedValuePart10->save();
 
             $PackingListHistory = new PackingListHistory();
             $PackingListHistory->packing_list_id = $PackingList->id;
@@ -3635,6 +3657,7 @@ class adminController extends Controller
             PackingListRelatedValuePart7::where('packing_list_id', $id)->first()->toArray(),
             PackingListRelatedValuePart8::where('packing_list_id', $id)->first()->toArray(),
             PackingListRelatedValuePart9::where('packing_list_id', $id)->first()->toArray(),
+            PackingListRelatedValuePart10::where('packing_list_id', $id)->first()->toArray(),
         );
 
         // Debug the fetched data
@@ -3799,7 +3822,7 @@ class adminController extends Controller
             $PackingListRelatedFieldPart1->packing_list_id = $PackingList->id;
             $PackingListRelatedFieldPart1->heading_proforma_invioce = $request->heading_proforma_invioce;
             $PackingListRelatedFieldPart1->value_proforma_invioce = $request->value_proforma_invioce;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart1->{"heading_long_side_$i"} = $request->input("heading_long_side_$i");
                 $PackingListRelatedFieldPart1->{"heading_po_$i"} = $request->input("heading_po_$i");
                 $PackingListRelatedFieldPart1->{"value_po_$i"} = $request->input("value_po_$i");
@@ -3810,7 +3833,7 @@ class adminController extends Controller
 
             $PackingListRelatedFieldPart2 =  PackingListRelatedFieldPart2::where('packing_list_id', $id)->first();
             $PackingListRelatedFieldPart2->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart2->{"heading_terry_$i"} = $request->input("heading_terry_$i");
                 $PackingListRelatedFieldPart2->{"heading_carron_bales_pallets_$i"} = $request->input("heading_carron_bales_pallets_$i");
                 $PackingListRelatedFieldPart2->{"carron_bales_pallets_value_$i"} = $request->input("carron_bales_pallets_value_$i");
@@ -3822,7 +3845,7 @@ class adminController extends Controller
 
             $PackingListRelatedFieldPart3 =  PackingListRelatedFieldPart3::where('packing_list_id', $id)->first();
             $PackingListRelatedFieldPart3->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart3->{"heading_color_$i"} = $request->input("heading_color_$i");
                 $PackingListRelatedFieldPart3->{"heading_sku_no_$i"} = $request->input("heading_sku_no_$i");
                 $PackingListRelatedFieldPart3->{"heading_ean_no_$i"} = $request->input("heading_ean_no_$i");
@@ -3833,7 +3856,7 @@ class adminController extends Controller
 
             $PackingListRelatedFieldPart4 =  PackingListRelatedFieldPart4::where('packing_list_id', $id)->first();
             $PackingListRelatedFieldPart4->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart4->{"heading_po_number_$i"} = $request->input("heading_po_number_$i");
                 $PackingListRelatedFieldPart4->{"heading_po_number_value_$i"} = $request->input("heading_po_number_value_$i");
                 $PackingListRelatedFieldPart4->{"heading_style_name_$i"} = $request->input("heading_style_name_$i");
@@ -3844,7 +3867,7 @@ class adminController extends Controller
             $PackingListRelatedFieldPart5 =  PackingListRelatedFieldPart5::where('packing_list_id', $id)->first();
             $PackingListRelatedFieldPart5->packing_list_id = $PackingList->id;
 
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart5->{"heading_style_number_$i"} = $request->input("heading_style_number_$i");
                 $PackingListRelatedFieldPart5->{"heading_style_number_value_$i"} = $request->input("heading_style_number_value_$i");
                 $PackingListRelatedFieldPart5->{"heading_color_left_column_$i"} = $request->input("heading_color_left_column_$i");
@@ -3856,7 +3879,7 @@ class adminController extends Controller
 
             $PackingListRelatedFieldPart6 =  PackingListRelatedFieldPart6::where('packing_list_id', $id)->first();
             $PackingListRelatedFieldPart6->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart6->{"heading_size_break_down_value_$i"} = $request->input("heading_size_break_down_value_$i");
                 $PackingListRelatedFieldPart6->{"heading_carton_count_$i"} = $request->input("heading_carton_count_$i");
                 $PackingListRelatedFieldPart6->{"heading_carton_count_value_$i"} = $request->input("heading_carton_count_value_$i");
@@ -3867,7 +3890,7 @@ class adminController extends Controller
 
             $PackingListRelatedFieldPart7 =  PackingListRelatedFieldPart7::where('packing_list_id', $id)->first();
             $PackingListRelatedFieldPart7->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart7->{"heading_bale_left_column_$i"} = $request->input("heading_bale_left_column_$i");
                 $PackingListRelatedFieldPart7->{"heading_bale_left_column_value_$i"} = $request->input("heading_bale_left_column_value_$i");
                 $PackingListRelatedFieldPart7->{"heading_net_weight_left_column_$i"} = $request->input("heading_net_weight_left_column_$i");
@@ -3878,7 +3901,7 @@ class adminController extends Controller
 
             $PackingListRelatedFieldPart8 =  PackingListRelatedFieldPart8::where('packing_list_id', $id)->first();
             $PackingListRelatedFieldPart8->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 35; $i++) {
                 $PackingListRelatedFieldPart8->{"heading_gross_weight_second_column_$i"} = $request->input("heading_gross_weight_second_column_$i");
                 $PackingListRelatedFieldPart8->{"net_weight_second_column_value_$i"} = $request->input("net_weight_second_column_value_$i");
                 $PackingListRelatedFieldPart8->{"gross_weight_second_column_value_$i"} = $request->input("gross_weight_second_column_value_$i");
@@ -3890,69 +3913,73 @@ class adminController extends Controller
 
             $PackingListRelatedValuePart1 =  PackingListRelatedValuePart1::where('packing_list_id', $id)->first();
             $PackingListRelatedValuePart1->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart1->{"color_name_second_column_value_$i"} = $request->input("color_name_second_column_value_$i");
             }
             $PackingListRelatedValuePart1->save();
 
             $PackingListRelatedValuePart2 =  PackingListRelatedValuePart2::where('packing_list_id', $id)->first();
             $PackingListRelatedValuePart2->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart2->{"sku_no_second_column_value_$i"} = $request->input("sku_no_second_column_value_$i");
             }
             $PackingListRelatedValuePart2->save();
 
             $PackingListRelatedValuePart3 =  PackingListRelatedValuePart3::where('packing_list_id', $id)->first();
             $PackingListRelatedValuePart3->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart3->{"ean_no_second_column_value_$i"} = $request->input("ean_no_second_column_value_$i");
             }
             $PackingListRelatedValuePart3->save();
 
             $PackingListRelatedValuePart4 =  PackingListRelatedValuePart4::where('packing_list_id', $id)->first();
             $PackingListRelatedValuePart4->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart4->{"sku_hash_no_second_column_value_$i"} = $request->input("sku_hash_no_second_column_value_$i");
             }
             $PackingListRelatedValuePart4->save();
 
             $PackingListRelatedValuePart5 =  PackingListRelatedValuePart5::where('packing_list_id', $id)->first();
             $PackingListRelatedValuePart5->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart5->{"style_no_second_column_value_$i"} = $request->input("style_no_second_column_value_$i");
             }
             $PackingListRelatedValuePart5->save();
 
             $PackingListRelatedValuePart6 =  PackingListRelatedValuePart6::where('packing_list_id', $id)->first();
             $PackingListRelatedValuePart6->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart6->{"quantity_third_column_value_$i"} = $request->input("quantity_third_column_value_$i");
-                $PackingListRelatedValuePart6->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
             }
             $PackingListRelatedValuePart6->save();
 
             $PackingListRelatedValuePart7 =  PackingListRelatedValuePart7::where('packing_list_id', $id)->first();
             $PackingListRelatedValuePart7->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart7->{"price_third_column_value_$i"} = $request->input("price_third_column_value_$i");
             }
             $PackingListRelatedValuePart7->save();
 
             $PackingListRelatedValuePart8 =  PackingListRelatedValuePart8::where('packing_list_id', $id)->first();
             $PackingListRelatedValuePart8->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart8->{"currency_symbol_third_column_value_$i"} = $request->input("currency_symbol_third_column_value_$i");
             }
             $PackingListRelatedValuePart8->save();
 
             $PackingListRelatedValuePart9 =  PackingListRelatedValuePart9::where('packing_list_id', $id)->first();
             $PackingListRelatedValuePart9->packing_list_id = $PackingList->id;
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $PackingListRelatedValuePart9->{"total_amount_third_column_value_$i"} = $request->input("total_amount_third_column_value_$i");
             }
             $PackingListRelatedValuePart9->save();
 
-
+            $PackingListRelatedValuePart10 =  PackingListRelatedValuePart10::where('packing_list_id', $id)->first();
+            $PackingListRelatedValuePart10->packing_list_id = $PackingList->id;
+            for ($i = 1; $i <= 350; $i++) {
+                $PackingListRelatedValuePart10->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
+            }
+            $PackingListRelatedValuePart10->save();
 
             // Create CanadaInvoiceHistory record
             $PackingListHistory = new PackingListHistory();
@@ -4002,6 +4029,7 @@ class adminController extends Controller
             PackingListRelatedValuePart7::where('packing_list_id', $id)->first()->toArray(),
             PackingListRelatedValuePart8::where('packing_list_id', $id)->first()->toArray(),
             PackingListRelatedValuePart9::where('packing_list_id', $id)->first()->toArray(),
+            PackingListRelatedValuePart10::where('packing_list_id', $id)->first()->toArray(),
         );
 
         if (!$data['PackingList']) {

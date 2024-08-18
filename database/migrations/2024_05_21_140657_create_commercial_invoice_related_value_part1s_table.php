@@ -17,7 +17,7 @@ class CreateCommercialInvoiceRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('commercial_invoice_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("color_name_second_column_value_$i")->nullable();
               
             }
@@ -27,7 +27,7 @@ class CreateCommercialInvoiceRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('commercial_invoice_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("sku_no_second_column_value_$i")->nullable();
               
             }
@@ -37,7 +37,7 @@ class CreateCommercialInvoiceRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('commercial_invoice_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
              
                 $table->text("ean_no_second_column_value_$i")->nullable();
                
@@ -48,7 +48,7 @@ class CreateCommercialInvoiceRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('commercial_invoice_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("sku_hash_no_second_column_value_$i")->nullable();
             }
             $table->timestamps();
@@ -57,7 +57,7 @@ class CreateCommercialInvoiceRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('commercial_invoice_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("style_no_second_column_value_$i")->nullable();
                
             }
@@ -67,9 +67,8 @@ class CreateCommercialInvoiceRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('commercial_invoice_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("quantity_third_column_value_$i")->nullable();
-                $table->text("quantity_unit_third_column_value_$i")->nullable();
               
             }
             $table->timestamps();
@@ -78,7 +77,7 @@ class CreateCommercialInvoiceRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('commercial_invoice_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("price_third_column_value_$i")->nullable();
             }
             $table->timestamps();
@@ -87,7 +86,7 @@ class CreateCommercialInvoiceRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('commercial_invoice_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("currency_symbol_third_column_value_$i")->nullable();
             }
             $table->timestamps();
@@ -96,11 +95,23 @@ class CreateCommercialInvoiceRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('commercial_invoice_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("total_amount_third_column_value_$i")->nullable();
             }
             $table->timestamps();
         });
+
+          Schema::create('commercial_invoice_related_value_part10s', function (Blueprint $table) {
+            $table->id();
+            $table->string('commercial_invoice_id')->nullable();
+
+            for ($i = 1; $i <= 350; $i++) {
+                $table->text("quantity_unit_third_column_value_$i")->nullable();
+            }
+            $table->timestamps();
+        });
+
+        
     }
 
     /**
@@ -119,5 +130,6 @@ class CreateCommercialInvoiceRelatedValuePart1sTable extends Migration
         Schema::dropIfExists('commercial_invoice_related_value_part7s');
         Schema::dropIfExists('commercial_invoice_related_value_part8s');
         Schema::dropIfExists('commercial_invoice_related_value_part9s');
+        Schema::dropIfExists('commercial_invoice_related_value_part10s');
     }
 }

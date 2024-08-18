@@ -202,52 +202,67 @@
                         <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_marks_no"  style="font-weight: bold; color: #000;"  name="heading_marks_no" value="MARKS & NOS">
                     </div>
                     <br>
-                    <div style="border: 3px solid rgb(61, 61, 61); border-radius: 0;  "  class="row mb-3">
+                    <div style=""  class="row mb-3">
                         @for ($i = 1; $i <= 5; $i++)
-                        <label for="heading_po_number_{{ $i }}" class="form-label"> {{ ($i)}}</label>
 
-                        <div class="col-sm-3 mb-3 pt-2">
-                            <input type="text" class="form-control custom-input mb-1" id="heading_long_side_{{ $i }}" style="font-weight: bold; color: #000;" name="heading_long_side_{{ $i }}" value="LEFT & RIGHT SIDES OF BOX ( LONG SIDES )">
+                        <div class="accordion accordion-header-bg accordion-bordered" id="accordion-seven">
+                            <div class="accordion-item">
+                                <div class="accordion-header rounded-lg" id="accord-7One-{{ $i }}" data-bs-toggle="collapse" data-bs-target="#collapse7One-{{ $i }}" aria-controls="collapse7One-{{ $i }}" aria-expanded="false" role="button">
+                                    <span class="accordion-header-icon"></span>
+                                    <label class="form-label"> {{ $i }} -  MARKS & NOS</label>
+                                    <span class="accordion-header-indicator"></span>
+                                </div>
+                                <div id="collapse7One-{{ $i }}" class="collapse accordion__body" aria-labelledby="accord-7One-{{ $i }}">
+                                    <div class="accordion-body-text">
+                                        
+
+                                            <div class="col-sm-3 mb-3 pt-2">
+                                                <input type="text" class="form-control custom-input mb-1" id="heading_long_side_{{ $i }}"  name="heading_long_side_{{ $i }}" >
+                                            </div>
+                                            
+                                        <div class="col-sm-3 mb-3">
+                                        
+                                            <input type="text"   class="form-control custom-input mb-1" id="heading_po_number_{{ $i }}"    name="heading_po_number_{{ $i }}" >
+                                            <input type="text" class="form-control custom-input mb-1" id="heading_po_number_value_{{ $i }}" name="heading_po_number_value_{{ $i }}" >
+                                        </div>
+                                        <div class="col-sm-3 mb-3">
+                                            <input type="text"   class="form-control custom-input mb-1" id="heading_style_name_{{ $i }}" name="heading_style_name_{{ $i }}"  >
+                                            <input type="text" class="form-control custom-input mb-1" id="heading_style_name_value_{{ $i }}" name="heading_style_name_value_{{ $i }}" >
+                                        </div>
+                                        <div class="col-sm-3 mb-3">
+                                            <input type="text"   class="form-control custom-input mb-1" id="heading_style_number_{{ $i }}" name="heading_style_number_{{ $i }}"  >
+                                            <input type="text" class="form-control custom-input mb-1" id="heading_style_number_value_{{ $i }}" name="heading_style_number_value_{{ $i }}" >
+                                        </div>
+                                        <div class="col-sm-3 mb-3">
+                                            <input type="text"   class="form-control custom-input mb-1" id="heading_color_left_column_{{ $i }}" name="heading_color_left_column_{{ $i }}"  >
+                                            <input type="text" class="form-control custom-input mb-1" id="heading_color_left_column_value_{{ $i }}" name="heading_color_left_column_value_{{ $i }}" >
+                                        </div>
+                                        <div class="col-sm-3 mb-3">
+                                            <input type="text"   class="form-control custom-input mb-1" id="heading_size_break_down_{{ $i }}" name="heading_size_break_down_{{ $i }}"  >
+                                            <input type="text" class="form-control custom-input mb-1" id="heading_size_break_down_value_{{ $i }}" name="heading_size_break_down_value_{{ $i }}" >
+                                        </div>
+
+                                        <div class="col-sm-3 mb-3">
+                                            <input type="text"   class="form-control custom-input mb-1" id="heading_carton_count_{{ $i }}" name="heading_carton_count_{{ $i }}"  >
+                                            <input type="text" class="form-control custom-input mb-1" id="heading_carton_count_value_{{ $i }}" name="heading_carton_count_value_{{ $i }}" >
+                                        </div>
+                                        <div class="col-sm-3 mb-3">
+                                            <input type="text"   class="form-control custom-input mb-1" id="heading_carton_size_{{ $i }}" name="heading_carton_size_{{ $i }}"  >
+                                            <input type="text" class="form-control custom-input mb-1" id="heading_carton_size_value_{{ $i }}" name="heading_carton_size_value_{{ $i }}" >
+                                        </div>
+
+                                        <div class="col-sm-3 mb-3">
+                                            <input type="text"   class="form-control custom-input mb-1" id="heading_bale_left_column_{{ $i }}" name="heading_bale_left_column_{{ $i }}"  >
+                                            <input type="text" class="form-control custom-input mb-1" id="heading_bale_left_column_value_{{ $i }}" name="heading_bale_left_column_value_{{ $i }}" >
+                                        </div>
+                                    
+                                    
+                                            <hr>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
-                    <div class="col-sm-3 mb-3">
-                       
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_po_number_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_po_number_{{ $i }}" value="PO NUMBER :">
-                        <input type="text" class="form-control custom-input mb-1" id="heading_po_number_value_{{ $i }}" name="heading_po_number_value_{{ $i }}" placeholder="ENTER  PO NUMBER :">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_style_name_{{ $i }}" name="heading_style_name_{{ $i }}" style="font-weight: bold; color: #000;" value="STYLE NAME :">
-                        <input type="text" class="form-control custom-input mb-1" id="heading_style_name_value_{{ $i }}" name="heading_style_name_value_{{ $i }}" placeholder="ENTER STYLE NAME ">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_style_number_{{ $i }}" name="heading_style_number_{{ $i }}" style="font-weight: bold; color: #000;" value="STYLE NUMBER :">
-                        <input type="text" class="form-control custom-input mb-1" id="heading_style_number_value_{{ $i }}" name="heading_style_number_value_{{ $i }}" placeholder="ENTER STYLE NUMBER ">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_color_left_column_{{ $i }}" name="heading_color_left_column_{{ $i }}" style="font-weight: bold; color: #000;" value="COLOR :">
-                        <input type="text" class="form-control custom-input mb-1" id="heading_color_left_column_value_{{ $i }}" name="heading_color_left_column_value_{{ $i }}" placeholder="ENTER COLOR NAME (left)">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_size_break_down_{{ $i }}" name="heading_size_break_down_{{ $i }}" style="font-weight: bold; color: #000;" value="SIZE BREAKDOWN :">
-                        <input type="text" class="form-control custom-input mb-1" id="heading_size_break_down_value_{{ $i }}" name="heading_size_break_down_value_{{ $i }}" placeholder="ENTER SIZE BREAKDOWN ">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_carton_count_{{ $i }}" name="heading_carton_count_{{ $i }}" style="font-weight: bold; color: #000;" value="CARTON COUNT :">
-                        <input type="text" class="form-control custom-input mb-1" id="heading_carton_count_value_{{ $i }}" name="heading_carton_count_value_{{ $i }}" placeholder="ENTER CARTON COUNT ">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_carton_size_{{ $i }}" name="heading_carton_size_{{ $i }}" style="font-weight: bold; color: #000;" value="CARTON SIZE :">
-                        <input type="text" class="form-control custom-input mb-1" id="heading_carton_size_value_{{ $i }}" name="heading_carton_size_value_{{ $i }}" placeholder="ENTER CARTON SIZE ">
-                    </div>
-
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_bale_left_column_{{ $i }}" name="heading_bale_left_column_{{ $i }}" style="font-weight: bold; color: #000;" value="BALE#:">
-                        <input type="text" class="form-control custom-input mb-1" id="heading_bale_left_column_value_{{ $i }}" name="heading_bale_left_column_value_{{ $i }}" placeholder="ENTER BALE#: (left column ) ">
-                    </div>
-                
-                 
-                        <hr>
                         @endfor
                     </div>
                     
@@ -280,94 +295,125 @@
                 </div>
                 <br>
                 <hr>
-                    @for ($i = 1; $i <= 5; $i++)
-                    <label for="heading_po_{{ $i }}" class="form-label">{{ $i }}</label>
-                    <div class="col-sm-3 mb-3">
-                        
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700" class="form-control custom-input mb-1" id="heading_po_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_po_{{ $i }}" value="PO #">
-                        <input type="text" class="form-control custom-input mb-1" id="value_po_{{ $i }}" name="value_po_{{ $i }}" placeholder="Enter PO">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_cotton_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_cotton_{{ $i }}" value="100% COTTON">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_seahorse_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_seahorse_{{ $i }}" value="SEAHORSE PURE TOWEL">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_terry_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_terry_{{ $i }}" value="TERRY TOWEL">
-                    </div>
+                    @for ($i = 1; $i <= 35; $i++)
 
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_carron_bales_pallets_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_carron_bales_pallets_{{ $i }}" value="CARONS/BALES/PALLETS">
-                        <input type="text" class="form-control custom-input mb-1" id="carron_bales_pallets_value_{{ $i }}" name="carron_bales_pallets_value_{{ $i }}" placeholder="Eneter any value CARONS/BALES/PALLETS">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_pcs_pack_pallet_per_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_pcs_pack_pallet_per_{{ $i }}" value="PCS PER CARTON/PACK PER BALE/SET PER PALLET">
-                        <input type="text" class="form-control custom-input mb-1" id="pcs_pack_pallet_per_value_{{ $i }}" name="pcs_pack_pallet_per_value_{{ $i }}" placeholder="Enter any value pcs/pack/pallet per value">
-                    </div>
-
-                    <br>
-                    <hr>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text"  style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_color_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_color_{{ $i }}" value="COLOR">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_sku_no_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_sku_no_{{ $i }}" value="SKU NO:">
-                    </div>
-                    <div class="col-sm-2 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_ean_no_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_ean_no_{{ $i }}" value="EAN NO:">
-                    </div>
-                    <div class="col-sm-2 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_sku_hash_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_sku_hash_{{ $i }}" value="SKU #">
-                    </div>
-                    <div class="col-sm-2 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_style_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_style_{{ $i }}" value="STYLE #">
-                    </div>
-                    
-                    <br>
-                    <hr>
-                    @for ($j = ($i - 1) * 10 + 1; $j <= $i * 10; $j++)
-                    <br>
-                    <hr>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" class="form-control custom-input mb-1" id="color_name_second_column_value_{{ $j }}"  name="color_name_second_column_value_{{ $j }}" placeholder="Color name {{ $j }}" value="">
-                    </div>
-                    <div class="col-sm-3 mb-3">
-                        <input type="text" class="form-control custom-input mb-1" id="sku_no_second_column_value_{{ $j }}" name="sku_no_second_column_value_{{ $j }}" placeholder="SKU No {{ $j }}" value="">
-                    </div> 
-                    <div class="col-sm-2 mb-3">
-                        <input type="text" class="form-control custom-input mb-1" id="ean_no_second_column_value_{{ $j }}" name="ean_no_second_column_value_{{ $j }}" placeholder="EAN No {{ $j }}" value="">
-                    </div>
-                     <div class="col-sm-2 mb-3">
-                        <input type="text" class="form-control custom-input mb-1" id="sku_hash_no_second_column_value_{{ $j }}" name="sku_hash_no_second_column_value_{{ $j }}" placeholder="SKU HASH {{ $j }}" value="">
-                    </div>
-                     <div class="col-sm-2 mb-3">
-                        <input type="text" class="form-control custom-input mb-1" id="style_no_second_column_value_{{ $j }}" name="style_no_second_column_value_{{ $j }}" placeholder="Style No {{ $j }}" value="">
-                    </div> 
-                    <hr>
-                    <br>
-                    <div class="row mb-3" data-index="{{ $j }}">
-                        <div class="col-sm-3 mb-3">
-                            <input type="number" step="any" class="form-control custom-input mb-1 quantity" id="quantity_third_column_value_{{ $j }}" name="quantity_third_column_value_{{ $j }}" placeholder="NET WT {{ $j }}" value="">
+                    {{-- ====================== colapes srat============= --}}
+                    <div class="accordion accordion-header-bg accordion-bordered" id="accordion-seven">
+                        <div class="accordion-item">
+                            <div class="accordion-header rounded-lg" id="accord-7One-{{ $i }}" data-bs-toggle="collapse" data-bs-target="#collapse7One-{{ $i }}" aria-controls="collapse7One-{{ $i }}" aria-expanded="false" role="button">
+                                <span class="accordion-header-icon"></span>
+                                <label class="form-label">{{ $i }} - DESCRIPTION OF GOODS</label>
+                                <span class="accordion-header-indicator"></span>
+                            </div>
+                            <div id="collapse7One-{{ $i }}" class="collapse " aria-labelledby="accord-7One-{{ $i }}">
+                                <div class="row d-flex justify-content-between mt-2">
+                                                   
+                                                    <div class="col-sm-3 mb-3">
+                                                        
+                                                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700" class="form-control custom-input mb-1" id="heading_po_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_po_{{ $i }}" value="PO #">
+                                                        <input type="text" class="form-control custom-input mb-1" id="value_po_{{ $i }}" name="value_po_{{ $i }}" placeholder="Enter PO">
+                                                    </div>
+                                                    <div class="col-sm-3 mb-3">
+                                                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_cotton_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_cotton_{{ $i }}" value="100% COTTON">
+                                                    </div>
+                                                    <div class="col-sm-3 mb-3">
+                                                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_seahorse_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_seahorse_{{ $i }}" value="SEAHORSE PURE TOWEL">
+                                                    </div>
+                                                    <div class="col-sm-3 mb-3">
+                                                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_terry_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_terry_{{ $i }}" value="TERRY TOWEL">
+                                                    </div>
+                                
+                                                    <div class="col-sm-3 mb-3">
+                                                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_carron_bales_pallets_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_carron_bales_pallets_{{ $i }}" value="CARONS/BALES/PALLETS">
+                                                        <input type="text" class="form-control custom-input mb-1" id="carron_bales_pallets_value_{{ $i }}" name="carron_bales_pallets_value_{{ $i }}" placeholder="Eneter any value CARONS/BALES/PALLETS">
+                                                    </div>
+                                                    <div class="col-sm-3 mb-3">
+                                                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_pcs_pack_pallet_per_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_pcs_pack_pallet_per_{{ $i }}" value="PCS PER CARTON/PACK PER BALE/SET PER PALLET">
+                                                        <input type="text" class="form-control custom-input mb-1" id="pcs_pack_pallet_per_value_{{ $i }}" name="pcs_pack_pallet_per_value_{{ $i }}" placeholder="Enter any value pcs/pack/pallet per value">
+                                                    </div>
+                                
+                                                    <br>
+                                                    <hr>
+                                                    <div class="col-sm-3 mb-3">
+                                                        <input type="text"  style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_color_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_color_{{ $i }}" value="COLOR">
+                                                    </div>
+                                                    <div class="col-sm-3 mb-3">
+                                                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_sku_no_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_sku_no_{{ $i }}" value="SKU NO:">
+                                                    </div>
+                                                    <div class="col-sm-2 mb-3">
+                                                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_ean_no_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_ean_no_{{ $i }}" value="EAN NO:">
+                                                    </div>
+                                                    <div class="col-sm-2 mb-3">
+                                                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_sku_hash_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_sku_hash_{{ $i }}" value="SKU #">
+                                                    </div>
+                                                    <div class="col-sm-2 mb-3">
+                                                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_style_{{ $i }}"  style="font-weight: bold; color: #000;"  name="heading_style_{{ $i }}" value="STYLE #">
+                                                    </div>
+                                                    
+                                                    <br>
+                                                    <hr>
+                                                    @for ($j = ($i - 1) * 10 + 1; $j <= $i * 10; $j++)
+                                
+                                                    {{-- ==========colaps start========== --}}
+                                                            <div class="accordion accordion-header-bg accordion-bordered" id="accordion-seven">
+                                                                <div class="accordion-item">
+                                                                    <div class="accordion-header rounded-lg" id="accord-7One-{{ $j.$i }}" data-bs-toggle="collapse" data-bs-target="#collapse7One-{{ $j.$i }}" aria-controls="collapse7One-{{ $j.$i }}" aria-expanded="false" role="button">
+                                                                        <span class="accordion-header-icon"></span>
+                                                                        <label class="accordion-header-text">{{ $j }} - NT/GW</label>
+                                                                        <span class="accordion-header-indicator"></span>
+                                                                    </div>
+                                                                    <div id="collapse7One-{{ $j.$i }}" class="collapse " aria-labelledby="accord-7One-{{ $j.$i }}">
+                                                                        <div class="row d-flex justify-content-between mt-2">
+                                                                        
+                                                                                <div class="col-sm-3 mb-3">
+                                                                                    <input type="text" class="form-control custom-input mb-1" id="color_name_second_column_value_{{ $j }}"  name="color_name_second_column_value_{{ $j }}" placeholder="Color name {{ $j }}" value="">
+                                                                                </div>
+                                                                                <div class="col-sm-3 mb-3">
+                                                                                    <input type="text" class="form-control custom-input mb-1" id="sku_no_second_column_value_{{ $j }}" name="sku_no_second_column_value_{{ $j }}" placeholder="SKU No {{ $j }}" value="">
+                                                                                </div> 
+                                                                                <div class="col-sm-2 mb-3">
+                                                                                    <input type="text" class="form-control custom-input mb-1" id="ean_no_second_column_value_{{ $j }}" name="ean_no_second_column_value_{{ $j }}" placeholder="EAN No {{ $j }}" value="">
+                                                                                </div>
+                                                                                <div class="col-sm-2 mb-3">
+                                                                                    <input type="text" class="form-control custom-input mb-1" id="sku_hash_no_second_column_value_{{ $j }}" name="sku_hash_no_second_column_value_{{ $j }}" placeholder="SKU HASH {{ $j }}" value="">
+                                                                                </div>
+                                                                                <div class="col-sm-2 mb-3">
+                                                                                    <input type="text" class="form-control custom-input mb-1" id="style_no_second_column_value_{{ $j }}" name="style_no_second_column_value_{{ $j }}" placeholder="Style No {{ $j }}" value="">
+                                                                                </div> 
+                                                                                
+                                                                                <div class="row mb-3" data-index="{{ $j }}">
+                                                                                    <div class="col-sm-3 mb-3">
+                                                                                        <input type="number" step="any" class="form-control custom-input mb-1 quantity" id="quantity_third_column_value_{{ $j }}" name="quantity_third_column_value_{{ $j }}" placeholder="NET WT {{ $j }}" value="">
+                                                                                    </div>
+                                                                                    <div class="col-sm-3 mb-3">
+                                                                                        <input type="text" class="form-control custom-input mb-1 quantity" id="quantity_unit_third_column_value_{{ $j }}" name="quantity_unit_third_column_value_{{ $j }}" placeholder="NET WT  unit {{ $j }}" value="">
+                                                                                    </div>
+                                                                                    <div class="col-sm-2 mb-3">
+                                                                                        <input type="number" step="any" class="form-control custom-input mb-1 price" id="price_third_column_value_{{ $j }}" name="price_third_column_value_{{ $j }}" placeholder="GROSS WT {{ $j }}" value="">
+                                                                                    </div>
+                                                                                    <div class="col-sm-3 mb-3">
+                                                                                    
+                                                                                        <input type="text" class="form-control custom-input mb-1 price" id="price_unit_third_column_value_{{ $j }}" name="price_unit_third_column_value_{{ $j }}" placeholder="GROSS WT  UNIT {{ $j }}" value="">
+                                                                                    </div>
+                                                                                    <div class="col-sm-3 mb-3">
+                                                                                        <input type="text" class="form-control custom-input mb-1 total" id="total_amount_third_column_value_{{ $j }}" name="total_amount_third_column_value_{{ $j }}" placeholder="BALE/CARTON NO {{ $j }}" value="" >
+                                                                                    </div>
+                                                                                </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                    {{-- ==============colapse end================ --}}
+                                
+                                                @endfor
+                                
+                                                
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-3 mb-3">
-                            <input type="text" class="form-control custom-input mb-1 quantity" id="quantity_unit_third_column_value_{{ $j }}" name="quantity_unit_third_column_value_{{ $j }}" placeholder="NET WT  unit {{ $j }}" value="">
-                        </div>
-                        <div class="col-sm-2 mb-3">
-                            <input type="number" step="any" class="form-control custom-input mb-1 price" id="price_third_column_value_{{ $j }}" name="price_third_column_value_{{ $j }}" placeholder="GROSS WT {{ $j }}" value="">
-                        </div>
-                        <div class="col-sm-3 mb-3">
-                           
-                            <input type="text" class="form-control custom-input mb-1 price" id="price_unit_third_column_value_{{ $j }}" name="price_unit_third_column_value_{{ $j }}" placeholder="GROSS WT  UNIT {{ $j }}" value="">
-                        </div>
-                        <div class="col-sm-3 mb-3">
-                            <input type="text" class="form-control custom-input mb-1 total" id="total_amount_third_column_value_{{ $j }}" name="total_amount_third_column_value_{{ $j }}" placeholder="BALE/CARTON NO {{ $j }}" value="" >
-                        </div>
                     </div>
-                @endfor
-
-                    <br>
-                    <hr>
+                    {{-- c=============colapes end ======================= --}}
+                 
                  
 
 

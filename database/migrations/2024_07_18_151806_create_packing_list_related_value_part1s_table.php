@@ -18,7 +18,7 @@ class CreatePackingListRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('packing_list_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("color_name_second_column_value_$i")->nullable();
               
             }
@@ -28,7 +28,7 @@ class CreatePackingListRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('packing_list_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("sku_no_second_column_value_$i")->nullable();
               
             }
@@ -38,7 +38,7 @@ class CreatePackingListRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('packing_list_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
              
                 $table->text("ean_no_second_column_value_$i")->nullable();
                
@@ -49,7 +49,7 @@ class CreatePackingListRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('packing_list_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("sku_hash_no_second_column_value_$i")->nullable();
             }
             $table->timestamps();
@@ -58,7 +58,7 @@ class CreatePackingListRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('packing_list_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("style_no_second_column_value_$i")->nullable();
                
             }
@@ -68,9 +68,8 @@ class CreatePackingListRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('packing_list_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("quantity_third_column_value_$i")->nullable();
-                $table->text("quantity_unit_third_column_value_$i")->nullable();
               
             }
             $table->timestamps();
@@ -79,9 +78,8 @@ class CreatePackingListRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('packing_list_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("price_third_column_value_$i")->nullable();
-                $table->text("price_unit_third_column_value_$i")->nullable();
             }
             $table->timestamps();
         });
@@ -89,7 +87,7 @@ class CreatePackingListRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('packing_list_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("currency_symbol_third_column_value_$i")->nullable();
             }
             $table->timestamps();
@@ -98,11 +96,32 @@ class CreatePackingListRelatedValuePart1sTable extends Migration
             $table->id();
             $table->string('packing_list_id')->nullable();
 
-            for ($i = 1; $i <= 50; $i++) {
+            for ($i = 1; $i <= 350; $i++) {
                 $table->text("total_amount_third_column_value_$i")->nullable();
             }
             $table->timestamps();
         });
+        Schema::create('packing_list_related_value_part10s', function (Blueprint $table) {
+            $table->id();
+            $table->string('packing_list_id')->nullable();
+
+            for ($i = 1; $i <= 350; $i++) {
+                $table->text("quantity_unit_third_column_value_$i")->nullable();
+            }
+            $table->timestamps();
+        });
+
+        Schema::create('packing_list_related_value_part11s', function (Blueprint $table) {
+            $table->id();
+            $table->string('packing_list_id')->nullable();
+
+            for ($i = 1; $i <= 350; $i++) {
+                $table->text("price_unit_third_column_value_$i")->nullable();
+            }
+            $table->timestamps();
+        });
+
+
     }
     /**
      * Reverse the migrations.
@@ -120,5 +139,8 @@ class CreatePackingListRelatedValuePart1sTable extends Migration
         Schema::dropIfExists('packing_list_related_value_part7s');
         Schema::dropIfExists('packing_list_related_value_part8s');
         Schema::dropIfExists('packing_list_related_value_part9s');
+        Schema::dropIfExists('packing_list_related_value_part10s');
+        Schema::dropIfExists('packing_list_related_value_part11s');
+        
     }
 }

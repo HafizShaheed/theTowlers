@@ -407,37 +407,49 @@
 
                 <tr style="font-size:8px; ">
                     <td style=" border-right: 1px solid;">
-                        @if (isset($CommercialInvoice['heading_carton_count_value_' . $i]) && !empty($CommercialInvoice['heading_carton_count_value_' . $i]))
+                     
                             
                         <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_long_side_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_po_number_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_po_number_' . $i] ?? '' }} 
+                             </p>
+                        <p>
                             {{ $CommercialInvoice['heading_po_number_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_style_name_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_style_name_' . $i] ?? '' }} 
+                             </p>
+                        <p>
                             {{ $CommercialInvoice['heading_style_name_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_style_number_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_style_number_' . $i] ?? '' }} 
+                             </p>
+                        <p>
                             {{ $CommercialInvoice['heading_style_number_value_' . $i] ?? '' }}
 
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_color_left_column_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_color_left_column_' . $i] ?? '' }} 
+                             </p>
+                        <p>
                             {{ $CommercialInvoice['heading_color_left_column_value' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_size_break_down_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_size_break_down_' . $i] ?? '' }} 
+                             </p>
+                        <p>
                             {{ $CommercialInvoice['heading_size_break_down_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_carton_count_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_carton_count_' . $i] ?? '' }} 
+                             </p>
+                        <p>
                             {{ $CommercialInvoice['heading_carton_count_value_' . $i] ?? '' }}
                         </p>
-                        @endif
+                    
 
 
                     </td>
@@ -786,7 +798,7 @@
                         </tr>
                         <tr>
                             <td style="border-top:1px solid #000 ;" colspan="2">
-                                <div>{{ $CommercialInvoice['heading_note'] ?? '' }} :
+                                <div>{{ isset($CommercialInvoice['note_value'])  ?  $CommercialInvoice['heading_note'] : '' }} :
                                     {{ $CommercialInvoice['note_value'] ?? '' }} </div>
                             </td>
                         </tr>
@@ -823,7 +835,7 @@
                         style="border: 1px solid #000; border-collapse: collapse; width: 100%;font-size:8px;">
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_total_buyer_discount'] ?? '' }}</div>
+                                <div>{{  $CommercialInvoice['value_total_buyer_discount'] > 0 ? $CommercialInvoice['heading_total_buyer_discount'] : '' }}</div>
                             </td>
                             <td>
                                 <div style="text-align: right;">
@@ -833,7 +845,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_total_less_commission'] ?? '' }}</div>
+                                <div>{{ $CommercialInvoice['value_total_less_commission'] > 0 ? $CommercialInvoice['heading_total_less_commission'] : ''}}</div>
                             </td>
                             <td>
                                 <div style="text-align: right;">
@@ -843,7 +855,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_total_add_fright'] ?? '' }}</div>
+                                <div>{{  $CommercialInvoice['value_total_add_fright'] > 0 ? $CommercialInvoice['heading_total_add_fright'] : ''  }}</div>
                             </td>
                             <td>
                                 <div style="text-align: right;">
@@ -853,7 +865,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_total_net_amount_payable'] ?? '' }} </div>
+                                <div>{{ $CommercialInvoice['value_total_net_amount_payable'] > 0 ? $CommercialInvoice['heading_total_net_amount_payable'] : ''  }} </div>
                             </td>
                             <td>
                                 <div style="text-align: right;">
@@ -870,7 +882,7 @@
         style="border: 0px solid #000; border-collapse: collapse; width: 60%;font-size:8px;">
         <tr>
             <td>
-                <div>{{ $CommercialInvoice['heading_remarks'] ?? ''}}  {{ $CommercialInvoice['value_remarks'] ?? '' }}</div>
+                <div>{{ isset($CommercialInvoice['value_remarks']) ?  $CommercialInvoice['heading_remarks'] :  ''}}  {{ $CommercialInvoice['value_remarks'] ?? '' }}</div>
             </td>
         </tr>
                 </table>
