@@ -60,7 +60,7 @@
                                     stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <span class="nav-text">COMMERCIAL </span>
+                        <span class="nav-text">COMMERCIAL </span> <span style="padding-left: 33px !important;">INVOICE</span>
                     </a>
                 </li>
                 <li  style="margin-bottom: 7px !important;">
@@ -104,35 +104,39 @@
                         <span class="nav-text">FORMS</span>
                     </a>
                     <ul aria-expanded="true">
+                        <li> <a class="nav-text" href="{{ route('admin.report_List_custom_canda_invoice') }}"
+                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">
+                            CANADA INVOICE</a></li>
+                        <li><a class="nav-text" href="{{ route('admin.report_List_form_59_a_invoice') }}"
+                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">FORM-59- NEW ZEALAND </a></li>
                         <li><a class="nav-text" href="{{ route('admin.report_List_exporter_textile_declearation_invoice') }}"
                             class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">
-                            EXPORTERS TEXTILE 
-                            <sub>
-                                DECLARATION OF COUNTRY OF ORIGIN
-                            </sub>
+                            EXPORT DECLARATION
                             </a>
                         </li>
                         <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origins_invoice') }}"
-                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN - TMA</a></li>
+                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">TMA-CHAMBER
+                        </a></li>
 
                        
                                 
                               
-                                <li><a class="nav-text" href="{{ route('admin.report_List_form_59_a_invoice') }}"
-                                    class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">Form 59 A INVOICE</a></li>
+                             
                       
                        
                         <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_no627120_invoice') }}"
-                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE ORIGIN 627120</a></li>
-                        <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_com_dec_invoice') }}"
-                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN <sub>(PREFERENTIAL ARRANGEMENTS AMONG DEVELOPING COUNTRIES NEGOTIATED IN GATT)</sub></a></li>
+                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CHAMBER OF COMMERCE                        </a></li>
                         <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_com_dec_form_ip_invoice') }}"
-                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN <sub>- INDONESIA - PAKISTAN PREFERENTIAL TRADE AGREEMENT (IPPTA)</sub></a></li>
+                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN -INDONESIA
+                        </sub></a></li>
+                        <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_com_dec_invoice') }}"
+                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN -PERU & BOLIVIA
+                        </sub></a>
+                        </li>
+                       
                         <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_com_dec_form_a_invoice') }}"
-                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN<sub>(Combined Declaration and Certificate) Form A</sub></a></li>
-                        <li> <a class="nav-text" href="{{ route('admin.report_List_custom_canda_invoice') }}"
-                                class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">
-                                CANADA INVOICE</a></li>
+                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">GSP FORM A </sub></a></li>
+                       
 
                     </ul>
                 </li>

@@ -35,6 +35,7 @@ use App\Models\CommercialInvoiceRelatedFieldPart6;
 use App\Models\CommercialInvoiceRelatedFieldPart7;
 use App\Models\CommercialInvoiceRelatedFieldPart8;
 use App\Models\CommercialInvoiceRelatedValuePart1;
+use App\Models\CommercialInvoiceRelatedValuePart10;
 use App\Models\CommercialInvoiceRelatedValuePart2;
 use App\Models\CommercialInvoiceRelatedValuePart3;
 use App\Models\CommercialInvoiceRelatedValuePart4;
@@ -2403,7 +2404,6 @@ class teamController extends Controller
             $CommercialInvoiceRelatedValuePart6->commercial_invoice_id = $CommercialInvoice->id;
             for ($i = 1; $i <= 50; $i++) {
                 $CommercialInvoiceRelatedValuePart6->{"quantity_third_column_value_$i"} = $request->input("quantity_third_column_value_$i");
-                $CommercialInvoiceRelatedValuePart6->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart6->save();
 
@@ -2428,7 +2428,12 @@ class teamController extends Controller
             }
             $CommercialInvoiceRelatedValuePart9->save();
 
-
+            $CommercialInvoiceRelatedValuePart10 = new CommercialInvoiceRelatedValuePart10();
+            $CommercialInvoiceRelatedValuePart10->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 350; $i++) {
+                $CommercialInvoiceRelatedValuePart10->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart10->save();
 
             $CommercialInvoiceHistory = new CommercialInvoiceHistory();
             $CommercialInvoiceHistory->commercial_invoice_id = $CommercialInvoice->id;
@@ -2457,41 +2462,42 @@ class teamController extends Controller
         $data['pageIntro'] = "COMMERCIAL INVOICE Edit";
         // Fetch the main commercial invoice data
         // Fetch the CommercialInvoice and convert it to an array if it exists
-        $invoice = CommercialInvoice::where('id', $id)->where('status', '1')->where('status', '2')->first();;
-        if (!$invoice) {
-            return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
-        }
-
-        $data['CommercialInvoice'] = $invoice->toArray();
+        
+        // dd( $invoice );
+        $data['CommercialInvoice'] = CommercialInvoice::where('id', $id)->whereIn('status', ['1', '2'])->first()->toArray();
 
         // Fetch the related field data and merge it with the existing array under the same key
-        $relatedFields = [
-            CommercialInvoiceRelatedFieldPart1::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedFieldPart2::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedFieldPart3::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedFieldPart4::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedFieldPart5::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedFieldPart6::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedFieldPart7::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedFieldPart8::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedValuePart1::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedValuePart2::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedValuePart3::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedValuePart4::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedValuePart5::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedValuePart6::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedValuePart7::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedValuePart8::where('commercial_invoice_id', $id)->first(),
-            CommercialInvoiceRelatedValuePart9::where('commercial_invoice_id', $id)->first(),
-        ];
+        $data['CommercialInvoice'] = array_merge(
+            $data['CommercialInvoice'],
+            CommercialInvoiceRelatedFieldPart1::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedFieldPart2::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedFieldPart3::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedFieldPart4::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedFieldPart5::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedFieldPart6::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedFieldPart7::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedFieldPart8::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart1::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart2::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart3::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart4::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart5::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart6::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart7::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart8::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart9::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart10::where('commercial_invoice_id', $id)->first()->toArray(),
+        );
 
-        // Filter out any null values and convert each result to an array
-        $relatedFieldsArrays = array_filter(array_map(function ($relatedField) {
-            return $relatedField ? $relatedField->toArray() : [];
-        }, $relatedFields));
+        // Debug the fetched data
+        // dd($data['CommercialInvoice']);
 
-        // Merge all related fields arrays with the main CommercialInvoice array
-        $data['CommercialInvoice'] = array_merge($data['CommercialInvoice'], ...$relatedFieldsArrays);
+
+
+
+        if (!$data['CommercialInvoice']) {
+            return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
+        }
 
         // Debug the fetched data
         // dd($data['CommercialInvoice']);
@@ -2503,13 +2509,19 @@ class teamController extends Controller
     public function update_submit_commercial_invoice(Request $request)
     {
         $id = $request->input('id');
-        $request->validate([
-            'commercial_invoice' => [
-                'required',
-                Rule::unique('commercial_invoices')->ignore($id),
-            ],
-            // add other required fields validation here if necessary
+        $validator = Validator::make($request->all(), [
+            'commercial_invoice' => 'required|unique:commercial_invoices,commercial_invoice,' . $request->id,
+    
         ]);
+        if ($validator->fails()) {
+            $response = [
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validator->errors(),
+            ];
+    
+            return response()->json($response);
+        }
         try {
             // Validate the incoming request if necessary
             // $request->validate([...]);
@@ -2777,7 +2789,6 @@ class teamController extends Controller
             $CommercialInvoiceRelatedValuePart6->commercial_invoice_id = $CommercialInvoice->id;
             for ($i = 1; $i <= 50; $i++) {
                 $CommercialInvoiceRelatedValuePart6->{"quantity_third_column_value_$i"} = $request->input("quantity_third_column_value_$i");
-                $CommercialInvoiceRelatedValuePart6->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart6->save();
 
@@ -2802,6 +2813,14 @@ class teamController extends Controller
             }
             $CommercialInvoiceRelatedValuePart9->save();
 
+            $CommercialInvoiceRelatedValuePart10 =  CommercialInvoiceRelatedValuePart10::where('commercial_invoice_id', $id)->first();
+            $CommercialInvoiceRelatedValuePart10->commercial_invoice_id = $CommercialInvoice->id;
+            for ($i = 1; $i <= 50; $i++) {
+                $CommercialInvoiceRelatedValuePart10->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
+            }
+            $CommercialInvoiceRelatedValuePart10->save();
+            $CommercialInvoiceRelatedValuePart10 = new CommercialInvoiceRelatedValuePart10();
+         
 
 
             // Create CanadaInvoiceHistory record
@@ -2852,6 +2871,8 @@ class teamController extends Controller
             CommercialInvoiceRelatedValuePart7::where('commercial_invoice_id', $id)->first()->toArray(),
             CommercialInvoiceRelatedValuePart8::where('commercial_invoice_id', $id)->first()->toArray(),
             CommercialInvoiceRelatedValuePart9::where('commercial_invoice_id', $id)->first()->toArray(),
+            CommercialInvoiceRelatedValuePart10::where('commercial_invoice_id', $id)->first()->toArray(),
+
         );
 
         if (!$data['CommercialInvoice']) {
@@ -3319,7 +3340,7 @@ class teamController extends Controller
         // Fetch the main commercial invoice data
         
 
-        $invoice = PackingList::where('id', $id)->where('status', '1')->where('status', '2')->first();
+        $invoice = PackingList::where('id', $id)->whereIn('status', ['1', '2'])->first();
         if (!$invoice) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
         }
@@ -3368,13 +3389,21 @@ class teamController extends Controller
     public function update_submit_packing_list(Request $request)
     {
         $id = $request->input('id');
-        $request->validate([
-            'packing_list_invoice' => [
-                'required',
-                Rule::unique('packing_lists')->ignore($id),
-            ],
-            // add other required fields validation here if necessary
+   
+        $validator = Validator::make($request->all(), [
+            'packing_list_invoice' => 'required|unique:packing_lists,packing_list_invoice,' . $request->id,
+    
         ]);
+    
+        if ($validator->fails()) {
+            $response = [
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validator->errors(),
+            ];
+    
+            return response()->json($response);
+        }
         try {
             // Validate the incoming request if necessary
             // $request->validate([...]);

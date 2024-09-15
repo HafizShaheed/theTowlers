@@ -193,20 +193,20 @@
 
                 <div class="col-sm-4 mb-4">
                     <label for="quantity_{{ $i }}" class="form-label">Quantity</label>
-                    <input type="number" step="any" class="form-control custom-input" id="quantity_{{ $i }}"
+                    <input type="text" step="any" class="form-control custom-input" id="quantity_{{ $i }}"
                         name="quantity_{{ $i }}"value="{{ $Form59AInvoice->{'quantity_' . $i} }}">
                 </div>
                 <div class="col-sm-4 mb-4">
-                    <label for="description_of_goods_{{ $i }}" class="form-label">Description of goods</label>
+                    <label for="description_of_goods_{{ $i }}" class="form-label">Description of goods  (including any discount)</label>
                     <input type="text" step="any" class="form-control custom-input" id="description_of_goods_{{ $i }}"
                         name="description_of_goods_{{ $i }}"value="{{ $Form59AInvoice->{'description_of_goods_' . $i} }}">
                 </div>
 
-                <div class="col-sm-4 mb-4">
+                {{-- <div class="col-sm-4 mb-4">
                     <label for="including_any_discounts_" class="form-label">Including any discounts</label>
                     <input type="number" step="any" class="form-control custom-input" id="including_any_discounts_{{ $i }}"
                         name="including_any_discounts_{{ $i }}"value="{{ $Form59AInvoice->{'including_any_discounts_' . $i} }}">
-                </div>
+                </div> --}}
                 
                 <div class="col-sm-4 mb-4">
                     <label for="current_domestic_value_currency_of_exporting_{{ $i }}" class="form-label">Current domestic value currency of exporting</label>

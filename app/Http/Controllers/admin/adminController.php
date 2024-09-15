@@ -2789,14 +2789,23 @@ class adminController extends Controller
     }
     public function update_submit_commercial_invoice(Request $request)
     {
-        $id = $request->input('id');
-        $request->validate([
-            'commercial_invoice' => [
-                'required',
-                Rule::unique('commercial_invoices')->ignore($id),
-            ],
-            // add other required fields validation here if necessary
-        ]);
+      $id = $request->input('id');
+
+  
+    $validator = Validator::make($request->all(), [
+        'commercial_invoice' => 'required|unique:commercial_invoices,commercial_invoice,' . $request->id,
+
+    ]);
+
+    if ($validator->fails()) {
+        $response = [
+            'success' => false,
+            'message' => 'Validation error',
+            'errors' => $validator->errors(),
+        ];
+
+        return response()->json($response);
+    }
         try {
             // Validate the incoming request if necessary
             // $request->validate([...]);
@@ -3676,13 +3685,20 @@ class adminController extends Controller
     public function update_submit_packing_list(Request $request)
     {
         $id = $request->input('id');
-        $request->validate([
-            'packing_list_invoice' => [
-                'required',
-                Rule::unique('packing_lists')->ignore($id),
-            ],
-            // add other required fields validation here if necessary
+        $validator = Validator::make($request->all(), [
+            'packing_list_invoice' => 'required|unique:packing_lists,packing_list_invoice,' . $request->id,
+    
         ]);
+    
+        if ($validator->fails()) {
+            $response = [
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validator->errors(),
+            ];
+    
+            return response()->json($response);
+        }
         try {
             // Validate the incoming request if necessary
             // $request->validate([...]);
