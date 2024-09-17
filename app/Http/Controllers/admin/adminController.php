@@ -394,21 +394,16 @@ class adminController extends Controller
             $canadaCustomerInvoiceFrom->canada_customer_invoice = $request->input('canada_customer_invoice');
             $canadaCustomerInvoiceFrom->vender_name = $request->input('vender_name');
             $canadaCustomerInvoiceFrom->vender_address = $request->input('vender_address');
-            $canadaCustomerInvoiceFrom->vender_nom_et_adresse = $request->input('vender_nom_et_adresse');
             $canadaCustomerInvoiceFrom->date_of_direct_shipment_to_canada_1 = $request->input('date_of_direct_shipment_to_canada_1');
             $canadaCustomerInvoiceFrom->date_of_direct_shipment_to_canada_2 = $request->input('date_of_direct_shipment_to_canada_2');
             $canadaCustomerInvoiceFrom->consignee_name = $request->input('consignee_name');
             $canadaCustomerInvoiceFrom->consignee_address = $request->input('consignee_address');
-            $canadaCustomerInvoiceFrom->consignee_nom_et_adresse = $request->input('consignee_nom_et_adresse');
             $canadaCustomerInvoiceFrom->purchaser_name = $request->input('purchaser_name');
             $canadaCustomerInvoiceFrom->purchaser_address = $request->input('purchaser_address');
-            $canadaCustomerInvoiceFrom->purchaser_nom_et_adresse = $request->input('purchaser_nom_et_adresse');
             $canadaCustomerInvoiceFrom->originator_name = $request->input('originator_name');
             $canadaCustomerInvoiceFrom->originator_address = $request->input('originator_address');
-            $canadaCustomerInvoiceFrom->originator_nom_et_adresse = $request->input('originator_nom_et_adresse');
             $canadaCustomerInvoiceFrom->exporter_name = $request->input('exporter_name');
             $canadaCustomerInvoiceFrom->exporter_address = $request->input('exporter_address');
-            $canadaCustomerInvoiceFrom->exporter_nom_et_adresse = $request->input('exporter_nom_et_adresse');
             $canadaCustomerInvoiceFrom->transportation_place_of_direct_shipment_to_canada = $request->input('transportation_place_of_direct_shipment_to_canada');
             $canadaCustomerInvoiceFrom->country_of_origin_pays = $request->input('country_of_origin_pays');
             $canadaCustomerInvoiceFrom->conditions_of_sale_and_terms_of_payment = $request->input('conditions_of_sale_and_terms_of_payment');
@@ -2750,7 +2745,7 @@ class adminController extends Controller
         $data['pageIntro'] = "COMMERCIAL INVOICE Edit";
         // Fetch the main commercial invoice data
         $data['CommercialInvoice'] = CommercialInvoice::where('id', $id)->first()->toArray();
-
+        $data['id'] =isset($id) ? $id : null;
         // Fetch the related field data and merge it with the existing array under the same key
         $data['CommercialInvoice'] = array_merge(
             $data['CommercialInvoice'],
@@ -2789,23 +2784,15 @@ class adminController extends Controller
     }
     public function update_submit_commercial_invoice(Request $request)
     {
-      $id = $request->input('id');
-
-  
-    $validator = Validator::make($request->all(), [
-        'commercial_invoice' => 'required|unique:commercial_invoices,commercial_invoice,' . $request->id,
-
-    ]);
-
-    if ($validator->fails()) {
-        $response = [
-            'success' => false,
-            'message' => 'Validation error',
-            'errors' => $validator->errors(),
-        ];
-
-        return response()->json($response);
-    }
+        $id = $request->input('id');
+        // dd( $id );
+        $request->validate([
+            'commercial_invoice' => [
+                'required',
+                Rule::unique('commercial_invoices')->ignore($id),
+            ],
+            // add other required fields validation here if necessary
+        ]);
         try {
             // Validate the incoming request if necessary
             // $request->validate([...]);
@@ -3645,6 +3632,7 @@ class adminController extends Controller
         $data['pageIntro'] = "PACKING SLIP";
         // Fetch the main commercial invoice data
         $data['PackingList'] = PackingList::where('id', $id)->first()->toArray();
+        $data['id'] =isset($id) ? $id : null;
 
         // Fetch the related field data and merge it with the existing array under the same key
         $data['PackingList'] = array_merge(
@@ -3685,20 +3673,13 @@ class adminController extends Controller
     public function update_submit_packing_list(Request $request)
     {
         $id = $request->input('id');
-        $validator = Validator::make($request->all(), [
-            'packing_list_invoice' => 'required|unique:packing_lists,packing_list_invoice,' . $request->id,
-    
+        $request->validate([
+            'packing_list_invoice' => [
+                'required',
+                Rule::unique('packing_lists')->ignore($id),
+            ],
+            // add other required fields validation here if necessary
         ]);
-    
-        if ($validator->fails()) {
-            $response = [
-                'success' => false,
-                'message' => 'Validation error',
-                'errors' => $validator->errors(),
-            ];
-    
-            return response()->json($response);
-        }
         try {
             // Validate the incoming request if necessary
             // $request->validate([...]);

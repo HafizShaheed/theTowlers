@@ -75,7 +75,8 @@
                         <input type="text" style="background-color: #616161; color:#000; font-weight: 700" class="form-control custom-input mb-1" id="heading_invioce" name="heading_invioce" value="{{ $CommercialInvoice['heading_invioce'] }}" style="font-weight: bold; color: #000;">
                         <input type="text" class="form-control custom-input" id="commercial_invoice" name="commercial_invoice"
                            value="{{ $CommercialInvoice['commercial_invoice'] }}">
-                        <input type="hidden" class="form-control custom-input" id="id" name="id" value="{{ $CommercialInvoice['id']}}">
+                        <input type="hidden" class="form-control custom-input" id="id" name="id" value="{{ $id}}">
+
                         <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mt-2" id="heading_dated" style="font-weight: bold; color: #000;" name="heading_dated"  value="{{ $CommercialInvoice['heading_dated'] }}">
                         <input type="text" class="form-control custom-input mt-1" id="dated" name="dated"
                            value="{{ $CommercialInvoice['dated'] }}">

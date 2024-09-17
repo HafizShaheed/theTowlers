@@ -102,12 +102,7 @@
                         <input type="text" class="form-control custom-input" id="vender_address" name="vender_address"
                             value="WS 30/31, FB AREA , KARACHI, PAKISTAN">
                     </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="vender_nom_et_adresse" class="form-label">Vender Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="vender_nom_et_adresse"
-                            name="vender_nom_et_adresse" value="">
-                    </div>
-
+                  
                     <div class="col-sm-3 mb-3">
                         <label for="date_of_direct_shipment_to_canada_1" class="form-label">Date of Direct Shipment to
                             Canada 1</label>
@@ -131,11 +126,7 @@
                         <input type="text" class="form-control custom-input" id="consignee_address"
                             name="consignee_address" value="">
                     </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="consignee_nom_et_adresse" class="form-label">Consignee Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="consignee_nom_et_adresse"
-                            name="consignee_nom_et_adresse" value="">
-                    </div>
+                    
                     <div class="col-sm-3 mb-3">
                         <label for="purchaser_name" class="form-label">Purchaser Name</label>
                         <input type="text" class="form-control custom-input" id="purchaser_name" name="purchaser_name"
@@ -147,11 +138,7 @@
                         <input type="text" class="form-control custom-input" id="purchaser_address"
                             name="purchaser_address" value="">
                     </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="purchaser_nom_et_adresse" class="form-label">Purchaser Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="purchaser_nom_et_adresse"
-                            name="purchaser_nom_et_adresse" value="">
-                    </div>
+                  
                     <div class="col-sm-3 mb-3">
                         <label for="originator_name" class="form-label">Originator Name</label>
                         <input type="text" class="form-control custom-input" id="originator_name" name="originator_name"
@@ -163,11 +150,7 @@
                             name="originator_address" value="">
                     </div>
 
-                    <div class="col-sm-3 mb-3">
-                        <label for="originator_nom_et_adresse" class="form-label">Originator Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="originator_nom_et_adresse"
-                            name="originator_nom_et_adresse" value="">
-                    </div>
+                 
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_name" class="form-label">Exporter Name</label>
                         <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
@@ -178,11 +161,7 @@
                         <input type="text" class="form-control custom-input" id="exporter_address"
                             name="exporter_address" value="">
                     </div>
-                    <div class="col-sm-3 mb-3">
-                        <label for="exporter_nom_et_adresse" class="form-label">Exporter Nom et Adresse</label>
-                        <input type="text" class="form-control custom-input" id="exporter_nom_et_adresse"
-                            name="exporter_nom_et_adresse" value="">
-                    </div>
+                  
 
                     <div class="col-sm-3 mb-3">
                         <label for="transportation_place_of_direct_shipment_to_canada" class="form-label">Transportation

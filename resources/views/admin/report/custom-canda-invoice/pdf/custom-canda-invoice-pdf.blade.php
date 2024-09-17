@@ -71,9 +71,7 @@
                     <div style="font-size: 10px;">
                         {{ $CanadaCustomerInvoiceFrom->vender_name ?? "" }}</div>
                     <div style="font-size: 10px;">{{ optional($CanadaCustomerInvoiceFrom)->vender_address }}</div>
-                    <div style="font-size: 10px;">
-                        {{ $CanadaCustomerInvoiceFrom->vender_nom_et_adresse ?? "" }}
-                    </div>
+                   
 
                 </div>
             </td>
@@ -117,9 +115,7 @@
                         {{ $CanadaCustomerInvoiceFrom->consignee_name ?? "" }}</div>
                     <div style="font-size: 10px;">
                         {{ $CanadaCustomerInvoiceFrom->consignee_address ?? "" }}</div>
-                    <div style="font-size: 10px;">
-                        {{ $CanadaCustomerInvoiceFrom->consignee_nom_et_adresse ?? "" }}
-                    </div>
+                   
                 </div>
             </td>
             <td>
@@ -137,9 +133,7 @@
                                 <div style="font-size: 10px;">
                                     {{ $CanadaCustomerInvoiceFrom->purchaser_address ?? "" }}
                                 </div>
-                                <div style="font-size: 10px;">
-                                    {{ $CanadaCustomerInvoiceFrom->purchaser_nom_et_adresse ?? "" }}
-                                </div>
+                              
                             </div>
                         </td>
                     </tr>
@@ -147,10 +141,7 @@
                         <td style="width: 50%; font-size: 10px;">
                             <div style="height: 25px;">
 
-                                <span>6. Country of transhipment- Pays de transbordement</span>
-                                <div style="font-size: 10px;">
-                                    {{ $CanadaCustomerInvoiceFrom->purchaser_nom_et_adresse ?? "" }}
-                                </div>
+                               
 
                             </div>
                         </td>
@@ -547,8 +538,7 @@
                                     <br>
                                         {{ $CanadaCustomerInvoiceFrom->exporter_address ?? "" }}
                                     
-                                    <br>
-                                        {{ $CanadaCustomerInvoiceFrom->exporter_nom_et_adresse ?? "" }}
+                                  
                                 </div>
                             </td>
                         </tr>
@@ -573,9 +563,7 @@
                                     <br>
                                         {{ $CanadaCustomerInvoiceFrom->originator_address ?? "" }}
                                     
-                                    <br>
-                                        {{ $CanadaCustomerInvoiceFrom->originator_nom_et_adresse ?? "" }}
-                                    
+                                  
                                     
                                    
                                 </div>

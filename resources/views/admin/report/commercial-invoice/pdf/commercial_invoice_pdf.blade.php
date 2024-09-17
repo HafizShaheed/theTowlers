@@ -796,12 +796,14 @@
                                 <div style="text-align: center;">{{ $grossWeightTotalSecondColumn }} KGS</div>
                             </td>
                         </tr>
+                        @if ( isset($CommercialInvoice['note_value']))
                         <tr>
                             <td style="border-top:1px solid #000 ;" colspan="2">
-                                <div>{{ isset($CommercialInvoice['note_value'])  ?  $CommercialInvoice['heading_note'] : '' }} :
+                                <div>{{ isset($CommercialInvoice['note_value'])  ?  $CommercialInvoice['heading_note'] : '' }} :sdd
                                     {{ $CommercialInvoice['note_value'] ?? '' }} </div>
                             </td>
                         </tr>
+                        @endif
                     </table>
                 </td>
                 <td style="width: 33.33%; visibility: hidden;">
@@ -833,7 +835,9 @@
                 <td style="width: 33.33%;">
                     <table border="0"
                         style="border: 1px solid #000; border-collapse: collapse; width: 100%;font-size:8px;">
-                        <tr>
+                        @if (isset($CommercialInvoice['value_total_buyer_discount']))
+                            
+                            <tr>
                             <td>
                                 <div>{{  $CommercialInvoice['value_total_buyer_discount'] > 0 ? $CommercialInvoice['heading_total_buyer_discount'] : '' }}</div>
                             </td>
@@ -841,8 +845,11 @@
                                 <div style="text-align: right;">
                                     {{ $CommercialInvoice['value_total_buyer_discount'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
                                     {{ $CommercialInvoice['value_total_buyer_discount'] ?? '' }} </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                         @endif
+                         @if (isset($CommercialInvoice['value_total_less_commission']))
+                            
                         <tr>
                             <td>
                                 <div>{{ $CommercialInvoice['value_total_less_commission'] > 0 ? $CommercialInvoice['heading_total_less_commission'] : ''}}</div>
@@ -853,6 +860,10 @@
                                     {{ $CommercialInvoice['value_total_less_commission'] ?? '' }}</div>
                             </td>
                         </tr>
+                        @endif
+
+                        @if (isset($CommercialInvoice['value_total_add_fright']))
+                            
                         <tr>
                             <td>
                                 <div>{{  $CommercialInvoice['value_total_add_fright'] > 0 ? $CommercialInvoice['heading_total_add_fright'] : ''  }}</div>
@@ -863,6 +874,10 @@
                                     {{ $CommercialInvoice['value_total_add_fright'] ?? '' }}</div>
                             </td>
                         </tr>
+                        @endif
+
+                        @if (isset($CommercialInvoice['value_total_net_amount_payable']))
+                            
                         <tr>
                             <td>
                                 <div>{{ $CommercialInvoice['value_total_net_amount_payable'] > 0 ? $CommercialInvoice['heading_total_net_amount_payable'] : ''  }} </div>
@@ -873,6 +888,8 @@
                                     {{ $CommercialInvoice['value_total_net_amount_payable'] ?? '' }} </div>
                             </td>
                         </tr>
+                        @endif
+
 
                     </table>
                 </td>
