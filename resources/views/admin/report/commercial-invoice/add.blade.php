@@ -597,22 +597,20 @@
 
 @section('addScript')
 <script>
-    // Upar se values neeche walay fields mein copy karne ka function
     function copyShipperToShipTo() {
-        document.getElementById('name_ship_to').value = document.getElementById('name_shipper').value;
-        document.getElementById('address_ship_to').value = document.getElementById('address_shipper').value;
-        document.getElementById('city_ship_to').value = document.getElementById('city_shipper').value;
-        document.getElementById('country_ship_to').value = document.getElementById('country_shipper').value;
-        document.getElementById('phone_ship_to').value = document.getElementById('phone_shipper').value;
+        document.getElementById('name_ship_to').value = document.getElementById('name_buyer').value;
+        document.getElementById('address_ship_to').value = document.getElementById('address_buyer').value;
+        document.getElementById('city_ship_to').value = document.getElementById('city_buyer').value;
+        document.getElementById('country_ship_to').value = document.getElementById('country_buyer').value;
+        document.getElementById('phone_ship_to').value = document.getElementById('phone_buyer').value;
     }
 
     copyShipperToShipTo();
-    // Jab koi upar wale fields mein change kare to neeche update ho
-    document.getElementById('name_shipper').addEventListener('input', copyShipperToShipTo);
-    document.getElementById('address_shipper').addEventListener('input', copyShipperToShipTo);
-    document.getElementById('city_shipper').addEventListener('input', copyShipperToShipTo);
-    document.getElementById('country_shipper').addEventListener('input', copyShipperToShipTo);
-    document.getElementById('phone_shipper').addEventListener('input', copyShipperToShipTo);
+    document.getElementById('name_buyer').addEventListener('input', copyShipperToShipTo);
+    document.getElementById('address_buyer').addEventListener('input', copyShipperToShipTo);
+    document.getElementById('city_buyer').addEventListener('input', copyShipperToShipTo);
+    document.getElementById('country_buyer').addEventListener('input', copyShipperToShipTo);
+    document.getElementById('phone_buyer').addEventListener('input', copyShipperToShipTo);
 </script>
 
 <script>

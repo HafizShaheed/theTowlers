@@ -71,7 +71,7 @@ class userController extends Controller
             'user_name' => $request->user_name,
             'team_email' => $request->team_email,
             'password' => Hash::make($request->password),
-            'status' => $request->clientStatusCheck == true ? 1 : 0,
+            'status' => $request->TeamMemberStatusCheck == true ? 1 : 0,
             'created_at' => now()
         ]);
 
