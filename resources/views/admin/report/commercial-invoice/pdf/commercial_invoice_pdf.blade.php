@@ -406,7 +406,7 @@
 
 
                 <tr style="font-size:8px; ">
-                    <td style=" border-right: 1px solid;">
+                    <td style=" border-right: 1px solid; border-bottom:1px solid #000;">
                      
                             
                         <p style="width: 150px; word-wrap: break-word;">
@@ -415,46 +415,42 @@
                         <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_po_number_' . $i] ?? '' }} 
                              </p>
-                        <p>
+                        <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_po_number_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_style_name_' . $i] ?? '' }} 
-                             </p>
-                        <p>
+                        </p>
+                        <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_style_name_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_style_number_' . $i] ?? '' }} 
-                             </p>
-                        <p>
+                        </p>
+                        <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_style_number_value_' . $i] ?? '' }}
-
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_color_left_column_' . $i] ?? '' }} 
-                             </p>
-                        <p>
-                            {{ $CommercialInvoice['heading_color_left_column_value' . $i] ?? '' }}
+                        </p>
+                        <p style="width: 150px; word-wrap: break-word;">
+                            {{ $CommercialInvoice['heading_color_left_column_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_size_break_down_' . $i] ?? '' }} 
-                             </p>
-                        <p>
+                        </p>
+                        <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_size_break_down_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_carton_count_' . $i] ?? '' }} 
                              </p>
-                        <p>
+                        <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_carton_count_value_' . $i] ?? '' }}
                         </p>
-                    
-
-
                     </td>
 
-                    <td style=" border-right: 1px solid;">
+                    <td style=" border-right: 1px solid; border-bottom:1px solid #000;">
                         <p style="width: 260px ; word-wrap: break-word; text-align: left;">
                             <b style="text-decoration: underline;">
                                 {{ $CommercialInvoice['heading_performa_invioce_no'] ?? '' }}
@@ -602,7 +598,7 @@
                             }
                         ?>
                     </td>
-                    <td style="border-right: 1px solid; text-align: center">
+                    <td style="border-right: 1px solid; border-bottom:1px solid #000; text-align: center">
                         <p style="width: 40px; word-wrap: break-word; margin-top:106px ">
                          
                             @php
@@ -644,7 +640,7 @@
                     @endphp --}}
                         </p>
                     </td>
-                    <td style="border-right: 1px solid; text-align: center">
+                    <td style="border-right: 1px solid; border-bottom:1px solid #000; text-align: center">
                         <p style="width: 40px; word-wrap: break-word; margin-top:106px">
                             @for ($j = $start; $j <= $end; $j++)
                                
@@ -654,7 +650,7 @@
                             @endfor
                         </p>
                     </td>
-                    <td style="text-align: center"> 
+                    <td style="text-align: center; border-bottom:1px solid #000;"> 
                         <p style="width: 30px; word-wrap: break-word;margin-top:106px ">
                             @for ($j = $start; $j <= $end; $j++)
                                 <p style="margin:5px 0; margin-left:2px">
@@ -680,7 +676,7 @@
                 
                 @if (($j - $start + 1) % 8 == 0 && $j != $end)
                
-                <div style="page-break-after: always; margin-top:-60px"></div>
+                <div style="page-break-after: always; margin-top:-60px;"></div>
                 {{-- Insert a page break --}}
          
             @endif

@@ -266,19 +266,7 @@
                                                 <input type="text"  class="form-control custom-input mb-1" id="heading_carton_count_{{ $i }}" name="heading_carton_count_{{ $i }}"  value="{{ $CommercialInvoice['heading_carton_count_' . $i]}}">
                                                 <input type="text" class="form-control custom-input mb-1" id="heading_carton_count_value_{{ $i }}" name="heading_carton_count_value_{{ $i }}" value="{{ $CommercialInvoice['heading_carton_count_value_' . $i]}}" >
                                             </div>
-                                            <div class="col-sm-3 mb-3">
-                                                <input type="text"  class="form-control custom-input mb-1" id="heading_carton_size_{{ $i }}" name="heading_carton_size_{{ $i }}" value="{{ $CommercialInvoice['heading_carton_size_' . $i]}}">
-                                                <input type="text" class="form-control custom-input mb-1" id="heading_carton_size_value_{{ $i }}" name="heading_carton_size_value_{{ $i }}" value="{{ $CommercialInvoice['heading_carton_size_value_' . $i]}}" >
-                                            </div>
-                
-                                            <div class="col-sm-3 mb-3">
-                                                <input type="text"  class="form-control custom-input mb-1" id="heading_bale_left_column_{{ $i }}" name="heading_bale_left_column_{{ $i }}"  value="{{ $CommercialInvoice['heading_bale_left_column_' . $i]}}">
-                                                <input type="text" class="form-control custom-input mb-1" id="heading_bale_left_column_value_{{ $i }}" name="heading_bale_left_column_value_{{ $i }}" value="{{ $CommercialInvoice['heading_bale_left_column_value_' . $i]}}" >
-                                            </div>
-                                            <div class="col-sm-3 mb-3">
-                                                <input type="text"  class="form-control custom-input mb-1" id="heading_net_weight_left_column_{{ $i }}" name="heading_net_weight_left_column_{{ $i }}"  value="{{ $CommercialInvoice['heading_net_weight_left_column_' . $i]}}">
-                                                <input type="text"  class="form-control custom-input mb-1" id="heading_gross_weight_left_column_{{ $i }}" name="heading_gross_weight_left_column_{{ $i }}"  value="{{ $CommercialInvoice['heading_gross_weight_left_column_' . $i]}}">
-                                            </div>
+                                         
                                         </div>
                                     </div>
                                 </div>
