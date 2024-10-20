@@ -156,6 +156,9 @@
                                         case 'Form 59 A invoice':
                                             $urlParams = route('team.view_form_59_a_invoice', ['id' => $result['id']]);
                                             break;
+                                        case 'Certificate Origin Chaina';
+                                            $urlParams = route('admin.view_certificate_origin_chaina_invoice', ['id' => $result['id']]);
+                                            break;
                                        default;
                                     }
                                 @endphp

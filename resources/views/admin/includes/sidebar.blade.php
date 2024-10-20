@@ -129,6 +129,9 @@
                         <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_com_dec_form_ip_invoice') }}"
                             class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN -INDONESIA
                         </sub></a></li>
+                        <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_chaina_invoice') }}"
+                            class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN -CHAINA
+                        </sub></a></li>
                         <li><a class="nav-text" href="{{ route('admin.report_List_certificate_origin_com_dec_invoice') }}"
                             class="{{ $title == 'Reports Managment' ? 'mm-active' : '' }}">CERTIFICATE OF ORIGIN -PERU & BOLIVIA
                         </sub></a>

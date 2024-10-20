@@ -226,7 +226,22 @@ Route::prefix('panel-team')->namespace('team')->group(function () {
                 Route::post('/update_submit_certificate_origin_com_dec_form_ip_invoice', 'teamController@update_submit_certificate_origin_com_dec_form_ip_invoice')->name('team.update_submit_certificate_origin_com_dec_form_ip_invoice');
 
                 Route::get('/view/{id}', 'teamController@view_certificate_origin_com_dec_form_ip_invoice')->name('team.view_certificate_origin_com_dec_form_ip_invoice');
-                Route::get('/activity/{id}', 'teamController@activity_certificate_origin_com_dec_form_ip_invoice')->name('team.activity_certificate_origin_com_dec_form_ip_invoice');
+            });
+
+            Route::prefix('certificate-origin-chaina')->group(function () {
+
+                Route::get('/', 'teamController@report_List_certificate_origin_chaina_invoice')->name('team.report_List_certificate_origin_chaina_invoice');
+                Route::get('/generate_certificate_origin_chaina_invoic_PDF/{id}', 'teamController@generate_certificate_origin_chaina_invoic_PDF')->name('team.generate_certificate_origin_chaina_invoic_PDF');
+                Route::post('/form_certificate_origin_chaina_invoice_resubmit', 'teamController@form_certificate_origin_chaina_invoice_resubmit')->name('team.form_certificate_origin_chaina_invoice_resubmit');
+                Route::post('/form_certificate_origin_chaina_invoice_completed', 'teamController@form_certificate_origin_chaina_invoice_completed')->name('team.form_certificate_origin_chaina_invoice_completed');
+
+
+                Route::get('/add', 'teamController@add_certificate_origin_chaina_invoice')->name('team.add_certificate_origin_chaina_invoice');
+                Route::post('/submit_certificate_origin_chaina_invoice', 'teamController@submit_certificate_origin_chaina_invoice')->name('team.submit_certificate_origin_chaina_invoice');
+                Route::get('/edit/{id}', 'teamController@edit_certificate_origin_chaina_invoice')->name('team.edit_certificate_origin_chaina_invoice');
+                Route::post('/update_submit_certificate_origin_chaina_invoice', 'teamController@update_submit_certificate_origin_chaina_invoice')->name('team.update_submit_certificate_origin_chaina_invoice');
+
+                Route::get('/view/{id}', 'teamController@view_certificate_origin_chaina_invoice')->name('team.view_certificate_origin_chaina_invoice');
             });
 
             Route::prefix('certificate-origin-com-dec-from-a')->group(function () {
@@ -437,6 +452,23 @@ Route::prefix('panel')->namespace('admin')->group(function () {
 
                 Route::get('/view/{id}', 'adminController@view_certificate_origin_com_dec_form_ip_invoice')->name('admin.view_certificate_origin_com_dec_form_ip_invoice');
                 Route::get('/activity/{id}', 'adminController@activity_certificate_origin_com_dec_form_ip_invoice')->name('admin.activity_certificate_origin_com_dec_form_ip_invoice');
+            });
+
+            Route::prefix('certificate-origin-chaina')->group(function () {
+
+                Route::get('/', 'adminController@report_List_certificate_origin_chaina_invoice')->name('admin.report_List_certificate_origin_chaina_invoice');
+                Route::get('/generate_certificate_origin_chaina_invoic_PDF/{id}', 'adminController@generate_certificate_origin_chaina_invoic_PDF')->name('admin.generate_certificate_origin_chaina_invoic_PDF');
+                Route::post('/form_certificate_origin_chaina_invoice_resubmit', 'adminController@form_certificate_origin_chaina_invoice_resubmit')->name('admin.form_certificate_origin_chaina_invoice_resubmit');
+                Route::post('/form_certificate_origin_chaina_invoice_completed', 'adminController@form_certificate_origin_chaina_invoice_completed')->name('admin.form_certificate_origin_chaina_invoice_completed');
+
+
+                Route::get('/add', 'adminController@add_certificate_origin_chaina_invoice')->name('admin.add_certificate_origin_chaina_invoice');
+                Route::post('/submit_certificate_origin_chaina_invoice', 'adminController@submit_certificate_origin_chaina_invoice')->name('admin.submit_certificate_origin_chaina_invoice');
+                Route::get('/edit/{id}', 'adminController@edit_certificate_origin_chaina_invoice')->name('admin.edit_certificate_origin_chaina_invoice');
+                Route::post('/update_submit_certificate_origin_chaina_invoice', 'adminController@update_submit_certificate_origin_chaina_invoice')->name('admin.update_submit_certificate_origin_chaina_invoice');
+
+                Route::get('/view/{id}', 'adminController@view_certificate_origin_chaina_invoice')->name('admin.view_certificate_origin_chaina_invoice');
+                Route::get('/activity/{id}', 'adminController@activity_certificate_origin_chaina_invoice')->name('admin.activity_certificate_origin_chaina_invoice');
             });
 
             Route::prefix('certificate-origin-com-dec-from-a')->group(function () {

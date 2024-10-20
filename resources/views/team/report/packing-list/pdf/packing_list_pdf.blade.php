@@ -412,28 +412,40 @@
                             {{ $CommercialInvoice['heading_long_side_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_po_number_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_po_number_' . $i] ?? '' }} 
+                        </p>
+                        <p>
                             {{ $CommercialInvoice['heading_po_number_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_style_name_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_style_name_' . $i] ?? '' }} 
+                        </p>
+                        <p>
                             {{ $CommercialInvoice['heading_style_name_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_style_number_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_style_number_' . $i] ?? '' }} 
+                        </p>
+                        <p>
                             {{ $CommercialInvoice['heading_style_number_value_' . $i] ?? '' }}
 
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_color_left_column_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_color_left_column_' . $i] ?? '' }} 
+                        </p>
+                        <p>
                             {{ $CommercialInvoice['heading_color_left_column_value' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_size_break_down_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_size_break_down_' . $i] ?? '' }} 
+                        </p>
+                        <p>
                             {{ $CommercialInvoice['heading_size_break_down_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_carton_count_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $CommercialInvoice['heading_carton_count_' . $i] ?? '' }} 
+                        </p>
+                        <p>
                             {{ $CommercialInvoice['heading_carton_count_value_' . $i] ?? '' }}
                         </p>
 

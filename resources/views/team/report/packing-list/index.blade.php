@@ -195,11 +195,7 @@
                                             </a>
 
 
-                                            <a class="btn btn-sm report-tab-active" style="font-size: 10px;"
-                                                href="{{ URL::to('/panel-team/report/packing-list/activity/' . $value->id) }}"
-                                                class="" target="" title="View Activity">
-                                                Activity
-                                            </a>
+                                          
                                         
 
 
