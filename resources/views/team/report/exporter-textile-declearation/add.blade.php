@@ -107,7 +107,11 @@
                         <input type="text" class="form-control custom-input" id="declared"
                             name="declared" value="">
                     </div>
-
+                    <div class="col-sm-3 mb-3">
+                        <label for="full_name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control custom-input" id="full_name" name="full_name"
+                        value="" >
+                    </div>
 
 
                 </div>

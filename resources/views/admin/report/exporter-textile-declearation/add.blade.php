@@ -108,6 +108,12 @@
                             name="declared" value="">
                     </div>
 
+                    <div class="col-sm-3 mb-3">
+                        <label for="full_name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control custom-input" id="full_name" name="full_name"
+                        value="" >
+                    </div>
+
 
 
                 </div>
@@ -145,7 +151,7 @@
                 <div class="col-sm-4 mb-4">
                     <label for="description_and_procedure_" class="form-label"> DESCRIPTION OR
                         PROCEDURE</label>
-                    <input type="number" step="any" class="form-control custom-input" id="description_and_procedure_{{ $i }}"
+                    <input type="text" step="any" class="form-control custom-input" id="description_and_procedure_{{ $i }}"
                         name="description_and_procedure_{{ $i }}">
                 </div>
                 

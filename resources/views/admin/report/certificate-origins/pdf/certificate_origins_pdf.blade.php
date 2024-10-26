@@ -206,7 +206,7 @@
                                 Place:
                             </td>
                             <td>
-                                <input type="text" style=" border: 0; border-bottom: 1px dotted;">
+                                <input type="text" style=" border: 0; border-bottom: 1px dotted;" value="{{ $CertificateOrigin->place}}">
                             </td>
                         </tr>
                         <tr style="padding: 4px 0;">

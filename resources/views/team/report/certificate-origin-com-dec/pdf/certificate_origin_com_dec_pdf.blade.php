@@ -192,6 +192,7 @@
 
     </table>
 
+   
     <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0; ">
         <tr style="font-size: 12px; ">
             <td style="width: 45%;">
@@ -202,14 +203,14 @@
                     exporter is
                     correct <br>
                     <input type="text"
-                        style="border: 0; border-bottom: 1px dotted #000; margin-top: 70px; width: 250px;"><br>
+                        style="border: 0; border-bottom: 1px dotted #000; margin-top: 75px; width: 250px;"><br>
                     Place and date,signature and stamp of certifying body
                 </div>
             </td>
             <td style="width: 55%;">
                 <div style="padding-bottom: 5px;">
 
-                    12. Declaration by the exporter <br>
+                    12. Declaration by the exporter :  {{ $CertificateOriginComDec->declaration_by_the_exporter_country ?? "" }} <br>
                     The under signed hereby declares that the above
                     details and <br> statements
 
@@ -220,8 +221,8 @@
                     <br>
                     Arrangements Among developing countries for goods
                     exported <br>
-                    to <input type="text" style="width: 85%; border: 0; border-bottom: 1px solid;"> <br>
-                    <input type="text" style="width: 50%; border: 0; border-bottom: 1px dotted; margin-top: 43px;"> <br>
+                    to <input type="text" style="width: 85%; border: 0; border-bottom: 1px solid;" value=" "> <br>
+                    <input type="text" style="width: 50%; border: 0; border-bottom: 1px dotted; margin-top: 43px;" value=" {{ $CertificateOriginComDec->date ?? "" }}  {{ $CertificateOriginComDec->place ?? "" }}"> <br>
                     place and date ,signature of authorized signatory
                 </div>
             </td>

@@ -262,12 +262,12 @@
                     <br>
                     <br>
                     <br>
-                    <br>
+                    <brplace and date ,signature of authorized signatory>
                     <br>
                     <br>
                     <span style="width: 100%;  padding-left: 20px;">{{ $CertificateOriginComDecFormIp->place ?? "" }} {{ $CertificateOriginComDecFormIp->date ?? "" }}</span>
                     <input type="text" style="width: 100%; border: 0; border-bottom: 0.5px dotted; margin-top: 10px;" value=""> 
-                     &nbsp; &nbsp;&nbsp; place and date ,signature of authorized signatory
+                     &nbsp; &nbsp;&nbsp; 
                 </div>
             </td>
             <td style="width: 50%; border-left: 1px solid #000;">

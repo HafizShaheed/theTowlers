@@ -173,6 +173,27 @@
                         <input type="text" class="form-control custom-input" id="drawback_or_remission_of_duty"
                             name="drawback_or_remission_of_duty" value="">
                     </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="date" class="form-label">Date</label>
+                        <input type="text" class="form-control custom-input" id="date"
+                            name="date" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="full_name" class="form-label">Full name</label>
+                        <input type="text" class="form-control custom-input" id="full_name"
+                            name="full_name" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="form59_status" class="form-label">Status</label>
+                        <input type="text" class="form-control custom-input" id="form59_status"
+                            name="form59_status" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="signature_person" class="form-label">Sign.Name</label>
+                        <input type="text" class="form-control custom-input" id="signature_person"
+                            name="signature_person" value="">
+                    </div>
                     
 
 
@@ -183,7 +204,7 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) <div class="col-sm-4 mb-4">
+                    @for($i=1; $i <= 4; $i++) <div class="col-sm-4 mb-4">
                         <label for="marks_and_numbers_" class="form-label">Mark & Number </label>
                         <input type="text" class="form-control custom-input"
                             id="marks_and_numbers_{{ $i }}"

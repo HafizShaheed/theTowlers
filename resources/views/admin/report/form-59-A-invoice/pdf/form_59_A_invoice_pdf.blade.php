@@ -345,20 +345,18 @@
                                 </div>
                                 <div>
                                     <div style="padding: 4px 0;">
-                                        <label for="">FULL NAME</label>
-                                        <input type="text" style="border: 0;">
+                                        <label for="">FULL NAME : {{ $Form59AInvoice->full_name ?? "" }}</label>
+                                        
                                     </div>
                                     <div style="padding: 4px 0;">
-                                        <label for="">STATUS</label>
-                                        <input type="text" style="border: 0;">
+                                        <label for="">STATUS : {{ $Form59AInvoice->form59_status ?? "" }}</label>
+                                        
                                     </div>
                                     <div style="padding: 4px 0;">
-                                        <label for="">SIGNATURE</label>
-                                        <input type="text" style="border: 0;">
+                                        <label for="">SIGNATURE : {{ $Form59AInvoice->signature_person ?? "" }}</label>
                                     </div>
                                     <div style="padding: 4px 0;">
-                                        <label for="">DATE</label>
-                                        <input type="text" style="border: 0;">
+                                        <label for="">DATE : {{ $Form59AInvoice->date ?? "" }}</label>
                                     </div>
 
                                 </div>

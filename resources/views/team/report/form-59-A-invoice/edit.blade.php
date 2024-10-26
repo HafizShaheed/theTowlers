@@ -176,7 +176,26 @@
                     </div>
                     
 
-
+                    <div class="col-sm-3 mb-3">
+                        <label for="date" class="form-label">Date</label>
+                        <input type="text" class="form-control custom-input" id="date"
+                            name="date"  value="{{ $Form59AInvoice->date }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="full_name" class="form-label">Full name</label>
+                        <input type="text" class="form-control custom-input" id="full_name"
+                            name="full_name"   value="{{ $Form59AInvoice->full_name }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="form59_status" class="form-label">Status</label>
+                        <input type="text" class="form-control custom-input" id="form59_status"
+                            name="form59_status"   value="{{ $Form59AInvoice->form59_status }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="signature_person" class="form-label">Sign.Name</label>
+                        <input type="text" class="form-control custom-input" id="signature_person"
+                            name="signature_person"   value="{{ $Form59AInvoice->signature_person }}">
+                    </div>
 
                 </div>
                 <hr>
@@ -184,7 +203,7 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) <div class="col-sm-4 mb-4">
+                    @for($i=1; $i <= 4; $i++) <div class="col-sm-4 mb-4">
                         <label for="marks_and_numbers_" class="form-label">Mark & Number </label>
                         <input type="text" class="form-control custom-input"
                             id="marks_and_numbers_{{ $i }}"

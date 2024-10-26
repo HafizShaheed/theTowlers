@@ -696,6 +696,10 @@ class adminController extends Controller
             $Form59AInvoice->final_destination_of_goods = $request->input('final_destination_of_goods');
             $Form59AInvoice->if_amount_has_been_inciuded_in_the_current_domestic_value = $request->input('if_amount_has_been_inciuded_in_the_current_domestic_value');
             $Form59AInvoice->drawback_or_remission_of_duty = $request->input('drawback_or_remission_of_duty');
+            $Form59AInvoice->signature_person = $request->input('signature_person');
+            $Form59AInvoice->date = $request->input('date');
+            $Form59AInvoice->form59_status = $request->input('form59_status');
+            $Form59AInvoice->full_name = $request->input('full_name');
             $Form59AInvoice->status = 1;
 
             // Create related records using loop
@@ -1884,6 +1888,7 @@ class adminController extends Controller
         // Get the generated PDF output
         $output = $dompdf->output();
 
+        
         // Generate PDF file name
         $pdfName = $id . now() . '-Certificate-of-origin-Indonesia-Pakistan-Preferential-Trade-Agreement-(IPPTA).pdf';
 

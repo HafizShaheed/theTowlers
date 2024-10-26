@@ -222,28 +222,34 @@
 
                 <div style="padding: 10px;">
 
-                    12. Declaration by the exporter <br>
+                    12. Declaration by the exporter : {{ $CertificateOriginComDecFormIp->declaration_by_the_exporter_country }} <br>
                     The under signed hereby declares that the above
                     details and <br> statements
 
-                    are correct, that all the goods were <br> <br> produced in
+                    are correct, that all the goods were 
+                    {{-- <br> <br> produced in
                     <input type="text" style="width: 70%; border: 0; border-bottom: 1px dotted;" value="{{ $CertificateOriginComDecFormIp->produce_in_country ?? "" }}">
                     <br>
-                    <div style="text-align: center;">(country)</div>
-                    <div style="margin-top: 10px;">
+                    <div style="text-align: center;">(country)</div> --}}
+                    <div style="margin-top: 20px;">
                         and that they comply with the origin requirements specified <br> for these goods in the
                         generalized
                         System
                         of preferences for <br> goods
                         exported
-                        to <br> <br> <input type="text" style="width: 85%; border: 0; border-bottom: 1px solid;">
+                        to <br> <br> <input type="text" style="width: 85%; border: 0; border-bottom: 1px solid;" value="{{ $CertificateOriginComDecFormIp->importing_in_country ?? "" }}">
                     </div>
 
 
-                    <div style="text-align: center;">(importing country)</div>
+                    <div style="text-align: center;margin-top: 20px;">(importing country)</div>
                     <br>
-                    <input type="text" style="width: 50%; border: 0; border-bottom: 1px dotted; margin-top: 43px;" value="{{ $CertificateOriginComDecFormIp->importing_in_country ?? "" }}"> <br>
-                    place and date ,signature of authorized signatory
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <span style="width: 100%;  padding-left: 20px;margin-top: 20px;">{{ $CertificateOriginComDecFormIp->place ?? "" }} {{ $CertificateOriginComDecFormIp->date ?? "" }}</span>
+                    <input type="text" style="width: 100%; border: 0; border-bottom: 0.5px dotted; margin-top: 0px;" value=""> 
+                     &nbsp; &nbsp;&nbsp; place and date ,signature of authorized signatory
                 </div>
             </td>
             <td style="width: 50%; border-left: 1px solid #000;">

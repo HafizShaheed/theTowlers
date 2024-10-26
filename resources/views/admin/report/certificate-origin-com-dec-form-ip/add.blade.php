@@ -146,11 +146,11 @@
                         <input type="text" class="form-control custom-input" id="remarks" name="remarks"
                             value="">
                     </div>
-                    <div class="col-sm-3 mb-3">
+                    {{-- <div class="col-sm-3 mb-3">
                         <label for="produce_in_country" class="form-label">Produce in country </label>
                         <input type="text" class="form-control custom-input" id="produce_in_country" name="produce_in_country"
                             value="">
-                    </div>
+                    </div> --}}
                     <div class="col-sm-3 mb-3">
                         <label for="importing_in_country" class="form-label">Importing in country </label>
                         <input type="text" class="form-control custom-input" id="importing_in_country" name="importing_in_country"
@@ -175,7 +175,11 @@
                         <input type="text" class="form-control custom-input" id="place"
                             name="place" value="">
                     </div>
-
+                    <div class="col-sm-3 mb-3">
+                        <label for="declaration_by_the_exporter_country" class="form-label">Declaration by the exporter</label>
+                        <input type="text" class="form-control custom-input" id="declaration_by_the_exporter_country"
+                          name="declaration_by_the_exporter_country" >
+                    </div>
                     
 
 

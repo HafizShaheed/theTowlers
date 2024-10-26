@@ -186,7 +186,7 @@
 
                 <div class="col-sm-4 mb-4">
                     <label for="gross_weight_or_other_quantity_" class="form-label">Gross weight or other quantity</label>
-                    <input type="number" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
+                    <input type="text" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
                         name="gross_weight_or_other_quantity_{{ $i }}"  value="{{ $CertificateOrigin->{'gross_weight_or_other_quantity_' . $i} }}">
                 </div>
                 

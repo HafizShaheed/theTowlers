@@ -131,11 +131,11 @@
                         <input type="text" class="form-control custom-input" id="remarks" name="remarks"
                            readonly disabled  value="{{ $CertificateOriginComDecFormIp->remarks }}">
                     </div>
-                    <div class="col-sm-3 mb-3">
+                    {{-- <div class="col-sm-3 mb-3">
                         <label for="produce_in_country" class="form-label">Produce in country </label>
                         <input type="text" class="form-control custom-input" id="produce_in_country" name="produce_in_country"
                            readonly disabled  value="{{ $CertificateOriginComDecFormIp->produce_in_country }}">
-                    </div>
+                    </div> --}}
                     <div class="col-sm-3 mb-3">
                         <label for="importing_in_country" class="form-label">Importing in country </label>
                         <input type="text" class="form-control custom-input" id="importing_in_country" name="importing_in_country"
@@ -161,7 +161,11 @@
                             name="place"readonly disabled  value="{{ $CertificateOriginComDecFormIp->place }}">
                     </div>
 
-                    
+                    <div class="col-sm-3 mb-3">
+                        <label for="declaration_by_the_exporter_country" class="form-label">Declaration by the exporter</label>
+                        <input type="text" class="form-control custom-input" id="declaration_by_the_exporter_country"
+                        readonly disabled    name="declaration_by_the_exporter_country"  value="{{ $CertificateOriginComDecFormIp->declaration_by_the_exporter_country }}">
+                    </div>
 
 
 
@@ -199,7 +203,7 @@
 
                 <div class="col-sm-4 mb-4">
                     <label for="gross_weight_or_other_quantity_" class="form-label">Gross weight or other quantity</label>
-                    <input type="number" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
+                    <input type="text" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
                         name="gross_weight_or_other_quantity_{{ $i }}" readonly disabled  value="{{ $CertificateOriginComDecFormIp->{'gross_weight_or_other_quantity_' . $i} }}">
                 </div>
                 

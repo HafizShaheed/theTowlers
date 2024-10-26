@@ -20,7 +20,7 @@
                                 Exporter (Name , Adderss and Country)
                                 <ul style="list-style: none; padding: 2px; margin-top: 8px;">
                                     <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->exporter_name ?? "" }}</li>
-                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->exporter_address ?? "" }}</li>
+                                     <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->exporter_address ?? "" }}</li>
                                     <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->exporter_country ?? "" }}</li>
                                 </ul>
                             </div>
@@ -206,7 +206,7 @@
                                 Place:
                             </td>
                             <td>
-                                <input type="text" style=" border: 0; border-bottom: 1px dotted;">
+                                <input type="text" style=" border: 0; border-bottom: 1px dotted;" value="{{ $CertificateOrigin->place}}">
                             </td>
                         </tr>
                         <tr style="padding: 4px 0;">

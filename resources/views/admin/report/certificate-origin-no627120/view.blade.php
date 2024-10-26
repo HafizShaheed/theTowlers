@@ -139,7 +139,28 @@
                     </div>
 
                     
-
+                       
+                    <div class="col-sm-3 mb-3">
+                        <label for="full_name" class="form-label">Full name</label>
+                        <input type="text" class="form-control custom-input" id="full_name"
+                            name="full_name"  readonly disabled  value="{{ $CertificateOriginNo627120->full_name }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="designnation" class="form-label">Designnation</label>
+                        <input type="text" class="form-control custom-input" id="designnation"
+                            name="designnation"  readonly disabled  value="{{ $CertificateOriginNo627120->designnation }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="company" class="form-label">Company</label>
+                        <input type="text" class="form-control custom-input" id="company"
+                            name="company"  readonly disabled  value="{{ $CertificateOriginNo627120->Company }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="other_information" class="form-label">Other information</label>
+                        <input type="text" class="form-control custom-input" id="other_information"
+                            name="other_information"  readonly disabled  value="{{ $CertificateOriginNo627120->other_information }}">
+                    </div>
+                    
 
 
                 </div>
@@ -171,7 +192,7 @@
 
                 <div class="col-sm-4 mb-4">
                     <label for="gross_weight_or_other_quantity_" class="form-label">Gross weight or other quantity</label>
-                    <input type="number" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
+                    <input type="text" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
                         name="gross_weight_or_other_quantity_{{ $i }}" readonly disabled   value="{{ $CertificateOriginNo627120->{'gross_weight_or_other_quantity_' . $i} }}">
                 </div>
                 

@@ -158,7 +158,26 @@
                             name="drawback_or_remission_of_duty" readonly   value="{{ $Form59AInvoice->drawback_or_remission_of_duty }}">
                     </div>
                     
-
+                    <div class="col-sm-3 mb-3">
+                        <label for="date" class="form-label">Date</label>
+                        <input type="text" class="form-control custom-input" id="date"
+                            name="date" readonly  value="{{ $Form59AInvoice->date }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="full_name" class="form-label">Full name</label>
+                        <input type="text" class="form-control custom-input" id="full_name"
+                            name="full_name"  readonly  value="{{ $Form59AInvoice->full_name }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="form59_status" class="form-label">Status</label>
+                        <input type="text" class="form-control custom-input" id="form59_status"
+                            name="form59_status"  readonly  value="{{ $Form59AInvoice->form59_status }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="signature_person" class="form-label">Sign.Name</label>
+                        <input type="text" class="form-control custom-input" id="signature_person"
+                            name="signature_person"  readonly  value="{{ $Form59AInvoice->signature_person }}">
+                    </div>
 
 
                 </div>
@@ -167,7 +186,7 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) <div class="col-sm-4 mb-4">
+                    @for($i=1; $i <= 4; $i++) <div class="col-sm-4 mb-4">
                         <label for="marks_and_numbers_" class="form-label">Mark & Number </label>
                         <input type="text" class="form-control custom-input"
                             id="marks_and_numbers_{{ $i }}"
@@ -177,29 +196,29 @@
                 <div class="col-sm-4 mb-4">
                     <label for="quantity_{{ $i }}" class="form-label">Quantity</label>
                     <input type="text" step="any" class="form-control custom-input" id="quantity_{{ $i }}"
-                        name="quantity_{{ $i }} readonly  "value="{{ $Form59AInvoice->{'quantity_' . $i} }}">
+                        name="quantity_{{ $i }} " readonly  value="{{ $Form59AInvoice->{'quantity_' . $i} }}">
                 </div>
                 <div class="col-sm-4 mb-4">
                     <label for="description_of_goods_{{ $i }}" class="form-label">Description of goods  (including any discount)</label>
                     <input type="text" step="any" class="form-control custom-input" id="description_of_goods_{{ $i }}"
-                        name="description_of_goods_{{ $i }} readonly  "value="{{ $Form59AInvoice->{'description_of_goods_' . $i} }}">
+                        name="description_of_goods_{{ $i }} " readonly  value="{{ $Form59AInvoice->{'description_of_goods_' . $i} }}">
                 </div>
 {{-- 
                 <div class="col-sm-4 mb-4">
                     <label for="including_any_discounts_" class="form-label">Including any discounts</label>
                     <input type="number" step="any" class="form-control custom-input" id="including_any_discounts_{{ $i }}"
-                        name="including_any_discounts_{{ $i }} readonly  "value="{{ $Form59AInvoice->{'including_any_discounts_' . $i} }}">
+                        name="including_any_discounts_{{ $i }} " readonly  value="{{ $Form59AInvoice->{'including_any_discounts_' . $i} }}">
                 </div> --}}
                 
                 <div class="col-sm-4 mb-4">
                     <label for="current_domestic_value_currency_of_exporting_{{ $i }}" class="form-label">Current domestic value currency of exporting</label>
                     <input type="text" step="any" class="form-control custom-input" id="current_domestic_value_currency_of_exporting_{{ $i }}"
-                        name="current_domestic_value_currency_of_exporting_{{ $i }} readonly  "value="{{ $Form59AInvoice->{'current_domestic_value_currency_of_exporting_' . $i} }}">
+                        name="current_domestic_value_currency_of_exporting_{{ $i }} " readonly  value="{{ $Form59AInvoice->{'current_domestic_value_currency_of_exporting_' . $i} }}">
                 </div>
                 <div class="col-sm-4 mb-4">
                     <label for="amount_" class="form-label">Amount</label>
                     <input type="number" step="any" class="form-control custom-input" id="amount_{{ $i }}"
-                        name="amount_{{ $i }} readonly  "value="{{ $Form59AInvoice->{'amount_' . $i} }}">
+                        name="amount_{{ $i }} " readonly  value="{{ $Form59AInvoice->{'amount_' . $i} }}">
                 </div>
                 <hr>
 

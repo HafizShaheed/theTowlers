@@ -116,8 +116,8 @@
                 <td>
                     <p>Signature: <input style="width: 200px; border: 0; border-bottom: 1px solid #000;" type="text">
                     </p>
-                    <p>Name: <input style="width: 200px; border: 0; border-bottom: 1px solid #000;" type="text"></p>
-                    <p>Title: <input style="width: 200px; border: 0; border-bottom: 1px solid #000;" type="text"></p>
+                    <p>Name: <input style="width: 200px; border: 0; border-bottom: 1px solid #000;" type="text" value="{{ $ExporterTextileDeclearation->full_name }}"></p>
+                    <p>Title: <input style="width: 200px; border: 0; border-bottom: 1px solid #000;"  value="{{ $ExporterTextileDeclearation->title }}"  type="text"></p>
                     <p>Company: <span>Towellers Limited</span></p>
                     <p>Address: <span>WS.A 30-31, BLOCK FEDERAL AREA
                             KARACHI</span></p>
