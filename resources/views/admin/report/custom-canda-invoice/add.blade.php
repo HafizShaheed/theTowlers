@@ -165,6 +165,13 @@
                    
 
                     <div class="col-sm-3 mb-3">
+                        <label for="country_of_transhipment" class="form-label">Country of transhipment </label>
+                        <input type="text" class="form-control custom-input"
+                            id="country_of_transhipment"
+                            name="country_of_transhipment" value="">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
                         <label for="transportation_place_of_direct_shipment_to_canada" class="form-label">Transportation
                             Place of Direct </label>
                         <input type="text" class="form-control custom-input"
@@ -184,9 +191,88 @@
                             value="">
                     </div>
                     <div class="col-sm-3 mb-3">
+                        <label for="currency_of_transhipment" class="form-label">Currency of transhipment </label>
+                        <input type="text" class="form-control custom-input" id="currency_of_transhipment"
+                            name="currency_of_transhipment" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="canada_net" class="form-label">Net </label>
+                        <input type="text" class="form-control custom-input" id="canada_net"
+                            name="canada_net" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="canada_gross" class="form-label">Gross </label>
+                        <input type="text" class="form-control custom-input" id="canada_gross"
+                            name="canada_gross" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="yes_or_no_If_any_of_fields_1_to_17_are_included" class="form-label">If any of fields 1 to 17 are included on an attached commercial invoice, check this bax</label>
+                        <input type="checkbox" class="form-check-input" id="yes_or_no_If_any_of_fields_1_to_17_are_included" name="yes_or_no_If_any_of_fields_1_to_17_are_included" value="1">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="yes_or_no_If_any_of_fields_23_to_35_are_not_applicable" class="form-label">If field 23 to 25 are not applicable, check this boxt</label>
+                        <input type="checkbox" class="form-check-input" id="yes_or_no_If_any_of_fields_23_to_35_are_not_applicable" name="yes_or_no_If_any_of_fields_23_to_35_are_not_applicable" value="1">
+                    </div>
+                    <div class="col-sm-3 mb-3">
                         <label for="agency_ruling" class="form-label">Agency Ruling</label>
                         <input type="text" class="form-control custom-input" id="agency_ruling" name="agency_ruling"
                             value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="23_agency_if_included_in_field_17_indicate" class="form-label"> 23. Agency Ruling If included in field 17 indicate amount </label>
+                        <input type="text" class="form-control custom-input" id="23_agency_if_included_in_field_17_indicate"
+                            name="23_agency_if_included_in_field_17_indicate" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="23_agency_transportation_charges" class="form-label"> 23. Agency Ruling Transportation charges </label>
+                        <input type="text" class="form-control custom-input" id="23_agency_transportation_charges"
+                            name="23_agency_transportation_charges" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="23_agency_costs_for_contruction" class="form-label"> 23. Agency Ruling Costs for contruction</label>
+                        <input type="text" class="form-control custom-input" id="23_agency_costs_for_contruction"
+                            name="23_agency_costs_for_contruction" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="23_agency_exporting_packing" class="form-label"> 23. Agency Exporting packing</label>
+                        <input type="text" class="form-control custom-input" id="23_agency_exporting_packing"
+                            name="23_agency_exporting_packing" value="">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="24_agency_if_included_in_field_17_indicate" class="form-label"> 24. Agency Ruling If included in field 17 indicate amount </label>
+                        <input type="text" class="form-control custom-input" id="24_agency_if_included_in_field_17_indicate"
+                            name="24_agency_if_included_in_field_17_indicate" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="24_agency_transportation_charges" class="form-label"> 24. Agency Ruling Transportation charges </label>
+                        <input type="text" class="form-control custom-input" id="24_agency_transportation_charges"
+                            name="24_agency_transportation_charges" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="24_agency_costs_for_contruction" class="form-label"> 24. Agency Ruling Costs for contruction</label>
+                        <input type="text" class="form-control custom-input" id="24_agency_costs_for_contruction"
+                            name="24_agency_costs_for_contruction" value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="24_agency_exporting_packing" class="form-label"> 24. Agency Exporting packing</label>
+                        <input type="text" class="form-control custom-input" id="24_agency_exporting_packing"
+                            name="24_agency_exporting_packing" value="">
+                    </div>
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="25_agency_if_included_in_field_17_indicate" class="form-label"> 25. Agency Ruling If included in field 17 indicate amount </label>
+                        <input type="text" class="form-control custom-input" id="25_agency_if_included_in_field_17_indicate"
+                            name="25_agency_if_included_in_field_17_indicate" value="">
+                    </div>
+                   
+                    <div class="col-sm-3 mb-3">
+                        <label for="yes_or_no_25_agency_transportation_charges" class="form-label">25. Agency Ruling Transportation charges </label>
+                        <input type="checkbox" class="form-check-input" id="yes_or_no_25_agency_transportation_charges" name="yes_or_no_25_agency_transportation_charges" value="1">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="yes_or_no_25_agency_costs_for_contruction" class="form-label">25. Agency Ruling Costs for contruction</label>
+                        <input type="checkbox" class="form-check-input" id="yes_or_no_25_agency_costs_for_contruction" name="yes_or_no_25_agency_costs_for_contruction" value="1">
                     </div>
 
 

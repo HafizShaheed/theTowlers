@@ -61,7 +61,7 @@
 
                         (Combined Declaration and Certificate) <br>
 
-                        Issued in <input type="text" style="width: 200px; border: 0; border-bottom: 1px solid;"> <br>
+                        Issued in <input type="text" style="width: 200px; border: 0; border-bottom: 1px solid;"  value="{{  $CertificateOriginComDec->issue_in ?? ""  }}"> <br>
                         (Country)
                     </div>
                 </div>

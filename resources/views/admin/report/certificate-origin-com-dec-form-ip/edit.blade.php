@@ -138,11 +138,29 @@
                             name="issue_country" value="{{ $CertificateOriginComDecFormIp->issue_country }}">
                     </div>
 
+                 
                     <div class="col-sm-3 mb-3">
-                        <label for="transport_and_route" class="form-label">Transport and route</label>
-                        <input type="text" class="form-control custom-input" id="transport_and_route" name="transport_and_route"
-                            value="{{ $CertificateOriginComDecFormIp->transport_and_route }}">
+                        <label for="departture_dae" class="form-label">Departture dae</label>
+                        <input type="text" class="form-control custom-input" id="departture_dae" name="departture_dae"
+                           value="{{ $CertificateOriginComDecFormIp->departture_dae }}">
                     </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="vessel_name_ip" class="form-label">Vessel name</label>
+                        <input type="text" class="form-control custom-input" id="vessel_name_ip" name="vessel_name_ip"
+                           value="{{ $CertificateOriginComDecFormIp->vessel_name_ip }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="port_of_loading" class="form-label">Port of loading</label>
+                        <input type="text" class="form-control custom-input" id="port_of_loading" name="port_of_loading"
+                           value="{{ $CertificateOriginComDecFormIp->port_of_loading }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="port_of_discharge" class="form-label">Port of discharge</label>
+                        <input type="text" class="form-control custom-input" id="port_of_discharge" name="port_of_discharge"
+                           value="{{ $CertificateOriginComDecFormIp->port_of_discharge }}">
+                    </div>
+
+
                     <div class="col-sm-3 mb-3">
                         <label for="remarks" class="form-label">Remarks</label>
                         <input type="text" class="form-control custom-input" id="remarks" name="remarks"

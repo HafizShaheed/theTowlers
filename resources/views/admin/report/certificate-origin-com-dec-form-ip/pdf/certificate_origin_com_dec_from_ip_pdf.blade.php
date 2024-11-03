@@ -92,8 +92,12 @@
                         <td style="width: 100%;">
                             <div style="height: 100px; width: 342px;">
                                 4.Means of transport and route ( as far as known )
-                                <br>
-                                {{ $CertificateOriginComDecFormIp->transport_and_route ?? "" }}
+                                <div> Departture dae : {{ $CertificateOriginComDecFormIp->departture_dae ?? "" }}  </div>
+                                <div> Vessel name : {{ $CertificateOriginComDecFormIp->vessel_name_ip ?? "" }}  </div>
+                                <div> Port of loading : {{ $CertificateOriginComDecFormIp->port_of_loading ?? "" }}  </div>
+                                <div> Port of discharge :{{ $CertificateOriginComDecFormIp->port_of_discharge ?? "" }}  </div>
+
+                                {{-- {{ $CertificateOriginComDecFormIp->transport_and_route ?? "" }} --}}
                             </div>
                         </td>
                     </tr>

@@ -133,11 +133,11 @@
                         <input type="text" class="form-control custom-input" id="ref_number"
                             name="ref_number"  value="{{ $CertificateOriginComDec->ref_number }}">
                     </div>
-                    {{-- <div class="col-sm-3 mb-3">
-                        <label for="exporter_membership_number" class="form-label">Exporter membership number</label>
-                        <input type="text" class="form-control custom-input" id="exporter_membership_number"
-                            name="exporter_membership_number"  value="{{ $CertificateOriginComDec->exporter_membership_number }}">
-                    </div> --}}
+                    <div class="col-sm-3 mb-3">
+                        <label for="issue_in" class="form-label">Issue in</label>
+                        <input type="text" class="form-control custom-input" id="issue_in" name="issue_in"
+                        value="{{ $CertificateOriginComDec->issue_in }}">
+                    </div>
 
                     <div class="col-sm-3 mb-3">
                         <label for="transport_and_route" class="form-label">Transport and route</label>

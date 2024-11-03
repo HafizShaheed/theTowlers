@@ -415,6 +415,7 @@ class adminController extends Controller
             $canadaCustomerInvoiceFrom->gross_brut = $request->input('gross_brut');
             $canadaCustomerInvoiceFrom->invoice_total = $request->input('invoice_total');
             $canadaCustomerInvoiceFrom->description_pecification_of_commodities = $request->input('description_pecification_of_commodities');
+            $canadaCustomerInvoiceFrom->fill($request->all());
 
             // Create related records using loop
             for ($i = 1; $i <= 6; $i++) {

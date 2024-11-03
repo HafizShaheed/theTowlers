@@ -141,6 +141,8 @@
                         <td style="width: 50%; font-size: 10px;">
                             <div style="height: 25px;">
 
+                                <span>6. Country of transhipment- Pays de transbordement</span>
+                                {{ $CanadaCustomerInvoiceFrom->country_of_transhipment ?? "" }}
                                
 
                             </div>
@@ -173,7 +175,7 @@
             <td style="width: 50%; font-size: 10px;">
                 <div style="height: 100px;">
 
-                    <span>4. Transportation: Give mode and place of direct shipment to Canada Transport Précisez mode et
+                    <span>8. Transportation: Give mode and place of direct shipment to Canada Transport Précisez mode et
                         point d'expédition directe vers le Canada</span>
                     <div style="font-size: 10px;">
                         {{ $CanadaCustomerInvoiceFrom->transportation_place_of_direct_shipment_to_canada ?? "" }}
@@ -187,7 +189,7 @@
                         <td style="width: 50%; font-size: 10px;">
                             <div style="height: 65px;">
 
-                                <span>Conditions of sale and terms of payment <br>
+                                <span>9. Conditions of sale and terms of payment <br>
 
                                     (ie sale, consignment shipment, leased goods, etc.) <br>
 
@@ -205,7 +207,10 @@
                         <td style="width: 50%; font-size: 10px;">
                             <div style="height: 35px;">
 
-                                <span>6. Country of transhipment- Pays de transbordement</span>
+                                <span>10. Currency of transhipment- </span>
+                                    {{ $CanadaCustomerInvoiceFrom->currency_of_transhipment ?? "" }}
+
+                                
                             </div>
                         </td>
                     </tr>
@@ -410,7 +415,7 @@
                             </td>
                             <td>
                                 <div style="height: 30px; ">
-                                    <input type="checkbox" name="" id="">
+                                    <input type="checkbox" name="" {{ $CanadaCustomerInvoiceFrom->{'yes_or_no_If_any_of_fields_1_to_17_are_included'} ? 'checked' : '' }}>
                                 </div>
                             </td>
                         </tr>
@@ -466,7 +471,8 @@
                                             <td style=" text-align: center;">
                                                 <div style="height: 10px; ">
                                                     Net:  
-                                                    {{' '. $totalPrice }}
+                                                    {{ $CanadaCustomerInvoiceFrom->{'canada_net'} ?? '' }}
+                                                    {{-- {{' '. $totalPrice  }} --}}
                                                 </div>
                                             </td>
                                         </tr>
@@ -481,7 +487,7 @@
 
                                             <td style=" text-align: center;">
                                                 <div style="height: 10px;  text-align: center;">
-                                                    Gross - Brut</div>
+                                                    Gross - Brut {{ $CanadaCustomerInvoiceFrom->{'canada_gross'} ?? '' }}</div>
                                             </td>
                                         </tr>
                                     </table>
@@ -590,9 +596,11 @@
                             <td>
                                 <div style="height: 30px;">
                                     Agency ruling (if applicable) - Decision de I'Agence (s'il y a lieu)
+                                    <br>
+                                    {{ $CanadaCustomerInvoiceFrom->agency_ruling ?? "" }}
                                 </div>
                                 <div style="font-size: 10px;">
-                                    {{ $CanadaCustomerInvoiceFrom->agency_ruling ?? "" }}
+                                   
                                 </div>
 
                             </td>
@@ -618,7 +626,7 @@
                             </td>
                             <td>
                                 <div style="height: 30px; margin-left: 40px;">
-                                    <input type="checkbox">
+                                    <input type="checkbox" {{ $CanadaCustomerInvoiceFrom->{'yes_or_no_If_any_of_fields_23_to_35_are_not_applicable'} ? 'checked' : '' }}>
                                 </div>
                             </td>
                         </tr>
@@ -630,7 +638,7 @@
     <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
         <tr>
             <td style="width: 33.33%; font-size: 7px; border-right: 1px solid;">
-                <div style="height: 150px;">
+                <div style="height: 170px;">
                     <table>
                         <tr>
                             <td>
@@ -642,6 +650,8 @@
                                 <div style="height: 30px;">
                                     If included in field 17 indicate amount: <br>
                                     Si compris dans le total a la zone 17 precisez:
+                                    <br>
+                                    {{ $CanadaCustomerInvoiceFrom->{'23_agency_if_included_in_field_17_indicate'} ?? '' }}
                                 </div>
                                 <div style="width: 100%; margin: auto;">
                                     (i) Transportation charges, expenses and insurance <br>
@@ -649,7 +659,8 @@
                                     Les Frais de transport,
                                     depences directe verse le Canada
                                     <div>
-                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;">
+                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;"
+                                        value=" {{ $CanadaCustomerInvoiceFrom->{'23_agency_transportation_charges'} ?? '' }}">
                                     </div>
 
                                 </div>
@@ -660,7 +671,8 @@
                                     Les couts de construction, d'erection et <br>
                                     d'assemblage apres importation au Canada
                                     <div>
-                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;">
+                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;"
+                                        value=" {{ $CanadaCustomerInvoiceFrom->{'23_agency_costs_for_contruction'} ?? '' }}">
                                     </div>
 
                                 </div>
@@ -669,7 +681,9 @@
                                     (iii) Exporting packing <br>
                                     Le cout de I'emballage d'exportation
                                     <div>
-                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;">
+                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;"
+                                        value=" {{ $CanadaCustomerInvoiceFrom->{'23_agency_exporting_packing'} ?? '' }}">
+                                        
                                     </div>
 
                                 </div>
@@ -682,7 +696,7 @@
                 </div>
             </td>
             <td style="width: 33.33%; font-size: 7px; border-right: 1px solid;">
-                <div style="height: 150px;">
+                <div style="height: 170px;">
                     <table>
                         <tr>
                             <td>
@@ -694,6 +708,8 @@
                                 <div style="height: 30px;">
                                     If included in field 17 indicate amount: <br>
                                     Si compris dans le total a la zone 17 precisez:
+                                  
+                                    {{ $CanadaCustomerInvoiceFrom->{'24_agency_if_included_in_field_17_indicate'} ?? '' }}
                                 </div>
                                 <div style="width: 100%; margin: auto;">
                                     (i) Transportation charges, expenses and insurance <br>
@@ -701,7 +717,9 @@
                                     Les Frais de transport,
                                     depences directe verse le Canada
                                     <div>
-                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;">
+                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;"
+                                        value=" {{ $CanadaCustomerInvoiceFrom->{'24_agency_transportation_charges'} ?? '' }}">
+
                                     </div>
 
                                 </div>
@@ -712,7 +730,9 @@
                                     Les couts de construction, d'erection et <br>
                                     d'assemblage apres importation au Canada
                                     <div>
-                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;">
+                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;"
+                                        value=" {{ $CanadaCustomerInvoiceFrom->{'24_agency_costs_for_contruction'} ?? '' }}">
+
                                     </div>
 
                                 </div>
@@ -721,7 +741,9 @@
                                     (iii) Exporting packing <br>
                                     Le cout de I'emballage d'exportation
                                     <div>
-                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;">
+                                        <input type="text" style="width: 90px; border: 0; border-bottom: 1px solid;"
+                                        value=" {{ $CanadaCustomerInvoiceFrom->{'24_agency_exporting_packing'} ?? '' }}">
+                                        
                                     </div>
 
                                 </div>
@@ -734,7 +756,7 @@
                 </div>
             </td>
             <td style="width: 33.33%; font-size: 7px; border-right: 1px solid;">
-                <div style="height: 150px;">
+                <div style="height: 170px;">
                     <table>
                         <tr>
                             <td>
@@ -746,6 +768,8 @@
                                 <div style="height: 30px;">
                                     If included in field 17 indicate amount: <br>
                                     Si compris dans le total a la zone 17 precisez:
+                                    
+                                    {{ $CanadaCustomerInvoiceFrom->{'25_agency_if_included_in_field_17_indicate'} ?? '' }}
                                 </div>
                                 <div style="width: 100%; margin: auto;">
                                     (i) Transportation charges, expenses and insurance <br>
@@ -753,7 +777,7 @@
                                     Les Frais de transport,
                                     depences directe verse le Canada
                                     <div style="text-align: center;">
-                                        <input type="checkbox">
+                                        <input type="checkbox"  {{ $CanadaCustomerInvoiceFrom->{'yes_or_no_25_agency_transportation_charges'} ? 'checked' : '' }}>
                                     </div>
 
                                 </div>
@@ -764,7 +788,7 @@
                                     Les couts de construction, d'erection et <br>
                                     d'assemblage apres importation au Canada
                                     <div style="text-align: center;">
-                                        <input type="checkbox">
+                                        <input type="checkbox"  {{ $CanadaCustomerInvoiceFrom->{'yes_or_no_25_agency_costs_for_contruction'} ? 'checked' : '' }}>
                                     </div>
 
                                 </div>

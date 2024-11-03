@@ -133,6 +133,12 @@
                     </div>
                
                     <div class="col-sm-3 mb-3">
+                        <label for="issue_in" class="form-label">Issue in</label>
+                        <input type="text" class="form-control custom-input" id="issue_in" name="issue_in"
+                            value="">
+                    </div>
+                    
+                    <div class="col-sm-3 mb-3">
                         <label for="transport_and_route" class="form-label">Transport and route</label>
                         <input type="text" class="form-control custom-input" id="transport_and_route" name="transport_and_route"
                             value="">
