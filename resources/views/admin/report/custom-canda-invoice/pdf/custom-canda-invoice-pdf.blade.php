@@ -96,7 +96,7 @@
                                 <span>3. Date of direct shipment to Canada - Date d'expedition directle vers le
                                     Canada</span>
                                 <div style="font-size: 10px;">
-                                    {{ $CanadaCustomerInvoiceFrom->date_of_direct_shipment_to_canada_1 ?? '' }}
+                                    {{ $CanadaCustomerInvoiceFrom->date_of_direct_shipment_to_canada_2 ?? '' }}
                                 </div>
 
                             </div>

@@ -1,4 +1,4 @@
-@extends('admin.includes.master')
+@extends('team.includes.master')
 
 
 
@@ -408,7 +408,7 @@
                     headers: {
                         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                     },
-                    url: "{{ route('admin.update_submit_custom_canda_invoice') }}",
+                    url: "{{ route('team.update_submit_custom_canda_invoice') }}",
                     data: formData,
                     dataType: "json",
                     processData: false, // important for FormData
@@ -425,7 +425,7 @@
                             timerProgressBar: true,
                             willClose: () => {
                                 window.location.href =
-                                    "{{ route('admin.report_List_custom_canda_invoice') }}"
+                                    "{{ route('team.report_List_custom_canda_invoice') }}"
 
                             },
                         });
