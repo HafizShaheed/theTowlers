@@ -144,18 +144,49 @@
                             value="{{ $CertificateOrigin->particular_of_transport }}">
                     </div>
 
+                 
+
+                    <div class="col-sm-3 mb-3">
+                        <label for="exporter_signature" class="form-label">Exporter's Signature</label>
+                        <input type="text" class="form-control custom-input" id="exporter_signature"
+                            name="exporter_signature"  value="{{ $CertificateOrigin->exporter_signature }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="full_name" class="form-label">Name</label>
+                        <input type="text" class="form-control custom-input" id="full_name"
+                            name="full_name"  value="{{ $CertificateOrigin->full_name }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="designnation" class="form-label">Designnation</label>
+                        <input type="text" class="form-control custom-input" id="designnation"
+                            name="designnation"  value="{{ $CertificateOrigin->designnation }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="company" class="form-label">Company</label>
+                        <input type="text" class="form-control custom-input" id="company"
+                            name="company"  value="{{ $CertificateOrigin->company }}">
+                    </div>
                     <div class="col-sm-3 mb-3">
                         <label for="date" class="form-label">Date</label>
                         <input type="date" class="form-control custom-input" id="date"
-                            name="date" value="{{ $CertificateOrigin->date }}">
+                            name="date"  value="{{ $CertificateOrigin->date }}">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="place" class="form-label">Place</label>
                         <input type="text" class="form-control custom-input" id="place"
-                            name="place" value="{{ $CertificateOrigin->place }}">
+                            name="place"  value="{{ $CertificateOrigin->place }}">
                     </div>
 
-                    
+                    <div class="col-sm-3 mb-3">
+                        <label for="signature_person_authorized" class="form-label">Authorized Signatory</label>
+                        <input type="text" class="form-control custom-input" id="signature_person_authorized"
+                            name="signature_person_authorized"  value="{{ $CertificateOrigin->signature_person_authorized }}">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="place_issue_date" class="form-label">Place and date of issue</label>
+                        <input type="text" class="form-control custom-input" id="place_issue_date"
+                            name="place_issue_date"  value="{{ $CertificateOrigin->place_issue_date }}">
+                    </div>
 
 
 

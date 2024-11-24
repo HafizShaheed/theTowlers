@@ -117,6 +117,14 @@
                         <input type="text" class="form-control custom-input" id="value_f_i_no" name="value_f_i_no"
                            value="{{ $CommercialInvoice['value_f_i_no'] }}">
                     </div>
+                    @for($i=1; $i <= 3; $i++)
+                    <div class="col-sm-3 mb-3">
+                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_f_i_no_{{ $i }}" style="font-weight: bold; color: #000;" name="heading_f_i_no_{{ $i }}" value={{ $CommercialInvoice['heading_f_i_no_' . $i]}}>
+                        <input type="text" class="form-control custom-input" id="value_f_i_no_{{ $i }}" name="value_f_i_no_{{ $i }}"
+                            value={{ $CommercialInvoice['value_f_i_no_' . $i]}}>
+                    </div>
+                       
+                    @endfor
                     
                     <div class="col-sm-3 mb-3">
                         <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_vessel" style="font-weight: bold; color: #000;" name="heading_vessel"  value="{{ $CommercialInvoice['heading_vessel'] }}">

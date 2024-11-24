@@ -333,13 +333,13 @@
             style="border: 1px solid #000; border-collapse: collapse; width: 100%;  margin-top: 200px;">
             <thead>
                 <tr style="font-size:8px; text-align: center;">
-                    <th style="width: 20%; border: 1px solid;">
+                    <th style="width: 15%; border: 1px solid;">
                         <div style="text-transform: uppercase;">
                             {{ $CommercialInvoice['heading_marks_no'] ?? '' }}
                         </div>
                     </th>
 
-                    <th style="width: 40%; border: 1px solid;">
+                    <th style="width: 45%; border: 1px solid;">
                         <div style="text-transform: uppercase;">
                             {{ $CommercialInvoice['heading_discription_of_goods'] ?? '' }}
                         </div>
@@ -406,7 +406,7 @@
 
 
                 <tr style="font-size:8px; ">
-                    <td style=" border-right: 1px solid; border-bottom:1px solid #000;">
+                    <td style=" border-right: 1px solid;  solid #000;">
                      
                             
                         <p style="width: 150px; word-wrap: break-word;">
@@ -485,23 +485,23 @@
 
                         <div style="text-align: left; white-space: nowrap; margin-left:10px">
                             <div
-                                style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; font-weight: bold; color: #000;">
+                                style="display: inline-block; width: 15%; text-decoration: underline; margin-left: -4px; font-weight: bold; color: #000;">
                                 {{ $CommercialInvoice['heading_color_' . $i] ?? '' }}
                             </div>
                             <div
-                                style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; font-weight: bold; color: #000;">
+                                style="display: inline-block; width: 20%; text-decoration: underline; margin-left: -4px; font-weight: bold; color: #000;">
                                 {{ $CommercialInvoice['heading_sku_no_' . $i] ?? '' }}
                             </div>
                             <div
-                                style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; font-weight: bold; color: #000;">
+                                style="display: inline-block; width: 21%; text-decoration: underline; margin-left: -4px; font-weight: bold; color: #000;">
                                 {{ $CommercialInvoice['heading_ean_no_' . $i] ?? '' }}
                             </div>
                             <div
-                                style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; font-weight: bold; color: #000;">
+                                style="display: inline-block; width: 20%; text-decoration: underline; margin-left: -4px; font-weight: bold; color: #000;">
                                 {{ $CommercialInvoice['heading_sku_hash_' . $i] ?? '' }}
                             </div>
                             <div
-                                style="display: inline-block; width: 18%; text-decoration: underline; font-weight: bold; color: #000;">
+                                style="display: inline-block; width: 24%; text-decoration: underline; margin-left: -4px; font-weight: bold; color: #000;">
                                 {{ $CommercialInvoice['heading_style_' . $i] ?? '' }}
                             </div>
                         </div>
@@ -519,23 +519,23 @@
                                 <div class="no-margin"
                                     style="text-align: left; white-space: nowrap; margin-top:5px; margin-left:10px">
                                     <div
-                                        style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                        style="display: inline-block; width: 15%; margin-left: -4px; color: #000;">
                                         {{ $colorName }}
                                     </div>
                                     <div
-                                        style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                        style="display: inline-block; width: 20%; margin-left: -4px; color: #000;">
                                         {{ $skuNo }}
                                     </div>
                                     <div
-                                        style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                        style="display: inline-block; width: 21%; margin-left: -4px; color: #000;">
                                         {{ $eanNo }}
                                     </div>
                                     <div
-                                        style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
+                                        style="display: inline-block; width: 20%; margin-left: -4px; color: #000;">
                                         {{ $skuHashNo }}
                                     </div>
                                     <div
-                                        style="display: inline-block; width: 18%; text-decoration: underline; color: #000;">
+                                        style="display: inline-block; width: 24%; margin-left: 1px color: #000;">
                                         {{ $styleNo }}
                                     </div>
                                 </div>
@@ -553,7 +553,7 @@
 
                             </p>
                             <p style=" margin-top:2px; word-wrap: break-word;">
-                                GR WEIGHT &nbsp; &nbsp; &nbsp;
+                                GROSS WEIGHT &nbsp; &nbsp; &nbsp;
                                 {{ $CommercialInvoice['gross_weight_second_column_value_' . $i] ?? 0 }} KGS
 
                             </p>
@@ -613,7 +613,7 @@
                                 $unit = $CommercialInvoice['quantity_unit_third_column_value_' . $j] ?? '';
                     
                                 // Check if quantity is numeric
-                                if (is_numeric($quantity)) {
+                                if (is_numeric($quantity) && isset($quantity))  {
                                     $quantity = (float) $quantity;
                                     $chunkSum += $quantity; // Add quantity to chunk sum
                     
@@ -656,7 +656,7 @@
                                 <p style="margin:5px 0; margin-left:2px">
                                     {{ $CommercialInvoice['total_amount_third_column_value_' . $j] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
                                     
-                                    {{ $CommercialInvoice['total_amount_third_column_value_' . $j] > 0 ? $CommercialInvoice['total_amount_third_column_value_' . $j] : '' }}
+                                    {{ $CommercialInvoice['total_amount_third_column_value_' . $j] > 0 ?number_format( $CommercialInvoice['total_amount_third_column_value_' . $j], 2, '.', ',')  : '' }}
                                 </p>
                                 <?php
                                 // Add to the grand total if the value exists
@@ -763,7 +763,7 @@
                 </td>
                 <td style="border-right: 1px solid; border-top:1px solid #000; text-align: center">
                     <div style="width: 60px; word-wrap: break-word; font-size:8px;">
-                       {{ isset($grandTotal) ? $CommercialInvoice['currency_symbol'].' '.number_format($grandTotal, 2, '.', '') : '' }}
+                       {{ isset($grandTotal) ? $CommercialInvoice['currency_symbol'].' '.number_format($grandTotal, 2, '.', ',') : '' }}
                     </div>
                 </td>
             </tr>
@@ -881,7 +881,7 @@
                             <td>
                                 <div style="text-align: right;">
                                     {{ $CommercialInvoice['value_total_net_amount_payable'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
-                                    {{ $CommercialInvoice['value_total_net_amount_payable'] ?? '' }} </div>
+                                    {{ number_format($CommercialInvoice['value_total_net_amount_payable'] , 2, '.', ',') ?? '' }} </div>
                             </td>
                         </tr>
                         @endif

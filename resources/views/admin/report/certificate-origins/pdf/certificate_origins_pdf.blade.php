@@ -19,9 +19,12 @@
                             <div style="border-bottom: 1px solid #000; height: 120px; width: 300px;">
                                 Exporter (Name , Adderss and Country)
                                 <ul style="list-style: none; padding: 2px; margin-top: 8px;">
-                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->exporter_name ?? "" }}</li>
-                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->exporter_address ?? "" }}</li>
-                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->exporter_country ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;">
+                                        {{ $CertificateOrigin->exporter_name ?? '' }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;">
+                                        {{ $CertificateOrigin->exporter_address ?? '' }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;">
+                                        {{ $CertificateOrigin->exporter_country ?? '' }}</li>
                                 </ul>
                             </div>
                         </td>
@@ -31,9 +34,12 @@
                             <div style="border-bottom: 1px solid #000; height: 100px; width: 300px;">
                                 Consigness Importer(Namme , Adderss and Country)
                                 <ul style="list-style: none; padding: 2px; margin-top: 8px;">
-                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->consignee_name ?? "" }}</li>
-                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->consignee_address ?? "" }}</li>
-                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->consignee_country ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;">
+                                        {{ $CertificateOrigin->consignee_name ?? '' }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;">
+                                        {{ $CertificateOrigin->consignee_address ?? '' }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;">
+                                        {{ $CertificateOrigin->consignee_country ?? '' }}</li>
                                 </ul>
                             </div>
                         </td>
@@ -43,7 +49,8 @@
                             <div style="border-bottom: 1px solid #000; height: 30px; width: 300px;">
                                 Exporter's Membership Number
                                 <ul style="list-style: none; padding: 2px; margin-top: 8px;">
-                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->exporter_membership_number ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;">
+                                        {{ $CertificateOrigin->exporter_membership_number ?? '' }}</li>
                                 </ul>
                             </div>
                         </td>
@@ -53,7 +60,8 @@
                             <div style="height: 50px; width: 300px;">
                                 Particular of transport ( as far as known )
                                 <ul style="list-style: none; padding: 2px; margin-top: 8px;">
-                                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->particular_of_transport ?? "" }}</li>
+                                    <li style="list-style: none; padding: 2px 0 ;">
+                                        {{ $CertificateOrigin->particular_of_transport ?? '' }}</li>
                                 </ul>
                             </div>
                         </td>
@@ -65,7 +73,7 @@
                     <tr>
                         <td style="border-bottom: 1px solid; ">
                             <div style="height: 20px; width: 100%; font-size: 14px;">
-                                REFERNCE No. {{ $CertificateOrigin->ref_number ?? ""  }}
+                                REFERNCE No. {{ $CertificateOrigin->ref_number ?? '' }}
                             </div>
                         </td>
                     </tr>
@@ -89,7 +97,9 @@
                     <tr style="text-align: center;">
                         <td>
                             <div style="text-align: center;">
-                                <img style="width: 130px;" src="https://preview.redd.it/qs89m0sjl0jc1.jpeg?auto=webp&s=c2b6f9c19e8d900f44f74dfc83b487cbc0509b14" alt="">
+                                <img style="width: 130px;"
+                                    src="https://preview.redd.it/qs89m0sjl0jc1.jpeg?auto=webp&s=c2b6f9c19e8d900f44f74dfc83b487cbc0509b14"
+                                    alt="">
                             </div>
                         </td>
                     </tr>
@@ -130,38 +140,54 @@
             </td>
         </tr>
         <tr style="font-size: 10px; text-align: center;">
-            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
+            <td
+                style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                @for($i = 0; $i < 5; $i++) @if(isset($CertificateOrigin["marks_and_numbers_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
-                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->{'marks_and_numbers_' . $i} }}</li>
-                    </ul>
+                @for ($i = 0; $i < 5; $i++)
+                    @if (isset($CertificateOrigin['marks_and_numbers_' . $i]))
+                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                            <li style="list-style: none; padding: 2px 0 ;">
+                                {{ $CertificateOrigin->{'marks_and_numbers_' . $i} }}</li>
+                        </ul>
                     @endif
-                    @endfor
+                @endfor
             </td>
-            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
+            <td
+                style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                @for($i = 0; $i < 5; $i++) @if(isset($CertificateOrigin["numbers_and_kinds_of_packges_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
-                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->{'numbers_and_kinds_of_packges_' . $i} }}</li>
-                    </ul>
+                @for ($i = 0; $i < 5; $i++)
+                    @if (isset($CertificateOrigin['numbers_and_kinds_of_packges_' . $i]))
+                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                            <li style="list-style: none; padding: 2px 0 ;">
+                                {{ $CertificateOrigin->{'numbers_and_kinds_of_packges_' . $i} }}</li>
+                        </ul>
                     @endif
-                    @endfor
+                @endfor
             </td>
-            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
+            <td
+                style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                @for($i = 0; $i < 5; $i++) @if(isset($CertificateOrigin["description_of_goods_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
-                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->{'description_of_goods_' . $i} }}</li>
-                    </ul>
+                @for ($i = 0; $i < 5; $i++)
+                    @if (isset($CertificateOrigin['description_of_goods_' . $i]))
+                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                            <li style="list-style: none; padding: 2px 0 ;">
+                                {{ $CertificateOrigin->{'description_of_goods_' . $i} }}</li>
+                        </ul>
                     @endif
-                    @endfor
+                @endfor
             </td>
 
-            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
+            <td
+                style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                @for($i = 0; $i < 5; $i++) @if(isset($CertificateOrigin["gross_weight_or_other_quantity_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
-                    <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOrigin->{'gross_weight_or_other_quantity_' . $i} }}</li>
-                    </ul>
+                @for ($i = 0; $i < 5; $i++)
+                    @if (isset($CertificateOrigin['gross_weight_or_other_quantity_' . $i]))
+                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                            <li style="list-style: none; padding: 2px 0 ;">
+                                {{ $CertificateOrigin->{'gross_weight_or_other_quantity_' . $i} }}</li>
+                        </ul>
                     @endif
-                    @endfor
+                @endfor
             </td>
 
             <td style="width: 10%;">
@@ -187,33 +213,41 @@
                     <table>
                         <tr style="padding: 4px 0;">
                             <td>Exporter's Signature: </td>
-                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;"> </td>
+                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;"
+                                value="{{ $CertificateOrigin->exporter_signature }}"> </td>
                         </tr>
                         <tr style="padding: 4px 0;">
                             <td>Name: </td>
-                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;"> </td>
+                            <td> <input type="text" style=" border: 0; border-bottom: 1px dotted;"
+                                    value="{{ $CertificateOrigin->full_name }}"></td>
                         </tr>
                         <tr style="padding: 4px 0;">
                             <td>Designnation:</td>
-                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;"> </td>
+                            <td> <input type="text" style=" border: 0; border-bottom: 1px dotted;"
+                                    value="{{ $CertificateOrigin->designnation }}"></td>
                         </tr>
                         <tr style="padding: 4px 0;">
                             <td>Company:</td>
-                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;"> stamp </td>
+                            <td>
+                                <input type="text" style=" border: 0; border-bottom: 1px dotted;"
+                                    value="{{ $CertificateOrigin->company }}">
+                            </td>
                         </tr>
                         <tr style="padding: 4px 0;">
                             <td>
                                 Place:
                             </td>
                             <td>
-                                <input type="text" style=" border: 0; border-bottom: 1px dotted;" value="{{ $CertificateOrigin->place}}">
+                                <input type="text" style=" border: 0; border-bottom: 1px dotted;"
+                                    value="{{ $CertificateOrigin->place }}">
                             </td>
                         </tr>
                         <tr style="padding: 4px 0;">
                             <td>
                                 Date:
                             </td>
-                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;" value="{{ date('d/m/Y', strtotime($CertificateOrigin->date)) }}"> </td>
+                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;"
+                                    value="{{ date('d/m/Y', strtotime($CertificateOrigin->date)) }}"> </td>
                         </tr>
                     </table>
 
@@ -227,10 +261,10 @@
                     documents produced before me this declaration appears to be correct
 
                     <div style="padding-top: 60px;">
-                        Authorized Signatory &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stamp
+                        Authorized Signatory &nbsp; &nbsp;  {{ $CertificateOrigin->signature_person_authorized }}
                     </div>
                     <br><br>
-                    Place and date of issue &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    Place and date of issue &nbsp; &nbsp; {{ $CertificateOrigin->place_issue_date  }}
                     <br><br>
                     <b style="margin-top: 20px; padding-top: 20px; text-decoration: underline; font-size: 14px;">
                         Towel Manufacturers' Association of Pakistan

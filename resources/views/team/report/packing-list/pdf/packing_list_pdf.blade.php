@@ -108,11 +108,10 @@
             </tr>
             <tr>
                 <td style="margin-top:-30px;padding-left:80px;" colspan="2">
-                    <b style="font-family: serif; text-decoration: underline; display:block; margin:-20px 0;">COMMERCIAL
-                        INVOICE</b>
+                    <b style="font-family: serif; text-decoration: underline; display:block; margin:-20px 0;">PACKING SLIP</b>
                     <b
-                        style="font-family: serif; text-decoration: underline; display:block; margin:-10px 0; font-size:10px;">{{ $CommercialInvoice['heading_f_i_no'] ?? '' }}
-                        &nbsp;&nbsp;{{ $CommercialInvoice['value_f_i_no'] ?? '' }} </b>
+                        style="font-family: serif; text-decoration: underline; display:block; margin:-10px 0; font-size:10px;">{{ $PackingList['heading_f_i_no'] ?? '' }}
+                        &nbsp;&nbsp;{{ $PackingList['value_f_i_no'] ?? '' }} </b>
                 </td>
             </tr>
         </table>
@@ -124,13 +123,13 @@
                             <td>
                                 <div style="border-bottom: 1px solid #000; height: 60px; width:370px;">
                                     <b
-                                        style="margin: 2px; text-decoration: underline">{{ $CommercialInvoice['heading_shipper'] ?? '' }}</b>
-                                    <p style="margin: 2px; ">{{ $CommercialInvoice['name_shipper'] ?? '' }}</p>
-                                    <p style="margin: 2px; ">{{ $CommercialInvoice['address_shipper'] ?? '' }}</p>
+                                        style="margin: 2px; text-decoration: underline">{{ $PackingList['heading_shipper'] ?? '' }}</b>
+                                    <p style="margin: 2px; ">{{ $PackingList['name_shipper'] ?? '' }}</p>
+                                    <p style="margin: 2px; ">{{ $PackingList['address_shipper'] ?? '' }}</p>
                                     <p style="margin: 2px; ">
-                                        {{ $CommercialInvoice['city_shipper'] ?? '' }}&nbsp;&nbsp;{{ $CommercialInvoice['country_shipper'] ?? '' }}
+                                        {{ $PackingList['city_shipper'] ?? '' }}&nbsp;&nbsp;{{ $PackingList['country_shipper'] ?? '' }}
                                     </p>
-                                    <p style="margin: 2px; ">{{ $CommercialInvoice['phone_shipper'] ?? '' }}</p>
+                                    <p style="margin: 2px; ">{{ $PackingList['phone_shipper'] ?? '' }}</p>
                                 </div>
                             </td>
                         </tr>
@@ -142,31 +141,31 @@
                                             <td>
                                                 <div style="width: 150px;">
                                                     <b
-                                                        style="margin: 2px; text-decoration: underline">{{ $CommercialInvoice['heading_buyer'] ?? '' }}</b>
+                                                        style="margin: 2px; text-decoration: underline">{{ $PackingList['heading_buyer'] ?? '' }}</b>
                                                     <p style="margin: 2px; ">
-                                                        {{ $CommercialInvoice['name_buyer'] ?? '' }}</p>
+                                                        {{ $PackingList['name_buyer'] ?? '' }}</p>
                                                     <p style="margin: 2px; ">
-                                                        {{ $CommercialInvoice['address_buyer'] ?? '' }}</p>
+                                                        {{ $PackingList['address_buyer'] ?? '' }}</p>
                                                     <p style="margin: 2px; ">
-                                                        {{ $CommercialInvoice['city_buyer'] ?? '' }}&nbsp;&nbsp;{{ $CommercialInvoice['country_buyer'] ?? '' }}
+                                                        {{ $PackingList['city_buyer'] ?? '' }}&nbsp;&nbsp;{{ $PackingList['country_buyer'] ?? '' }}
                                                     </p>
                                                     <p style="margin: 2px; ">
-                                                        {{ $CommercialInvoice['phone_buyer'] ?? '' }}</p>
+                                                        {{ $PackingList['phone_buyer'] ?? '' }}</p>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div style="width: 150px;">
                                                     <b
-                                                        style="margin: 2px; text-decoration: underline">{{ $CommercialInvoice['heading_ship_to'] ?? '' }}</b>
+                                                        style="margin: 2px; text-decoration: underline">{{ $PackingList['heading_ship_to'] ?? '' }}</b>
                                                     <p style="margin: 2px; ">
-                                                        {{ $CommercialInvoice['name_ship_to'] ?? '' }}</p>
+                                                        {{ $PackingList['name_ship_to'] ?? '' }}</p>
                                                     <p style="margin: 2px; ">
-                                                        {{ $CommercialInvoice['address_ship_to'] ?? '' }}</p>
+                                                        {{ $PackingList['address_ship_to'] ?? '' }}</p>
                                                     <p style="margin: 2px; ">
-                                                        {{ $CommercialInvoice['city_ship_to'] ?? '' }}&nbsp;&nbsp;{{ $CommercialInvoice['country_ship_to'] ?? '' }}
+                                                        {{ $PackingList['city_ship_to'] ?? '' }}&nbsp;&nbsp;{{ $PackingList['country_ship_to'] ?? '' }}
                                                     </p>
                                                     <p style="margin: 2px; ">
-                                                        {{ $CommercialInvoice['phone_ship_to'] ?? '' }}</p>
+                                                        {{ $PackingList['phone_ship_to'] ?? '' }}</p>
                                                 </div>
                                             </td>
                                         </tr>
@@ -196,20 +195,20 @@
                             <td style="border-right:.5px solid #000;">
                                 <div style=" width: 100%; text-align:center;">
                                     <b
-                                        style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $CommercialInvoice['heading_invioce'] ?? '' }}</b>
+                                        style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $PackingList['heading_invioce'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['commercial_invoice'] ?? '' }} </p>
+                                        {{ $PackingList['commercial_invoice'] ?? '' }} </p>
                                     <b
-                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_total_pkg'] ?? '' }}</b>
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $PackingList['heading_total_pkg'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['total_pkg_value'] ?? '' }} </p>
+                                        {{ $PackingList['total_pkg_value'] ?? '' }} </p>
                                     <b
-                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_lc'] ?? '' }}#</b>
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $PackingList['heading_lc'] ?? '' }}#</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['lc_value'] ?? '' }}
+                                        {{ $PackingList['lc_value'] ?? '' }}
                                     </p>
 
                                 </div>
@@ -217,41 +216,41 @@
                             <td style="border-right:.5px solid #000;">
                                 <div style=" width: 100%; text-align:center;">
                                     <b
-                                        style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $CommercialInvoice['heading_vessel'] ?? '' }}</b>
+                                        style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $PackingList['heading_vessel'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['vessel_value'] ?? '' }}
+                                        {{ $PackingList['vessel_value'] ?? '' }}
                                     </p>
                                     <b
-                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_contract_no'] ?? '' }}</b>
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $PackingList['heading_contract_no'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['contract_no_value'] ?? '' }}</p>
+                                        {{ $PackingList['contract_no_value'] ?? '' }}</p>
                                     <b
-                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_issue_date_lc'] ?? '' }}</b>
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $PackingList['heading_issue_date_lc'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['lc_issue_date_value'] ?? '' }}</p>
+                                        {{ $PackingList['lc_issue_date_value'] ?? '' }}</p>
 
                                 </div>
                             </td>
                             <td>
                                 <div style=" width: 100%; text-align:center;">
                                     <b
-                                        style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $CommercialInvoice['heading_dated'] ?? '' }}</b>
+                                        style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $PackingList['heading_dated'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['dated'] ?? '' }}</p>
+                                        {{ $PackingList['dated'] ?? '' }}</p>
                                     <b
-                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_contract_date'] ?? '' }}</b>
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $PackingList['heading_contract_date'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['contract_date_value'] ?? '' }} </p>
+                                        {{ $PackingList['contract_date_value'] ?? '' }} </p>
                                     <b
-                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_pyment_terms'] ?? '' }}</b>
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $PackingList['heading_pyment_terms'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['pyment_terms_value'] ?? '' }} </p>
+                                        {{ $PackingList['pyment_terms_value'] ?? '' }} </p>
 
                                 </div>
                             </td>
@@ -260,29 +259,29 @@
                             <td style="border-right:.5px solid #000;">
                                 <div style=" width: 100%; text-align:center;">
                                     <b
-                                        style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $CommercialInvoice['heading_drawn_at'] ?? '' }}</b>
+                                        style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $PackingList['heading_drawn_at'] ?? '' }}</b>
                                     <b
-                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_drawn_under'] ?? '' }}</b>
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $PackingList['heading_drawn_under'] ?? '' }}</b>
                                     <b
-                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_part_of_loading'] ?? '' }}</b>
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $PackingList['heading_part_of_loading'] ?? '' }}</b>
                                     <b
-                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $CommercialInvoice['heading_part_of_discharge'] ?? '' }}</b>
+                                        style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $PackingList['heading_part_of_discharge'] ?? '' }}</b>
                                 </div>
                             </td>
 
                             <td colspan="2">
                                 <div style=" width: 100%; text-align:center;">
                                     <p style="border-bottom:.5px solid #000; display:block; margin:0;">
-                                        {{ $CommercialInvoice['drawn_at_value'] ?? '' }}</p>
+                                        {{ $PackingList['drawn_at_value'] ?? '' }}</p>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['drawn_under_value'] ?? '' }}</p>
+                                        {{ $PackingList['drawn_under_value'] ?? '' }}</p>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['port_of_loading_value'] ?? '' }}</p>
+                                        {{ $PackingList['port_of_loading_value'] ?? '' }}</p>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $CommercialInvoice['port_of_discharge_value'] ?? '' }}</p>
+                                        {{ $PackingList['port_of_discharge_value'] ?? '' }}</p>
 
                                 </div>
                             </td>
@@ -294,29 +293,29 @@
                     <table border="0" style="width: 100%; border-collapse: collapse; ">
                         <tr>
                             <td style="width: 130px;"><b
-                                    style="display: block; border-right:.5px solid #000 ; border-bottom:.5px solid #000; text-align: center; ">{{ $CommercialInvoice['heading_container_no'] ?? '' }}</b>
+                                    style="display: block; border-right:.5px solid #000 ; border-bottom:.5px solid #000; text-align: center; ">{{ $PackingList['heading_container_no'] ?? '' }}</b>
                             </td>
                             <td style="width: 60px;"><b
-                                    style="display: block; border-right:.5px solid #000 ; border-bottom:.5px solid #000; text-align: center; width: 60px;">{{ $CommercialInvoice['heading_currency'] ?? '' }}</b>
+                                    style="display: block; border-right:.5px solid #000 ; border-bottom:.5px solid #000; text-align: center; width: 60px;">{{ $PackingList['heading_currency'] ?? '' }}</b>
                             </td>
                             <td><b
-                                    style="display: block;  border-bottom:.5px solid #000; text-align: center;">{{ $CommercialInvoice['heading_term_of_delivery'] ?? '' }}</b>
+                                    style="display: block;  border-bottom:.5px solid #000; text-align: center;">{{ $PackingList['heading_term_of_delivery'] ?? '' }}</b>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p
                                     style="border-right:.5px solid #000 ;  margin: 0px; text-align: center; width: 130px;">
-                                    {{ $CommercialInvoice['container_no_value'] ?? '' }}</p>
+                                    {{ $PackingList['container_no_value'] ?? '' }}</p>
                             </td>
                             <td>
                                 <p
                                     style="border-right:.5px solid #000 ;  margin: 0px; text-align: center; width: 60px; ">
-                                    {{ $CommercialInvoice['currency_value'] ?? '' }}</p>
+                                    {{ $PackingList['currency_value'] ?? '' }}</p>
                             </td>
                             <td>
                                 <p style="  margin: 0px; text-align: center;">
-                                    {{ $CommercialInvoice['term_of_delivery_value'] ?? '' }}</p>
+                                    {{ $PackingList['term_of_delivery_value'] ?? '' }}</p>
                             </td>
                         </tr>
                     </table>
@@ -335,30 +334,30 @@
                 <tr style="font-size:8px; text-align: center;">
                     <th style="width: 20%; border: 1px solid;">
                         <div style="text-transform: uppercase;">
-                            {{ $CommercialInvoice['heading_marks_no'] ?? '' }}
+                            {{ $PackingList['heading_marks_no'] ?? '' }}
                         </div>
                     </th>
 
                     <th style="width: 40%; border: 1px solid;">
                         <div style="text-transform: uppercase;">
-                            {{ $CommercialInvoice['heading_discription_of_goods'] ?? '' }}
+                            {{ $PackingList['heading_discription_of_goods'] ?? '' }}
                         </div>
                     </th>
 
                     <th style="width: 8%; border: 1px solid;">
                         <div style="text-transform: uppercase;">
-                            {{ $CommercialInvoice['heading_quantity'] ?? '' }}
+                            {{ $PackingList['heading_quantity'] ?? '' }}
                         </div>
                     </th>
                     <th style="width: 9%; border: 1px solid;">
                         <div style="text-transform: uppercase; ">
-                            {{ $CommercialInvoice['heading_prices'] ?? '' }}
+                            {{ $PackingList['heading_prices'] ?? '' }}
                         </div>
 
                     </th>
                     <th style="width: 10%; border: 1px solid;">
                         <div style="text-transform: uppercase; ">
-                            {{ $CommercialInvoice['heading_total_amount'] ?? '' }}
+                            {{ $PackingList['heading_total_amount'] ?? '' }}
                         </div>
                     </th>
                 </tr>
@@ -383,11 +382,11 @@
 
                 @for ($j = $start; $j <= $end; $j++)
                     @if (
-                        !empty($CommercialInvoice['color_name_second_column_value_' . $j]) ||
-                            !empty($CommercialInvoice['sku_no_second_column_value_' . $j]) ||
-                            !empty($CommercialInvoice['ean_no_second_column_value_' . $j]) ||
-                            !empty($CommercialInvoice['style_no_second_column_value_' . $j]) ||
-                            !empty($CommercialInvoice['sku_hash_no_second_column_value_' . $j])
+                        !empty($PackingList['color_name_second_column_value_' . $j]) ||
+                            !empty($PackingList['sku_no_second_column_value_' . $j]) ||
+                            !empty($PackingList['ean_no_second_column_value_' . $j]) ||
+                            !empty($PackingList['style_no_second_column_value_' . $j]) ||
+                            !empty($PackingList['sku_hash_no_second_column_value_' . $j])
                             )
                         @php
                             $hasData = true;
@@ -409,44 +408,44 @@
                 <tr style="font-size:8px; ">
                     <td style=" border-right: 1px solid;">
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_long_side_' . $i] ?? '' }}
+                            {{ $PackingList['heading_long_side_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_po_number_' . $i] ?? '' }} 
+                            {{ $PackingList['heading_po_number_' . $i] ?? '' }} 
                         </p>
                         <p>
-                            {{ $CommercialInvoice['heading_po_number_value_' . $i] ?? '' }}
+                            {{ $PackingList['heading_po_number_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_style_name_' . $i] ?? '' }} 
+                            {{ $PackingList['heading_style_name_' . $i] ?? '' }} 
                         </p>
                         <p>
-                            {{ $CommercialInvoice['heading_style_name_value_' . $i] ?? '' }}
+                            {{ $PackingList['heading_style_name_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_style_number_' . $i] ?? '' }} 
+                            {{ $PackingList['heading_style_number_' . $i] ?? '' }} 
                         </p>
                         <p>
-                            {{ $CommercialInvoice['heading_style_number_value_' . $i] ?? '' }}
+                            {{ $PackingList['heading_style_number_value_' . $i] ?? '' }}
 
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_color_left_column_' . $i] ?? '' }} 
+                            {{ $PackingList['heading_color_left_column_' . $i] ?? '' }} 
                         </p>
                         <p>
-                            {{ $CommercialInvoice['heading_color_left_column_value' . $i] ?? '' }}
+                            {{ $PackingList['heading_color_left_column_value' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_size_break_down_' . $i] ?? '' }} 
+                            {{ $PackingList['heading_size_break_down_' . $i] ?? '' }} 
                         </p>
                         <p>
-                            {{ $CommercialInvoice['heading_size_break_down_value_' . $i] ?? '' }}
+                            {{ $PackingList['heading_size_break_down_value_' . $i] ?? '' }}
                         </p>
                         <p style="width: 150px; word-wrap: break-word;">
-                            {{ $CommercialInvoice['heading_carton_count_' . $i] ?? '' }} 
+                            {{ $PackingList['heading_carton_count_' . $i] ?? '' }} 
                         </p>
                         <p>
-                            {{ $CommercialInvoice['heading_carton_count_value_' . $i] ?? '' }}
+                            {{ $PackingList['heading_carton_count_value_' . $i] ?? '' }}
                         </p>
 
                     </td>
@@ -454,66 +453,66 @@
                     <td style=" border-right: 1px solid;">
                         <p style="width: 260px ; word-wrap: break-word; text-align: left;">
                             <b style="text-decoration: underline;">
-                                {{ $CommercialInvoice['heading_performa_invioce_no'] ?? '' }}
-                                : {{ $CommercialInvoice['performa_invioce_no_value'] ?? '' }}</b>
+                                {{ $PackingList['heading_performa_invioce_no'] ?? '' }}
+                                : {{ $PackingList['performa_invioce_no_value'] ?? '' }}</b>
 
                         </p>
                         <p style="width: 260px ; word-wrap: break-word; text-align: left;">
 
-                            <b style="text-decoration: underline;"> {{ $CommercialInvoice['heading_po_' . $i] ?? '' }}
-                                &nbsp;&nbsp; {{ $CommercialInvoice['value_po_' . $i] ?? '' }}</b>
-                        </p>
-                        <p style="width: 260px ; word-wrap: break-word; text-align: left;">
-
-                            <b style="text-decoration: underline;">
-                                {{ $CommercialInvoice['heading_cotton_' . $i] ?? '' }} </b>
+                            <b style="text-decoration: underline;"> {{ $PackingList['heading_po_' . $i] ?? '' }}
+                                &nbsp;&nbsp; {{ $PackingList['value_po_' . $i] ?? '' }}</b>
                         </p>
                         <p style="width: 260px ; word-wrap: break-word; text-align: left;">
 
                             <b style="text-decoration: underline;">
-                                {{ $CommercialInvoice['heading_seahorse_' . $i] ?? '' }} </b>
+                                {{ $PackingList['heading_cotton_' . $i] ?? '' }} </b>
+                        </p>
+                        <p style="width: 260px ; word-wrap: break-word; text-align: left;">
+
+                            <b style="text-decoration: underline;">
+                                {{ $PackingList['heading_seahorse_' . $i] ?? '' }} </b>
                         </p>
                         <p style="width: 200px ; word-wrap: break-word; text-align: left;">
-                            {{ $CommercialInvoice['heading_terry_' . $i] ?? '' }}
+                            {{ $PackingList['heading_terry_' . $i] ?? '' }}
                         </p>
                         <p style="width: 200px ; word-wrap: break-word; text-align: left;">
-                            {{ $CommercialInvoice['carron_bales_pallets_value_' . $i] ?? '' }} &nbsp;&nbsp;
-                            {{ $CommercialInvoice['heading_carron_bales_pallets_' . $i] ?? '' }} &nbsp;&nbsp;
-                            {{ $CommercialInvoice['pcs_pack_pallet_per_value_' . $i] ?? '' }} &nbsp;&nbsp;
-                            {{ $CommercialInvoice['heading_pcs_pack_pallet_per_' . $i] ?? '' }}
+                            {{ $PackingList['carron_bales_pallets_value_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $PackingList['heading_carron_bales_pallets_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $PackingList['pcs_pack_pallet_per_value_' . $i] ?? '' }} &nbsp;&nbsp;
+                            {{ $PackingList['heading_pcs_pack_pallet_per_' . $i] ?? '' }}
                         </p>
                         {{-- ============================== start heading of value sku ern etc --}}
 
                         <div style="text-align: left; white-space: nowrap; margin-left:10px">
                             <div
                                 style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; font-weight: bold; color: #000;">
-                                {{ $CommercialInvoice['heading_color_' . $i] ?? '' }}
+                                {{ $PackingList['heading_color_' . $i] ?? '' }}
                             </div>
                             <div
                                 style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; font-weight: bold; color: #000;">
-                                {{ $CommercialInvoice['heading_sku_no_' . $i] ?? '' }}
+                                {{ $PackingList['heading_sku_no_' . $i] ?? '' }}
                             </div>
                             <div
                                 style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; font-weight: bold; color: #000;">
-                                {{ $CommercialInvoice['heading_ean_no_' . $i] ?? '' }}
+                                {{ $PackingList['heading_ean_no_' . $i] ?? '' }}
                             </div>
                             <div
                                 style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; font-weight: bold; color: #000;">
-                                {{ $CommercialInvoice['heading_sku_hash_' . $i] ?? '' }}
+                                {{ $PackingList['heading_sku_hash_' . $i] ?? '' }}
                             </div>
                             <div
                                 style="display: inline-block; width: 18%; text-decoration: underline; font-weight: bold; color: #000;">
-                                {{ $CommercialInvoice['heading_style_' . $i] ?? '' }}
+                                {{ $PackingList['heading_style_' . $i] ?? '' }}
                             </div>
                         </div>
 
                         @for ($j = $start; $j <= $end; $j++)
                             @php
-                                $colorName = $CommercialInvoice['color_name_second_column_value_' . $j] ?? '';
-                                $skuNo = $CommercialInvoice['sku_no_second_column_value_' . $j] ?? '';
-                                $eanNo = $CommercialInvoice['ean_no_second_column_value_' . $j] ?? '';
-                                $skuHashNo = $CommercialInvoice['sku_hash_no_second_column_value_' . $j] ?? '';
-                                $styleNo = $CommercialInvoice['style_no_second_column_value_' . $j] ?? '';
+                                $colorName = $PackingList['color_name_second_column_value_' . $j] ?? '';
+                                $skuNo = $PackingList['sku_no_second_column_value_' . $j] ?? '';
+                                $eanNo = $PackingList['ean_no_second_column_value_' . $j] ?? '';
+                                $skuHashNo = $PackingList['sku_hash_no_second_column_value_' . $j] ?? '';
+                                $styleNo = $PackingList['style_no_second_column_value_' . $j] ?? '';
                             @endphp
 
                             @if ($colorName || $skuNo || $eanNo || $skuHashNo || $styleNo)
@@ -619,12 +618,12 @@
                         <div>
                             <p style=" margin-top:10px; word-wrap: break-word;">
                                 NET WEIGHT: &nbsp; &nbsp; &nbsp;
-                                {{ $CommercialInvoice['net_weight_second_column_value_' . $i] ?? 0 }} KGS
+                                {{ $PackingList['net_weight_second_column_value_' . $i] ?? 0 }} KGS
 
                             </p>
                             <p style=" margin-top:2px; word-wrap: break-word;">
                                 GR WEIGHT &nbsp; &nbsp; &nbsp;
-                                {{ $CommercialInvoice['gross_weight_second_column_value_' . $i] ?? 0 }} KGS
+                                {{ $PackingList['gross_weight_second_column_value_' . $i] ?? 0 }} KGS
 
                             </p>
                         </div>
@@ -632,8 +631,8 @@
 
                         <?php
                         
-                            $palletValue = $CommercialInvoice['carron_bales_pallets_value_' . $i] ?? '';
-                            $palletUnit = $CommercialInvoice['heading_carron_bales_pallets_' . $i] ?? '';
+                            $palletValue = $PackingList['carron_bales_pallets_value_' . $i] ?? '';
+                            $palletUnit = $PackingList['heading_carron_bales_pallets_' . $i] ?? '';
                 
                             if (is_numeric($palletValue)) {
                                 $palletValue = (float) $palletValue;
@@ -645,8 +644,8 @@
                                 }
                             }
 
-                            $perValue = $CommercialInvoice['pcs_pack_pallet_per_value_' . $i] ?? '';
-                            $perUnit = $CommercialInvoice['heading_pcs_pack_pallet_per_' . $i] ?? '';
+                            $perValue = $PackingList['pcs_pack_pallet_per_value_' . $i] ?? '';
+                            $perUnit = $PackingList['heading_pcs_pack_pallet_per_' . $i] ?? '';
                 
                             if (is_numeric($perValue)) {
                                 $perValue = (float) $perValue;
@@ -659,12 +658,12 @@
                             }
                             
                             // gr total and net total second column
-                            if (isset($CommercialInvoice['gross_weight_second_column_value_' . $i])) {
-                                $grossWeightTotalSecondColumn += $CommercialInvoice['gross_weight_second_column_value_' . $i];
+                            if (isset($PackingList['gross_weight_second_column_value_' . $i])) {
+                                $grossWeightTotalSecondColumn += $PackingList['gross_weight_second_column_value_' . $i];
                             }
                             // gr total and net total second column
-                            if (isset($CommercialInvoice['net_weight_second_column_value_' . $i])) {
-                                $netWeightTotalSecondColumn += $CommercialInvoice['net_weight_second_column_value_' . $i];
+                            if (isset($PackingList['net_weight_second_column_value_' . $i])) {
+                                $netWeightTotalSecondColumn += $PackingList['net_weight_second_column_value_' . $i];
                             }
                         ?>
                     </td>
@@ -679,8 +678,8 @@
                         @for ($j = $start; $j <= $end; $j++)
                             @php
                                 // Extract quantity and unit from current iteration
-                                $quantity = $CommercialInvoice['quantity_third_column_value_' . $j] ?? '';
-                                $unit = $CommercialInvoice['quantity_unit_third_column_value_' . $j] ?? '';
+                                $quantity = $PackingList['quantity_third_column_value_' . $j] ?? '';
+                                $unit = $PackingList['quantity_unit_third_column_value_' . $j] ?? '';
                     
                                 // Check if quantity is numeric
                                 if (is_numeric($quantity)) {
@@ -696,8 +695,8 @@
                                 }
                             @endphp
                               <p style="margin:5px 0;">
-                                {{ $CommercialInvoice['quantity_third_column_value_' . $j] ?? '' }} 
-                                {{ $CommercialInvoice['quantity_unit_third_column_value_' . $j] ?? '' }}</p>
+                                {{ $PackingList['quantity_third_column_value_' . $j] ?? '' }} 
+                                {{ $PackingList['quantity_unit_third_column_value_' . $j] ?? '' }}</p>
                         @endfor
                     
                         {{-- Display sum for the current chunk --}}
@@ -716,8 +715,8 @@
 
                             @php
                             // Extract quantity and unit from current iteration
-                            $price = $CommercialInvoice['price_third_column_value_' . $j] ?? '';
-                            $unit = $CommercialInvoice['price_unit_third_column_value_' . $j] ?? '';
+                            $price = $PackingList['price_third_column_value_' . $j] ?? '';
+                            $unit = $PackingList['price_unit_third_column_value_' . $j] ?? '';
                 
                             // Check if quantity is numeric
                             if (is_numeric($price)) {
@@ -733,8 +732,8 @@
                             }
                         @endphp
                                 <p style="margin:5px 0;">
-                                    {{ $CommercialInvoice['price_third_column_value_' . $j] ?? '' }} 
-                                    {{ $CommercialInvoice['price_unit_third_column_value_' . $j] ?? '' }}</p>
+                                    {{ $PackingList['price_third_column_value_' . $j] ?? '' }} 
+                                    {{ $PackingList['price_unit_third_column_value_' . $j] ?? '' }}</p>
                             @endfor
                         </p>
                     </td>
@@ -742,14 +741,14 @@
                         <p style="width: 30px; word-wrap: break-word;margin-top:106px ">
                             @for ($j = $start; $j <= $end; $j++)
                                 <p style="margin:5px 0; margin-left:2px">
-                                    {{ $CommercialInvoice['total_amount_third_column_value_' . $j] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
+                                    {{ $PackingList['total_amount_third_column_value_' . $j] > 0 ? $PackingList['currency_symbol'] : '' }}
                                     
-                                    {{ $CommercialInvoice['total_amount_third_column_value_' . $j] > 0 ? $CommercialInvoice['total_amount_third_column_value_' . $j] : '' }}
+                                    {{ $PackingList['total_amount_third_column_value_' . $j] > 0 ? $PackingList['total_amount_third_column_value_' . $j] : '' }}
                                 </p>
                                 <?php
                                 // Add to the grand total if the value exists
-                                if (isset($CommercialInvoice['total_amount_third_column_value_' . $j])) {
-                                    $grandTotal += $CommercialInvoice['total_amount_third_column_value_' . $j];
+                                if (isset($PackingList['total_amount_third_column_value_' . $j])) {
+                                    $grandTotal += $PackingList['total_amount_third_column_value_' . $j];
                                 }
                                 ?>
                             @endfor
@@ -885,7 +884,7 @@
                         style="border: 1px solid #000; border-collapse: collapse; width: 100%;font-size:8px;">
                         <tr>
                             <td style="border-right:1px solid #000 ;">
-                                <div> {{ $CommercialInvoice['heading_total_net_weight'] ?? '' }}
+                                <div> {{ $PackingList['heading_total_net_weight'] ?? '' }}
                                     : </div>
                             </td>
                             <td>
@@ -894,7 +893,7 @@
                         </tr>
                         <tr>
                             <td style="border-right:1px solid #000 ;">
-                                <div> {{ $CommercialInvoice['heading_total_gr_weight'] ?? '' }}: </div>
+                                <div> {{ $PackingList['heading_total_gr_weight'] ?? '' }}: </div>
                             </td>
                             <td>
                                 <div style="text-align: center;">{{ $grossWeightTotalSecondColumn }} KGS</div>
@@ -902,8 +901,8 @@
                         </tr>
                         <tr>
                             <td style="border-top:1px solid #000 ;" colspan="2">
-                                <div>{{ $CommercialInvoice['heading_note'] ?? '' }} :
-                                    {{ $CommercialInvoice['note_value'] ?? '' }} </div>
+                                <div>{{ $PackingList['heading_note'] ?? '' }} :
+                                    {{ $PackingList['note_value'] ?? '' }} </div>
                             </td>
                         </tr>
                     </table>
@@ -913,7 +912,7 @@
                         style="border: 1px solid #000; border-collapse: collapse; width: 100%; font-size:8px; opacity: 0 ;">
                         <tr>
                             <td style="border-right:1px solid #000 ;">
-                                <div>{{ $CommercialInvoice['heading_total_net_weight'] ?? '' }}: </div>
+                                <div>{{ $PackingList['heading_total_net_weight'] ?? '' }}: </div>
                             </td>
                             <td>
                                 <div style="text-align: center;">230.00 KGS </div>
@@ -921,7 +920,7 @@
                         </tr>
                         <tr>
                             <td style="border-right:1px solid #000 ;">
-                                <div>{{ $CommercialInvoice['heading_total_gr_weight'] ?? '' }}: </div>
+                                <div>{{ $PackingList['heading_total_gr_weight'] ?? '' }}: </div>
                             </td>
                             <td>
                                 <div style="text-align: center;">280.00 KGS </div>
@@ -929,7 +928,7 @@
                         </tr>
                         <tr>
                             <td style="border-top:1px solid #000 ;" colspan="2">
-                                <div>{{ $CommercialInvoice['heading_note'] ?? '' }}: 51.60 KGS </div>
+                                <div>{{ $PackingList['heading_note'] ?? '' }}: 51.60 KGS </div>
                             </td>
                         </tr>
                     </table>
@@ -939,42 +938,42 @@
                         style="border: 1px solid #000; border-collapse: collapse; width: 100%;font-size:8px;">
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_total_buyer_discount'] ?? '' }}</div>
+                                <div>{{ $PackingList['heading_total_buyer_discount'] ?? '' }}</div>
                             </td>
                             <td>
                                 <div style="text-align: right;">
-                                    {{ $CommercialInvoice['value_total_buyer_discount'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
-                                    {{ $CommercialInvoice['value_total_buyer_discount'] ?? '' }} </div>
+                                    {{ $PackingList['value_total_buyer_discount'] > 0 ? $PackingList['currency_symbol'] : '' }}
+                                    {{ $PackingList['value_total_buyer_discount'] ?? '' }} </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_total_less_commission'] ?? '' }}</div>
+                                <div>{{ $PackingList['heading_total_less_commission'] ?? '' }}</div>
                             </td>
                             <td>
                                 <div style="text-align: right;">
-                                    {{ $CommercialInvoice['value_total_less_commission'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
-                                    {{ $CommercialInvoice['value_total_less_commission'] ?? '' }}</div>
+                                    {{ $PackingList['value_total_less_commission'] > 0 ? $PackingList['currency_symbol'] : '' }}
+                                    {{ $PackingList['value_total_less_commission'] ?? '' }}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_total_add_fright'] ?? '' }}</div>
+                                <div>{{ $PackingList['heading_total_add_fright'] ?? '' }}</div>
                             </td>
                             <td>
                                 <div style="text-align: right;">
-                                    {{ $CommercialInvoice['value_total_add_fright'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
-                                    {{ $CommercialInvoice['value_total_add_fright'] ?? '' }}</div>
+                                    {{ $PackingList['value_total_add_fright'] > 0 ? $PackingList['currency_symbol'] : '' }}
+                                    {{ $PackingList['value_total_add_fright'] ?? '' }}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_total_net_amount_payable'] ?? '' }} </div>
+                                <div>{{ $PackingList['heading_total_net_amount_payable'] ?? '' }} </div>
                             </td>
                             <td>
                                 <div style="text-align: right;">
-                                    {{ $CommercialInvoice['value_total_net_amount_payable'] > 0 ? $CommercialInvoice['currency_symbol'] : '' }}
-                                    {{ $CommercialInvoice['value_total_net_amount_payable'] ?? '' }} </div>
+                                    {{ $PackingList['value_total_net_amount_payable'] > 0 ? $PackingList['currency_symbol'] : '' }}
+                                    {{ $PackingList['value_total_net_amount_payable'] ?? '' }} </div>
                             </td>
                         </tr>
 
@@ -997,77 +996,77 @@
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_intermediary_bank'] ?? '' }} </div>
+                                <div>{{ $PackingList['heading_intermediary_bank'] ?? '' }} </div>
                             </td>
                             <td>
                                 
-                                <div> {{ $CommercialInvoice['value_intermediary_bank'] ?? '' }}</div>
+                                <div> {{ $PackingList['value_intermediary_bank'] ?? '' }}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_intermediary_bank_swift_no'] ?? '' }} </div>
+                                <div>{{ $PackingList['heading_intermediary_bank_swift_no'] ?? '' }} </div>
                             </td>
                             <td>
-                                <div>{{ $CommercialInvoice['value_intermediary_bank_swift_no'] ?? '' }} </div>
+                                <div>{{ $PackingList['value_intermediary_bank_swift_no'] ?? '' }} </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_intermediary_bank_ac_no'] ?? '' }}:</div>
+                                <div>{{ $PackingList['heading_intermediary_bank_ac_no'] ?? '' }}:</div>
                             </td>
                             <td>
-                                <div>{{ $CommercialInvoice['value_intermediary_bank_ac_no'] ?? '' }}</div>
+                                <div>{{ $PackingList['value_intermediary_bank_ac_no'] ?? '' }}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_for_onword_credit_to'] ?? '' }} :</div>
+                                <div>{{ $PackingList['heading_for_onword_credit_to'] ?? '' }} :</div>
                             </td>
                             <td>
-                                <div>{{ $CommercialInvoice['value_for_onword_credit_to'] ?? '' }}</div>
+                                <div>{{ $PackingList['value_for_onword_credit_to'] ?? '' }}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_tw_ac_no'] ?? '' }} </div>
+                                <div>{{ $PackingList['heading_tw_ac_no'] ?? '' }} </div>
                             </td>
                             <td>
-                                <div>{{ $CommercialInvoice['value_tw_ac_no'] ?? '' }}</div>
+                                <div>{{ $PackingList['value_tw_ac_no'] ?? '' }}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_swift_no'] ?? '' }} : </div>
+                                <div>{{ $PackingList['heading_swift_no'] ?? '' }} : </div>
                             </td>
                             <td>
-                                <div>{{ $CommercialInvoice['value_swift_no'] ?? '' }}</div>
+                                <div>{{ $PackingList['value_swift_no'] ?? '' }}</div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_iban_no'] ?? '' }} : </div>
+                                <div>{{ $PackingList['heading_iban_no'] ?? '' }} : </div>
                             </td>
                             <td>
-                                <div>{{ $CommercialInvoice['value_iban_no'] ?? '' }} </div>
+                                <div>{{ $PackingList['value_iban_no'] ?? '' }} </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div>{{ $CommercialInvoice['heading_bank_addrss'] ?? '' }} :</div>
+                                <div>{{ $PackingList['heading_bank_addrss'] ?? '' }} :</div>
                             </td>
                             <td>
-                                <div>{{ $CommercialInvoice['value_bank_addrss'] ?? '' }}</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <div>{{ $CommercialInvoice['value_bank_addrss_1'] ?? '' }}</div>
+                                <div>{{ $PackingList['value_bank_addrss'] ?? '' }}</div>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <div>{{ $CommercialInvoice['value_bank_addrss_2'] ?? '' }}</div>
+                                <div>{{ $PackingList['value_bank_addrss_1'] ?? '' }}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div>{{ $PackingList['value_bank_addrss_2'] ?? '' }}</div>
 
                             </td>
                         </tr>
@@ -1079,10 +1078,10 @@
                         <tr style="width: 30%;">
                             <td style="vertical-align: top; padding-bottom: 26px;">
                                 <div style="text-align: center;">
-                                    <b>“{{ $CommercialInvoice['heading_statement_origin'] ?? '' }} ” </b>
+                                    <b>“{{ $PackingList['heading_statement_origin'] ?? '' }} ” </b>
                                     <p style="text-align: center;vertical-align: top; margin-top: 5px; word-wrap: break-word;">
                                         <div style="display: inline-block; text-align: center;">
-                                            {{ $CommercialInvoice['value_statement_origin'] ?? '' }}
+                                            {{ $PackingList['value_statement_origin'] ?? '' }}
                                         </div>
                                     </p>
                                 </div>

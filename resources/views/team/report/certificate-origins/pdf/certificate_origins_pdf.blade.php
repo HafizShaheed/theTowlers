@@ -187,33 +187,41 @@
                     <table>
                         <tr style="padding: 4px 0;">
                             <td>Exporter's Signature: </td>
-                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;"> </td>
+                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;"
+                                value="{{ $CertificateOrigin->exporter_signature }}"> </td>
                         </tr>
                         <tr style="padding: 4px 0;">
                             <td>Name: </td>
-                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;"> </td>
+                            <td> <input type="text" style=" border: 0; border-bottom: 1px dotted;"
+                                    value="{{ $CertificateOrigin->full_name }}"></td>
                         </tr>
                         <tr style="padding: 4px 0;">
                             <td>Designnation:</td>
-                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;"> </td>
+                            <td> <input type="text" style=" border: 0; border-bottom: 1px dotted;"
+                                    value="{{ $CertificateOrigin->designnation }}"></td>
                         </tr>
                         <tr style="padding: 4px 0;">
                             <td>Company:</td>
-                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;"> stamp </td>
+                            <td>
+                                <input type="text" style=" border: 0; border-bottom: 1px dotted;"
+                                    value="{{ $CertificateOrigin->company }}">
+                            </td>
                         </tr>
                         <tr style="padding: 4px 0;">
                             <td>
                                 Place:
                             </td>
                             <td>
-                                <input type="text" style=" border: 0; border-bottom: 1px dotted;" value="{{ $CertificateOrigin->place}}">
+                                <input type="text" style=" border: 0; border-bottom: 1px dotted;"
+                                    value="{{ $CertificateOrigin->place }}">
                             </td>
                         </tr>
                         <tr style="padding: 4px 0;">
                             <td>
                                 Date:
                             </td>
-                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;" value="{{ date('d/m/Y', strtotime($CertificateOrigin->date)) }}"> </td>
+                            <td><input type="text" style=" border: 0; border-bottom: 1px dotted;"
+                                    value="{{ date('d/m/Y', strtotime($CertificateOrigin->date)) }}"> </td>
                         </tr>
                     </table>
 

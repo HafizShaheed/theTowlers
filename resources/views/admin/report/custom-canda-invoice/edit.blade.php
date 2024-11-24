@@ -353,7 +353,7 @@
                                     value="{{ $editCanadaCustomerInvoiceFrom->{'quantity_' . $i} }}">
                             </div>
                             <div class="col-sm-3 mb-4">
-                                <label for="quantity_unit_{{ $i }}" class="form-label">Quantity</label>
+                                <label for="quantity_unit_{{ $i }}" class="form-label">Quantity Unit</label>
                                 <input type="text" step="any" class="form-control custom-input"
                                     id="quantity_unit_{{ $i }}" name="quantity_unit_{{ $i }}"
                                     value="{{ $editCanadaCustomerInvoiceFrom->{'quantity_unit_' . $i} }}">
