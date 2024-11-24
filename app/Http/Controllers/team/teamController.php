@@ -2170,6 +2170,9 @@ class teamController extends Controller
             $CommercialInvoice->team_user_id = Auth::guard('team')->user()->id;
 
             $CommercialInvoice->heading_f_i_no = $request->input('heading_f_i_no');
+            for ($i = 1; $i <= 3; $i++) {
+                $CommercialInvoice->{"heading_f_i_no_$i"} = $request->input("heading_f_i_no_$i");
+            } 
             $CommercialInvoice->heading_shipper = $request->input('heading_shipper');
             $CommercialInvoice->heading_invioce = $request->input('heading_invioce');
             $CommercialInvoice->heading_vessel = $request->input('heading_vessel');
@@ -2216,6 +2219,9 @@ class teamController extends Controller
             $CommercialInvoice->heading_bank_addrss = $request->heading_bank_addrss;
             $CommercialInvoice->heading_statement_origin = $request->heading_statement_origin;
             $CommercialInvoice->value_f_i_no = $request->value_f_i_no;
+            for ($i = 1; $i <= 3; $i++) {
+                $CommercialInvoice->{"value_f_i_no_$i"} = $request->input("value_f_i_no_$i");
+            }
             $CommercialInvoice->name_shipper = $request->name_shipper;
             $CommercialInvoice->address_shipper = $request->address_shipper;
             $CommercialInvoice->city_shipper = $request->city_shipper;
@@ -2552,6 +2558,9 @@ class teamController extends Controller
             $CommercialInvoice->team_user_id = Auth::guard('team')->user()->id;
 
             $CommercialInvoice->heading_f_i_no = $request->input('heading_f_i_no');
+            for ($i = 1; $i <= 3; $i++) {
+                $CommercialInvoice->{"heading_f_i_no_$i"} = $request->input("heading_f_i_no_$i");
+            }
             $CommercialInvoice->heading_shipper = $request->input('heading_shipper');
             $CommercialInvoice->heading_invioce = $request->input('heading_invioce');
             $CommercialInvoice->heading_vessel = $request->input('heading_vessel');
@@ -2598,6 +2607,10 @@ class teamController extends Controller
             $CommercialInvoice->heading_bank_addrss = $request->heading_bank_addrss;
             $CommercialInvoice->heading_statement_origin = $request->heading_statement_origin;
             $CommercialInvoice->value_f_i_no = $request->value_f_i_no;
+            for ($i = 1; $i <= 3; $i++) {
+                $CommercialInvoice->{"value_f_i_no_$i"} = $request->input("value_f_i_no_$i");
+            }
+            
             $CommercialInvoice->name_shipper = $request->name_shipper;
             $CommercialInvoice->address_shipper = $request->address_shipper;
             $CommercialInvoice->city_shipper = $request->city_shipper;
@@ -3044,7 +3057,8 @@ class teamController extends Controller
             $PackingList = new PackingList(); 
             $PackingList->invioce_generator = rand(0000, 9999) . now(); 
             $PackingList->team_user_id = $request->input('team_user_id') ?? null; 
-            $PackingList->heading_f_i_no = $request->input('heading_f_i_no') ?? null; 
+            $PackingList->heading_f_i_no = $request->input('heading_f_i_no') ?? null;
+          
             $PackingList->heading_shipper = $request->input('heading_shipper') ?? null; 
             $PackingList->heading_invioce = $request->input('heading_invioce') ?? null; 
             $PackingList->heading_vessel = $request->input('heading_vessel') ?? null; 
