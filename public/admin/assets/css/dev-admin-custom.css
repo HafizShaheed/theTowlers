@@ -1,3 +1,9 @@
+
+.new-active-class {
+    background: #823b06 !important;
+    border-radius: 7px !important;
+    background-color: #823b06 !important;
+}
 .card-custom {
     background-color: #c5783f !important;
     border-radius: 23px !important;
@@ -40,7 +46,7 @@
 }
 .deznav .metismenu > li:hover > a,
 .deznav .metismenu > li:focus > a {
-    color: #fff !important;
+    color: #151414 !important;
 }
 .deznav .metismenu > li.mm-active > a {
     background-color: #fff !important;

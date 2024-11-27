@@ -246,7 +246,7 @@ class teamController extends Controller
     function add_custom_canda_invoice()
     {
 
-        $data['title'] = "CANADA CUSTOMS INVOICE";
+        $data['title'] = "CANADA CUSTOMS INVOICE Add";
         $data['page'] = "CANADA CUSTOMS INVOICE";
         $data['pageIntro'] = "CANADA CUSTOMS INVOICE";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
@@ -332,7 +332,7 @@ class teamController extends Controller
 
     function edit_custom_canda_invoice($id)
     {
-        $data['title'] = "CANADA CUSTOMS INVOICE";
+        $data['title'] = "CANADA CUSTOMS INVOICE Edit";
         $data['page'] = "CANADA CUSTOMS INVOICE";
         $data['pageIntro'] = "CANADA CUSTOMS INVOICE";
         $data['editCanadaCustomerInvoiceFrom'] = CanadaCustomerInvoiceFrom::where('id', $id)->whereIn('status', ['1', '2'])->first();
@@ -407,7 +407,7 @@ class teamController extends Controller
 
     function view_custom_canda_invoice($id)
     {
-        $data['title'] = "CANADA CUSTOMS INVOICE";
+        $data['title'] = "CANADA CUSTOMS INVOICE View";
         $data['page'] = "CANADA CUSTOMS INVOICE";
         $data['pageIntro'] = "CANADA CUSTOMS INVOICE";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
@@ -515,8 +515,8 @@ class teamController extends Controller
     function add_form_59_a_invoice()
     {
 
-        $data['title'] = " Form 59 A Invoice";
-        $data['page'] = " Form 59 A Invoice";
+        $data['title'] = " Form 59 A Invoice Add";
+        $data['page'] = "Form 59 A Invoice";
         $data['pageIntro'] = "Form 59 A Invoice ";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
@@ -600,9 +600,9 @@ class teamController extends Controller
 
     function edit_form_59_a_invoice($id)
     {
-        $data['title'] = "Edit form 59 A";
-        $data['page'] = "Edit form 59 A";
-        $data['pageIntro'] = "Reports Edit";
+        $data['title'] = "Edit form 59 Edit";
+        $data['page'] = "Form 59 A Invoice";
+        $data['pageIntro'] = "Form 59 A Invoice";
         $data['Form59AInvoice'] = Form59AInvoice::where('id', $id)->whereIn('status', ['1', '2'])->first();
         if (!$data['Form59AInvoice']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
@@ -661,9 +661,9 @@ class teamController extends Controller
 
     function view_form_59_a_invoice($id)
     {
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
-        $data['pageIntro'] = "Reports View";
+        $data['page'] = "Form 59 A Invoice VIew";
+        $data['page'] = "Form 59 A Invoice";
+        $data['pageIntro'] = "Form 59 A Invoice";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         $data['Form59AInvoice'] = Form59AInvoice::where('id', $id)->first();
         if (!$data['Form59AInvoice']) {
@@ -681,9 +681,9 @@ class teamController extends Controller
     //==================== exporter_textile_declearation_invioce start ======================//
     function report_List_exporter_textile_declearation_invoice(Request $request)
     {
-        $data['title'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
-        $data['page'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
-        $data['pageIntro'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
+        $data['title'] = "EXPORT DECLARATION";
+        $data['page'] = "EXPORT DECLARATION";
+        $data['pageIntro'] = "EXPORT DECLARATION";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
         $query = ExporterTextileDeclearation::query();
@@ -770,8 +770,8 @@ class teamController extends Controller
     function add_exporter_textile_declearation_invoice()
     {
 
-        $data['title'] = "ADD | EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
-        $data['page'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
+        $data['title'] = "ADD | EXPORT DECLARATION";
+        $data['page'] = "EXPORT DECLARATION";
         $data['pageIntro'] = "Canada Custom Invoice Add";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
@@ -826,9 +826,9 @@ class teamController extends Controller
 
     function edit_exporter_textile_declearation_invoice($id)
     {
-        $data['title'] = "EDIT | EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
-        $data['page'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
-        $data['pageIntro'] = "Reports Edit";
+        $data['title'] = "EDIT | EXPORT DECLARATION";
+        $data['page'] = "EXPORT DECLARATION";
+        $data['pageIntro'] =  "EXPORT DECLARATION";
         $data['ExporterTextileDeclearation'] = ExporterTextileDeclearation::where('id', $id)->whereIn('status', ['1', '2'])->first();
         if (!$data['ExporterTextileDeclearation']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
@@ -888,9 +888,9 @@ class teamController extends Controller
 
     function view_exporter_textile_declearation_invoice($id)
     {
-        $data['title'] = "VIEW | EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
-        $data['page'] = "EXPORTERS TEXTILE DECLARATION OF COUNTRY OF ORIGIN";
-        $data['pageIntro'] = "Reports View";
+        $data['title'] = "VIEW | EXPORT DECLARATION";
+        $data['page'] = "EXPORT DECLARATION";
+        $data['pageIntro'] =  "EXPORT DECLARATION";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         $data['ExporterTextileDeclearation'] = ExporterTextileDeclearation::where('id', $id)->first();
         if (!$data['ExporterTextileDeclearation']) {
@@ -909,9 +909,9 @@ class teamController extends Controller
     //==================== certificate_origins_invioce start ======================//
     function report_List_certificate_origins_invoice(Request $request)
     {
-        $data['title'] = "Certificate Origin Invoice";
-        $data['page'] = "Certificate Origin Invoice";
-        $data['pageIntro'] = "Canada Custom Invoice";
+        $data['title'] = "TMA-CHAMBER";
+        $data['page'] = "TMA-CHAMBER";
+        $data['pageIntro'] = "TMA-CHAMBER";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
         $query = CertificateOrigin::query();
@@ -998,9 +998,9 @@ class teamController extends Controller
     function add_certificate_origins_invoice()
     {
 
-        $data['title'] = "Canada Custom Invoicet";
-        $data['page'] = "Canada Custom Invoice";
-        $data['pageIntro'] = "Canada Custom Invoice Add";
+        $data['title'] = "TMA-CHAMBER Add";
+        $data['page'] = "TMA-CHAMBER";
+        $data['pageIntro'] = "TMA-CHAMBER Add";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
         return view('team.report.certificate-origins.add', $data);
@@ -1052,9 +1052,9 @@ class teamController extends Controller
 
     function edit_certificate_origins_invoice($id)
     {
-        $data['title'] = "Reports Management";
-        $data['page'] = "Reports Management";
-        $data['pageIntro'] = "Reports Edit";
+        $data['title'] = "TMA-CHAMBER Edit";
+        $data['page'] = "TMA-CHAMBER";
+        $data['pageIntro'] = "TMA-CHAMBER Edit";
         $data['CertificateOrigin'] = CertificateOrigin::where('id', $id)->whereIn('status', ['1', '2'])->first();
         if (!$data['CertificateOrigin']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
@@ -1112,9 +1112,9 @@ class teamController extends Controller
 
     function view_certificate_origins_invoice($id)
     {
-        $data['title'] = "Certificate Origin  View";
-        $data['page'] = "Certificate Origin  View";
-        $data['pageIntro'] = "Certificate Origin View";
+        $data['title'] = "TMA-CHAMBER  View";
+        $data['page'] = "TMA-CHAMBER";
+        $data['pageIntro'] = "TMA-CHAMBER View";
 
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         $data['CertificateOrigin'] = CertificateOrigin::where('id', $id)->first();
@@ -1133,9 +1133,9 @@ class teamController extends Controller
     //==================== certificate_origin_no627120_invioce start ======================//
     function report_List_certificate_origin_no627120_invoice(Request $request)
     {
-        $data['title'] = "Certificate origin 627120 ";
-        $data['page'] = "Certificate origin 627120 ";
-        $data['pageIntro'] = "Certificate origin 627120 ";
+        $data['title'] = "CHAMBER OF COMMERCE";
+        $data['page'] = "CHAMBER OF COMMERCE";
+        $data['pageIntro'] = "CHAMBER OF COMMERCE";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
         $query = CertificateOriginNo627120::query();
@@ -1221,9 +1221,9 @@ class teamController extends Controller
     function add_certificate_origin_no627120_invoice()
     {
 
-        $data['title'] = "Canada Custom Invoicet";
-        $data['page'] = "Canada Custom Invoice";
-        $data['pageIntro'] = "Canada Custom Invoice Add";
+        $data['title'] = "CHAMBER OF COMMERCE Add";
+        $data['page'] = "CHAMBER OF COMMERCE";
+        $data['pageIntro'] = "CHAMBER OF COMMERCE Add";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
         return view('team.report.certificate-origin-no627120.add', $data);
@@ -1273,9 +1273,9 @@ class teamController extends Controller
 
     function edit_certificate_origin_no627120_invoice($id)
     {
-        $data['title'] = "Certificate origin 627120";
-        $data['page'] = "Certificate origin 627120";
-        $data['pageIntro'] = "Certificate origin 627120 Edit";
+        $data['title'] = "CHAMBER OF COMMERCE Edit";
+        $data['page'] = "CHAMBER OF COMMERCE";
+        $data['pageIntro'] = "CHAMBER OF COMMERCE Edit";
         $data['CertificateOriginNo627120'] = CertificateOriginNo627120::where('id', $id)->whereIn('status', ['1', '2'])->first();
         if (!$data['CertificateOriginNo627120']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
@@ -1333,9 +1333,9 @@ class teamController extends Controller
 
     function view_certificate_origin_no627120_invoice($id)
     {
-        $data['title'] = "Certificate origin 627120";
-        $data['page'] = "Certificate origin 627120";
-        $data['pageIntro'] = "Certificate origin 627120 View";
+        $data['title'] = "CHAMBER OF COMMERCE View";
+        $data['page'] = "CHAMBER OF COMMERCE";
+        $data['pageIntro'] = "CHAMBER OF COMMERCE View";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         $data['CertificateOriginNo627120'] = CertificateOriginNo627120::where('id', $id)->first();
         if (!$data['CertificateOriginNo627120']) {
@@ -1440,9 +1440,9 @@ class teamController extends Controller
     function add_certificate_origin_com_dec_invoice()
     {
 
-        $data['title'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
+        $data['title'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT Add";
         $data['page'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
-        $data['pageIntro'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
+        $data['pageIntro'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT Add";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
         return view('team.report.certificate-origin-com-dec.add', $data);
@@ -1491,9 +1491,9 @@ class teamController extends Controller
 
     function edit_certificate_origin_com_dec_invoice($id)
     {
-        $data['title'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
+        $data['title'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT Edit";
         $data['page'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
-        $data['pageIntro'] = "Reports Edit";
+        $data['pageIntro'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT Edit";
         $data['CertificateOriginComDec'] = CertificateOriginComDec::where('id', $id)->whereIn('status', ['1', '2'])->first();
         if (!$data['CertificateOriginComDec']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
@@ -1550,9 +1550,9 @@ class teamController extends Controller
 
     function view_certificate_origin_com_dec_invoice($id)
     {
-        $data['title'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
+        $data['title'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT View";
         $data['page'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT";
-        $data['pageIntro'] = "Reports View";
+        $data['pageIntro'] = "Certificate of origin - Preferential arrangements among developing countries negotiated in GATT View";
         $data['CertificateOriginComDec'] = CertificateOriginComDec::where('id', $id)->first();
         if (!$data['CertificateOriginComDec']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
@@ -1573,7 +1573,7 @@ class teamController extends Controller
     function report_List_certificate_origin_com_dec_form_ip_invoice(Request $request)
     {
         $data['title'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
-        $data['page'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
+        $data['page'] = "CERTIFICATE OF ORIGIN -INDONESIA";
         $data['pageIntro'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
@@ -1660,9 +1660,9 @@ class teamController extends Controller
     function add_certificate_origin_com_dec_form_ip_invoice()
     {
 
-        $data['title'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
-        $data['page'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
-        $data['pageIntro'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
+        $data['title'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA) Add";
+        $data['page'] = "CERTIFICATE OF ORIGIN -INDONESIA";
+        $data['pageIntro'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA) Add";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
         return view('team.report.certificate-origin-com-dec-form-ip.add', $data);
@@ -1711,8 +1711,8 @@ class teamController extends Controller
 
     function edit_certificate_origin_com_dec_form_ip_invoice($id)
     {
-        $data['title'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
-        $data['page'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
+        $data['title'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA) Edit";
+        $data['page'] = "CERTIFICATE OF ORIGIN -INDONESIA";
         $data['pageIntro'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
         $data['CertificateOriginComDecFormIp'] = CertificateOriginComDecFormIp::where('id', $id)->whereIn('status', ['1', '2'])->first();
         //  dd($data['CertificateOriginComDecFormIp']);
@@ -1774,8 +1774,8 @@ class teamController extends Controller
 
     function view_certificate_origin_com_dec_form_ip_invoice($id)
     {
-        $data['title'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
-        $data['page'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
+        $data['title'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA) View";
+        $data['page'] = "CERTIFICATE OF ORIGIN -INDONESIA";
         $data['pageIntro'] = "Certificate of origin - Indonesia - Pakistan Preferential Trade Agreement (IPPTA)";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         $data['CertificateOriginComDecFormIp'] = CertificateOriginComDecFormIp::where('id', $id)->first();
@@ -1794,9 +1794,9 @@ class teamController extends Controller
     //==================== certificate_origin_com_dec_form_a_invioce start ======================//
     function report_List_certificate_origin_com_dec_form_a_invoice(Request $request)
     {
-        $data['title'] = "Certificate origin  A";
-        $data['page'] = "Certificate origin  A";
-        $data['pageIntro'] = "Certificate origin  A";
+        $data['title'] = "GSP FORM A";
+        $data['page'] = "GSP FORM A";
+        $data['pageIntro'] = "GSP FORM A";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         // dd($data);
         $query = CertificateOriginComDecFormA::query();
@@ -1883,9 +1883,9 @@ class teamController extends Controller
     function add_certificate_origin_com_dec_form_a_invoice()
     {
 
-        $data['title'] = "Certificate origin  A";
-        $data['page'] = "Certificate origin  A";
-        $data['pageIntro'] = "Certificate origin  A Add";
+        $data['title'] = "GSP FORM A Add";
+        $data['page'] = "GSP FORM A";
+        $data['pageIntro'] = "GSP FORM A Add";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
         return view('team.report.certificate-origin-com-dec-form-a.add', $data);
@@ -1933,9 +1933,9 @@ class teamController extends Controller
 
     function edit_certificate_origin_com_dec_form_a_invoice($id)
     {
-        $data['title'] = "Certificate origin  A";
-        $data['page'] = "Certificate origin  A";
-        $data['pageIntro'] = "Certificate origin  A Edit";
+        $data['title'] = "GSP FORM A Edit";
+        $data['page'] = "GSP FORM A";
+        $data['pageIntro'] = "GSP FORM A Edit";
         $data['CertificateOriginComDecFormA'] = CertificateOriginComDecFormA::where('id', $id)->whereIn('status', ['1', '2'])->first();
         if (!$data['CertificateOriginComDecFormA']) {
             return back()->with('error', 'No Form 59 A invoice history found for the provided ID.');
@@ -1996,9 +1996,9 @@ class teamController extends Controller
 
     function view_certificate_origin_com_dec_form_a_invoice($id)
     {
-        $data['title'] = "Certificate origin  A View";
-        $data['page'] = "Certificate origin  A View";
-        $data['pageIntro'] = "Certificate origin  A View";
+        $data['title'] = "GSP FORM A View";
+        $data['page'] = "GSP FORM A";
+        $data['pageIntro'] = "GSP FORM A View";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         $data['CertificateOriginComDecFormA'] = CertificateOriginComDecFormA::where('id', $id)->first();
         if (!$data['CertificateOriginComDecFormA']) {
@@ -4668,7 +4668,7 @@ class teamController extends Controller
     function report_List_certificate_origin_chaina_invoice(Request $request)
     {
         $data['title'] = "Certificate of origin - Chaina";
-        $data['page'] = "Certificate of origin - Chaina";
+        $data['page'] = "CERTIFICATE OF ORIGIN -CHAINA";
         $data['pageIntro'] = "Certificate of origin - Chaina";
 
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
@@ -4761,9 +4761,9 @@ class teamController extends Controller
     function add_certificate_origin_chaina_invoice()
     {
 
-        $data['title'] = "Certificate of origin -Chaina";
-        $data['page'] = "Certificate of origin -Chaina";
-        $data['pageIntro'] = "Certificate of origin -Chaina";
+        $data['title'] = "Certificate of origin -Chaina Add";
+        $data['page'] = "CERTIFICATE OF ORIGIN -CHAINA";
+        $data['pageIntro'] = "Certificate of origin -Chaina Add";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
         return view('team.report.certificate-origin-chaina.add', $data);
@@ -4812,8 +4812,8 @@ class teamController extends Controller
 
     function edit_certificate_origin_chaina_invoice($id)
     {
-        $data['title'] = "Certificate origin Chaina";
-        $data['page'] = "Certificate origin Chaina ";
+        $data['title'] = "Certificate origin Chaina Edit";
+        $data['page'] = "CERTIFICATE OF ORIGIN -CHAINA";
         $data['pageIntro'] = "Certificate origin Chaina Edit";
         $data['CertificateOriginComDecFormIp'] = CertificateOriginChaina::where('id', $id)->whereIn('status', ['1', '2'])->first();
         //  dd($data['CertificateOriginComDecFormIp']);
@@ -4875,9 +4875,9 @@ class teamController extends Controller
 
     function view_certificate_origin_chaina_invoice($id)
     {
-        $data['title'] = "Certificate of origin -Chaina";
-        $data['page'] = "Certificate of origin -Chaina";
-        $data['pageIntro'] = "Certificate of origin -Chaina";
+        $data['title'] = "Certificate of origin -Chaina View";
+        $data['page'] = "CERTIFICATE OF ORIGIN -CHAINA";
+        $data['pageIntro'] = "Certificate of origin -Chaina View";
         $data['pageDescription'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
         $data['CertificateOriginComDecFormIp'] = CertificateOriginChaina::where('id', $id)->first();
         if (!$data['CertificateOriginComDecFormIp']) {
