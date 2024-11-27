@@ -1067,6 +1067,7 @@
         </table>
 
 
+        
 
         <script type="text/php">
             if ( isset($pdf) ) {
