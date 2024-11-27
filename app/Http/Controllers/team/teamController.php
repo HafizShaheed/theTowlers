@@ -2046,6 +2046,8 @@ class teamController extends Controller
         return view('team.report.commercial-invoice.index', $data);
     }
 
+   
+
     public function generate_commercial_invoice_PDF($id)
     {
         $viewName = 'team.report.commercial-invoice.pdf.commercial_invoice_pdf';
@@ -2083,6 +2085,7 @@ class teamController extends Controller
             CommercialInvoiceRelatedValuePart7::class,
             CommercialInvoiceRelatedValuePart8::class,
             CommercialInvoiceRelatedValuePart9::class,
+            CommercialInvoiceRelatedValuePart10::class,
         ];
 
         foreach ($relatedFieldParts as $relatedPart) {
@@ -2143,6 +2146,7 @@ class teamController extends Controller
             echo $output;
         }, $pdfName);
     }
+
 
     function add_commercial_invoice()
     {
@@ -2832,7 +2836,7 @@ class teamController extends Controller
                 $CommercialInvoiceRelatedValuePart10->{"quantity_unit_third_column_value_$i"} = $request->input("quantity_unit_third_column_value_$i");
             }
             $CommercialInvoiceRelatedValuePart10->save();
-            $CommercialInvoiceRelatedValuePart10 = new CommercialInvoiceRelatedValuePart10();
+            
 
 
 
