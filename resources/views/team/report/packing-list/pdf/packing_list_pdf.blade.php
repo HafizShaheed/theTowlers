@@ -108,7 +108,7 @@
             </tr>
             <tr>
                 <td style="margin-top:-30px;padding-left:80px;" colspan="2">
-                    <b style="font-family: serif; text-decoration: underline; display:block; margin:-20px 0;">PACKING SLIP</b>
+                    <b style="font-family: serif; text-decoration: underline; display:block; margin:-20px 0;">PACKING SLIPE</b>
                     <b
                         style="font-family: serif; text-decoration: underline; display:block; margin:-10px 0; font-size:10px;">{{ $PackingList['heading_f_i_no'] ?? '' }}
                         &nbsp;&nbsp;{{ $PackingList['value_f_i_no'] ?? '' }} </b>
@@ -642,20 +642,20 @@
                                 } else {
                                     $palltesValueSum[$palletUnit] = $palletValue;
                                 }
-                            }
+                            } 
 
                             $perValue = $PackingList['pcs_pack_pallet_per_value_' . $i] ?? '';
                             $perUnit = $PackingList['heading_pcs_pack_pallet_per_' . $i] ?? '';
                 
-                            if (is_numeric($perValue)) {
-                                $perValue = (float) $perValue;
-                                // Sum the quantities based on their units
-                                if (isset($perValueSum[$perUnit])) {
-                                    $perValueSum[$perUnit] += $perValue;
-                                } else {
-                                    $perValueSum[$perUnit] = $perValue;
-                                }
-                            }
+                            // if (is_numeric($perValue)) {
+                            //     $perValue = (float) $perValue;
+                            //     // Sum the quantities based on their units
+                            //     if (isset($perValueSum[$perUnit])) {
+                            //         $perValueSum[$perUnit] += $perValue;
+                            //     } else {
+                            //         $perValueSum[$perUnit] = $perValue;
+                            //     }
+                            // }
                             
                             // gr total and net total second column
                             if (isset($PackingList['gross_weight_second_column_value_' . $i])) {
@@ -682,7 +682,7 @@
                                 $unit = $PackingList['quantity_unit_third_column_value_' . $j] ?? '';
                     
                                 // Check if quantity is numeric
-                                if (is_numeric($quantity)) {
+                                if (is_numeric($quantity) && isset($quantity)) {
                                     $quantity = (float) $quantity;
                                     $chunkSum += $quantity; // Add quantity to chunk sum
                     
@@ -799,10 +799,8 @@
                                     <div style="font-size:8px;"> 
                                         @php
                                         $pallets = $palltesValueSum;
-                                        $perValues = $perValueSum;
+                                        // $perValues = $perValueSum;
                                         $quantities = $quantitySums;
-                                        $prices = $priceSums;
-                                        
                                         // var_dump($quantities);
                                         // die;
                                     @endphp
@@ -815,19 +813,12 @@
                                         @endif
                                     @endforeach
                                     
-                                    @if (count($pallets) > 0 && count($perValues) > 0)
-                                        +
-                                    @endif
+                                  
                                     
                                     <!-- Display Per Values -->
-                                    @foreach ($perValues as $key => $item)
-                                        {{ $item . ' ' . str_replace("SET PER ", "", $key) }}
-                                        @if (!$loop->last)
-                                            +
-                                        @endif
-                                    @endforeach
+                                   
                                     
-                                    @if ((count($pallets) > 0 || count($perValues) > 0) && count($quantities) > 0)
+                                    @if ((count($pallets) > 0 ) && count($quantities) > 0)
                                         =
                                     @endif
                                     
@@ -843,14 +834,7 @@
                                 </td>
 
                                 <td>
-                                    <div style="font-size:8px;">
-                                        @foreach ($quantities as $key => $item)
-                                        {{ $item . ' ' . $key }}
-                                        @if (!$loop->last)
-                                            +
-                                        @endif
-                                    @endforeach
-                                    </div>
+                                    <div style="font-size:8px;"></div>
                                 </td>
 
 
@@ -861,12 +845,12 @@
                 </td>
                 <td style="border-right: 1px solid; border-top:1px solid #000;">
                     <div style="width: 40px; word-wrap: break-word;">
-                        @foreach ($prices as $key => $item)
+                        {{-- @foreach ($prices as $key => $item)
                         {{ $item . ' ' . $key }}
                         @if (!$loop->last)
                             +
                         @endif
-                    @endforeach
+                    @endforeach --}}
                     </div>
                 </td>
                 <td style="border-right: 1px solid; border-top:1px solid #000; text-align: center">
@@ -942,7 +926,7 @@
                             </td>
                             <td>
                                 <div style="text-align: right;">
-                                    {{ $PackingList['value_total_buyer_discount'] > 0 ? $PackingList['currency_symbol'] : '' }}
+                                    {{ isset($PackingList['value_total_buyer_discount']) ? $PackingList['currency_symbol'] : '' }}
                                     {{ $PackingList['value_total_buyer_discount'] ?? '' }} </div>
                             </td>
                         </tr>
@@ -952,7 +936,7 @@
                             </td>
                             <td>
                                 <div style="text-align: right;">
-                                    {{ $PackingList['value_total_less_commission'] > 0 ? $PackingList['currency_symbol'] : '' }}
+                                    {{ isset($PackingList['value_total_less_commission']) ? $PackingList['currency_symbol'] : '' }}
                                     {{ $PackingList['value_total_less_commission'] ?? '' }}</div>
                             </td>
                         </tr>
@@ -962,7 +946,7 @@
                             </td>
                             <td>
                                 <div style="text-align: right;">
-                                    {{ $PackingList['value_total_add_fright'] > 0 ? $PackingList['currency_symbol'] : '' }}
+                                    {{ isset($PackingList['value_total_add_fright']) ? $PackingList['currency_symbol'] : '' }}
                                     {{ $PackingList['value_total_add_fright'] ?? '' }}</div>
                             </td>
                         </tr>
@@ -972,7 +956,7 @@
                             </td>
                             <td>
                                 <div style="text-align: right;">
-                                    {{ $PackingList['value_total_net_amount_payable'] > 0 ? $PackingList['currency_symbol'] : '' }}
+                                    {{isset($PackingList['value_total_net_amount_payable']) ? $PackingList['currency_symbol'] : '' }}
                                     {{ $PackingList['value_total_net_amount_payable'] ?? '' }} </div>
                             </td>
                         </tr>
