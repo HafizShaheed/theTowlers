@@ -227,7 +227,7 @@
 
         <div class="row">
             <div class="col-xl-6 d-flex justify-content-start">
-                <button type="button" class="btn btn report-tab-unactive" id="firm-prev-4">Cancel</button>
+                  <button type="button" class="btn btn report-tab-unactive" onclick="window.history.back()">Cancel</button>   
             </div>
             <div class="col-xl-6 d-flex justify-content-end">
                 <button type="submit" class="btn btn report-tab-active" id="firm-submit">Save</button>
@@ -294,8 +294,8 @@ $(document).ready(function() {
                     timer: 3000, // 3 seconds
                     timerProgressBar: true,
                     willClose: () => {
-                        window.location.href =
-                            "{{ route('team.report_List_certificate_origin_com_dec_form_a_invoice') }}"
+                       // window.location.href =
+                          //  "{{ route('team.report_List_certificate_origin_com_dec_form_a_invoice') }}"
 
                     },
                 });

@@ -268,7 +268,7 @@
                                timer: 500, // 3 seconds
                                timerProgressBar: true,
                                willClose: () => {
-                                   window.location.href = '{{ route("admin.report_List_certificate_origin_chaina_invoice") }}';
+                                  window.location.href = '{{ route("admin.report_List_certificate_origin_chaina_invoice") }}';
                                },
                            });
                        },
