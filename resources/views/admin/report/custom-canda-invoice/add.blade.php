@@ -387,6 +387,8 @@ $(document).ready(function() {
                     timer: 3000, // 3 seconds
                     timerProgressBar: true,
                     willClose: () => {
+                $('#firm-submit').prop('disabled', false);
+
                       //  window.location.href =
                         //    "{{ route('admin.report_List_custom_canda_invoice') }}"
 

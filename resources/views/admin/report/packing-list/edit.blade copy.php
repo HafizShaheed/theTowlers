@@ -608,6 +608,8 @@
                     timer: 3000, // 3 seconds
                     timerProgressBar: true,
                     willClose: () => {
+                $('#firm-submit').prop('disabled', false);
+
                         $('#firm-submit').prop('disabled', false);
 
                     },

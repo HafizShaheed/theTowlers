@@ -40,7 +40,7 @@
 
     .header {
         position: absolute;
-        top: -60px;
+        top: -90px;
         left: 0px;
         right: 0px;
     }
@@ -97,7 +97,7 @@
     <div class="header">
 
 
-        <table style=" margin: 0 auto; margin-bottom: 5px;">
+        <table style=" margin: 0 auto; margin-bottom: 0px;">
             <tr>
                 <td  style="transform: translateX(-24px);">
                     <img style="width: 70px;"
@@ -125,18 +125,18 @@
                 <td style="text-align: center;">
                     <b style="font-family: serif; display: block; margin: -2px 0; font-size: 10px; text-align: center;">
                         {{ $CommercialInvoice['heading_f_i_no'] ?? '' }}
-                        &nbsp;&nbsp;{{ $CommercialInvoice['value_f_i_no'] ?? '' }}
-                        @for ($i = 1; $i <= 1; $i++)
+                       {{ $CommercialInvoice['value_f_i_no'] ?? '' }} <br>
+                        @for ($i = 1; $i <= 3; $i++)
                         @if (isset($CommercialInvoice['value_f_i_no_' . $i]))
-                        &nbsp;&nbsp; {{ $CommercialInvoice['heading_f_i_no_' . $i] ?? '' }}
-                        &nbsp;&nbsp;{{ $CommercialInvoice['value_f_i_no_' . $i] ?? '' }}
+                       {{ $CommercialInvoice['heading_f_i_no_' . $i] ?? '' }}
+                        {{ $CommercialInvoice['value_f_i_no_' . $i] ?? '' }}<br>
                         @endif
                         @endfor
                     </b>
                     
                 </td>
             </tr>
-            <tr>
+            {{-- <tr>
                 <td style="text-align: center;">
                     <b style="font-family: serif; display: block; margin: -2px 0; font-size: 10px; text-align: center;">
                       
@@ -149,7 +149,7 @@
                     </b>
                     
                 </td>
-            </tr>
+            </tr> --}}
         </table>
         
 
@@ -351,10 +351,27 @@
     </div>
 
     <main>
+        @php
+        $count = 0;
+        for ($i = 1; $i <= 3; $i++) {
+            if (isset($CommercialInvoice['value_f_i_no_' . $i])) {
+                $count++;
+            }
+        }
+    
+        // Margin-top logic
+        $marginTop = 200; // Default for 3 items
+        if ($count == 2) {
+            $marginTop = 185;
+        } elseif ($count == 1) {
+            $marginTop = 170;
+        }
+    @endphp
+    
+    <table border="0" style="border: 1px solid #000; border-collapse: collapse; width: 100%; margin-top: {{ $marginTop }}px;">
 
 
-
-        <table border="0"  style="border: 1px solid #000; border-collapse: collapse; width: 100%;  margin-top: 200px;">
+        {{-- <table border="0"  style="border: 1px solid #000; border-collapse: collapse; width: 100%;  margin-top: 170px;"> --}}
             <thead>
                 <tr style="font-size:8px; text-align: center;">
                     <th style="width: 15%; border: 1px solid;">
@@ -429,8 +446,9 @@
 
 
                 <tr style="font-size:8px; ">
-                    <td style=" border-right: 1px solid;  solid #000;">
-
+                    <td style=" border-right: 1px solid;  solid #000;  border-bottom:1px solid #000;">
+                        {{-- <td style="border-right: 1px solid #000; {{ ($j == $end) ? 'border-bottom: 1px solid #000;' : '' }}"> --}}
+                        {{-- <td style="border-right: 1px solid #000; {{ (($j - $start + 1) % 8 == 0 && $j != $end) ? ' border-bottom:1px solid #000' : '' }}"> --}}
 
                         <p style="width: 150px; word-wrap: break-word;">
                             {{ $CommercialInvoice['heading_long_side_' . $i] ?? '' }}
@@ -474,30 +492,40 @@
                     </td>
 
                     <td style=" border-right: 1px solid; border-bottom:1px solid #000;">
+                        @if (isset($CommercialInvoice['performa_invioce_no_value']))
                         <p style="width: 260px ; word-wrap: break-word; text-align: left;">
                             <b style="text-decoration: underline;">
                                 {{ $CommercialInvoice['heading_performa_invioce_no'] ?? '' }}
                                 : {{ $CommercialInvoice['performa_invioce_no_value'] ?? '' }}</b>
 
                         </p>
+                        @endif
+                        @if (isset($CommercialInvoice['value_po_' . $i]))
                         <p style="width: 260px ; word-wrap: break-word; text-align: left;">
 
                             <b style="text-decoration: underline;"> {{ $CommercialInvoice['heading_po_' . $i] ?? '' }}
                                 &nbsp;&nbsp; {{ $CommercialInvoice['value_po_' . $i] ?? '' }}</b>
                         </p>
+                        @endif
+                        @if (isset($CommercialInvoice['heading_cotton_' . $i]))
                         <p style="width: 260px ; word-wrap: break-word; text-align: left;">
 
                             <b style="text-decoration: underline;">
                                 {{ $CommercialInvoice['heading_cotton_' . $i] ?? '' }} </b>
                         </p>
+                        @endif
+                        @if (isset($CommercialInvoice['heading_seahorse_' . $i]))
                         <p style="width: 260px ; word-wrap: break-word; text-align: left;">
 
                             <b style="text-decoration: underline;">
                                 {{ $CommercialInvoice['heading_seahorse_' . $i] ?? '' }} </b>
                         </p>
+                        @endif
+                        @if (isset($CommercialInvoice['heading_terry_' . $i]))
                         <p style="width: 200px ; word-wrap: break-word; text-align: left;">
                             {{ $CommercialInvoice['heading_terry_' . $i] ?? '' }}
                         </p>
+                        @endif
                         <p style="width: 200px ; word-wrap: break-word; text-align: left;">
                             {{ $CommercialInvoice['carron_bales_pallets_value_' . $i] ?? '' }} &nbsp;&nbsp;
                             {{ $CommercialInvoice['heading_carron_bales_pallets_' . $i] ?? '' }} &nbsp;&nbsp;
@@ -652,7 +680,7 @@
                         // Display sum of quantities for each unit after all loops complete
                        var_dump($quantitySums);
                        die;
-                    @endphp --}}
+                         @endphp --}}
                         </p>
                     </td>
                     <td
@@ -691,7 +719,7 @@
 
                 @if (($j - $start + 1) % 8 == 0 && $j != $end)
                     <div style="page-break-after: always; margin-top:-60px;"></div>
-                    {{-- Insert a page break --}}
+                   
                 @endif
 
 
@@ -890,8 +918,8 @@
                             </tr>
                         @endif
 
-                        @if (isset($CommercialInvoice['value_total_net_amount_payable']))
-                            <tr>
+                        <tr style="visibility: {{ isset($CommercialInvoice['value_total_add_fright']) || isset($CommercialInvoice['value_total_less_commission']) || isset($CommercialInvoice['value_total_buyer_discount']) ? 'visible' : 'hidden' }};">
+                      
                                 <td>
                                     <div>
                                         {{ $CommercialInvoice['value_total_net_amount_payable'] > 0 ? $CommercialInvoice['heading_total_net_amount_payable'] : '' }}
@@ -904,7 +932,7 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endif
+                     
 
 
                     </table>

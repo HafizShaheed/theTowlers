@@ -290,6 +290,8 @@ $(document).ready(function() {
                     timer: 3000, // 3 seconds
                     timerProgressBar: true,
                     willClose: () => {
+                $('#firm-submit').prop('disabled', false);
+
                       //  window.location.href =
                      //       "{{ route('team.report_List_certificate_origin_no627120_invoice') }}"
 

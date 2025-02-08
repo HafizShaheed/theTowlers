@@ -290,17 +290,17 @@
 
                             <br>
                             <div class="col-sm-3 mb-3 ">
-                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_discription_of_goods"  style="font-weight: bold; color: #000;"  name="heading_discription_of_goods" value="{{ $CommercialInvoice['heading_discription_of_goods']}}" >
+                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_discription_of_goods"  style="font-weight: bold; color: #000;"  name="heading_discription_of_goods" value="{{ $CommercialInvoice['heading_discription_of_goods']}}" readonly >
                             </div>
                             <div class="col-sm-3 mb-3">
-                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_quantity"  style="font-weight: bold; color: #000;"  name="heading_quantity" value="{{ $CommercialInvoice['heading_quantity']}}">
+                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_quantity"  style="font-weight: bold; color: #000;"  name="heading_quantity" value="{{ $CommercialInvoice['heading_quantity']}}" readonly>
                             </div>
 
                             <div class="col-sm-3 mb-3">
-                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_prices"  style="font-weight: bold; color: #000;"  name="heading_prices" value="{{ $CommercialInvoice['heading_prices']}}">
+                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_prices"  style="font-weight: bold; color: #000;"  name="heading_prices" value="{{ $CommercialInvoice['heading_prices']}}" readonly>
                             </div>
                             <div class="col-sm-3 mb-3">
-                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_total_amount"  style="font-weight: bold; color: #000;"  name="heading_total_amount" value="{{ $CommercialInvoice['heading_total_amount']}}">
+                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_total_amount"  style="font-weight: bold; color: #000;"  name="heading_total_amount" value="{{ $CommercialInvoice['heading_total_amount']}}" readonly>
                             </div>
 
                         <br>
@@ -442,12 +442,12 @@
                             <hr>
                             <div class="col-sm-3 mb-3">
                                 <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_net_weight_second_column_{{ $i }}" name="heading_net_weight_second_column_{{ $i }}" style="font-weight: bold; color: #000;" value="{{ $CommercialInvoice['heading_net_weight_second_column_' . $i]}}">
-                                <input type="text" class="form-control custom-input mb-1" id="net_weight_second_column_value_{{ $i }}" name="net_weight_second_column_value_{{ $i }}" value="{{ $CommercialInvoice['net_weight_second_column_value_' . $i]}}" placeholder="ENTER Net weight#: (second column ) ">
+                                <input type="number" step="any" class="form-control custom-input mb-1" id="net_weight_second_column_value_{{ $i }}" name="net_weight_second_column_value_{{ $i }}" value="{{ $CommercialInvoice['net_weight_second_column_value_' . $i]}}" placeholder="ENTER Net weight#: (second column ) ">
                                 
                             </div>
                             <div class="col-sm-3 mb-3">
                                 <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_gross_weight_second_column_{{ $i }}" name="heading_gross_weight_second_column_{{ $i }}" style="font-weight: bold; color: #000;" value="GROSS WEIGHT:" value="{{ $CommercialInvoice['heading_gross_weight_second_column_' . $i]}}">
-                                <input type="text" class="form-control custom-input mb-1" id="gross_weight_second_column_value_{{ $i }}" name="gross_weight_second_column_value_{{ $i }}" value="{{ $CommercialInvoice['gross_weight_second_column_value_' . $i]}}" placeholder="ENTER gross weight#: (second column ) ">
+                                <input type="number" step="any" class="form-control custom-input mb-1" id="gross_weight_second_column_value_{{ $i }}" name="gross_weight_second_column_value_{{ $i }}" value="{{ $CommercialInvoice['gross_weight_second_column_value_' . $i]}}" placeholder="ENTER gross weight#: (second column ) ">
                             
                             </div>
                             <hr>
@@ -759,6 +759,8 @@ calculateNetAbleAmount();
                     timer: 3000, // 3 seconds
                     timerProgressBar: true,
                     willClose: () => {
+                $('#firm-submit').prop('disabled', false);
+
                        // window.location.href =
                            // "{{ route('team.report_List_commercial_invoice') }}"
 
@@ -775,6 +777,8 @@ calculateNetAbleAmount();
                     timer: 3000, // 3 seconds
                     timerProgressBar: true,
                     willClose: () => {
+                $('#firm-submit').prop('disabled', false);
+
                         $('#firm-submit').prop('disabled', false);
 
                     },

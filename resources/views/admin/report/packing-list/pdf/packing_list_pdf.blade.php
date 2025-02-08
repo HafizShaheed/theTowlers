@@ -346,18 +346,21 @@
 
                     <th style="width: 8%; border: 1px solid;">
                         <div style="text-transform: uppercase;">
-                            {{ $PackingList['heading_quantity'] ?? '' }}
+                            {{-- {{ $PackingList['heading_quantity'] ?? '' }} --}}
+                            {{'NET WT' }}
                         </div>
                     </th>
                     <th style="width: 9%; border: 1px solid;">
                         <div style="text-transform: uppercase; ">
-                            {{ $PackingList['heading_prices'] ?? '' }}
+                            {{-- {{ $PackingList['heading_prices'] ?? '' }} --}}
+                            {{'GROSS WT' }}
                         </div>
 
                     </th>
                     <th style="width: 10%; border: 1px solid;">
                         <div style="text-transform: uppercase; ">
-                            {{ $PackingList['heading_total_amount'] ?? '' }}
+                            {{-- {{ $PackingList['heading_total_amount'] ?? '' }} --}}
+                            {{'BAL/CARTON NO:' }}
                         </div>
                     </th>
                 </tr>
@@ -615,7 +618,7 @@
                             @endif
                         @endfor
 
-                        <div>
+                        {{-- <div>
                             <p style=" margin-top:10px; word-wrap: break-word;">
                                 NET WEIGHT: &nbsp; &nbsp; &nbsp;
                                 {{ $PackingList['net_weight_second_column_value_' . $i] ?? 0 }} KGS
@@ -626,7 +629,7 @@
                                 {{ $PackingList['gross_weight_second_column_value_' . $i] ?? 0 }} KGS
 
                             </p>
-                        </div>
+                        </div> --}}
 
 
                         <?php
@@ -747,8 +750,8 @@
                                 </p>
                                 <?php
                                 // Add to the grand total if the value exists
-                                if (isset($PackingList['total_amount_third_column_value_' . $j])) {
-                                    $grandTotal += $PackingList['total_amount_third_column_value_' . $j];
+                                if (isset($PackingList['price_third_column_value_' . $j])) {
+                                    $grandTotal += $PackingList['price_third_column_value_' . $j];
                                 }
                                 ?>
                             @endfor
@@ -843,52 +846,54 @@
                         </table>
                     </div>
                 </td>
-                <td style="border-right: 1px solid; border-top:1px solid #000;">
-                    <div style="width: 40px; word-wrap: break-word;">
+                <td style="border-right: 1px solid; border-top:1px solid #000;  text-align: center">
+                   
                         {{-- @foreach ($prices as $key => $item)
                         {{ $item . ' ' . $key }}
                         @if (!$loop->last)
                             +
                         @endif
                     @endforeach --}}
-                    </div>
+                    {{  $grandTotal ?? '' }}
+                    
                 </td>
                 <td style="border-right: 1px solid; border-top:1px solid #000; text-align: center">
                     <div style="width: 60px; word-wrap: break-word; font-size:8px;">
+                        
                     </div>
                 </td>
             </tr>
         </table>
         <div style="clear:both;"></div>
        
-        <table border="0" style=" margin-top: 2px; border-collapse: collapse; width: 100%;font-size:8px;">
+        {{-- <table border="0" style=" margin-top: 2px; border-collapse: collapse; width: 100%;font-size:8px;">
             <tr>
                 <td style="width: 33.33%;">
                     <table border="0"
                         style="border: 1px solid #000; border-collapse: collapse; width: 100%;font-size:8px;">
                         <tr>
-                            <td style="border-right:1px solid #000 ;">
+                            {{-- <td style="border-right:1px solid #000 ;">
                                 <div> {{ $PackingList['heading_total_net_weight'] ?? '' }}
                                     : </div>
                             </td>
                             <td>
                                 <div style="text-align: center;">{{ $netWeightTotalSecondColumn }} KGS</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-right:1px solid #000 ;">
+                            </td> --}}
+                        {{-- </tr>
+                        <tr> --}}
+                            {{-- <td style="border-right:1px solid #000 ;">
                                 <div> {{ $PackingList['heading_total_gr_weight'] ?? '' }}: </div>
                             </td>
                             <td>
                                 <div style="text-align: center;">{{ $grossWeightTotalSecondColumn }} KGS</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border-top:1px solid #000 ;" colspan="2">
+                            </td> --}}
+                        {{-- </tr>
+                        <tr> --}}
+                            {{-- <td style="border-top:1px solid #000 ;" colspan="2">
                                 <div>{{ $PackingList['heading_note'] ?? '' }} :
                                     {{ $PackingList['note_value'] ?? '' }} </div>
-                            </td>
-                        </tr>
+                            </td> --}}
+                        {{-- </tr>
                     </table>
                 </td>
                 <td style="width: 33.33%; visibility: hidden;">
@@ -918,7 +923,7 @@
                     </table>
                 </td>
                 <td style="width: 33.33%;">
-                    <table border="0"
+                    {{-- <table border="0"
                         style="border: 1px solid #000; border-collapse: collapse; width: 100%;font-size:8px;">
                         <tr>
                             <td>
@@ -961,10 +966,12 @@
                             </td>
                         </tr>
 
-                    </table>
-                </td>
+                    </table> --}}
+                {{-- </td>
             </tr>
-        </table>
+        </table>  --}}
+        <p style="font-size:8px;">{{ $PackingList['heading_note'] ?? '' }} :
+            {{ $PackingList['note_value'] ?? '' }} </p>
         <table border="1" style=" margin-top: 4px; border-collapse: collapse; width: 100%;font-size:8px;">
             <tr>
                 <td style="width: 55%;">

@@ -267,17 +267,17 @@
 
                             <br>
                             <div class="col-sm-3 mb-3 ">
-                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_discription_of_goods"  style="font-weight: bold; color: #000;"  name="heading_discription_of_goods" value="DESCRIPTION OF GOODS">
+                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_discription_of_goods"  style="font-weight: bold; color: #000;"  name="heading_discription_of_goods" value="DESCRIPTION OF GOODS" readonly>
                             </div>
                             <div class="col-sm-3 mb-3">
-                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_quantity"  style="font-weight: bold; color: #000;"  name="heading_quantity" value="QTY">
+                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_quantity"  style="font-weight: bold; color: #000;"  name="heading_quantity" value="QTY" readonly>
                             </div>
 
                             <div class="col-sm-3 mb-3">
-                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_prices"  style="font-weight: bold; color: #000;"  name="heading_prices" value="PRICE US$">
+                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_prices"  style="font-weight: bold; color: #000;"  name="heading_prices" value="PRICE US$" readonly >
                             </div>
                             <div class="col-sm-3 mb-3">
-                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_total_amount"  style="font-weight: bold; color: #000;"  name="heading_total_amount" value="TOTAL AMOUNT">
+                                <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_total_amount"  style="font-weight: bold; color: #000;"  name="heading_total_amount" value="TOTAL AMOUNT" readonly>
                             </div>
 
                         <br>
@@ -405,12 +405,12 @@
                             <hr>
                             <div class="col-sm-3 mb-3">
                                 <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_net_weight_second_column_{{ $i }}" name="heading_net_weight_second_column_{{ $i }}" style="font-weight: bold; color: #000;" value="NET WEIGHT:">
-                                <input type="text" class="form-control custom-input mb-1" id="net_weight_second_column_value_{{ $i }}" name="net_weight_second_column_value_{{ $i }}" placeholder="ENTER Net weight#: (second column ) ">
+                                <input type="number" step="any" class="form-control custom-input mb-1" id="net_weight_second_column_value_{{ $i }}" name="net_weight_second_column_value_{{ $i }}" placeholder="ENTER Net weight#: (second column ) ">
                                 
                             </div>
                             <div class="col-sm-3 mb-3">
                                 <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_gross_weight_second_column_{{ $i }}" name="heading_gross_weight_second_column_{{ $i }}" style="font-weight: bold; color: #000;" value="GROSS WEIGHT:">
-                                <input type="text" class="form-control custom-input mb-1" id="gross_weight_second_column_value_{{ $i }}" name="gross_weight_second_column_value_{{ $i }}" placeholder="ENTER gross weight#: (second column ) ">
+                                <input type="number" step="any" class="form-control custom-input mb-1" id="gross_weight_second_column_value_{{ $i }}" name="gross_weight_second_column_value_{{ $i }}" placeholder="ENTER gross weight#: (second column ) ">
                             
                             </div>
                             <hr>
@@ -754,6 +754,8 @@ $(document).on('input', 'input.total_buyer_discount, input.total_less_commission
                     timer: 3000, // 3 seconds
                     timerProgressBar: true,
                     willClose: () => {
+                $('#firm-submit').prop('disabled', false);
+
                         // window.location.href = "{{ route('admin.report_List_commercial_invoice') }}"
 
                     },
@@ -769,6 +771,8 @@ $(document).on('input', 'input.total_buyer_discount, input.total_less_commission
                     timer: 3000, // 3 seconds
                     timerProgressBar: true,
                     willClose: () => {
+                $('#firm-submit').prop('disabled', false);
+
                         $('#firm-submit').prop('disabled', false);
 
                     },
