@@ -3484,7 +3484,7 @@ class adminController extends Controller
 
         // ];
         $data = [
-            'title' => 'Commercial Invoice Pdf',
+            'title' => 'PACKING SLIP Pdf',
             'PackingList' => PackingList::where('id', $id)->first()->toArray(),
         ];
 
@@ -4331,7 +4331,7 @@ class adminController extends Controller
         try { 
         
             $PackingList = new PackingList(); 
-            $PackingList->invioce_generator = rand(0000, 9999) . now(); 
+            $PackingList->invioce_generator =  $request->input('commercial_invoice') ?? rand(0000, 9999) . now(); 
             $PackingList->team_user_id = $request->input('team_user_id') ?? null; 
             $PackingList->heading_f_i_no = $request->input('heading_f_i_no') ?? null; 
             $PackingList->heading_shipper = $request->input('heading_shipper') ?? null; 

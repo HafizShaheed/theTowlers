@@ -18,7 +18,7 @@ class CreateExporterTextileDeclearationsTable extends Migration
             $table->string('commercial_invoice_id')->nullable();
             $table->string("table_name",50)->default('Exporter Textile Declearations')->nullable();
 
-            for ($i = 1; $i <= 10; $i++) {
+            for ($i = 1; $i <= 12; $i++) {
                 $table->string('invoice_number_' . $i)->nullable();
                 $table->string('b_l_number_' . $i)->nullable();
                 $table->string('quantity_' . $i)->nullable();

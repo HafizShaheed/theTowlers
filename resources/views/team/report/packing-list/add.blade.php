@@ -271,17 +271,17 @@
 
                     <br>
                     <div class="col-sm-3 mb-3 ">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_discription_of_goods"  style="font-weight: bold; color: #000;"  name="heading_discription_of_goods" value="DESCRIPTION OF GOODS">
+                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" readonly id="heading_discription_of_goods"  style="font-weight: bold; color: #000;"  name="heading_discription_of_goods" value="DESCRIPTION OF GOODS">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_quantity"  style="font-weight: bold; color: #000;"  name="heading_quantity" value="NET WT">
+                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" readonly id="heading_quantity"  style="font-weight: bold; color: #000;"  name="heading_quantity" value="NET WT">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_prices"  style="font-weight: bold; color: #000;"  name="heading_prices" value="GROSS WT">
+                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" readonly id="heading_prices"  style="font-weight: bold; color: #000;"  name="heading_prices" value="GROSS WT">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" id="heading_total_amount"  style="font-weight: bold; color: #000;"  name="heading_total_amount" value="BALE/CARTON MO">
+                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700"  class="form-control custom-input mb-1" readonly id="heading_total_amount"  style="font-weight: bold; color: #000;"  name="heading_total_amount" value="BALE/CARTON NO">
                     </div>
 
                   <br>

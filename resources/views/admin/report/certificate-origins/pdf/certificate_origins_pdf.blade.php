@@ -123,7 +123,7 @@
             </td>
             <td style="width: 32%; border-right: 1px solid;">
                 <div>
-                    description of Goods
+                    Description of Goods
                 </div>
             </td>
 
@@ -145,7 +145,7 @@
 
                 @for ($i = 0; $i < 5; $i++)
                     @if (isset($CertificateOrigin['marks_and_numbers_' . $i]))
-                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                        <ul style="list-style: none; padding: 10px; margin-top: 30px;">
                             <li style="list-style: none; padding: 2px 0 ;">
                                 {{ $CertificateOrigin->{'marks_and_numbers_' . $i} }}</li>
                         </ul>
@@ -157,7 +157,7 @@
 
                 @for ($i = 0; $i < 5; $i++)
                     @if (isset($CertificateOrigin['numbers_and_kinds_of_packges_' . $i]))
-                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                        <ul style="list-style: none; padding: 10px; margin-top: 30px;">
                             <li style="list-style: none; padding: 2px 0 ;">
                                 {{ $CertificateOrigin->{'numbers_and_kinds_of_packges_' . $i} }}</li>
                         </ul>
@@ -167,23 +167,25 @@
             <td
                 style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                @for ($i = 0; $i < 5; $i++)
+                @for ($i = 0; $i <=16; $i++)
                     @if (isset($CertificateOrigin['description_of_goods_' . $i]))
-                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
-                            <li style="list-style: none; padding: 2px 0 ;">
+                        <ul style="list-style: none; padding: 0px; margin-top: 0px;">
+                            <li style="list-style: none; padding: 0px 0 ;">
                                 {{ $CertificateOrigin->{'description_of_goods_' . $i} }}</li>
                         </ul>
                     @endif
+                 
+                @endif
                 @endfor
             </td>
 
             <td
                 style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                @for ($i = 0; $i < 5; $i++)
+                @for ($i = 0; $i < 16; $i++)
                     @if (isset($CertificateOrigin['gross_weight_or_other_quantity_' . $i]))
-                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
-                            <li style="list-style: none; padding: 2px 0 ;">
+                        <ul style="list-style: none; padding: 0px; margin-top: 0px;">
+                            <li style="list-style: none; padding: 0px 0 ;">
                                 {{ $CertificateOrigin->{'gross_weight_or_other_quantity_' . $i} }}</li>
                         </ul>
                     @endif

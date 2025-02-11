@@ -155,7 +155,7 @@
 
         <table border="1" style="border: 1px solid #000; border-collapse: collapse; width: 100%; margin-top:5px;">
             <tr>
-                <td style="width: 50%; font-size:8px;">
+                <td style="width: 50%; font-size:9px;">
                     <table border="0">
                         <tr>
                             <td>
@@ -214,7 +214,7 @@
 
                     </table>
                 </td>
-                <td style="width: 50%; font-size:8px; height:50px">
+                <td style="width: 50%; font-size:9px; height:50px">
                     <table border="0" style="width: 100%; border-collapse: collapse; ">
                         <tr>
                             <td style="border-right:.5px solid #000;">

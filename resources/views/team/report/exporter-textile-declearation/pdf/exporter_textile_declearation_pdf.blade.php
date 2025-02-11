@@ -25,9 +25,9 @@
     </header>
     <section style="position: relative;">
         <div style="width: 90%; margin:0 auto;">
-            <h1 style="text-align: center; font-family: fantasy;">
+            <h1 style="text-align: center; font-family: fantasy;font-size: 40px;">
                 Toweller Limited</h1>
-            <div style="border: 1px solid #000; width: 60%; margin: 0 auto; border-bottom: 10px solid #000;">
+            <div style="border: 1px solid #000; width: 60%; margin: 0 auto; margin-bottom: -10px;border-bottom: 10px solid #000;">
                 <h2 style="text-align: center; font-size: 20px;">EXPORTER'S TEXTILE DECLARATION OF COUNTRY OF ORIGIN
                 </h2>
             </div>
@@ -47,22 +47,22 @@
             as identified below. i declare that the information set fourth in thus declaration is correct and true to
             the best of my information knowledge and beleif.</p>
     </section>
-    <section>
+    <section >
         <div style="border: 1px solid #000;">
             <table style="height: 350px; border: 1px solid black; border-collapse: collapse;">
                 <tr style="border: 1px solid black; border-collapse: collapse;">
                     <th style="font-weight: 400; border: 1px solid black; border-collapse: collapse; padding: 0 3px; text-transform: uppercase; text-align: start; width: 20%;">Invoice Number</th>
                     <th style="font-weight: 400; border: 1px solid black; border-collapse: collapse; padding: 0 3px; text-transform: uppercase; text-align: start; width: 20%;">B/L Number</th>
                     <th style="font-weight: 400; border: 1px solid black; border-collapse: collapse; padding: 0 3px; text-transform: uppercase; text-align: start; width: 70%;">Marks Or Identification Number</th>
-                    <th style="font-weight: 400; border: 1px solid black; border-collapse: collapse; padding: 0 3px; text-transform: uppercase; text-align: start; width: 100%;">Description Or Procedure</th>
+                    <th style="font-weight: 400; border: 1px solid black; border-collapse: collapse; padding: 0 3px; text-transform: uppercase; text-align: start; width: 100%;">Description Or Produce</th>
                     <th style="font-weight: 400; border: 1px solid black; border-collapse: collapse; padding: 0 3px; text-transform: uppercase; text-align: start; width: 20%;">Country Of Origin</th>
                 </tr>
-                <tr>
+                <tr style="font-size: 12px;">
                     <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
                         @for($i = 0; $i < 5; $i++)
                         @if(isset($ExporterTextileDeclearation["invoice_number_" . $i]))
-                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
-                            <li style="list-style: none; padding: 2px 0 ;"> {{ $ExporterTextileDeclearation->{'invoice_number_' . $i} }}</li>
+                        <ul style="list-style: none; padding: 13px; margin-top: 0px;">
+                            <li style="list-style: none; padding: 13px 0 ;"> {{ $ExporterTextileDeclearation->{'invoice_number_' . $i} }}</li>
                         </ul>
                         @endif
                         @endfor
@@ -70,8 +70,8 @@
                     <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
                         @for($i = 0; $i < 5; $i++)
                         @if(isset($ExporterTextileDeclearation["b_l_number_" . $i]))
-                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
-                            <li style="list-style: none; padding: 2px 0 ;"> {{ $ExporterTextileDeclearation->{'b_l_number_' . $i} }}</li>
+                        <ul style="list-style: none; padding: 13px; margin-top: 0px;">
+                            <li style="list-style: none; padding: 13px 0 ;"> {{ $ExporterTextileDeclearation->{'b_l_number_' . $i} }}</li>
                         </ul>
                         @endif
                         @endfor
@@ -79,17 +79,17 @@
                     <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
                         @for($i = 0; $i < 5; $i++)
                         @if(isset($ExporterTextileDeclearation["marks_or_identification_number" . $i]))
-                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
-                            <li style="list-style: none; padding: 2px 0 ;"> {{ $ExporterTextileDeclearation->{'marks_or_identification_number' . $i} }}</li>
+                        <ul style="list-style: none; padding: 13px; margin-top: 0px;">
+                            <li style="list-style: none; padding: 13px 0 ;"> {{ $ExporterTextileDeclearation->{'marks_or_identification_number' . $i} }}</li>
                         </ul>
                         @endif
                         @endfor
                     </td>
                     <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
-                        @for($i = 0; $i < 5; $i++)
+                        @for($i = 0; $i <=12; $i++)
                         @if(isset($ExporterTextileDeclearation["description_and_procedure_" . $i]))
-                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
-                            <li style="list-style: none; padding: 2px 0 ;"> {{ $ExporterTextileDeclearation->{'description_and_procedure_' . $i} }}</li>
+                        <ul style="list-style: none; padding: 0px; margin-top: 0px;">
+                            <li style="list-style: none; padding: 0px 0 ;"> {{ $ExporterTextileDeclearation->{'description_and_procedure_' . $i} }}</li>
                         </ul>
                         @endif
                         @endfor
@@ -97,9 +97,9 @@
                     <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
                         @for($i = 0; $i < 5; $i++)
                         @if(isset($ExporterTextileDeclearation["country_of_origin_" . $i]))
-                        <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                        {{-- <ul style="list-style: none; padding: 2px; margin-top: 0px;">
                             <li style="list-style: none; padding: 2px 0 ;"> {{ $ExporterTextileDeclearation->{'country_of_origin_' . $i} }}</li>
-                        </ul>
+                        </ul> --}}
                         @endif
                         @endfor
                     </td>
@@ -117,7 +117,7 @@
                     <p>Signature: <input style="width: 200px; border: 0; border-bottom: 1px solid #000;" type="text">
                     </p>
                     <p>Name: <input style="width: 200px; border: 0; border-bottom: 1px solid #000;" type="text" value="{{ $ExporterTextileDeclearation->full_name }}"></p>
-                    <p>Title: <input style="width: 200px; border: 0; border-bottom: 1px solid #000;"  value="{{ $ExporterTextileDeclearation->title }}"  type="text"></p>
+                    <p>Title: <input style="width: 200px; border: 0; border-bottom: 1px solid #000;" value="{{ $ExporterTextileDeclearation->title }}" type="text"></p>
                     <p>Company: <span>Towellers Limited</span></p>
                     <p>Address: <span>WS.A 30-31, BLOCK FEDERAL AREA
                             KARACHI</span></p>

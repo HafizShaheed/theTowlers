@@ -195,7 +195,7 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) <div class="col-sm-4 mb-4">
+                    @for($i=1; $i <= 1; $i++) <div class="col-sm-4 mb-4">
                         <label for="marks_and_numbers_" class="form-label">Mark & Number </label>
                         <input type="text" class="form-control custom-input"
                             id="marks_and_numbers_{{ $i }}"
@@ -207,23 +207,32 @@
                     <input type="text" step="any" class="form-control custom-input" id="numbers_and_kinds_of_packges_{{ $i }}"
                         name="numbers_and_kinds_of_packges_{{ $i }}" value="">
                 </div>
-                <div class="col-sm-4 mb-4">
+                
+                @endfor
+            </div>
+
+                <br>
+                <hr>
+                <div class="row">
+
+                @for($i=1; $i <= 16; $i++)
+                <div class="col-sm-6 mb-4">
                     <label for="description_of_goods_{{ $i }}" class="form-label">Description of goods</label>
                     <input type="text" step="any" class="form-control custom-input" id="description_of_goods_{{ $i }}"
                         name="description_of_goods_{{ $i }}" value="">
                 </div>
 
-                <div class="col-sm-4 mb-4">
+                <div class="col-sm-6 mb-4">
                     <label for="gross_weight_or_other_quantity_" class="form-label">Gross weight or other quantity</label>
                     <input type="text" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
                         name="gross_weight_or_other_quantity_{{ $i }}" value="">
                 </div>
                 
-                <div class="col-sm-4 mb-4">
+                {{-- <div class="col-sm-4 mb-4">
                     <label for="county_of_origin_{{ $i }}" class="form-label">County of origin </label>
                     <input type="text" step="any" class="form-control custom-input" id="county_of_origin_{{ $i }}"
                         name="county_of_origin_{{ $i }}" value="">
-                </div>
+                </div> --}}
                 <hr>
 
                 @endfor

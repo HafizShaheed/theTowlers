@@ -26,7 +26,7 @@ class CreateCertificateOriginsTable extends Migration
             $table->string('ref_number')->nullable();
             $table->string('exporter_membership_number')->nullable();
             $table->string('particular_of_transport')->nullable();
-            for ($i = 1; $i <= 10; $i++) {
+            for ($i = 1; $i <= 16; $i++) {
                 $table->string('marks_and_numbers_' . $i)->nullable();
                 $table->string('numbers_and_kinds_of_packges_' . $i)->nullable();
                 $table->text('description_of_goods_' . $i)->nullable(); // Changed to TEXT

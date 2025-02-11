@@ -108,7 +108,7 @@
             </tr>
             <tr>
                 <td style="margin-top:-30px;padding-left:80px;" colspan="2">
-                    <b style="font-family: serif; text-decoration: underline; display:block; margin:-20px 0;">PACKING SLIPE</b>
+                    <b style="font-family: serif; text-decoration: underline; display:block; margin:-20px 0;">PACKING LIST</b>
                     <b
                         style="font-family: serif; text-decoration: underline; display:block; margin:-10px 0; font-size:10px;">{{ $PackingList['heading_f_i_no'] ?? '' }}
                         &nbsp;&nbsp;{{ $PackingList['value_f_i_no'] ?? '' }} </b>
@@ -970,8 +970,8 @@
                 {{-- </td>
             </tr>
         </table>  --}}
-        <p style="font-size:8px;">{{ $PackingList['heading_note'] ?? '' }} :
-            {{ $PackingList['note_value'] ?? '' }} </p>
+        <p style="font-size:8px;">{{ $PackingList['heading_remarks'] ?? '' }} :
+            {{ $PackingList['value_remarks'] ?? '' }} </p>
         <table border="1" style=" margin-top: 4px; border-collapse: collapse; width: 100%;font-size:8px;">
             <tr>
                 <td style="width: 55%;">
