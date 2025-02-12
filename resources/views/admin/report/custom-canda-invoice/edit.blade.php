@@ -326,18 +326,33 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-sm-12 mb-3">
-                            <label for="description_pecification_of_commodities" class="form-label">Description of
-                                Commodity</label>
-                            <textarea class="form-control custom-input" id="description_pecification_of_commodities"
-                                name="description_pecification_of_commodities" rows="4">{{ $editCanadaCustomerInvoiceFrom->description_pecification_of_commodities }}</textarea>
-                        </div>
+                        <label for="" class="form-label">Description of
+                            Commodity</label>
+                           
+                                @for($i=1; $i <= 8; $i++) 
+
+                                
+                                <div class="col-sm-12 mb-3">
+                                  
+                                        <input type="text" class="form-control custom-input"
+                                        id="des_pecification_of_commodities_{{ $i }}"
+                                        name="des_pecification_of_commodities_{{ $i }}" value="">
+
+                                        <label for="des_pecification_of_commodities_{{ $i }}" class="form-label">Quantity</label>
+                                        <input type="number" step="any" class="form-control custom-input"
+                                            id="des_pecification_of_commodities_{{ $i }}" name="des_pecification_of_commodities_{{ $i }}"
+                                            value="{{ $editCanadaCustomerInvoiceFrom->{'des_pecification_of_commodities_' . $i} }}">
+                                    </div>
+                                
+                                </div>
+                                @endfor
+                            
 
                     </div>
 
                     <div class="row">
                         <!-- =========== Director1 ============ -->
-                        @for ($i = 1; $i <= 6; $i++)
+                        @for ($i = 1; $i <= 8; $i++)
                             <div class="col-sm-3 mb-4">
                                 <label for="" class="form-label">Number of Packages </label>
                                 <input type="text" class="form-control custom-input"

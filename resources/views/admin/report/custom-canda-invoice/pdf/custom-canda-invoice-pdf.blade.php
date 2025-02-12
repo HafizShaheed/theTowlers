@@ -221,7 +221,7 @@
         </tr>
     </table>
     <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
-        <tr>
+        <tr style="text-align: center">
             <td style="text-align: left; width: 10px; font-size: 8px; border-right: 1px solid #000; ">
                 <div style="height: 39px;">
                     <span>11.</span> <br> <span>
@@ -230,7 +230,7 @@
                     </span>
                 </div>
             </td>
-            <td style="width: 200px; font-size: 8px; border-right: 1px solid #000; ">
+            <td style="width: 160px; font-size: 8px; border-right: 1px solid #000; ">
                 <div style="height: 39px;">
                     <table>
                         <tr>
@@ -269,20 +269,21 @@
                     </table>
                 </div>
             </td>
-            <td style="text-align: left; width: 80px; font-size: 8px; padding-bottom: 20px;">
-                <div style="height: 39px;">
-                    <div style="border-bottom: 1px solid; text-align: center;">
+ 
+            <td style="width: 104px; font-size: 8px; padding-bottom: 20px; text-align: center;">
+                <div style="height: 39px; text-align: center;">
+                    <div style="border-bottom: 1px solid; text-align: center; width: 100%;">
                         Selling price - Prixe de vente
                     </div>
-                    <table>
+                    <table style="width: 100%; border-collapse: collapse; text-align: center;"> 
                         <tr>
-                            <td style="text-align: left; width: 70%; font-size: 8px; border-right: 1px solid #000;">
-                                <div style="height: 49px;width: 120px;">
+                            <td style="width: 40%; font-size: 8px; border-right: 1px solid #000; text-align: center;">
+                                <div style="height: 49px; display: flex; align-items: center; justify-content: center;">
                                     14. Unit price Prix unitaire
                                 </div>
                             </td>
-                            <td style="text-align: left; width: 30%; font-size: 8px;">
-                                <div style="height: 49px;width: 49px;">
+                            <td style="width: 60%; font-size: 8px; text-align: center;">
+                                <div style="height: 49px; display: flex; align-items: center; justify-content: center;">
                                     15. Total
                                 </div>
                             </td>
@@ -290,6 +291,7 @@
                     </table>
                 </div>
             </td>
+            
         </tr>
 
         @php
@@ -299,7 +301,7 @@
             $grandTotal = 0;
         @endphp
 
-        @for ($i = 0; $i < 7; $i++)
+        @for ($i = 1; $i <=8; $i++)
             @if (isset($CanadaCustomerInvoiceFrom['number_of_packages_nombre_de_coils_' . $i]))
                 @php
                     $quantity = $CanadaCustomerInvoiceFrom['quantity_' . $i] ?? 0;
@@ -314,27 +316,28 @@
                 @endphp
                 <tr>
                     <td
-                        style="text-align: left; width: 10px; font-size: 8px; border-right: 1px solid #000;padding-bottom: 15px;">
-                        <div style="height: 22px;">
+                        style="text-align: left; width: 10px; font-size: 8px; border-right: 1px solid #000;padding-bottom: 4px;">
+                        <div style="height: 15px;">
                             <span></span><br>
                             <span>{{ $CanadaCustomerInvoiceFrom['number_of_packages_nombre_de_coils_' . $i] }}</span>
                         </div>
                     </td>
-                    <td style="width: 200px; font-size: 8px; border-right: 1px solid #000;padding-bottom: 15px;">
-                        <div style="height: 22px;">
+                    <td style="width: 160px; font-size: 8px; border-right: 1px solid #000;padding-bottom: 4px;">
+                        <div style="height: 15px;">
                             <table>
                                 <tr>
                                     <td>
-                                        <div style="height: 22px;"></div>
+                                        <div style="height: 15px;"></div>
                                     </td>
                                     <td>
-                                        <div style="height: 22px;">
-                                            @if (!$descriptionPrinted)
+                                        <div style="height: 15px;">
+                                            {{-- @if (!$descriptionPrinted)
                                                 {{ $CanadaCustomerInvoiceFrom['description_pecification_of_commodities'] ?? '' }}
                                                 @php
                                                     $descriptionPrinted = true;
                                                 @endphp
-                                            @endif
+                                            @endif --}}
+                                            >{{ $CanadaCustomerInvoiceFrom['des_pecification_of_commodities_' . $i] }}
                                         </div>
                                     </td>
                                 </tr>
@@ -342,15 +345,15 @@
                         </div>
                     </td>
                     <td
-                        style="text-align: center; width: 10px; font-size: 8px; border-right: 1px solid #000;padding-bottom: 15px;">
-                        <div style="height: 22px;">
+                        style="text-align: center; width: 10px; font-size: 8px; border-right: 1px solid #000;padding-bottom: 4px;">
+                        <div style="height: 15px;">
                             <table>
                                 <tr>
                                     <td>
-                                        <div style="height: 22px;"></div>
+                                        <div style="height: 15px;"></div>
                                     </td>
                                     <td style="text-align: left;">
-                                        <div style="height: 22px;">
+                                        <div style="height: 15px;">
                                             {{ $quantity }}
                                             {{ $CanadaCustomerInvoiceFrom['quantity_unit_' . $i] ?? '' }}
                                         </div>
@@ -359,21 +362,23 @@
                             </table>
                         </div>
                     </td>
-                    <td style="text-align: left; width: 80px; font-size: 8px; padding-bottom: 15px;">
-                        <div style="height: 22px;">
+              
+
+                    <td style="width: 104px; font-size: 8px; padding-bottom: 4px; text-align: center;">
+                        <div style="height: 15px; text-align: center;">
                             <div style="border-bottom: 1px solid; text-align: center; display: none;">
                                 Selling price - Prixe de vente
                             </div>
-                            <table>
+                            <table style="width: 100%; border-collapse: collapse; text-align: center;"> 
                                 <tr>
-                                    <td
-                                        style="text-align: left; width: 70%; font-size: 8px; border-right: 1px solid #000 ;">
-                                        <div style="height: 58px; width: 120px;">
+                                    <td style="width: 40%; font-size: 8px; border-right: 1px solid #000; text-align: center;">
+                                        <div style="height: 49px; display: flex; align-items: center; justify-content: center;">
                                             {{ $unitPrice }}
+
                                         </div>
                                     </td>
-                                    <td style="text-align: left; width: 30%; font-size: 8px;">
-                                        <div style="height: 58px; width: 49px;">
+                                    <td style="width: 60%; font-size: 8px; text-align: center;">
+                                        <div style="height: 49px; display: flex; align-items: center; justify-content: center;">
                                             {{ $total }}
                                         </div>
                                     </td>
@@ -382,8 +387,10 @@
                         </div>
                     </td>
                 </tr>
+               
             @endif
         @endfor
+
 
 
 
@@ -395,7 +402,8 @@
 
 
 
-    <table style=" margin-top: 0px; border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0px solid #000;">
+    <table
+        style=" margin-top: 0px; border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0px solid #000;">
         <tr>
             <td style=" width: 300px; font-size: 8px;">
                 <div style="height: 50px; border-right: 1px solid #000;">
@@ -585,245 +593,245 @@
             </td>
         </tr>
     </table>
-    
+
     <div style="page-break-after:auto;"></div>
-        <table style="border: 1px solid #000; border: 1px solid #000' border-collapse: collapse; width: 100%; ">
-            <tr>
-                <td style="width: 50%; font-size: 7px; border-right: 1px solid;">
-                    <div style="height: 30px;">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div style="height: 30px;">
-                                        21.
+    <table style="border: 1px solid #000; border: 1px solid #000' border-collapse: collapse; width: 100%; ">
+        <tr>
+            <td style="width: 50%; font-size: 7px; border-right: 1px solid;">
+                <div style="height: 30px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <div style="height: 30px;">
+                                    21.
+                                </div>
+                            </td>
+                            <td>
+                                <div style="height: 30px;">
+                                    Agency ruling (if applicable) - Decision de I'Agence (s'il y a lieu)
+                                    <br>
+                                    {{ $CanadaCustomerInvoiceFrom->agency_ruling ?? '' }}
+                                </div>
+                                <div style="font-size: 10px;">
+
+                                </div>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </td>
+            <td style="width: 50%; font-size: 7px;">
+                <div style="height: 30px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <div style="height: 30px;">
+                                    22.
+                                </div>
+                            </td>
+                            <td>
+                                <div style="height: 30px;">
+                                    If field 23 to 25 are not applicable, check this box <br>
+                                    Si les zones 23 a 25 sont sans objet, cochez cette case
+                                </div>
+                            </td>
+                            <td>
+                                <div style="height: 30px; margin-left: 40px;">
+                                    <input type="checkbox"
+                                        {{ $CanadaCustomerInvoiceFrom->{'yes_or_no_If_any_of_fields_23_to_35_are_not_applicable'} ? 'checked' : '' }}>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; margin-top: 2px">
+        <tr>
+            <td style="width: 33.33%; font-size: 7px; border-right: 1px solid;">
+                <div style="height: 187px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <div style="height: 150px;">
+                                    23.
+                                </div>
+                            </td>
+                            <td>
+                                <div style="height: 30px;">
+                                    If included in field 17 indicate amount: <br>
+                                    Si compris dans le total a la zone 17 precisez:
+                                    <br>
+                                    {{ $CanadaCustomerInvoiceFrom->{'23_agency_if_included_in_field_17_indicate'} ?? '' }}
+                                </div>
+                                <div style="width: 100%; margin: auto;">
+                                    (i) Transportation charges, expenses and insurance <br>
+                                    from the place of direct shipment to Canada <br>
+                                    Les Frais de transport,
+                                    depences directe verse le Canada
+                                    <div>
+                                        <input type="text"
+                                            style="width: 90px; border: 0; border-bottom: 1px solid;"
+                                            value=" {{ $CanadaCustomerInvoiceFrom->{'23_agency_transportation_charges'} ?? '' }}">
                                     </div>
-                                </td>
-                                <td>
-                                    <div style="height: 30px;">
-                                        Agency ruling (if applicable) - Decision de I'Agence (s'il y a lieu)
-                                        <br>
-                                        {{ $CanadaCustomerInvoiceFrom->agency_ruling ?? '' }}
+
+                                </div>
+
+                                <div style="width: 100%; margin: auto;">
+                                    (ii) Costs for contruction, erection and assembly<br>
+                                    incurred after importation into Canada <br>
+                                    Les couts de construction, d'erection et <br>
+                                    d'assemblage apres importation au Canada
+                                    <div>
+                                        <input type="text"
+                                            style="width: 90px; border: 0; border-bottom: 1px solid;"
+                                            value=" {{ $CanadaCustomerInvoiceFrom->{'23_agency_costs_for_contruction'} ?? '' }}">
                                     </div>
-                                    <div style="font-size: 10px;">
+
+                                </div>
+
+                                <div style="width: 100%; margin: auto;">
+                                    (iii) Exporting packing <br>
+                                    Le cout de I'emballage d'exportation
+                                    <div>
+                                        <input type="text"
+                                            style="width: 90px; border: 0; border-bottom: 1px solid;"
+                                            value=" {{ $CanadaCustomerInvoiceFrom->{'23_agency_exporting_packing'} ?? '' }}">
 
                                     </div>
 
-                                </td>
-                            </tr>
-                        </table>
+                                </div>
 
-                    </div>
-                </td>
-                <td style="width: 50%; font-size: 7px;">
-                    <div style="height: 30px;">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div style="height: 30px;">
-                                        22.
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+            </td>
+            <td style="width: 33.33%; font-size: 7px; border-right: 1px solid;">
+                <div style="height: 187px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <div style="height: 150px;">
+                                    24.
+                                </div>
+                            </td>
+                            <td>
+                                <div style="height: 30px;">
+                                    If included in field 17 indicate amount: <br>
+                                    Si compris dans le total a la zone 17 precisez:
+
+                                    {{ $CanadaCustomerInvoiceFrom->{'24_agency_if_included_in_field_17_indicate'} ?? '' }}
+                                </div>
+                                <div style="width: 100%; margin: auto;">
+                                    (i) Transportation charges, expenses and insurance <br>
+                                    from the place of direct shipment to Canada <br>
+                                    Les Frais de transport,
+                                    depences directe verse le Canada
+                                    <div>
+                                        <input type="text"
+                                            style="width: 90px; border: 0; border-bottom: 1px solid;"
+                                            value=" {{ $CanadaCustomerInvoiceFrom->{'24_agency_transportation_charges'} ?? '' }}">
+
                                     </div>
-                                </td>
-                                <td>
-                                    <div style="height: 30px;">
-                                        If field 23 to 25 are not applicable, check this box <br>
-                                        Si les zones 23 a 25 sont sans objet, cochez cette case
+
+                                </div>
+
+                                <div style="width: 100%; margin: auto;">
+                                    (ii) Costs for contruction, erection and assembly<br>
+                                    incurred after importation into Canada <br>
+                                    Les couts de construction, d'erection et <br>
+                                    d'assemblage apres importation au Canada
+                                    <div>
+                                        <input type="text"
+                                            style="width: 90px; border: 0; border-bottom: 1px solid;"
+                                            value=" {{ $CanadaCustomerInvoiceFrom->{'24_agency_costs_for_contruction'} ?? '' }}">
+
                                     </div>
-                                </td>
-                                <td>
-                                    <div style="height: 30px; margin-left: 40px;">
+
+                                </div>
+
+                                <div style="width: 100%; margin: auto;">
+                                    (iii) Exporting packing <br>
+                                    Le cout de I'emballage d'exportation
+                                    <div>
+                                        <input type="text"
+                                            style="width: 90px; border: 0; border-bottom: 1px solid;"
+                                            value=" {{ $CanadaCustomerInvoiceFrom->{'24_agency_exporting_packing'} ?? '' }}">
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+            </td>
+            <td style="width: 33.33%; font-size: 7px; border-right: 1px solid;">
+                <div style="height: 187px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <div style="height: 150px;">
+                                    25.
+                                </div>
+                            </td>
+                            <td>
+                                <div style="height: 30px;">
+                                    If included in field 17 indicate amount: <br>
+                                    Si compris dans le total a la zone 17 precisez:
+
+                                    {{ $CanadaCustomerInvoiceFrom->{'25_agency_if_included_in_field_17_indicate'} ?? '' }}
+                                </div>
+                                <div style="width: 100%; margin: auto;">
+                                    (i) Transportation charges, expenses and insurance <br>
+                                    from the place of direct shipment to Canada <br>
+                                    Les Frais de transport,
+                                    depences directe verse le Canada
+                                    <div style="text-align: center;">
                                         <input type="checkbox"
-                                            {{ $CanadaCustomerInvoiceFrom->{'yes_or_no_If_any_of_fields_23_to_35_are_not_applicable'} ? 'checked' : '' }}>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; margin-top: 5px">
-            <tr>
-                <td style="width: 33.33%; font-size: 7px; border-right: 1px solid;">
-                    <div style="height: 170px;">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div style="height: 150px;">
-                                        23.
-                                    </div>
-                                </td>
-                                <td>
-                                    <div style="height: 30px;">
-                                        If included in field 17 indicate amount: <br>
-                                        Si compris dans le total a la zone 17 precisez:
-                                        <br>
-                                        {{ $CanadaCustomerInvoiceFrom->{'23_agency_if_included_in_field_17_indicate'} ?? '' }}
-                                    </div>
-                                    <div style="width: 100%; margin: auto;">
-                                        (i) Transportation charges, expenses and insurance <br>
-                                        from the place of direct shipment to Canada <br>
-                                        Les Frais de transport,
-                                        depences directe verse le Canada
-                                        <div>
-                                            <input type="text"
-                                                style="width: 90px; border: 0; border-bottom: 1px solid;"
-                                                value=" {{ $CanadaCustomerInvoiceFrom->{'23_agency_transportation_charges'} ?? '' }}">
-                                        </div>
-
+                                            {{ $CanadaCustomerInvoiceFrom->{'yes_or_no_25_agency_transportation_charges'} ? 'checked' : '' }}>
                                     </div>
 
-                                    <div style="width: 100%; margin: auto;">
-                                        (ii) Costs for contruction, erection and assembly<br>
-                                        incurred after importation into Canada <br>
-                                        Les couts de construction, d'erection et <br>
-                                        d'assemblage apres importation au Canada
-                                        <div>
-                                            <input type="text"
-                                                style="width: 90px; border: 0; border-bottom: 1px solid;"
-                                                value=" {{ $CanadaCustomerInvoiceFrom->{'23_agency_costs_for_contruction'} ?? '' }}">
-                                        </div>
+                                </div>
 
+                                <div style="width: 100%; margin: auto;">
+                                    (ii) Costs for contruction, erection and assembly<br>
+                                    incurred after importation into Canada <br>
+                                    Les couts de construction, d'erection et <br>
+                                    d'assemblage apres importation au Canada
+                                    <div style="text-align: center;">
+                                        <input type="checkbox"
+                                            {{ $CanadaCustomerInvoiceFrom->{'yes_or_no_25_agency_costs_for_contruction'} ? 'checked' : '' }}>
                                     </div>
 
-                                    <div style="width: 100%; margin: auto;">
-                                        (iii) Exporting packing <br>
-                                        Le cout de I'emballage d'exportation
-                                        <div>
-                                            <input type="text"
-                                                style="width: 90px; border: 0; border-bottom: 1px solid;"
-                                                value=" {{ $CanadaCustomerInvoiceFrom->{'23_agency_exporting_packing'} ?? '' }}">
-
-                                        </div>
-
-                                    </div>
-
-                                </td>
-                            </tr>
-
-                        </table>
-
-                    </div>
-                </td>
-                <td style="width: 33.33%; font-size: 7px; border-right: 1px solid;">
-                    <div style="height: 170px;">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div style="height: 150px;">
-                                        24.
-                                    </div>
-                                </td>
-                                <td>
-                                    <div style="height: 30px;">
-                                        If included in field 17 indicate amount: <br>
-                                        Si compris dans le total a la zone 17 precisez:
-
-                                        {{ $CanadaCustomerInvoiceFrom->{'24_agency_if_included_in_field_17_indicate'} ?? '' }}
-                                    </div>
-                                    <div style="width: 100%; margin: auto;">
-                                        (i) Transportation charges, expenses and insurance <br>
-                                        from the place of direct shipment to Canada <br>
-                                        Les Frais de transport,
-                                        depences directe verse le Canada
-                                        <div>
-                                            <input type="text"
-                                                style="width: 90px; border: 0; border-bottom: 1px solid;"
-                                                value=" {{ $CanadaCustomerInvoiceFrom->{'24_agency_transportation_charges'} ?? '' }}">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div style="width: 100%; margin: auto;">
-                                        (ii) Costs for contruction, erection and assembly<br>
-                                        incurred after importation into Canada <br>
-                                        Les couts de construction, d'erection et <br>
-                                        d'assemblage apres importation au Canada
-                                        <div>
-                                            <input type="text"
-                                                style="width: 90px; border: 0; border-bottom: 1px solid;"
-                                                value=" {{ $CanadaCustomerInvoiceFrom->{'24_agency_costs_for_contruction'} ?? '' }}">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div style="width: 100%; margin: auto;">
-                                        (iii) Exporting packing <br>
-                                        Le cout de I'emballage d'exportation
-                                        <div>
-                                            <input type="text"
-                                                style="width: 90px; border: 0; border-bottom: 1px solid;"
-                                                value=" {{ $CanadaCustomerInvoiceFrom->{'24_agency_exporting_packing'} ?? '' }}">
-
-                                        </div>
-
-                                    </div>
-
-                                </td>
-                            </tr>
-
-                        </table>
-
-                    </div>
-                </td>
-                <td style="width: 33.33%; font-size: 7px; border-right: 1px solid;">
-                    <div style="height: 170px;">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div style="height: 150px;">
-                                        25.
-                                    </div>
-                                </td>
-                                <td>
-                                    <div style="height: 30px;">
-                                        If included in field 17 indicate amount: <br>
-                                        Si compris dans le total a la zone 17 precisez:
-
-                                        {{ $CanadaCustomerInvoiceFrom->{'25_agency_if_included_in_field_17_indicate'} ?? '' }}
-                                    </div>
-                                    <div style="width: 100%; margin: auto;">
-                                        (i) Transportation charges, expenses and insurance <br>
-                                        from the place of direct shipment to Canada <br>
-                                        Les Frais de transport,
-                                        depences directe verse le Canada
-                                        <div style="text-align: center;">
-                                            <input type="checkbox"
-                                                {{ $CanadaCustomerInvoiceFrom->{'yes_or_no_25_agency_transportation_charges'} ? 'checked' : '' }}>
-                                        </div>
-
-                                    </div>
-
-                                    <div style="width: 100%; margin: auto;">
-                                        (ii) Costs for contruction, erection and assembly<br>
-                                        incurred after importation into Canada <br>
-                                        Les couts de construction, d'erection et <br>
-                                        d'assemblage apres importation au Canada
-                                        <div style="text-align: center;">
-                                            <input type="checkbox"
-                                                {{ $CanadaCustomerInvoiceFrom->{'yes_or_no_25_agency_costs_for_contruction'} ? 'checked' : '' }}>
-                                        </div>
-
-                                    </div>
+                                </div>
 
 
-                                </td>
-                            </tr>
+                            </td>
+                        </tr>
 
-                        </table>
+                    </table>
 
-                    </div>
-                </td>
-            <tr style="border-top: 0.5px solid;">
-                <td colspan="3" style="text-align: center; font-size: 7px; ">Dans ce formulaire, toutes les
-                    expressions
-                    designant des personnes visent a la fois les hommes et les femmes</td>
-            </tr>
-            </tr>
-        </table>
+                </div>
+            </td>
+        <tr style="border-top: 0.5px solid;">
+            <td colspan="3" style="text-align: center; font-size: 7px; ">Dans ce formulaire, toutes les
+                expressions
+                designant des personnes visent a la fois les hommes et les femmes</td>
+        </tr>
+        </tr>
+    </table>
 
-        <script type="text/php">
+    <script type="text/php">
         if ( isset($pdf) ) {
             // OLD
             // $font = Font_Metrics::get_font("helvetica", "bold");

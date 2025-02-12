@@ -279,18 +279,23 @@
 
                 </div>
                 <div class="row">
+                    @for($i=1; $i <= 8; $i++) 
                     <div class="col-sm-12 mb-3">
-                        <label for="description_pecification_of_commodities" class="form-label">Description of
+                        <label for="" class="form-label">Description of
                             Commodity</label>
-                        <textarea class="form-control custom-input" id="description_pecification_of_commodities"
-                            name="description_pecification_of_commodities" rows="4"></textarea>
+                            <input type="text" class="form-control custom-input"
+                            id="des_pecification_of_commodities_{{ $i }}"
+                            name="des_pecification_of_commodities_{{ $i }}" value="">
+                    
                     </div>
+                    @endfor
 
                 </div>
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) <div class="col-sm-3 mb-4">
+                    @for($i=1; $i <= 8; $i++) 
+                    <div class="col-sm-3 mb-4">
                         <label for="" class="form-label">Number of Packages </label>
                         <input type="text" class="form-control custom-input"
                             id="number_of_packages_nombre_de_coils_{{ $i }}"

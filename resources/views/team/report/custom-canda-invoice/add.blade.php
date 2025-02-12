@@ -1,4 +1,4 @@
-@extends('team.includes.master')
+@extends('admin.includes.master')
 
 
 
@@ -279,18 +279,23 @@
 
                 </div>
                 <div class="row">
+                    @for($i=1; $i <= 8; $i++) 
                     <div class="col-sm-12 mb-3">
-                        <label for="description_pecification_of_commodities" class="form-label">Description of
+                        <label for="" class="form-label">Description of
                             Commodity</label>
-                        <textarea class="form-control custom-input" id="description_pecification_of_commodities"
-                            name="description_pecification_of_commodities" rows="4"></textarea>
+                            <input type="text" class="form-control custom-input"
+                            id="des_pecification_of_commodities_{{ $i }}"
+                            name="des_pecification_of_commodities_{{ $i }}" value="">
+                    
                     </div>
+                    @endfor
 
                 </div>
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) <div class="col-sm-3 mb-4">
+                    @for($i=1; $i <= 8; $i++) 
+                    <div class="col-sm-3 mb-4">
                         <label for="" class="form-label">Number of Packages </label>
                         <input type="text" class="form-control custom-input"
                             id="number_of_packages_nombre_de_coils_{{ $i }}"
@@ -320,7 +325,7 @@
 
         <div class="row">
             <div class="col-xl-6 d-flex justify-content-start">
-                  <button type="button" class="btn btn report-tab-unactive" onclick="window.history.back()">Cancel</button>   
+                <button type="button" class="btn btn report-tab-unactive" onclick="window.history.back()">Cancel</button>   
             </div>
             <div class="col-xl-6 d-flex justify-content-end">
                 <button type="submit" class="btn btn report-tab-active" id="firm-submit">Save</button>
@@ -371,7 +376,7 @@ $(document).ready(function() {
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            url: "{{ route('team.submit_custom_canda_invoice') }}",
+            url: "{{ route('admin.submit_custom_canda_invoice') }}",
             data: formData,
             dataType: "json",
             processData: false, // important for FormData
@@ -390,7 +395,7 @@ $(document).ready(function() {
                 $('#firm-submit').prop('disabled', false);
 
                       //  window.location.href =
-                          //  "{{ route('team.report_List_custom_canda_invoice') }}"
+                        //    "{{ route('admin.report_List_custom_canda_invoice') }}"
 
                     },
                 });
