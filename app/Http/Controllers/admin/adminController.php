@@ -418,9 +418,11 @@ class adminController extends Controller
             $canadaCustomerInvoiceFrom->fill($request->all());
 
             // Create related records using loop
-            for ($i = 1; $i <= 6; $i++) {
+            for ($i = 1; $i <= 7; $i++) {
 
                 // Packages
+                
+                $canadaCustomerInvoiceFrom->{"des_pecification_of_commodities_$i"} = $request->input("des_pecification_of_commodities_$i");
                 $canadaCustomerInvoiceFrom->{"number_of_packages_nombre_de_coils_$i"} = $request->input("number_of_packages_nombre_de_coils_$i");
                 // Quantity
                 $canadaCustomerInvoiceFrom->{"quantity_$i"} = $request->input("quantity_$i");
@@ -494,8 +496,9 @@ class adminController extends Controller
             $canadaCustomerInvoiceFrom->save();
 
             // Create or update related records using a loop
-            for ($i = 1; $i <= 6; $i++) {
+            for ($i = 1; $i <= 7; $i++) {
                 // Packages
+                $canadaCustomerInvoiceFrom->{"des_pecification_of_commodities_$i"} = $request->input("des_pecification_of_commodities_$i");
                 $canadaCustomerInvoiceFrom->{"number_of_packages_nombre_de_coils_$i"} = $request->input("number_of_packages_nombre_de_coils_$i");
                 // Quantity
                 $canadaCustomerInvoiceFrom->{"quantity_$i"} = $request->input("quantity_$i");

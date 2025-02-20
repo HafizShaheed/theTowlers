@@ -175,7 +175,6 @@
                         </ul>
                     @endif
                  
-                @endif
                 @endfor
             </td>
 
@@ -297,3 +296,4 @@
 </body>
 
 </html>
+

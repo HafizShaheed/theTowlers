@@ -329,16 +329,12 @@
                         <label for="" class="form-label">Description of
                             Commodity</label>
                            
-                                @for($i=1; $i <= 8; $i++) 
+                                @for($i=1; $i <= 7; $i++) 
 
                                 
                                 <div class="col-sm-12 mb-3">
                                   
-                                        <input type="text" class="form-control custom-input"
-                                        id="des_pecification_of_commodities_{{ $i }}"
-                                        name="des_pecification_of_commodities_{{ $i }}" value="">
-
-                                        <label for="des_pecification_of_commodities_{{ $i }}" class="form-label">Quantity</label>
+                                  
                                         <input type="number" step="any" class="form-control custom-input"
                                             id="des_pecification_of_commodities_{{ $i }}" name="des_pecification_of_commodities_{{ $i }}"
                                             value="{{ $editCanadaCustomerInvoiceFrom->{'des_pecification_of_commodities_' . $i} }}">

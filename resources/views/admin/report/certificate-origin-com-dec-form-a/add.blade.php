@@ -141,6 +141,16 @@
                         <input type="text" class="form-control custom-input" id="transport_and_route" name="transport_and_route"
                             value="">
                     </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="bl_date" class="form-label">Transport and route Date</label>
+                        <input type="text" class="form-control custom-input" id="bl_date" name="bl_date"
+                            value="DATE: ">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="bl_no" class="form-label">Transport BL NO</label>
+                        <input type="text" class="form-control custom-input" id="bl_no" name="bl_no"
+                            value="BL: ">
+                    </div>
                  
                     <div class="col-sm-3 mb-3">
                         <label for="produce_in_country" class="form-label">Produce in country </label>
@@ -180,45 +190,67 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) 
+                    
+                    @for($i=3; $i <= 3; $i++) 
                     <div class="col-sm-4 mb-4">
                         <label for="item_number_" class="form-label">Item Number </label>
                         <input type="text" class="form-control custom-input"
                             id="item_number_{{ $i }}"
                             name="item_number_{{ $i }}" value="">
-                </div>
+                    </div>
+                     @endfor
+
+                @for($i=3; $i <= 3; $i++) 
                     <div class="col-sm-4 mb-4">
                         <label for="marks_and_numbers_" class="form-label">Mark & Number </label>
                         <input type="text" class="form-control custom-input"
                             id="marks_and_numbers_{{ $i }}"
                             name="marks_and_numbers_{{ $i }}" value="">
                 </div>
+                @endfor
+            </div>
 
+                <div class="row">
+
+                @for($i=1; $i <= 14; $i++) 
                 <div class="col-sm-4 mb-4">
                     <label for="numbers_and_kinds_of_packges_description_{{ $i }}" class="form-label">Numbers and kinds of packges description</label>
                     <input type="text" step="any" class="form-control custom-input" id="numbers_and_kinds_of_packges_description_{{ $i }}"
                         name="numbers_and_kinds_of_packges_description_{{ $i }}" value="">
                 </div>
+                @endfor
+            </div>
+
+                <div class="row">
+
+                @for($i=3; $i <= 3; $i++) 
                 <div class="col-sm-4 mb-4">
-                    <label for="origin_criterion_{{ $i }}" class="form-label">Origin criterion_</label>
+                    <label for="origin_criterion_{{ $i }}" class="form-label">Origin criterion</label>
                     <input type="text" step="any" class="form-control custom-input" id="origin_criterion_{{ $i }}"
                         name="origin_criterion_{{ $i }}" value="">
                 </div>
+                @endfor
+                 </div>
 
-                <div class="col-sm-4 mb-4">
+                <div class="row">
+
+                @for($i=1; $i <= 14; $i++) 
+
+                <div class="col-sm-3 mb-4">
                     <label for="gross_weight_or_other_quantity_" class="form-label">Gross weight or other quantity</label>
-                    <input type="number" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
+                    <input type="text" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
                         name="gross_weight_or_other_quantity_{{ $i }}" value="">
                 </div>
-                
-                <div class="col-sm-4 mb-4">
+                @endfor
+                @for($i=1; $i <= 14; $i++) 
+                <div class="col-sm-3 mb-4">
                     <label for="number_and_dates_of_inovoices_{{ $i }}" class="form-label">Number and dates of inovoices </label>
                     <input type="text" step="any" class="form-control custom-input" id="number_and_dates_of_inovoices_{{ $i }}"
                         name="number_and_dates_of_inovoices_{{ $i }}" value="">
-                </div>
+                </div>   @endfor
+               
                 <hr>
 
-                @endfor
                 <!-- =========== Director1 ============ -->
         </div>
 

@@ -30,7 +30,7 @@ class CreateCertificateOriginComDecFormASTable extends Migration
             $table->string('importing_in_country', 100)->nullable();
             $table->boolean('yes_or_no_preferential_treatment')->default(false)->nullable(); // Changed to boolean
         
-            for ($i = 1; $i <= 10; $i++) {
+            for ($i = 1; $i <= 14; $i++) {
                 $table->string('item_number_' . $i, 100)->nullable();
                 $table->string('marks_and_numbers_' . $i, 255)->nullable();
                 $table->string('numbers_and_kinds_of_packges_description_' . $i, 255)->nullable();
@@ -44,6 +44,8 @@ class CreateCertificateOriginComDecFormASTable extends Migration
             $table->string('team_user_id', 100)->nullable();
             $table->string('date', 100)->nullable();
             $table->string('place', 100)->nullable();
+            $table->string('bl_date', 100)->nullable(); // Adjusted length
+            $table->string('bl_no', 100)->nullable(); // Adjusted length
             $table->string('certificate_origin_com_decs_from_a_invoices', 100)->nullable();
         
             $table->timestamps();

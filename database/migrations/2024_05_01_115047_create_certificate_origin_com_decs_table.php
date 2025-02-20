@@ -41,6 +41,7 @@ class CreateCertificateOriginComDecsTable extends Migration
             $table->string('invioce_generator', 100)->nullable(); // Adjusted length
             $table->string('team_user_id', 100)->nullable(); // Adjusted length
             $table->string('date', 100)->nullable(); // Adjusted length
+       
             $table->string('place', 100)->nullable(); // Adjusted length
             $table->string('certificate_origin_com_decs_invoices', 100)->nullable(); // Adjusted length
         

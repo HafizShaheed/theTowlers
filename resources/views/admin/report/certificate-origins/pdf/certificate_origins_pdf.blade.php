@@ -175,7 +175,6 @@
                         </ul>
                     @endif
                  
-                @endif
                 @endfor
             </td>
 

@@ -279,7 +279,7 @@
 
                 </div>
                 <div class="row">
-                    @for($i=1; $i <= 8; $i++) 
+                    @for($i=1; $i <= 7; $i++) 
                     <div class="col-sm-12 mb-3">
                         <label for="" class="form-label">Description of
                             Commodity</label>
