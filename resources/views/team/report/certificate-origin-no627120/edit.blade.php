@@ -177,6 +177,11 @@
                             <input type="text" class="form-control custom-input" id="other_information"
                                 name="other_information" value="{{ $CertificateOriginNo627120->other_information }}">
                         </div>
+                        <div class="col-sm-3 mb-3">
+                            <label for="other_information_2" class="form-label">Other information</label>
+                            <input type="text" class="form-control custom-input" id="other_information_2"
+                                name="other_information_2" value="{{ $CertificateOriginNo627120->other_information_2 }}">
+                        </div>
 
 
 

@@ -143,55 +143,74 @@
 
         </tr>
         <tr style="border-top: 1px solid; font-size: 12px">
-             <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 0px">
-
-                @for($i = 1; $i <= 14; $i++) @if(isset($CertificateOriginComDecFormA["item_number_" . $i])) <ul style="list-style: none;padding 0px; padding-bottom: 0px; margin-top: 0px;">
-                    <li style="list-style: none; padding: 0px 0 ;"> {{ $CertificateOriginComDecFormA->{'item_number_' . $i} }}</li>
-                    </ul>
-                @endif
+            <td style="border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 0px; text-align: center;">
+                @for($i = 1; $i <= 14; $i++) 
+                    @if(isset($CertificateOriginComDecFormA["item_number_" . $i])) 
+                        <ul style="list-style: none; padding: 0px; margin: 0px;">
+                            <li style="list-style: none; padding: 0px;"> 
+                                {{ $CertificateOriginComDecFormA->{'item_number_' . $i} }}
+                            </li>
+                        </ul>
+                    @endif
                 @endfor
             </td>
-             <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 0px">
-
-                @for($i = 1; $i <= 14; $i++) @if(isset($CertificateOriginComDecFormA["marks_and_numbers_" . $i])) <ul style="list-style: none;padding 0px; padding-bottom: 0px; margin-top: 0px;">
-                    <li style="list-style: none; padding: 0px 0 ;"> {{ $CertificateOriginComDecFormA->{'marks_and_numbers_' . $i} }}</li>
-                    </ul>
-                @endif
+            <td style="border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 0px; text-align: center;">
+                @for($i = 1; $i <= 14; $i++) 
+                    @if(isset($CertificateOriginComDecFormA["marks_and_numbers_" . $i])) 
+                        <ul style="list-style: none; padding: 0px; margin: 0px;">
+                            <li style="list-style: none; padding: 0px;"> 
+                                {{ $CertificateOriginComDecFormA->{'marks_and_numbers_' . $i} }}
+                            </li>
+                        </ul>
+                    @endif
                 @endfor
             </td>
-            <td style="text-align: left; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 0px">
-
-                @for($i = 1; $i <= 14; $i++) @if(isset($CertificateOriginComDecFormA["numbers_and_kinds_of_packges_description_" . $i])) <ul style="list-style: none;padding 0px; padding-bottom: 0px; margin-top: 0px;">
-                    <li style="list-style: none; padding: 0px 0 ;"> {{ $CertificateOriginComDecFormA->{'numbers_and_kinds_of_packges_description_' . $i} }}</li>
-                    </ul>
-                @endif
+            <td style="border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 0px; padding-left:10px;">
+                @for($i = 1; $i <= 14; $i++) 
+                    @if(isset($CertificateOriginComDecFormA["numbers_and_kinds_of_packges_description_" . $i])) 
+                        <ul style="list-style: none; padding: 0px; margin: 0px;">
+                            <li style="list-style: none; padding: 0px;"> 
+                                {{ $CertificateOriginComDecFormA->{'numbers_and_kinds_of_packges_description_' . $i} }}
+                            </li>
+                        </ul>
+                    @endif
                 @endfor
             </td>
-             <td style="text-align: left; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 0px">
-
-                @for($i = 1; $i <= 14; $i++) @if(isset($CertificateOriginComDecFormA["origin_criterion_" . $i])) <ul style="list-style: none;padding 0px; padding-bottom: 0px; margin-top: 0px;">
-                    <li style="list-style: none; padding: 0px 0 ;"> {{ $CertificateOriginComDecFormA->{'origin_criterion_' . $i} }}</li>
-                    </ul>
-                @endif
+            <td style="border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 0px; text-align: center;">
+                @for($i = 1; $i <= 14; $i++) 
+                    @if(isset($CertificateOriginComDecFormA["origin_criterion_" . $i])) 
+                        <ul style="list-style: none; padding: 0px; margin: 0px;">
+                            <li style="list-style: none; padding: 0px;"> 
+                                {{ $CertificateOriginComDecFormA->{'origin_criterion_' . $i} }}
+                            </li>
+                        </ul>
+                    @endif
                 @endfor
             </td>
-             <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 0px">
-
-                @for($i = 1; $i <= 14; $i++) @if(isset($CertificateOriginComDecFormA["gross_weight_or_other_quantity_" . $i])) <ul style="list-style: none;padding 0px; padding-bottom: 0px; margin-top: 0px;">
-                    <li style="list-style: none; padding: 0px 0 ;"> {{ $CertificateOriginComDecFormA->{'gross_weight_or_other_quantity_' . $i} }}</li>
-                    </ul>
-                @endif
+            <td style="border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 0px; text-align: center;">
+                @for($i = 1; $i <= 14; $i++) 
+                    @if(isset($CertificateOriginComDecFormA["gross_weight_or_other_quantity_" . $i])) 
+                        <ul style="list-style: none; padding: 0px; margin: 0px;">
+                            <li style="list-style: none; padding: 0px;"> 
+                                {{ $CertificateOriginComDecFormA->{'gross_weight_or_other_quantity_' . $i} }}
+                            </li>
+                        </ul>
+                    @endif
                 @endfor
             </td>
-             <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 0px">
-
-                @for($i = 1; $i <= 14; $i++) @if(isset($CertificateOriginComDecFormA["number_and_dates_of_inovoices_" . $i])) <ul style="list-style: none;padding 0px; padding-bottom: 0px; margin-top: 0px;">
-                    <li style="list-style: none; padding: 0px 0 ;"> {{ $CertificateOriginComDecFormA->{'number_and_dates_of_inovoices_' . $i} }}</li>
-                    </ul>
-                @endif
+            <td style="border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 0px; text-align: center;">
+                @for($i = 1; $i <= 14; $i++) 
+                    @if(isset($CertificateOriginComDecFormA["number_and_dates_of_inovoices_" . $i])) 
+                        <ul style="list-style: none; padding: 0px; margin: 0px;">
+                            <li style="list-style: none; padding: 0px;"> 
+                                {{ $CertificateOriginComDecFormA->{'number_and_dates_of_inovoices_' . $i} }}
+                            </li>
+                        </ul>
+                    @endif
                 @endfor
             </td>
         </tr>
+         
 
 
     </table>

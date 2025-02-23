@@ -140,7 +140,7 @@
 
                  
                     <div class="col-sm-3 mb-3">
-                        <label for="departture_dae" class="form-label">Departture dae</label>
+                        <label for="departture_dae" class="form-label">Departure date</label>
                         <input type="text" class="form-control custom-input" id="departture_dae" name="departture_dae"
                            value="{{ $CertificateOriginComDecFormIp->departture_dae }}">
                     </div>
@@ -211,7 +211,7 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 3; $i++) 
+                    @for($i=1; $i <= 14; $i++) 
                     <div class="col-sm-4 mb-4">
                         <label for="item_number_" class="form-label">Item Number </label>
                         <input type="text" class="form-control custom-input"

@@ -62,8 +62,22 @@
                 </a>
             </li>
 
+            @php
+            $validInvoiceName = [
+                'CANADA CUSTOMS INVOICE',
+                 'Form 59 A Invoice',
+                 'EXPORT DECLARATION',
+                 'TMA-CHAMBER',
+                 'CHAMBER OF COMMERCE',
+                 'CERTIFICATE OF ORIGIN -INDONESIA',
+                 'CERTIFICATE OF ORIGIN -CHAINA',
+                 'Certificate of origin - Preferential arrangements among developing countries negotiated in GATT',
+                 'GSP FORM A'
+                ];
+            @endphp
+
             <li
-                class="{{ $page == 'Reports View' ? 'mm-active' : '' }} ">
+                class="{{ in_array($page, $validInvoiceName) ? 'mm-active' : '' }}">
                 <a href="javascript:void(0);" aria-expanded="false">
                     <div class="menu-icon">
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">

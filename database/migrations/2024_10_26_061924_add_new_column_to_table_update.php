@@ -25,6 +25,7 @@ class AddNewColumnToTableUpdate extends Migration
         });
         Schema::table('certificate_origin_no627120s', function (Blueprint $table) {
             $table->string('other_information', 100)->nullable();
+            $table->string('other_information_2', 100)->nullable();
             $table->string('full_name', 100)->nullable();
             $table->string('designnation', 100)->nullable();
             $table->string('company', 100)->nullable();
@@ -44,6 +45,7 @@ class AddNewColumnToTableUpdate extends Migration
             $table->string('company', 100)->nullable();
             $table->string('issue_in', 100)->nullable();
             $table->string('declaration_by_the_exporter_country', 100)->nullable();
+            $table->string('from_to_country', 100)->nullable();
 
         });
         Schema::table('certificate_origin_com_dec_form_ips', function (Blueprint $table) {
@@ -96,6 +98,7 @@ class AddNewColumnToTableUpdate extends Migration
             $table->dropColumn('company');
             $table->dropColumn('issue_in');
             $table->dropColumn('declaration_by_the_exporter_country');
+            $table->dropColumn('from_to_country');
 
         });
 

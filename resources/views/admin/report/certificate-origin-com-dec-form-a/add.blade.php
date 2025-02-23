@@ -95,17 +95,17 @@
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_name" class="form-label">Exporter Name</label>
                         <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                            value="TOWELLERS LIMITED">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_address" class="form-label">Exporter Address</label>
                         <input type="text" class="form-control custom-input" id="exporter_address" name="exporter_address"
-                            value="">
+                            value="WS 30, BLOCK 1 FB AREA">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_country" class="form-label">Exporter country</label>
                         <input type="text" class="form-control custom-input" id="exporter_country"
-                            name="exporter_country" value="">
+                            name="exporter_country" value="KARACHI-PAKISTAN">
                     </div>
                    
                     
@@ -133,7 +133,7 @@
                     <div class="col-sm-3 mb-3">
                         <label for="issue_country" class="form-label">Issue country</label>
                         <input type="text" class="form-control custom-input" id="issue_country"
-                            name="issue_country" value="">
+                            name="issue_country" value="PAKISTAN">
                     </div>
 
                     <div class="col-sm-3 mb-3">
@@ -155,7 +155,7 @@
                     <div class="col-sm-3 mb-3">
                         <label for="produce_in_country" class="form-label">Produce in country </label>
                         <input type="text" class="form-control custom-input" id="produce_in_country" name="produce_in_country"
-                            value="">
+                            value="PAKISTAN">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="importing_in_country" class="form-label">Importing in country </label>

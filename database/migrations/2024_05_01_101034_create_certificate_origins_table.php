@@ -40,6 +40,8 @@ class CreateCertificateOriginsTable extends Migration
             $table->string('date')->nullable();
             $table->string('place')->nullable();
             $table->string('certificate_origin_invoices')->nullable();
+            $table->string('other_info_1')->nullable();
+            $table->string('other_info_2')->nullable();
             $table->timestamps();
         });
     }

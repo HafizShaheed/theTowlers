@@ -174,7 +174,7 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) 
+                    @for($i=1; $i <= 15; $i++) 
                     <div class="col-sm-4 mb-4">
                         <label for="item_number_{{ $i }}" class="form-label">Item Number </label>
                         <input type="text" class="form-control custom-input"

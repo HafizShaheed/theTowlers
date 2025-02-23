@@ -95,17 +95,17 @@
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_name" class="form-label">Exporter Name</label>
                         <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                            value="TOWELLERS LIMITED">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_address" class="form-label">Exporter Address</label>
                         <input type="text" class="form-control custom-input" id="exporter_address" name="exporter_address"
-                            value="">
+                            value="WS 30, BLOCK 1 FB AREA">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_country" class="form-label">Exporter country</label>
                         <input type="text" class="form-control custom-input" id="exporter_country"
-                            name="exporter_country" value="">
+                            name="exporter_country" value="KARACHI-PAKISTAN">
                     </div>
 
                     
@@ -170,9 +170,14 @@
                             name="company" value="">
                     </div>
                     <div class="col-sm-3 mb-3">
-                        <label for="other_information" class="form-label">Other information</label>
+                        <label for="other_information" class="form-label">Other information A</label>
                         <input type="text" class="form-control custom-input" id="other_information"
                             name="other_information"  readonly disabled  >
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="other_information_2" class="form-label">Other information B</label>
+                        <input type="text" class="form-control custom-input" id="other_information_2"
+                            name="other_information_2"  readonly disabled  >
                     </div>
 
                     

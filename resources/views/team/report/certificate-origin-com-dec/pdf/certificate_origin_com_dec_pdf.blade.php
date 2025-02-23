@@ -61,7 +61,7 @@
 
                         (Combined Declaration and Certificate) <br>
 
-                        Issued in <input type="text" style="width: 200px; border: 0; border-bottom: 1px solid;"  value="{{  $CertificateOriginComDec->issue_in ?? ""  }}"> <br>
+                        Issued in <input type="text" style="width: 200px; border: 0; border-bottom: 1px solid;" value="{{  $CertificateOriginComDec->issue_in ?? ""  }}"> <br>
                         (Country)
                     </div>
                 </div>
@@ -96,52 +96,52 @@
     <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
         <tr style="font-size: 12px;">
             <td style="border-left: 1px solid; width: 10%;">
-                <div style="width: 80px;">
+                <div style=" text-align: center; width: 70px;">
                     5.Item number
                 </div>
 
             </td>
 
             <td style="border-left: 1px solid; width: 10%;">
-                <div style="width: 80px;">
+                <div style=" text-align: center; width: 100px;">
                     6.Marks and number of packages
                 </div>
 
             </td>
 
             <td style="border-left: 1px solid; width: 45%;">
-                <div style="width: 200px;">
+                <div style=" text-align: center; width: 230px;">
                     7.number and kind of packages description
                 </div>
 
             </td>
 
             <td style="border-left: 1px solid; width: 10%;">
-                <div style="width: 80px;">
+                <div style=" text-align: center; width: 80px;">
                     8.Origin criterion
                 </div>
 
             </td>
 
             <td style="border-left: 1px solid; width: 10%;">
-                <div style="width: 80px;">
+                <div style=" text-align: center; width: 80px;">
                     9.Gross weight or other quantity
                 </div>
 
             </td>
 
             <td style="border-left: 1px solid; width: 15%;">
-                <div style="width: 95px;">
+                <div style=" text-align: center; width: 85px;">
                     10.Number and dates of inovoices
                 </div>
 
             </td>
 
         </tr>
-        <tr style="border-top: 1px solid; font-size: 12px ">
+        {{-- <tr style="border-top: 1px solid; font-size: 12px ">
             <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginComDec["item_number_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                @for($i = 1; $i <= 15; $i++) @if(isset($CertificateOriginComDec["item_number_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
                     <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->{'item_number_' . $i} }}</li>
                     </ul>
                 @endif
@@ -149,7 +149,7 @@
             </td>
               <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginComDec["marks_and_numbers_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                @for($i = 1; $i <= 15; $i++) @if(isset($CertificateOriginComDec["marks_and_numbers_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
                     <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->{'marks_and_numbers_' . $i} }}</li>
                     </ul>
                 @endif
@@ -157,7 +157,7 @@
             </td>
             <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginComDec["numbers_and_kinds_of_packges_description_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                @for($i = 1; $i <= 15; $i++) @if(isset($CertificateOriginComDec["numbers_and_kinds_of_packges_description_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
                     <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->{'numbers_and_kinds_of_packges_description_' . $i} }}</li>
                     </ul>
                 @endif
@@ -165,7 +165,7 @@
             </td>
               <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginComDec["origin_criterion_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                @for($i = 1; $i <= 15; $i++) @if(isset($CertificateOriginComDec["origin_criterion_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
                     <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->{'origin_criterion_' . $i} }}</li>
                     </ul>
                 @endif
@@ -173,7 +173,7 @@
             </td>
               <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginComDec["gross_weight_or_other_quantity_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                @for($i = 1; $i <= 15; $i++) @if(isset($CertificateOriginComDec["gross_weight_or_other_quantity_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
                     <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->{'gross_weight_or_other_quantity_' . $i} }}</li>
                     </ul>
                 @endif
@@ -181,19 +181,112 @@
             </td>
               <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
-                @for($i = 1; $i <= 5; $i++) @if(isset($CertificateOriginComDec["number_and_dates_of_inovoices_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
+                @for($i = 1; $i <= 15; $i++) @if(isset($CertificateOriginComDec["number_and_dates_of_inovoices_" . $i])) <ul style="list-style: none; padding: 2px; margin-top: 0px;">
                     <li style="list-style: none; padding: 2px 0 ;"> {{ $CertificateOriginComDec->{'number_and_dates_of_inovoices_' . $i} }}</li>
                     </ul>
                 @endif
                 @endfor
             </td>
+        </tr> --}}
+        <tr style="border-top: 1px solid; font-size: 12px ">
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
+                @for($i = 1; $i <= 15; $i++) 
+                    @if(isset($CertificateOriginComDec["item_number_" . $i])) 
+                        <ul style="list-style: none; padding: 2px; margin: 0;">
+                            <li style="list-style: none; padding: 0;"> 
+                                {{ $CertificateOriginComDec->{'item_number_' . $i} }}
+                            </li>
+                        </ul>
+                    @endif
+                @endfor
+            </td>
+            
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
+                @for($i = 1; $i <= 15; $i++) 
+                    @if(isset($CertificateOriginComDec["marks_and_numbers_" . $i])) 
+                        <ul style="list-style: none; padding: 2px; margin: 0;">
+                            <li style="list-style: none; padding: 0;"> 
+                                {{ $CertificateOriginComDec->{'marks_and_numbers_' . $i} }}
+                            </li>
+                            
+                        </ul>
+                    @endif
+                @endfor
+            </td>
+            
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
+                @for($i = 1; $i <= 15; $i++) 
+                    @if(isset($CertificateOriginComDec["numbers_and_kinds_of_packges_description_" . $i])) 
+                        <ul style="list-style: none; padding: 2px; margin: 0;">
+                            <li style="list-style: none; padding: 0;"> 
+                                {{ $CertificateOriginComDec->{'numbers_and_kinds_of_packges_description_' . $i} }}
+                            </li>
+                        </ul>
+                    @endif
+                @endfor
+            </td>
+        
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
+                @for($i = 1; $i <= 15; $i++) 
+                    @if(isset($CertificateOriginComDec["origin_criterion_" . $i])) 
+                        <ul style="list-style: none; padding: 2px; margin: 0;">
+                            <li style="list-style: none; padding: 0;"> 
+                                {{ $CertificateOriginComDec->{'origin_criterion_' . $i} }}
+                            </li>
+                        </ul>
+                    @endif
+                @endfor
+            </td>
+        
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
+                @for($i = 1; $i <= 15; $i++) 
+                    @if(isset($CertificateOriginComDec["gross_weight_or_other_quantity_" . $i])) 
+                        <ul style="list-style: none; padding: 2px; margin: 0;">
+                            <li style="list-style: none; padding: 0;"> 
+                                {{ $CertificateOriginComDec->{'gross_weight_or_other_quantity_' . $i} }}
+                            </li>
+                        </ul>
+                    @endif
+                @endfor
+            </td>
+        
+            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
+                @for($i = 1; $i <= 15; $i++) 
+                    @if(isset($CertificateOriginComDec["number_and_dates_of_inovoices_" . $i])) 
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="list-style: none; padding: 0;"> 
+                                {{ $CertificateOriginComDec->{'number_and_dates_of_inovoices_' . $i} }}
+                            </li>
+                        </ul>
+                    @endif
+                @endfor
+            </td>
         </tr>
+        
+
+        {{-- <tr style="border-top: 1px solid; font-size: 12px">
+            @php $fields = ['item_number_', 'marks_and_numbers_', 'numbers_and_kinds_of_packges_description_', 'origin_criterion_', 'gross_weight_or_other_quantity_', 'number_and_dates_of_inovoices_']; @endphp
+            
+            @foreach($fields as $field)
+                <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding: 0px;">
+                    <ul style="list-style: none; padding: 0px; margin: 0px;">
+                        @for($i = 1; $i <= 15; $i++)
+                            @if(isset($CertificateOriginComDec[$field . $i]))
+                                <li style="list-style: none; padding: 0px; margin: 0px;">
+                                    {{ $CertificateOriginComDec->{$field . $i} }}
+                                </li>
+                            @endif
+                        @endfor
+                    </ul>
+                </td>
+            @endforeach
+        </tr> --}}
+        
 
 
     </table>
 
-   
-    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0; ">
+    {{-- <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0; ">
         <tr style="font-size: 12px; ">
             <td style="width: 45%;">
                 <div style="height: 140px; padding: 10px;">
@@ -210,25 +303,78 @@
             <td style="width: 55%;">
                 <div style="padding-bottom: 5px;">
 
-                    12. Declaration by the exporter :  {{ $CertificateOriginComDec->declaration_by_the_exporter_country ?? "" }} <br>
+                    12. Declaration by the exporter  <br>
                     The under signed hereby declares that the above
                     details and <br> statements
 
                     are correct, that all the goods were produced in
-                    <br><input type="text" style="width: 150px; border: 0; border-bottom: 1px solid;">
+                    <br><input type="text" value="{{ $CertificateOriginComDec->declaration_by_the_exporter_country ?? "" }}" style="width: 150px; border: 0; font-weight: 500; text-align: center; border-bottom: 1px solid;"> 
+                
 
                     and that they comply with the <br> origin requirements specified for these goods in the Preferential
                     <br>
                     Arrangements Among developing countries for goods
                     exported <br>
-                    to <input type="text" style="width: 85%; border: 0; border-bottom: 1px solid;" value=" "> <br>
-                    <input type="text" style="width: 50%; border: 0; border-bottom: 1px dotted; margin-top: 43px;" value=" {{ $CertificateOriginComDec->date ?? "" }}  {{ $CertificateOriginComDec->place ?? "" }}"> <br>
+                    to <input type="text" style="width: 85%; border: 0; font-weight: 500; text-align: center; border-bottom: 1px solid;" value=" {{ $CertificateOriginComDec->declaration_by_the_exporter_country ?? "" }}"> <br>
+                    <input type="text" style="width: 50%; border: 0; border-bottom: 1px dotted; margin-top: 43px;" value=" {{ $CertificateOriginComDec->place ?? "" }}  {{ $CertificateOriginComDec->date?? "" }}"> <br>
                     place and date ,signature of authorized signatory
                 </div>
             </td>
         </tr>
 
+    </table> --}}
+    <table style="border: 1px solid #000; border-collapse: collapse; width: 100%; border-top: 0;">
+        <tr style="font-size: 12px;">
+            <td style="width: 45%; vertical-align: top;">
+                <div style=" padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <span>
+                        11. Certificate <br>
+                        It is hereby certified, on the basis of control carried out, that the declaration by the exporter is correct.
+                    </span>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <input type="text" style="border: 0; border-bottom: 1px dotted #000; width: 100%;">
+                    
+                    <span>Place and date, signature, and stamp of certifying body</span>
+                </div>
+            </td>
+            <td style="width: 55%; vertical-align: top;">
+                <div style=" padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <span>
+                        12. Declaration by the exporter <br>
+                        The undersigned hereby declares that the above details and statements are correct, that all the goods were produced in:
+                    </span>
+                    <input type="text" value="{{ $CertificateOriginComDec->declaration_by_the_exporter_country ?? '' }}" style="width: 150px; border: 0; font-weight: 500; text-align: center; border-bottom: 1px solid;">
+                    <span>
+                        and that they comply with the origin requirements specified for these goods in the Preferential Arrangements Among developing countries for goods exported
+                        <br> to:
+                        <input type="text" style="width: 85%; border: 0; font-weight: 500; text-align: center; border-bottom: 1px solid;" value="{{ $CertificateOriginComDec->declaration_by_the_exporter_country ?? '' }}">
+                    </span>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <input type="text" style="width: 100%; border: 0; border-bottom: 1px dotted; text-align: left;" value="{{ $CertificateOriginComDec->place ?? '' }}  {{ $CertificateOriginComDec->date ?? '' }}">
+                    <span>Place and date, signature of authorized signatory</span>
+                </div>
+            </td>
+        </tr>
     </table>
+    
     <table>
         <tr style="font-size: 12px;">
             <td style="width: 50%;">

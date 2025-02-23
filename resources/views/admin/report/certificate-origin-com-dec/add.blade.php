@@ -96,17 +96,17 @@
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_name" class="form-label">Exporter Name</label>
                         <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                            value="TOWELLERS LIMITED">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_address" class="form-label">Exporter Address</label>
                         <input type="text" class="form-control custom-input" id="exporter_address" name="exporter_address"
-                            value="">
+                            value="WS 30, BLOCK 1 FB AREA">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_country" class="form-label">Exporter country</label>
                         <input type="text" class="form-control custom-input" id="exporter_country"
-                            name="exporter_country" value="">
+                            name="exporter_country" value="KARACHI-PAKISTAN">
                     </div>
 
                     
@@ -135,7 +135,7 @@
                     <div class="col-sm-3 mb-3">
                         <label for="issue_in" class="form-label">Issue in</label>
                         <input type="text" class="form-control custom-input" id="issue_in" name="issue_in"
-                            value="">
+                            value="PAKISTAN">
                     </div>
                     
                     <div class="col-sm-3 mb-3">
@@ -158,7 +158,7 @@
                     <div class="col-sm-3 mb-3">
                         <label for="declaration_by_the_exporter_country" class="form-label">Declaration by the exporter</label>
                         <input type="text" class="form-control custom-input" id="declaration_by_the_exporter_country"
-                            name="declaration_by_the_exporter_country" value="">
+                            name="declaration_by_the_exporter_country" value="TOWELLERS LIMITED">
                     </div>
 
                     
@@ -172,7 +172,7 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) 
+                    @for($i=1; $i <= 15; $i++) 
                     <div class="col-sm-4 mb-4">
                         <label for="item_number_" class="form-label">Item Number </label>
                         <input type="text" class="form-control custom-input"

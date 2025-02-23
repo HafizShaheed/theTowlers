@@ -28,7 +28,7 @@ class CreateCertificateOriginComDecsTable extends Migration
             $table->string('exporter_membership_number', 100)->nullable(); // Adjusted length 
             $table->string('transport_and_route', 255)->nullable(); // Adjusted length
         
-            for ($i = 1; $i <= 10; $i++) {
+            for ($i = 1; $i <= 15; $i++) {
                 $table->string('item_number_' . $i, 100)->nullable(); // Adjusted length
                 $table->string('marks_and_numbers_' . $i, 255)->nullable(); // Adjusted length
                 $table->text('numbers_and_kinds_of_packges_description_' . $i)->nullable();

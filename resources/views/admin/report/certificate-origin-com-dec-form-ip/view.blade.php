@@ -122,7 +122,7 @@
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="departture_dae" class="form-label">Departture dae</label>
+                        <label for="departture_dae" class="form-label">Departure date</label>
                         <input type="text" class="form-control custom-input" id="departture_dae" name="departture_dae"
                            readonly disabled value="{{ $CertificateOriginComDecFormIp->departture_dae }}">
                     </div>

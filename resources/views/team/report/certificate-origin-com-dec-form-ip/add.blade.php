@@ -95,22 +95,22 @@
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_name" class="form-label">Exporter Name</label>
                         <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                            value="TOWELLERS LIMITED">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_address" class="form-label">Exporter Address</label>
                         <input type="text" class="form-control custom-input" id="exporter_address" name="exporter_address"
-                            value="">
+                            value="WS 30, BLOCK 1 FB AREA">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="Producer_name" class="form-label">Producer name</label>
                         <input type="text" class="form-control custom-input" id="Producer_name"
-                            name="Producer_name" value="">
+                            name="Producer_name" value="TOWELLERS LIMITED">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="Producer_address" class="form-label">Producer address</label>
                         <input type="text" class="form-control custom-input" id="Producer_address"
-                            name="Producer_address" value="">
+                            name="Producer_address" value="WS 30, BLOCK 1 FB AREA">
                     </div>
                     
                     <div class="col-sm-3 mb-3">
@@ -133,39 +133,40 @@
                     <div class="col-sm-3 mb-3">
                         <label for="issue_country" class="form-label">Issue country</label>
                         <input type="text" class="form-control custom-input" id="issue_country"
-                            name="issue_country" value="">
+                            name="issue_country" value="PAKISTAN">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="departture_dae" class="form-label">Departture dae</label>
+                        <label for="departture_dae" class="form-label">Departure date</label>
                         <input type="text" class="form-control custom-input" id="departture_dae" name="departture_dae"
-                           value="">
+                            value="">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="vessel_name_ip" class="form-label">Vessel name</label>
                         <input type="text" class="form-control custom-input" id="vessel_name_ip" name="vessel_name_ip"
-                        value="">
+                            value="">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="port_of_loading" class="form-label">Port of loading</label>
                         <input type="text" class="form-control custom-input" id="port_of_loading" name="port_of_loading"
-                        value="">
+                            value="">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="port_of_discharge" class="form-label">Port of discharge</label>
                         <input type="text" class="form-control custom-input" id="port_of_discharge" name="port_of_discharge"
-                        value="">
+                            value="">
                     </div>
+
                     <div class="col-sm-3 mb-3">
                         <label for="remarks" class="form-label">Remarks</label>
                         <input type="text" class="form-control custom-input" id="remarks" name="remarks"
                             value="">
                     </div>
-                    <div class="col-sm-3 mb-3">
+                    {{-- <div class="col-sm-3 mb-3">
                         <label for="produce_in_country" class="form-label">Produce in country </label>
                         <input type="text" class="form-control custom-input" id="produce_in_country" name="produce_in_country"
                             value="">
-                    </div>
+                    </div> --}}
                     <div class="col-sm-3 mb-3">
                         <label for="importing_in_country" class="form-label">Importing in country </label>
                         <input type="text" class="form-control custom-input" id="importing_in_country" name="importing_in_country"
@@ -190,12 +191,12 @@
                         <input type="text" class="form-control custom-input" id="place"
                             name="place" value="">
                     </div>
-
                     <div class="col-sm-3 mb-3">
                         <label for="declaration_by_the_exporter_country" class="form-label">Declaration by the exporter</label>
                         <input type="text" class="form-control custom-input" id="declaration_by_the_exporter_country"
                           name="declaration_by_the_exporter_country" >
                     </div>
+                    
 
 
 
@@ -206,7 +207,7 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 3; $i++) 
+                    @for($i=1; $i <= 14; $i++) 
                     <div class="col-sm-4 mb-4">
                         <label for="item_number_" class="form-label">Item Number </label>
                         <input type="text" class="form-control custom-input"
@@ -233,7 +234,7 @@
 
                 <div class="col-sm-4 mb-4">
                     <label for="gross_weight_or_other_quantity_" class="form-label">Gross weight or other quantity</label>
-                    <input type="text" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
+                    <input type="number" step="any" class="form-control custom-input" id="gross_weight_or_other_quantity_{{ $i }}"
                         name="gross_weight_or_other_quantity_{{ $i }}" value="">
                 </div>
                 
@@ -250,7 +251,7 @@
 
         <div class="row">
             <div class="col-xl-6 d-flex justify-content-start">
-                  <button type="button" class="btn btn report-tab-unactive" onclick="window.history.back()">Cancel</button>   
+                <button type="button" class="btn btn report-tab-unactive" onclick="window.history.back()">Cancel</button>   
             </div>
             <div class="col-xl-6 d-flex justify-content-end">
                 <button type="submit" class="btn btn report-tab-active" id="firm-submit">Save</button>
@@ -319,8 +320,8 @@ $(document).ready(function() {
                     willClose: () => {
                 $('#firm-submit').prop('disabled', false);
 
-                      //  window.location.href =
-                       //     "{{ route('team.report_List_certificate_origin_com_dec_form_ip_invoice') }}"
+                       // window.location.href =
+                         //   "{{ route('team.report_List_certificate_origin_com_dec_form_ip_invoice') }}"
 
                     },
                 });

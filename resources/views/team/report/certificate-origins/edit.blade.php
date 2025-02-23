@@ -187,6 +187,17 @@
                             <input type="text" class="form-control custom-input" id="place_issue_date"
                                 name="place_issue_date" value="{{ $CertificateOrigin->place_issue_date }}">
                         </div>
+                        <br>
+                        <div class="col-sm-3 mb-3">
+                            <label for="other_info_1" class="form-label">Other Information A</label>
+                            <input type="text" class="form-control custom-input" id="other_info_1"
+                                name="other_info_1" value="{{ $CertificateOrigin->other_info_1 }}">
+                        </div>
+                        <div class="col-sm-3 mb-3">
+                            <label for="other_info_2" class="form-label">Other Information B</label>
+                            <input type="text" class="form-control custom-input" id="other_info_2"
+                                name="other_info_2" value="{{ $CertificateOrigin->other_info_2 }}">
+                        </div>
 
 
 

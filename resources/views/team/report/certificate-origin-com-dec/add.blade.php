@@ -1,4 +1,4 @@
-@extends('team.includes.master')
+@extends('admin.includes.master')
 
 
 
@@ -96,17 +96,17 @@
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_name" class="form-label">Exporter Name</label>
                         <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                            value="TOWELLERS LIMITED">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_address" class="form-label">Exporter Address</label>
                         <input type="text" class="form-control custom-input" id="exporter_address" name="exporter_address"
-                            value="">
+                            value="WS 30, BLOCK 1 FB AREA">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_country" class="form-label">Exporter country</label>
                         <input type="text" class="form-control custom-input" id="exporter_country"
-                            name="exporter_country" value="">
+                            name="exporter_country" value="KARACHI-PAKISTAN">
                     </div>
 
                     
@@ -131,12 +131,13 @@
                         <input type="text" class="form-control custom-input" id="ref_number"
                             name="ref_number" value="">
                     </div>
-                  
+               
                     <div class="col-sm-3 mb-3">
                         <label for="issue_in" class="form-label">Issue in</label>
                         <input type="text" class="form-control custom-input" id="issue_in" name="issue_in"
-                        value="">
+                            value="PAKISTAN">
                     </div>
+                    
                     <div class="col-sm-3 mb-3">
                         <label for="transport_and_route" class="form-label">Transport and route</label>
                         <input type="text" class="form-control custom-input" id="transport_and_route" name="transport_and_route"
@@ -157,8 +158,10 @@
                     <div class="col-sm-3 mb-3">
                         <label for="declaration_by_the_exporter_country" class="form-label">Declaration by the exporter</label>
                         <input type="text" class="form-control custom-input" id="declaration_by_the_exporter_country"
-                            name="declaration_by_the_exporter_country" value="">
+                            name="declaration_by_the_exporter_country" value="TOWELLERS LIMITED">
                     </div>
+
+                    
 
 
 
@@ -169,7 +172,7 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 6; $i++) 
+                    @for($i=1; $i <= 15; $i++) 
                     <div class="col-sm-4 mb-4">
                         <label for="item_number_" class="form-label">Item Number </label>
                         <input type="text" class="form-control custom-input"
@@ -213,7 +216,7 @@
 
         <div class="row">
             <div class="col-xl-6 d-flex justify-content-start">
-                  <button type="button" class="btn btn report-tab-unactive" onclick="window.history.back()">Cancel</button>   
+                <button type="button" class="btn btn report-tab-unactive" onclick="window.history.back()">Cancel</button>   
             </div>
             <div class="col-xl-6 d-flex justify-content-end">
                 <button type="submit" class="btn btn report-tab-active" id="firm-submit">Save</button>
@@ -264,7 +267,7 @@ $(document).ready(function() {
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            url: "{{ route('team.submit_certificate_origin_com_dec_invoice') }}",
+            url: "{{ route('admin.submit_certificate_origin_com_dec_invoice') }}",
             data: formData,
             dataType: "json",
             processData: false, // important for FormData
@@ -283,7 +286,7 @@ $(document).ready(function() {
                 $('#firm-submit').prop('disabled', false);
 
                       //  window.location.href =
-                        //    "{{ route('team.report_List_certificate_origin_com_dec_invoice') }}"
+                        //    "{{ route('admin.report_List_certificate_origin_com_dec_invoice') }}"
 
                     },
                 });

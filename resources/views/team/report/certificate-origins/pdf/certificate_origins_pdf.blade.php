@@ -198,10 +198,13 @@
             </td>
         </tr>
     </table>
-    <table>
+    {{-- <table>
         <tr style="font-size: 12px;">
             <td style=" width: 55%;">
-                Other Information <br>
+                Other Information
+                <p> other info v1 
+                    <p>
+                        </p>  other info v2</p>
                 <div style="margin: 20px 0;">
                     It is hereby declared that the above mentioned goods originate in Pakistan<br>
                 </div>
@@ -256,7 +259,7 @@
 
             </td>
             <td style="width: 45%;">
-                <div style="height: 200px;">
+                <div style="">
 
                     It is hereby certified that to the best of my knowledge and according to the
                     documents produced before me this declaration appears to be correct
@@ -273,7 +276,79 @@
                 </div>
             </td>
         </tr>
+    </table> --}}
+    
+
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr style="font-size: 12px;">
+            <td style="width: 55%; vertical-align: top; padding: 5px;">
+                <span style="display: block; margin-bottom: 2px;">Other Information:  {{ $CertificateOrigin->other_info_1 ?? '' }}</span>
+                <span style="margin: 2px 0;">{{ $CertificateOrigin->other_info_2 ?? '' }}</span>
+    
+                <div style="margin: 8px 0; font-size: 12px;">
+                    It is hereby declared that the above-mentioned goods originate in Pakistan.
+                </div>
+    
+                <div>
+                    <table style="width: 80%;">
+                        <tr>
+                            <td>Exporter's Signature:</td>
+                            <td><input type="text" style="border: 0; border-bottom: 1px dotted; width: 100%;" 
+                                       value="{{ $CertificateOrigin->exporter_signature }}"></td>
+                        </tr>
+                        <tr>
+                            <td>Name:</td>
+                            <td><input type="text" style="border: 0; border-bottom: 1px dotted; width: 100%;" 
+                                       value="{{ $CertificateOrigin->full_name }}"></td>
+                        </tr>
+                        <tr>
+                            <td>Designation:</td>
+                            <td><input type="text" style="border: 0; border-bottom: 1px dotted; width: 100%;" 
+                                       value="{{ $CertificateOrigin->designnation }}"></td>
+                        </tr>
+                        <tr>
+                            <td>Company:</td>
+                            <td><input type="text" style="border: 0; border-bottom: 1px dotted; width: 100%;" 
+                                       value="{{ $CertificateOrigin->company }}"></td>
+                        </tr>
+                        <tr>
+                            <td>Place:</td>
+                            <td><input type="text" style="border: 0; border-bottom: 1px dotted; width: 100%;" 
+                                       value="{{ $CertificateOrigin->place }}"></td>
+                        </tr>
+                        <tr>
+                            <td>Date:</td>
+                            <td><input type="text" style="border: 0; border-bottom: 1px dotted; width: 100%;" 
+                                       value="{{ date('d/m/Y', strtotime($CertificateOrigin->date)) }}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+    
+            <td style="width: 45%; vertical-align: top; padding: 5px;">
+                <br>
+                <br>
+                <br>
+                <div style="font-size: 12px;">
+                    It is hereby certified that to the best of my knowledge and according to the documents 
+                    produced before me this declaration appears to be correct.
+                </div>
+    
+                <div style="padding-top: 30px; font-size: 12px;">
+                    <b>Authorized Signatory:</b> {{ $CertificateOrigin->signature_person_authorized }}
+                </div>
+    
+                <div style="padding-top: 10px; font-size: 12px;">
+                    <b>Place and Date of Issue:</b> {{ $CertificateOrigin->place_issue_date }}
+                </div>
+    
+                <div style="margin-top: 10px; font-size: 14px; text-decoration: underline; font-weight: bold;">
+                    Towel Manufacturers' Association of Pakistan
+                </div>
+            </td>
+        </tr>
     </table>
+    
     <script type="text/php">
         if ( isset($pdf) ) {
             // OLD
@@ -296,4 +371,3 @@
 </body>
 
 </html>
-

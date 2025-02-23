@@ -95,22 +95,22 @@
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_name" class="form-label">Exporter Name</label>
                         <input type="text" class="form-control custom-input" id="exporter_name" name="exporter_name"
-                            value="">
+                            value="TOWELLERS LIMITED">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="exporter_address" class="form-label">Exporter Address</label>
                         <input type="text" class="form-control custom-input" id="exporter_address" name="exporter_address"
-                            value="">
+                            value="WS 30, BLOCK 1 FB AREA">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="Producer_name" class="form-label">Producer name</label>
                         <input type="text" class="form-control custom-input" id="Producer_name"
-                            name="Producer_name" value="">
+                            name="Producer_name" value="TOWELLERS LIMITED">
                     </div>
                     <div class="col-sm-3 mb-3">
                         <label for="Producer_address" class="form-label">Producer address</label>
                         <input type="text" class="form-control custom-input" id="Producer_address"
-                            name="Producer_address" value="">
+                            name="Producer_address" value="WS 30, BLOCK 1 FB AREA">
                     </div>
                     
                     <div class="col-sm-3 mb-3">
@@ -133,11 +133,11 @@
                     <div class="col-sm-3 mb-3">
                         <label for="issue_country" class="form-label">Issue country</label>
                         <input type="text" class="form-control custom-input" id="issue_country"
-                            name="issue_country" value="">
+                            name="issue_country" value="PAKISTAN">
                     </div>
 
                     <div class="col-sm-3 mb-3">
-                        <label for="departture_dae" class="form-label">Departture dae</label>
+                        <label for="departture_dae" class="form-label">Departure date</label>
                         <input type="text" class="form-control custom-input" id="departture_dae" name="departture_dae"
                             value="">
                     </div>
@@ -207,7 +207,7 @@
 
                 <div class="row">
                     <!-- =========== Director1 ============ -->
-                    @for($i=1; $i <= 3; $i++) 
+                    @for($i=1; $i <= 14; $i++) 
                     <div class="col-sm-4 mb-4">
                         <label for="item_number_" class="form-label">Item Number </label>
                         <input type="text" class="form-control custom-input"
