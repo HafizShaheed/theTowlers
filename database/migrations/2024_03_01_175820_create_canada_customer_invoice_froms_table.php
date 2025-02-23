@@ -50,12 +50,12 @@ class CreateCanadaCustomerInvoiceFromsTable extends Migration
 
             $table->text('description_pecification_of_commodities')->nullable();
             for ($i = 1; $i <= 7; $i++) {
-                $table->string("des_pecification_of_commodities_$i",200)->nullable();
-                $table->string("number_of_packages_nombre_de_coils_$i",200)->nullable();
-                $table->string("quantity_$i",100)->nullable();
-                $table->string("quantity_unit_$i",100)->nullable();
-                $table->string("unit_price_$i",100)->nullable();
-                $table->string("total_$i",100)->nullable();
+                $table->text("des_pecification_of_commodities_$i",200)->nullable();
+                $table->text("number_of_packages_nombre_de_coils_$i",200)->nullable();
+                $table->text("quantity_$i",100)->nullable();
+                $table->text("quantity_unit_$i",100)->nullable();
+                $table->text("unit_price_$i",100)->nullable();
+                $table->text("total_$i",100)->nullable();
             }
 
 

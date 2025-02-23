@@ -27,11 +27,11 @@ class CreateCertificateOriginsTable extends Migration
             $table->string('exporter_membership_number')->nullable();
             $table->string('particular_of_transport')->nullable();
             for ($i = 1; $i <= 16; $i++) {
-                $table->string('marks_and_numbers_' . $i)->nullable();
-                $table->string('numbers_and_kinds_of_packges_' . $i)->nullable();
-                $table->text('description_of_goods_' . $i)->nullable(); // Changed to TEXT
-                $table->string('gross_weight_or_other_quantity_' . $i)->nullable();
-                $table->string('county_of_origin_' . $i)->nullable();
+                $table->text('marks_and_numbers_' . $i,255)->nullable();
+                $table->text('numbers_and_kinds_of_packges_' . $i,255)->nullable();
+                $table->text('description_of_goods_' . $i,255)->nullable(); // Changed to TEXT
+                $table->text('gross_weight_or_other_quantity_' . $i,255)->nullable();
+                $table->text('county_of_origin_' . $i,255)->nullable();
               
             }
             $table->string('status')->default(0)->nullable();

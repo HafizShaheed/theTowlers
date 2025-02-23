@@ -33,12 +33,12 @@ class CreateCertificateOriginComDecFormIpsTable extends Migration
             $table->boolean('yes_or_no_preferential_treatment')->default(0)->nullable();
         
             for ($i = 1; $i <= 15; $i++) {
-                $table->string('item_number_' . $i, 100)->nullable();
-                $table->string('marks_and_numbers_' . $i, 255)->nullable();
-                $table->string('numbers_and_kinds_of_packges_description_' . $i, 255)->nullable();
-                $table->text('origin_criterion_' . $i)->nullable(); // Changed to TEXT
-                $table->string('gross_weight_or_other_quantity_' . $i, 100)->nullable();
-                $table->string('number_and_dates_of_inovoices_' . $i, 255)->nullable();
+                $table->text('item_number_' . $i, 100)->nullable();
+                $table->text('marks_and_numbers_' . $i, 255)->nullable();
+                $table->text('numbers_and_kinds_of_packges_description_' . $i, 255)->nullable();
+                $table->text('origin_criterion_' . $i,255)->nullable(); // Changed to TEXT
+                $table->text('gross_weight_or_other_quantity_' . $i, 100)->nullable();
+                $table->text('number_and_dates_of_inovoices_' . $i, 255)->nullable();
             }
         
             $table->string('status', 10)->default(0)->nullable();

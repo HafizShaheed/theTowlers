@@ -161,7 +161,11 @@
                             name="declaration_by_the_exporter_country" value="TOWELLERS LIMITED">
                     </div>
 
-                    
+                    <div class="col-sm-3 mb-3">
+                        <label for="to_country" class="form-label">From to Country</label>
+                        <input type="text" class="form-control custom-input" id="to_country"
+                            name="to_country" value="">
+                    </div>
 
 
 

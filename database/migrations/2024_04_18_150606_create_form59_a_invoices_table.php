@@ -33,12 +33,12 @@ class CreateForm59AInvoicesTable extends Migration
         $table->string('final_destination_of_goods',255)->nullable();
     
         for ($i = 1; $i <= 10; $i++) {
-            $table->string('marks_and_numbers_' . $i,100)->nullable();
-            $table->string('quantity_' . $i,50)->nullable();
-            $table->string('description_of_goods_' . $i,255)->nullable();
-            $table->string('including_any_discounts_' . $i,50)->nullable();
-            $table->string('current_domestic_value_currency_of_exporting_' . $i,100)->nullable();
-            $table->string('amount_' . $i)->nullable();
+            $table->text('marks_and_numbers_' . $i,100)->nullable();
+            $table->text('quantity_' . $i,50)->nullable();
+            $table->text('description_of_goods_' . $i,255)->nullable();
+            $table->text('including_any_discounts_' . $i,50)->nullable();
+            $table->text('current_domestic_value_currency_of_exporting_' . $i,100)->nullable();
+            $table->text('amount_' . $i)->nullable();
         }
     
         $table->string('if_amount_has_been_inciuded_in_the_current_domestic_value',100)->nullable();

@@ -257,12 +257,15 @@
         </tr>
         
     </table>
-    <table>
+    {{-- <table>
         <tr style="font-size: 12px;">
 
             <td style=" width: 55%; border-right: 1px solid;">
-                Other Information :  {{ $CertificateOriginNo627120->other_information ?? ""  }} <br>
-                <input type="text" style="width: 90%; border: 0; border-bottom: 1px solid; margin-top: 70px;" >
+                Other Information <br>
+                
+                <input type="text" value="{{ $CertificateOriginNo627120->other_information ?? ""  }} " style="width: 90%; border: 0; margin-top: 0px; padding-left:20px;" >
+                <input type="text" value="{{ $CertificateOriginNo627120->other_information)2 ?? ""  }} " style="width: 90%; border: 0; margin-top: 0px; padding-left:20px;" >
+                <input type="text" style="width: 90%; border: 0; border-bottom: 1px solid; margin-top: 45px;" >
                 <br>
                 It is hereby declared that the above mentioned goods originate in <br>
                 <div style="text-align: center;">
@@ -329,7 +332,76 @@
                 </div>
             </td>
         </tr>
+    </table> --}}
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr style="font-size: 12px;">
+            <td style="width: 55%; border-right: 1px solid; padding: 0px; vertical-align: top;">
+                <b style="display: block; margin: 0; padding: 0;">Other Information</b>
+
+                <input type="text" value="{{ $CertificateOriginNo627120->other_information ?? '' }}" 
+                       style="width: 90%; border: 0; padding-left: 5px; margin: 2px 0;">
+                <input type="text" value="{{ $CertificateOriginNo627120->other_information_2 ?? '' }}" 
+                       style="width: 90%; border: 0; padding-left: 5px; margin: 2px 0;">
+                <input type="text" style="width: 90%; border: 0; border-bottom: 1px solid; margin: 2px 0;">
+                
+                <p style="margin: 5px 0; font-size: 12px;">It is hereby declared that the above mentioned goods originate in</p>
+                
+                <div style="text-align: center; font-weight: bold; font-size: 14px;">PAKISTAN</div>
+                
+    
+                <table style="">
+                    <tr>
+                        <td>Exporter's Signature:</td>
+                        <td><input type="text" style="border: 0; border-bottom: 1px solid; width: 100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type="text" style="border: 0; border-bottom: 1px solid; width: 100%;" 
+                                   value="{{ $CertificateOriginNo627120->full_name ?? '' }}"></td>
+                    </tr>
+                    <tr>
+                        <td>Designation:</td>
+                        <td><input type="text" style="border: 0; border-bottom: 1px solid; width: 100%;" 
+                                   value="{{ $CertificateOriginNo627120->designnation ?? '' }}"></td>
+                    </tr>
+                    <tr>
+                        <td>Company:</td>
+                        <td><input type="text" style="border: 0; border-bottom: 1px solid; width: 100%;" 
+                                   value="{{ $CertificateOriginNo627120->company ?? '' }}"></td>
+                    </tr>
+                    <tr>
+                        <td>Place: <span style="text-decoration: underline;">Karachi</span> &nbsp; Date:</td>
+                        <td><input type="text" style="border: 0; border-bottom: 1px solid; width: 100%;" 
+                                   value="{{ date('d-m-Y', strtotime($CertificateOriginNo627120->date)) ?? '' }}"></td>
+                    </tr>
+                </table>
+            </td>
+    
+            <td style="width: 45%; padding: 6px;">
+                <div style="font-size: 12px; margin: 0; padding: 0;">
+                    It is hereby certified that to the best of my knowledge and according to the documents produced before me, this declaration appears to be:
+                    <br>
+                    <br>
+                    <input type="text" style="width: 50%; border: 0; border-bottom: 1px solid; margin-top: 10px;">
+                    
+                    <p><b>Authorized Signatory</b></p>
+                    
+                    <b style="font-size: 14px;">Attestation Officer</b><br>
+                    Karachi Chamber of Commerce & Industry
+                    
+                    <p style="text-decoration: underline; font-size: 14px; ">
+                        KARACHI, PAKISTAN
+                    </p>
+                    
+                    <p><b>Place and Date of Issue:</b> <span style="font-weight: 500;">Emboss</span></p>
+    
+                    <b style="text-decoration: underline; font-size: 14px;">Karachi Chamber of Commerce & Industry</b>
+                    <p style="font-size: 12px;">Certifying body</p>
+                </div>
+            </td>
+        </tr>
     </table>
+    
     <script type="text/php">
         if ( isset($pdf) ) {
             // OLD

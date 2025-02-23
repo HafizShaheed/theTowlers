@@ -43,6 +43,7 @@ class CreateCertificateOriginComDecsTable extends Migration
             $table->string('date', 100)->nullable(); // Adjusted length
        
             $table->string('place', 100)->nullable(); // Adjusted length
+            $table->string('to_country', 100)->nullable(); // Adjusted length
             $table->string('certificate_origin_com_decs_invoices', 100)->nullable(); // Adjusted length
         
             $table->timestamps();

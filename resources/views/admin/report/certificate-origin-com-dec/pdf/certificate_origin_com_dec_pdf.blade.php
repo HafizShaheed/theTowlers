@@ -359,7 +359,7 @@
                     <span>
                         and that they comply with the origin requirements specified for these goods in the Preferential Arrangements Among developing countries for goods exported
                         <br> to:
-                        <input type="text" style="width: 85%; border: 0; font-weight: 500; text-align: center; border-bottom: 1px solid;" value="{{ $CertificateOriginComDec->declaration_by_the_exporter_country ?? '' }}">
+                        <input type="text" style="width: 85%; border: 0; font-weight: 500; text-align: center; border-bottom: 1px solid;" value="{{ $CertificateOriginComDec->to_country ?? '' }}">
                     </span>
                     <br>
                     <br>
