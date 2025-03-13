@@ -414,7 +414,7 @@
             $grossWeightTotalSecondColumn = 0;
             $quantitySums = [];
             ?>
-            @for ($i = 1; $i <= 5; $i++)
+            @for ($i = 1; $i <=35; $i++)
                 @php
                     $start = ($i - 1) * 10 + 1;
                     $end = $i * 10;
