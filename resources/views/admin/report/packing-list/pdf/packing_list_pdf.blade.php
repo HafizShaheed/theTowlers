@@ -519,54 +519,6 @@
                             @endphp
 
                             @if ($colorName || $skuNo || $eanNo || $skuHashNo || $styleNo)
-                                <div class="no-margin"
-                                    style="text-align: left; white-space: nowrap; margin-top:5px; margin-left:10px">
-                                    <div
-                                        style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                        {{ $colorName }}
-                                    </div>
-                                    <div
-                                        style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                        {{ $skuNo }}
-                                    </div>
-                                    <div
-                                        style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                        {{ $eanNo }}
-                                    </div>
-                                    <div
-                                        style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                        {{ $skuHashNo }}
-                                    </div>
-                                    <div
-                                        style="display: inline-block; width: 18%; text-decoration: underline; color: #000;">
-                                        {{ $styleNo }}
-                                    </div>
-                                </div>
-
-
-                                <div class="no-margin"
-                                style="text-align: left; white-space: nowrap; margin-top:5px; margin-left:10px">
-                                <div
-                                    style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                    {{ $colorName }}
-                                </div>
-                                <div
-                                    style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                    {{ $skuNo }}
-                                </div>
-                                <div
-                                    style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                    {{ $eanNo }}
-                                </div>
-                                <div
-                                    style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                                    {{ $skuHashNo }}
-                                </div>
-                                <div
-                                    style="display: inline-block; width: 18%; text-decoration: underline; color: #000;">
-                                    {{ $styleNo }}
-                                </div>
-                            </div>
                             <div class="no-margin"
                             style="text-align: left; white-space: nowrap; margin-top:5px; margin-left:10px">
                             <div
@@ -590,29 +542,6 @@
                                 {{ $styleNo }}
                             </div>
                         </div>
-                        <div class="no-margin"
-                        style="text-align: left; white-space: nowrap; margin-top:5px; margin-left:10px">
-                        <div
-                            style="display: inline-block; width: 19%; text-decoration: underline; margin-right: 1%; color: #000;">
-                            {{ $colorName }}
-                        </div>
-                        <div
-                            style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                            {{ $skuNo }}
-                        </div>
-                        <div
-                            style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                            {{ $eanNo }}
-                        </div>
-                        <div
-                            style="display: inline-block; width: 18%; text-decoration: underline; margin-right: 1%; color: #000;">
-                            {{ $skuHashNo }}
-                        </div>
-                        <div
-                            style="display: inline-block; width: 18%; text-decoration: underline; color: #000;">
-                            {{ $styleNo }}
-                        </div>
-                    </div>
 
       
                             @endif
@@ -663,10 +592,12 @@
                             // gr total and net total second column
                             if (isset($PackingList['gross_weight_second_column_value_' . $i])) {
                                 $grossWeightTotalSecondColumn += $PackingList['gross_weight_second_column_value_' . $i];
+                               
                             }
                             // gr total and net total second column
                             if (isset($PackingList['net_weight_second_column_value_' . $i])) {
                                 $netWeightTotalSecondColumn += $PackingList['net_weight_second_column_value_' . $i];
+                               
                             }
                         ?>
                     </td>
@@ -744,15 +675,15 @@
                         <p style="width: 30px; word-wrap: break-word;margin-top:106px ">
                             @for ($j = $start; $j <= $end; $j++)
                                 <p style="margin:5px 0; margin-left:2px">
-                                    {{ $PackingList['total_amount_third_column_value_' . $j] > 0 ? $PackingList['currency_symbol'] : '' }}
+                                    {{-- {{ $PackingList['total_amount_third_column_value_' . $j] > 0 ? $PackingList['currency_symbol'] : '' }} --}}
                                     
                                     {{ $PackingList['total_amount_third_column_value_' . $j] > 0 ? $PackingList['total_amount_third_column_value_' . $j] : '' }}
                                 </p>
                                 <?php
                                 // Add to the grand total if the value exists
-                                if (isset($PackingList['price_third_column_value_' . $j])) {
-                                    $grandTotal += $PackingList['price_third_column_value_' . $j];
-                                }
+                                // if (isset($PackingList['price_third_column_value_' . $j])) {
+                                //     $grandTotal += $PackingList['price_third_column_value_' . $j];
+                                // }
                                 ?>
                             @endfor
                         </p>
@@ -854,7 +785,7 @@
                             +
                         @endif
                     @endforeach --}}
-                    {{  $grandTotal ?? '' }}
+                    {{-- {{  $grandTotal ?? '' }} --}}
                     
                 </td>
                 <td style="border-right: 1px solid; border-top:1px solid #000; text-align: center">
