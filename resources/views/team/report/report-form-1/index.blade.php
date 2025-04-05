@@ -265,7 +265,7 @@
                                 timer: 3000, // 3 seconds
                                 timerProgressBar: true,
                                 willClose: () => {
-                                    window.location.href = '{{ route("admin.report_List") }}';
+                                    window.location.href = '{{ route("team.report_List") }}';
                                 },
                             });
                         },
@@ -313,7 +313,7 @@
                                 timer: 3000, // 3 seconds
                                 timerProgressBar: true,
                                 willClose: () => {
-                                    window.location.href = '{{ route("admin.report_List") }}';
+                                    window.location.href = '{{ route("team.report_List") }}';
                                 },
                             });
                         },

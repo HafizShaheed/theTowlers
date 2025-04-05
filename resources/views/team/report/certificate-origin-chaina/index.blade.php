@@ -268,7 +268,7 @@
                                timer: 500, // 3 seconds
                                timerProgressBar: true,
                                willClose: () => {
-                                  window.location.href = '{{ route("admin.report_List_certificate_origin_chaina_invoice") }}';
+                                  window.location.href = '{{ route("team.report_List_certificate_origin_chaina_invoice") }}';
                                },
                            });
                        },
@@ -316,7 +316,7 @@
                                timer: 500, // 3 seconds
                                timerProgressBar: true,
                                willClose: () => {
-                                   window.location.href = '{{ route("admin.report_List_certificate_origin_com_dec_form_ip_invoice") }}';
+                                   window.location.href = '{{ route("team.report_List_certificate_origin_com_dec_form_ip_invoice") }}';
                                },
                            });
                        },

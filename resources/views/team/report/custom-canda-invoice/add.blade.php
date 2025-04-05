@@ -1,4 +1,4 @@
-@extends('admin.includes.master')
+@extends('team.includes.master')
 
 
 
@@ -376,7 +376,7 @@ $(document).ready(function() {
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            url: "{{ route('admin.submit_custom_canda_invoice') }}",
+            url: "{{ route('team.submit_custom_canda_invoice') }}",
             data: formData,
             dataType: "json",
             processData: false, // important for FormData
@@ -395,7 +395,7 @@ $(document).ready(function() {
                 $('#firm-submit').prop('disabled', false);
 
                       //  window.location.href =
-                        //    "{{ route('admin.report_List_custom_canda_invoice') }}"
+                        //    "{{ route('team.report_List_custom_canda_invoice') }}"
 
                     },
                 });

@@ -1,4 +1,4 @@
-@extends('admin.includes.master')
+@extends('team.includes.master')
 
 
 
@@ -271,7 +271,7 @@ $(document).ready(function() {
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            url: "{{ route('admin.submit_certificate_origin_com_dec_invoice') }}",
+            url: "{{ route('team.submit_certificate_origin_com_dec_invoice') }}",
             data: formData,
             dataType: "json",
             processData: false, // important for FormData
@@ -290,7 +290,7 @@ $(document).ready(function() {
                 $('#firm-submit').prop('disabled', false);
 
                       //  window.location.href =
-                        //    "{{ route('admin.report_List_certificate_origin_com_dec_invoice') }}"
+                        //    "{{ route('team.report_List_certificate_origin_com_dec_invoice') }}"
 
                     },
                 });
