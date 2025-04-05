@@ -65,7 +65,7 @@
                             CERTIFICATE OF ORIGIN
                             </p>  
                             <p>
-                                CHINA - PAKISTAN FTA
+                                CHAINA - PAKISTAN FTA
                             </p>
                            
                         </div>
@@ -431,7 +431,7 @@
  <br><br>
  <br><br>
     <div class="form-container">
-        <h1 style="text-align: center; font-size: 18px; margin-bottom: 20px;">China-Pakistan FTA Certificate of Origin Instruction</h1>
+        <h1 style="text-align: center; font-size: 18px; margin-bottom: 20px;">Chaina-Pakistan FTA Certificate of Origin Instruction</h1>
 
         <!-- Box 1 -->
         <table style="width: 100%; border-collapse: separate; border-spacing: 0 7px;">
@@ -467,15 +467,15 @@
             </tr>
             <tr>
                 <td style="width: 50px; vertical-align: top; padding: 0px; font-size: 10px; font-weight: 500;"><strong>Box 8.</strong></td>
-                <td style="padding: 0px 0px 0px 2px; font-size: 10px; font-weight: 500; padding-bottom:10px;"> For export from one Party to the other Party to be eligible for preferential treatment under China-Pakistan FTA, the requirement is that either:(to be adjusted according to the specific rules of origin)
+                <td style="padding: 0px 0px 0px 2px; font-size: 10px; font-weight: 500; padding-bottom:10px;"> For export from one Party to the other Party to be eligible for preferential treatment under Chaina-Pakistan FTA, the requirement is that either:(to be adjusted according to the specific rules of origin)
                 <br>
                 <ul style="margin: 0; padding-left: 20px; list-style-type: lower-roman; padding-top:10px;">
-                    <li style="padding-bottom:10px;font-size: 10px;">The product wholly obtained in the exporting party as defined in China-Pakistan FTA Rules of Origin:</li>
-                    <li style="padding-bottom:10px;font-size: 10px;">Subject to sub-paragraph (i)above, for the purpose of implementing the provisions of China-Pakistan FTA Rules of Origin, products worked
-                        on and processed as a result of which the total value of materlal originating from non China-Pakistan FTA member states or of undetermined
+                    <li style="padding-bottom:10px;font-size: 10px;">The product wholly obtained in the exporting party as defined in Chaina-Pakistan FTA Rules of Origin:</li>
+                    <li style="padding-bottom:10px;font-size: 10px;">Subject to sub-paragraph (i)above, for the purpose of implementing the provisions of Chaina-Pakistan FTA Rules of Origin, products worked
+                        on and processed as a result of which the total value of materlal originating from non Chaina-Pakistan FTA member states or of undetermined
                         origin used is less than 60% of the FOB value of the product produced or obtained and the final process of the manufacture is performed within territory of the exporting Party;</li>
-                    <li style="padding-bottom:10px;font-size: 10px;"> Products which comply with origin requirements provided for in Articie 16 of this Agreement; and which are used in a Party as inputs for a finished product eligible for preferential treatment in the other Party shall be considered as a product originating in the Party where working or processing of the finished product has taken place provided that the aggregate China-Pakistan FTA content of the final product is not less than 40%; or </li>
-                    <li style="padding-bottom:10px;font-size: 10px;"> Products that satisfy the Product Specific Rules provided for in Attachment B of the China-Pakistan FTA Rules of Origin shall be considered as goods in which sufficlent transformation has been carried out in a Party. 
+                    <li style="padding-bottom:10px;font-size: 10px;"> Products which comply with origin requirements provided for in Articie 16 of this Agreement; and which are used in a Party as inputs for a finished product eligible for preferential treatment in the other Party shall be considered as a product originating in the Party where working or processing of the finished product has taken place provided that the aggregate Chaina-Pakistan FTA content of the final product is not less than 40%; or </li>
+                    <li style="padding-bottom:10px;font-size: 10px;"> Products that satisfy the Product Specific Rules provided for in Attachment B of the Chaina-Pakistan FTA Rules of Origin shall be considered as goods in which sufficlent transformation has been carried out in a Party. 
                         <br> 
                         <br>
                         If the goods qualify under the above criteria, the exporter must indicate in Field 8 of this form the origin criteria on the basis of which he claims that his goods qualify for preferential treatment, in the manner shown in the following table:
@@ -496,7 +496,7 @@
                             </tr>
                             <tr>
                                 <td style="border: 1px solid black; padding: 5px;">(c) Products worked upon but not wholly produced in the exporting Party which were produced in conformity with the provisions of paragraph 8 (ii) above</td>
-                                <td style="border: 1px solid black; padding: 5px;text-align: center;">Percentage of China-Pakistan FTA cumulative content, example 40%</td>
+                                <td style="border: 1px solid black; padding: 5px;text-align: center;">Percentage of Chaina-Pakistan FTA cumulative content, example 40%</td>
                             </tr>
                             <tr>
                                 <td style="border: 1px solid black; padding: 5px;">(d) Products satisfied the Products Specific Rules</td>

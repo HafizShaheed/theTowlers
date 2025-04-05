@@ -136,11 +136,11 @@
 
 
                             <div class="col-sm-4 mb-4">
-                                <label for="marks_or_identification_number{{ $i }}" class="form-label"> MARKS OR
+                                <label for="marks_or_identification_number_{{ $i }}" class="form-label"> MARKS OR
                                     IDENTIFICATION NUMBER</label>
                                 <input type="text" step="any" class="form-control custom-input"
-                                    id="marks_or_identification_number{{ $i }}"
-                                    name="marks_or_identification_number{{ $i }}">
+                                    id="marks_or_identification_number_{{ $i }}"
+                                    name="marks_or_identification_number_{{ $i }}">
                             </div>
 
                             @endfor
