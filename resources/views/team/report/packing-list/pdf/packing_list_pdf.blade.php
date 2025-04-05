@@ -198,7 +198,7 @@
                                         style="border-bottom:.5px solid #000; display:block; margin:0;">{{ $PackingList['heading_invioce'] ?? '' }}</b>
                                     <p
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">
-                                        {{ $PackingList['commercial_invoice'] ?? '' }} </p>
+                                        {{ $PackingList['packing_list_invoice'] ?? '' }} </p>
                                     <b
                                         style="border:.5px solid #000; display:block; margin:0; border-left: 0; border-right:0;">{{ $PackingList['heading_total_pkg'] ?? '' }}</b>
                                     <p
