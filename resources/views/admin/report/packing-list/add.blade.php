@@ -437,7 +437,20 @@
                   @endfor
              
 
+                  <br>
 
+                    <hr>
+                    <div class="col-sm-3 mb-3">
+                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700" class="form-control custom-input mb-1" id=""  style="font-weight: bold; color: #000;"  name="" value="Totat Net Amount:" readonly>
+                        <input type="text" class="form-control custom-input" id="total_net_weight_value" name="total_net_weight_value"
+                            value="">
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <input type="text" style="background-color: #616161; color:#000; font-weight: 700" class="form-control custom-input mb-1" id=""  style="font-weight: bold; color: #000;"  name="" value="Totat Gross Amount:" readonly>
+                        <input type="text" class="form-control custom-input" id="total_gr_weight_value" name="total_gr_weight_value"
+                            value="">
+                    </div>
+                    <br>
                     <hr>
                   
                     <div class="col-sm-3 mb-3">

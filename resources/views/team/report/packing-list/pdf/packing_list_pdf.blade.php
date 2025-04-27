@@ -724,7 +724,7 @@
                     </div>
                 </td>
 
-                <td style=" border-right: 1px solid; border-top:1px solid #000;" colspan="2">
+                <td style=" border-right: 1px solid; border-top:1px solid #000;" colspan="1">
                     <div style=" word-wrap: break-word; text-align: left;">
                         <table border="0" style=" border-collapse: collapse; width: 100%; border-top: 0;">
                             <tr>
@@ -777,6 +777,10 @@
                         </table>
                     </div>
                 </td>
+                <td style="border-right: 1px solid; border-top:1px solid #000;  text-align: center">  
+                    <div>{{ $PackingList['total_net_weight_value'] ?? '' }} </div>
+
+                </td>
                 <td style="border-right: 1px solid; border-top:1px solid #000;  text-align: center">
                    
                         {{-- @foreach ($prices as $key => $item)
@@ -786,6 +790,7 @@
                         @endif
                     @endforeach --}}
                     {{-- {{  $grandTotal ?? '' }} --}}
+                    <div>{{ $PackingList['total_gr_weight_value'] ?? '' }} </div>
                     
                 </td>
                 <td style="border-right: 1px solid; border-top:1px solid #000; text-align: center">

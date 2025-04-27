@@ -2257,8 +2257,8 @@ class teamController extends Controller
             $CommercialInvoice->container_no_value  = $request->container_no_value;
             $CommercialInvoice->currency_value  = $request->currency_value;
             $CommercialInvoice->term_of_delivery_value  = $request->term_of_delivery_value;
-            $CommercialInvoice->total_net_weight_value = $request->total_net_weight_valu;
-            $CommercialInvoice->total_gr_weight_value = $request->total_gr_weight_valu;
+            $CommercialInvoice->total_net_weight_value = $request->total_net_weight_value;
+            $CommercialInvoice->total_gr_weight_value = $request->total_gr_weight_value;
             $CommercialInvoice->note_value = $request->note_value;
             $CommercialInvoice->value_remarks = $request->value_remarks;
             $CommercialInvoice->value_intermediary_bank = $request->value_intermediary_bank;
@@ -2646,8 +2646,8 @@ class teamController extends Controller
             $CommercialInvoice->container_no_value  = $request->container_no_value;
             $CommercialInvoice->currency_value  = $request->currency_value;
             $CommercialInvoice->term_of_delivery_value  = $request->term_of_delivery_value;
-            $CommercialInvoice->total_net_weight_value = $request->total_net_weight_valu;
-            $CommercialInvoice->total_gr_weight_value = $request->total_gr_weight_valu;
+            $CommercialInvoice->total_net_weight_value = $request->total_net_weight_value;
+            $CommercialInvoice->total_gr_weight_value = $request->total_gr_weight_value;
             $CommercialInvoice->note_value = $request->note_value;
             $CommercialInvoice->value_remarks = $request->value_remarks;
             $CommercialInvoice->value_intermediary_bank = $request->value_intermediary_bank;
@@ -3139,8 +3139,8 @@ class teamController extends Controller
             $PackingList->container_no_value = $request->container_no_value ?? null; 
             $PackingList->currency_value = $request->currency_value ?? null; 
             $PackingList->term_of_delivery_value = $request->term_of_delivery_value ?? null; 
-            $PackingList->total_net_weight_value = $request->total_net_weight_valu ?? null; 
-            $PackingList->total_gr_weight_value = $request->total_gr_weight_valu ?? null; 
+            $PackingList->total_net_weight_value = $request->total_net_weight_value ?? null; 
+            $PackingList->total_gr_weight_value = $request->total_gr_weight_value ?? null; 
             $PackingList->note_value = $request->note_value ?? null; 
             $PackingList->value_remarks = $request->value_remarks ?? null; 
             $PackingList->value_intermediary_bank = $request->value_intermediary_bank ?? null; 
@@ -3501,8 +3501,8 @@ class teamController extends Controller
             $PackingList->container_no_value  = $request->container_no_value;
             $PackingList->currency_value  = $request->currency_value;
             $PackingList->term_of_delivery_value  = $request->term_of_delivery_value;
-            $PackingList->total_net_weight_value = $request->total_net_weight_valu;
-            $PackingList->total_gr_weight_value = $request->total_gr_weight_valu;
+            $PackingList->total_net_weight_value = $request->total_net_weight_value;
+            $PackingList->total_gr_weight_value = $request->total_gr_weight_value;
             $PackingList->note_value = $request->note_value;
             $PackingList->value_remarks = $request->value_remarks;
             $PackingList->value_intermediary_bank = $request->value_intermediary_bank;
@@ -4478,8 +4478,7 @@ class teamController extends Controller
             $PackingList->container_no_value = $request->container_no_value ?? null;
             $PackingList->currency_value = $request->currency_value ?? null;
             $PackingList->term_of_delivery_value = $request->term_of_delivery_value ?? null;
-            $PackingList->total_net_weight_value = $request->total_net_weight_valu ?? null;
-            $PackingList->total_gr_weight_value = $request->total_gr_weight_valu ?? null;
+       
             $PackingList->note_value = $request->note_value ?? null;
             $PackingList->value_remarks = $request->value_remarks ?? null;
             $PackingList->value_intermediary_bank = $request->value_intermediary_bank ?? null;

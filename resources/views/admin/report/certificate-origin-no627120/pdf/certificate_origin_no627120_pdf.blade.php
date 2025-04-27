@@ -168,12 +168,12 @@
         
             </td>
         
-            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 330px; vertical-align: top; padding: 0;">
+            <td style="text-align: left; border: 1px solid black; border-collapse: collapse; height: 330px; vertical-align: top; padding: 0;">
         
                 @for($i = 1; $i <= 15; $i++) 
                     @if(isset($CertificateOriginNo627120["description_of_goods_" . $i])) 
                         <ul style="list-style: none; padding: 0; margin: 5;">
-                            <li style="list-style: none; padding: 0; margin: 0;"> 
+                            <li style="list-style: none; margin-left: 5px; padding: 0; margin: 0;"> 
                                 {{ $CertificateOriginNo627120->{'description_of_goods_' . $i} }}
                             </li>
                         </ul>

@@ -348,7 +348,7 @@
 
                     <div class="row">
                         <!-- =========== Director1 ============ -->
-                        @for ($i = 1; $i <= 8; $i++)
+                        @for ($i = 1; $i <= 7; $i++)
                             <div class="col-sm-3 mb-4">
                                 <label for="" class="form-label">Number of Packages </label>
                                 <input type="text" class="form-control custom-input"

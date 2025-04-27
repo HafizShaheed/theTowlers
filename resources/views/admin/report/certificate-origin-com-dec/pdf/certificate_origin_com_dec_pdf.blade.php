@@ -214,11 +214,11 @@
                 @endfor
             </td>
             
-            <td style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
+            <td style="text-align: left; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
                 @for($i = 1; $i <= 15; $i++) 
                     @if(isset($CertificateOriginComDec["numbers_and_kinds_of_packges_description_" . $i])) 
                         <ul style="list-style: none; padding: 2px; margin: 0;">
-                            <li style="list-style: none; padding: 0;"> 
+                            <li style="list-style: none; margin-left: 5px; padding: 0;"> 
                                 {{ $CertificateOriginComDec->{'numbers_and_kinds_of_packges_description_' . $i} }}
                             </li>
                         </ul>

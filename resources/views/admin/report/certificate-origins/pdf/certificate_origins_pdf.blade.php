@@ -121,7 +121,7 @@
                     Number and kind of package
                 </div>
             </td>
-            <td style="width: 32%; border-right: 1px solid;">
+            <td style="width: 32%; border-right: 1px solid; text-align: center;">
                 <div>
                     Description of Goods
                 </div>
@@ -165,12 +165,12 @@
                 @endfor
             </td>
             <td
-                style="text-align: center; border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
+                style=" text-align: left;  border: 1px solid black; border-collapse: collapse; height: 350px; vertical-align: top; padding-top: 10px">
 
                 @for ($i = 0; $i <=16; $i++)
                     @if (isset($CertificateOrigin['description_of_goods_' . $i]))
                         <ul style="list-style: none; padding: 0px; margin-top: 0px;">
-                            <li style="list-style: none; padding: 0px 0 ;">
+                            <li style="list-style: none;  margin-left: 5px; padding: 0px 0 ;">
                                 {{ $CertificateOrigin->{'description_of_goods_' . $i} }}</li>
                         </ul>
                     @endif

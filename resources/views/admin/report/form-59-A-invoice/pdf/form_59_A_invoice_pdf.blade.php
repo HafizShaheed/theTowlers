@@ -201,7 +201,7 @@
     
             </td>
     
-            <td style="text-align: center; width: 35%; font-size: 9px;">
+            <td style="text-align: left; width: 35%; font-size: 9px;">
                 <div style="height: 270px; overflow: auto; border-right: 1px solid;">
                     Quantity and description of goods (including any discounts)
                     @for($i = 0; $i < 5; $i++)
